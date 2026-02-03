@@ -1,6 +1,5 @@
 # 🚀 Proxy Collection
-https://colab.research.google.com/drive/1Dx4ZFz6S6OGzR8NDs7LCY-a6hXd_Ay6z?usp=sharing
-(https://colab.research.google.com/drive/1Dx4ZFz6S6OGzR8NDs7LCY-a6hXd_Ay6z)
+
 <div align="center">
 
 ![Status](https://img.shields.io/badge/Working-428-green)

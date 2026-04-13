@@ -2,9 +2,9 @@
 
 <div align="center">
 
-![Status](https://img.shields.io/badge/Working-260-green)
-![Total](https://img.shields.io/badge/Total%20Checked-73317-blue)
-![Update](https://img.shields.io/badge/Last%20Update-13.04.2026%2011:51:07-blue)
+![Status](https://img.shields.io/badge/Working-385-green)
+![Total](https://img.shields.io/badge/Total%20Checked-50570-blue)
+![Update](https://img.shields.io/badge/Last%20Update-13.04.2026%2012:10:22-blue)
 
 </div>
 
@@ -12,24 +12,24 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Checked | 73317 |
-| Working | 260 |
-| Success Rate | 0.35% |
+| Total Checked | 50570 |
+| Working | 385 |
+| Success Rate | 0.76% |
 
 ## 📈 Proxy Types Distribution
 
 ```mermaid
 pie title Proxy Types
-    "HTTP" : 109
-    "SOCKS4" : 10
-    "SOCKS5" : 141
+    "HTTP" : 100
+    "SOCKS4" : 7
+    "SOCKS5" : 278
 ```
 
 ## 🔒 Anonymity Levels
 
 ```mermaid
 pie title Anonymity Distribution
-    "Unchecked": 260
+    "Unchecked": 385
     "Elite" : 0
     "Anonymous" : 0
     "Transparent" : 0
@@ -61,6 +61,6 @@ MIT License
 ---
 <div align="center">
   
-**Last Update:** 13.04.2026 11:51:07
+**Last Update:** 13.04.2026 12:10:22
 
 </div>

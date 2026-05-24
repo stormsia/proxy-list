@@ -1,3 +1,4 @@
+![Maintenance](https://img.shields.io/badge/status-under%20maintenance-orange?style=for-the-badge&logo=github)
 # 🚀 High-Performance Verified Proxy Pool
 
 An automated, ultra-fast proxy collector and validator running 24/7. This repository hosts pre-verified, active public proxy lists categorized by protocol, optimized for web scraping, anonymity, and integration.

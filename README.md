@@ -10,7 +10,7 @@ An automated, ultra-fast proxy collector and validator running 24/7. This reposi
 
 ![Working Proxies](https://img.shields.io/badge/Verified%20Working-0-success?style=for-the-badge&logo=shield)
 ![Total Checked](https://img.shields.io/badge/Total%20Checked-0-blue?style=for-the-badge&logo=speedtest)
-![Last Updated](https://img.shields.io/badge/Last%20Update-24.05.2026%2015:08:51-informational?style=for-the-badge&logo=clock)
+![Last Updated](https://img.shields.io/badge/Last%20Update-24.05.2026%2015:23:53-informational?style=for-the-badge&logo=clock)
 
 </div>
 
@@ -73,26 +73,9 @@ GET https://api.github.com/repos/stormsia/proxy-list/contents/working_proxies.tx
 Accept: application/vnd.github.v3+json
 ```
 
----
 
-## ⚡ Setup and Architecture
-
-This project is built for extreme speed and scalability:
-1. **Scraping Layer (Python):** Gathers, deduplicates, and manages proxy lists asynchronously via database.
-2. **Database Layer (SQLite + WAL):** High-speed concurrent transaction engine.
-3. **Checking Engine (Rust):** Blazing-fast external multi-threaded validation checker.
-4. **Publishing Layer:** Automatic formatting, splitting, and uploading to GitHub every 15 minutes.
-
-### Docker Compose Quickstart
-To host your own checker and publisher:
-```bash
-# Start the container in detached mode
-docker compose up -d --build
-```
-
----
 
 ## ⚠️ Disclaimer
 These proxies are gathered from public directories. We do not host, control, or monitor proxy servers. Use at your own risk.
 
-**MIT License** • Automated Update Loop: 15 minutes.
+**MIT License**

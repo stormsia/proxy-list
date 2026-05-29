@@ -1,0 +1,126 @@
+import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+});
+
+const SITE_URL = "https://stormsia.github.io/proxy-list";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Free Proxy List | stormsia/proxy-list",
+    template: "%s | stormsia/proxy-list",
+  },
+  description:
+    "Free, open-source proxy list with SOCKS5, HTTP, HTTPS & SOCKS4 proxies. Verified by an async validator, updated automatically. Machine-readable JSON API included.",
+  keywords: [
+    "free proxy list",
+    "socks5 proxy list",
+    "http proxy list",
+    "public proxy servers",
+    "free proxies",
+    "proxy checker",
+    "residential proxies",
+    "datacenter proxies",
+  ],
+  authors: [{ name: "stormsia", url: "https://github.com/stormsia" }],
+  creator: "stormsia",
+  publisher: "stormsia",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: "stormsia/proxy-list",
+    title: "Free Proxy List | stormsia/proxy-list",
+    description:
+      "Open-source, auto-updated proxy list. SOCKS5, HTTP, HTTPS, SOCKS4. Verified by async validator. JSON API available.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Proxy List | stormsia/proxy-list",
+    description:
+      "Open-source, auto-updated proxy list. SOCKS5, HTTP, HTTPS, SOCKS4. Verified by async validator. JSON API available.",
+    creator: "@stormsia",
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
+};
+
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "stormsia/proxy-list",
+    url: SITE_URL,
+    sameAs: ["https://github.com/stormsia/proxy-list"],
+    description:
+      "Open-source project that automatically collects, validates and publishes free proxy lists using an async Python daemon and a high-speed validator.",
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "stormsia/proxy-list",
+    url: SITE_URL,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE_URL}/?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+      </head>
+      <body
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+      >
+        <div className="main-layout">
+          <Navbar />
+          <main className="main-content">{children}</main>
+          <Footer />
+        </div>
+      </body>
+    </html>
+  );
+}

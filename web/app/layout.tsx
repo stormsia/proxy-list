@@ -65,6 +65,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  verification: {
+    google: "Ilxb2F7zsbKpIgNLwUwwxbxNlrbuD6-89ZG-yCgwYbo",
+  },
 };
 
 import Navbar from "@/components/Navbar";

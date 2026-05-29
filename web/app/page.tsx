@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 import { Activity, Zap, Globe2 } from "lucide-react";
 import MapClient from "@/components/MapClient";
 import { Metadata } from "next";
-
+import Link from "next/link";
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 
 export const metadata: Metadata = {
@@ -207,17 +207,17 @@ export default async function Home() {
           The list contains <strong>SOCKS5, SOCKS4, HTTP and HTTPS</strong> proxy
           servers sourced globally from public repositories. You can consume the
           data as a plain-text file or via the{" "}
-          <a href="/proxies.json">machine-readable JSON API</a> — no
+          <Link href="/proxies.json">machine-readable JSON API</Link> — no
           registration, no API keys, no rate limits.
         </p>
         <p>
           Browse targeted sub-lists by protocol (
-          <a href="/socks5">SOCKS5</a>, <a href="/http">HTTP</a>,{" "}
-          <a href="/https">HTTPS</a>), by proxy type (
-          <a href="/datacenter">Datacenter</a>,{" "}
-          <a href="/residential">Residential</a>), or filter by country in the
+          <Link href="/socks5">SOCKS5</Link>, <Link href="/http">HTTP</Link>,{" "}
+          <Link href="/https">HTTPS</Link>), by proxy type (
+          <Link href="/datacenter">Datacenter</Link>,{" "}
+          <Link href="/residential">Residential</Link>), or filter by country in the
           table below. Full integration guides are available on the{" "}
-          <a href="/docs">documentation page</a>.
+          <Link href="/docs">documentation page</Link>.
         </p>
       </section>
 

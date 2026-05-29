@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import ProxyTable from "@/components/ProxyTable";
 import styles from "@/app/page.module.css";
 import { Server } from "lucide-react";
-
+import Link from "next/link";
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
 
@@ -135,7 +135,7 @@ export default async function DatacenterPage() {
           anti-bot systems because their ASN is easily identified as a hosting
           provider. For sites with strict bot detection (Cloudflare, Akamai,
           Imperva), consider using the{" "}
-          <a href="/residential">residential proxies</a> instead.
+          <Link href="/residential">residential proxies</Link> instead.
         </p>
         <p>
           Download the full list:{" "}
@@ -147,8 +147,8 @@ export default async function DatacenterPage() {
             working_proxies.txt
           </a>
           . For SOCKS5-only datacenter proxies, cross-reference the{" "}
-          <a href="/socks5">SOCKS5 list</a>. See the{" "}
-          <a href="/docs">docs page</a> for Python, Node.js, Go, and cURL
+          <Link href="/socks5">SOCKS5 list</Link>. See the{" "}
+          <Link href="/docs">docs page</Link> for Python, Node.js, Go, and cURL
           integration examples.
         </p>
       </section>
@@ -167,9 +167,9 @@ export default async function DatacenterPage() {
               latest update cycle. The list refreshes every 15 minutes — check
               back shortly.
             </p>
-            <a href="/" className={styles.primaryButton}>
+            <Link href="/" className={styles.primaryButton}>
               View All Proxies
-            </a>
+            </Link>
           </div>
         )}
       </section>

@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import ProxyTable from "@/components/ProxyTable";
 import styles from "@/app/page.module.css";
 import { Home } from "lucide-react";
-
+import Link from "next/link";
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
 
@@ -139,8 +139,8 @@ export default async function ResidentialPage() {
             working_proxies.txt
           </a>
           . For protocol-specific sub-lists (SOCKS5, HTTP), visit the{" "}
-          <a href="/socks5">SOCKS5</a> or <a href="/http">HTTP</a> pages. See
-          the <a href="/docs">docs page</a> for integration code.
+          <Link href="/socks5">SOCKS5</Link> or <Link href="/http">HTTP</Link> pages. See
+          the <Link href="/docs">docs page</Link> for integration code.
         </p>
       </section>
 
@@ -158,9 +158,9 @@ export default async function ResidentialPage() {
               the latest update cycle. The list refreshes every 15 minutes —
               check back shortly.
             </p>
-            <a href="/" className={styles.primaryButton}>
+            <Link href="/" className={styles.primaryButton}>
               View All Proxies
-            </a>
+            </Link>
           </div>
         )}
       </section>

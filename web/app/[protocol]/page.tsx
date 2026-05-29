@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import ProxyTable from "@/components/ProxyTable";
 import styles from "@/app/page.module.css";
 import { Globe } from "lucide-react";
+import Link from "next/link";
 
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
@@ -209,9 +210,9 @@ export default async function ProtocolPage(
             >
               {txtFile}
             </a>
-            , or use the <a href="/proxies.json">JSON API</a> to filter by
+            , or use the <Link href="/proxies.json">JSON API</Link> to filter by
             protocol, country, and latency. See the{" "}
-            <a href="/docs">documentation page</a> for code examples in Python,
+            <Link href="/docs">documentation page</Link> for code examples in Python,
             Node.js, Go, and cURL.
           </p>
         </section>
@@ -228,9 +229,9 @@ export default async function ProtocolPage(
               proxies in the latest update cycle. The list refreshes every 15
               minutes — check back shortly.
             </p>
-            <a href="/" className={styles.primaryButton}>
+            <Link href="/" className={styles.primaryButton}>
               View All Proxies
-            </a>
+            </Link>
           </div>
         )}
       </section>

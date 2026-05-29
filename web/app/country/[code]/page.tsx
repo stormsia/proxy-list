@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import ProxyTable from "@/components/ProxyTable";
 import styles from "@/app/page.module.css";
 import { MapPin } from "lucide-react";
+import Link from "next/link";
 
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 
@@ -294,11 +295,11 @@ export default async function CountryPage(
             working_proxies.txt
           </a>
           . For machine-readable access with geolocation data, use the{" "}
-          <a href="/proxies.json" target="_blank">
+          <Link href="/proxies.json" target="_blank">
             JSON API
-          </a>{" "}
+          </Link>{" "}
           and filter by <code>geolocation.country.iso_code === &quot;{code.toUpperCase()}&quot;</code>.
-          See the <a href="/docs">docs page</a> for code examples.
+          See the <Link href="/docs">docs page</Link> for code examples.
         </p>
       </section>
 
@@ -313,9 +314,9 @@ export default async function CountryPage(
               in the latest update cycle. The list refreshes every 15 minutes —
               check back shortly.
             </p>
-            <a href="/" className={styles.primaryButton}>
+            <Link href="/" className={styles.primaryButton}>
               View All Proxies
-            </a>
+            </Link>
           </div>
         )}
       </section>

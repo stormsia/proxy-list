@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { Terminal, BookOpen, Code2, Layers, Download, GitBranch, Cpu } from "lucide-react";
 import styles from "./page.module.css";
 import CodeSnippet from "@/components/CodeSnippet";
-
+import Link from "next/link";
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
 const REPO_API = "https://api.github.com/repos/stormsia/proxy-list";
@@ -106,13 +106,13 @@ export default function DocsPage() {
                 Full proxy list as JSON. Contains protocol, host, port, timeout,
                 exit_ip, ASN, and geolocation for every entry.
               </div>
-              <a
+              <Link
                 href="/proxies.json"
                 target="_blank"
                 className={styles.endpointLink}
               >
                 Open →
-              </a>
+              </Link>
             </div>
             <div className={styles.endpointCard}>
               <span className={styles.endpointBadge} data-type="txt">TXT</span>
@@ -261,84 +261,23 @@ def fetch_proxies(url: str) -> list[str]:
     response.raise_for_status()
     return [line.strip() for line in response.text.splitlines() if line.strip()]
 
-def make_session(protocol: str, proxy_str: str) -> requests.Session:
-    """Return a requests Session pre-configured with the given proxy."""
-    session = requests.Session()
-    session.proxies = {
-        "http":  f"{protocol}://{proxy_str}",
-        "https": f"{protocol}://{proxy_str}",
-    }
-    return session
 
 if __name__ == "__main__":
     proxies = fetch_proxies(SOCKS5_URL)
     print(f"Loaded {len(proxies)} SOCKS5 proxies")
 
     proxy = random.choice(proxies)
-    session = make_session("socks5", proxy)
+
 
     try:
-        r = session.get("https://httpbin.org/ip", timeout=10)
-        print("Exit IP via proxy:", r.json())
+        
+        print("Proxy:", proxy)
     except Exception as e:
-        print(f"Proxy {proxy} failed: {e}")`}
+        print(f"Error: {e}")`}
           />
         </section>
 
-        {/* Python aiohttp */}
-        <section className={styles.section}>
-          <div className={styles.sectionHeading}>
-            <Cpu size={20} style={{ color: "var(--primary)" }} />
-            <h2>Python — Async Concurrent Scraper</h2>
-          </div>
-          <p>
-            Use <code>aiohttp</code> with a proxy pool for fast parallel
-            requests. Install:{" "}
-            <code>pip install aiohttp aiohttp-socks</code>
-          </p>
-          <CodeSnippet
-            language="python"
-            code={`import asyncio
-import aiohttp
-from aiohttp_socks import ProxyConnector
-import random
 
-SOCKS5_URL = "${REPO_RAW}/socks5.txt"
-TARGET_URLS = [
-    "https://httpbin.org/ip",
-    "https://httpbin.org/headers",
-]
-
-async def fetch_proxy_list() -> list[str]:
-    async with aiohttp.ClientSession() as s:
-        async with s.get(SOCKS5_URL) as r:
-            text = await r.text()
-    return [l.strip() for l in text.splitlines() if l.strip()]
-
-async def fetch_with_proxy(url: str, proxy: str) -> dict:
-    connector = ProxyConnector.from_url(f"socks5://{proxy}")
-    async with aiohttp.ClientSession(connector=connector) as session:
-        async with session.get(url, timeout=aiohttp.ClientTimeout(total=10)) as r:
-            return {"proxy": proxy, "url": url, "status": r.status, "data": await r.json()}
-
-async def main():
-    proxies = await fetch_proxy_list()
-    print(f"Loaded {len(proxies)} proxies")
-
-    tasks = [
-        fetch_with_proxy(random.choice(TARGET_URLS), random.choice(proxies))
-        for _ in range(10)
-    ]
-    results = await asyncio.gather(*tasks, return_exceptions=True)
-    for r in results:
-        if isinstance(r, Exception):
-            print("Error:", r)
-        else:
-            print(f"[{r['status']}] {r['url']} via {r['proxy']}")
-
-asyncio.run(main())`}
-          />
-        </section>
 
         {/* Node.js */}
         <section className={styles.section}>

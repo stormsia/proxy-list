@@ -5,6 +5,7 @@ import ProxyTable from "@/components/ProxyTable";
 import styles from "@/app/page.module.css";
 import { MapPin } from "lucide-react";
 import Link from "next/link";
+import FAQ from "@/components/FAQ";
 
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 
@@ -106,21 +107,27 @@ const COUNTRY_META: Record<
   },
 };
 
+const ALL_COUNTRY_CODES = [
+  "ad", "ae", "af", "ag", "ai", "al", "am", "ao", "aq", "ar", "as", "at", "au", "aw", "ax", "az",
+  "ba", "bb", "bd", "be", "bf", "bg", "bh", "bi", "bj", "bl", "bm", "bn", "bo", "bq", "br", "bs",
+  "bt", "bv", "bw", "by", "bz", "ca", "cc", "cd", "cf", "cg", "ch", "ci", "ck", "cl", "cm", "cn",
+  "co", "cr", "cu", "cv", "cw", "cx", "cy", "cz", "de", "dj", "dk", "dm", "do", "dz", "ec", "ee",
+  "eg", "eh", "er", "es", "et", "fi", "fj", "fk", "fm", "fo", "fr", "ga", "gb", "gd", "ge", "gf",
+  "gg", "gh", "gi", "gl", "gm", "gn", "gp", "gq", "gr", "gs", "gt", "gu", "gw", "gy", "hk", "hm",
+  "hn", "hr", "ht", "hu", "id", "ie", "il", "im", "in", "io", "iq", "ir", "is", "it", "je", "jm",
+  "jo", "jp", "ke", "kg", "kh", "ki", "km", "kn", "kp", "kr", "kw", "ky", "kz", "la", "lb", "lc",
+  "li", "lk", "lr", "ls", "lt", "lu", "lv", "ly", "ma", "mc", "md", "me", "mf", "mg", "mh", "mk",
+  "ml", "mm", "mn", "mo", "mp", "mq", "mr", "ms", "mt", "mu", "mv", "mw", "mx", "my", "mz", "na",
+  "nc", "ne", "nf", "ng", "ni", "nl", "no", "np", "nr", "nu", "nz", "om", "pa", "pe", "pf", "pg",
+  "ph", "pk", "pl", "pm", "pn", "pr", "ps", "pt", "pw", "py", "qa", "re", "ro", "rs", "ru", "rw",
+  "sa", "sb", "sc", "sd", "se", "sg", "sh", "si", "sj", "sk", "sl", "sm", "sn", "so", "sr", "ss",
+  "st", "sv", "sx", "sy", "sz", "tc", "td", "tf", "tg", "th", "tj", "tk", "tl", "tm", "tn", "to",
+  "tr", "tt", "tv", "tw", "tz", "ua", "ug", "um", "us", "uy", "uz", "va", "vc", "ve", "vg", "vi",
+  "vn", "vu", "wf", "ws", "ye", "yt", "za", "zm", "zw", "uk"
+];
+
 export async function generateStaticParams() {
-  const filePath = path.join(process.cwd(), "public", "proxies.json");
-  const fileContents = await fs.readFile(filePath, "utf8");
-  const proxies = JSON.parse(fileContents);
-
-  // Always generate SEO-priority country pages
-  const countries = new Set<string>(Object.keys(COUNTRY_META));
-
-  proxies.forEach((p: any) => {
-    if (p.geolocation?.country?.iso_code) {
-      countries.add(p.geolocation.country.iso_code.toLowerCase());
-    }
-  });
-
-  return Array.from(countries).map((code) => ({ code }));
+  return ALL_COUNTRY_CODES.map((code) => ({ code }));
 }
 
 export async function generateMetadata(
@@ -157,169 +164,13 @@ export async function generateMetadata(
   };
 }
 
+import CountryView from "@/components/views/CountryView";
+
 export default async function CountryPage(
   props: { params: Promise<{ code: string }> }
 ) {
   const params = await props.params;
   const code = params.code.toLowerCase();
 
-  const filePath = path.join(process.cwd(), "public", "proxies.json");
-  const fileContents = await fs.readFile(filePath, "utf8");
-  const allProxies = JSON.parse(fileContents);
-
-  const filteredProxies = allProxies.filter((p: any) => {
-    return p.geolocation?.country?.iso_code?.toLowerCase() === code;
-  });
-
-  const countryName =
-    COUNTRY_META[code]?.name ||
-    filteredProxies[0]?.geolocation?.country?.names?.en ||
-    code.toUpperCase();
-
-  // Protocol breakdown for structured data
-  const protoCounts: Record<string, number> = {};
-  filteredProxies.forEach((p: any) => {
-    if (p.protocol) {
-      const proto = p.protocol.toLowerCase();
-      protoCounts[proto] = (protoCounts[proto] || 0) + 1;
-    }
-  });
-
-  const schemaMarkup = {
-    "@context": "https://schema.org/",
-    "@type": "Dataset",
-    name: `Free ${countryName} Proxy List`,
-    description: `A free, auto-updated list of proxy servers located in ${countryName}. Includes SOCKS5, SOCKS4, and HTTP proxies verified by a validator.`,
-    url: `${SITE_URL}/country/${code}`,
-    license: "https://creativecommons.org/licenses/by/4.0/",
-    creator: {
-      "@type": "Organization",
-      name: "stormsia",
-      url: "https://github.com/stormsia",
-    },
-    spatialCoverage: {
-      "@type": "Country",
-      name: countryName,
-    },
-  };
-
-  return (
-    <div className="container">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-      <header className={styles.header}>
-        <div
-          style={{
-            display: "inline-flex",
-            padding: "1rem",
-            background: "rgba(139, 92, 246, 0.1)",
-            borderRadius: "50%",
-            marginBottom: "1.5rem",
-          }}
-        >
-          <MapPin size={32} style={{ color: "var(--accent)" }} />
-        </div>
-        <h1 className={styles.title}>
-          Free <span className="text-gradient">{countryName}</span> Proxy List
-        </h1>
-        <p className={styles.subtitle}>
-          {filteredProxies.length > 0
-            ? `${filteredProxies.length.toLocaleString()} verified proxy servers located in ${countryName}. SOCKS5, SOCKS4 and HTTP — auto-updated every 15 minutes.`
-            : `Proxy servers located in ${countryName}. Filter by protocol, download as plain text or JSON.`}
-        </p>
-      </header>
-
-      {/* Protocol quick-stats */}
-      {filteredProxies.length > 0 && Object.keys(protoCounts).length > 0 && (
-        <section
-          className={styles.statsSection}
-          style={{ marginBottom: "2rem" }}
-          aria-label="Protocol breakdown"
-        >
-          {Object.entries(protoCounts)
-            .sort((a, b) => b[1] - a[1])
-            .map(([proto, count]) => (
-              <a
-                key={proto}
-                href={`/${proto}`}
-                className="glass-panel"
-                style={{ textDecoration: "none", display: "block" }}
-              >
-                <div className={styles.statCard}>
-                  <div className={styles.statInfo}>
-                    <div
-                      className={styles.statValue}
-                      style={{ fontSize: "1.4rem" }}
-                    >
-                      {count.toLocaleString()}
-                    </div>
-                    <div className={styles.statLabel}>
-                      {proto.toUpperCase()} proxies
-                    </div>
-                  </div>
-                </div>
-              </a>
-            ))}
-        </section>
-      )}
-
-      <section className={styles.seoArticle}>
-        <h2>
-          About {countryName} Proxies
-        </h2>
-        <p>
-          This page lists all verified proxy servers with an exit IP physically
-          located in <strong>{countryName}</strong>. The data is sourced from
-          the open-source{" "}
-          <a
-            href="https://github.com/stormsia/proxy-list"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            stormsia/proxy-list
-          </a>{" "}
-          repository, which is automatically updated every 15 minutes by an
-          async Python daemon and a validator.
-        </p>
-        <p>
-          Use these proxies for geo-targeted web scraping, bypassing
-          geo-restrictions, or testing localised content. Download the full
-          plain-text list directly:{" "}
-          <a
-            href="https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            working_proxies.txt
-          </a>
-          . For machine-readable access with geolocation data, use the{" "}
-          <Link href="/proxies.json" target="_blank">
-            JSON API
-          </Link>{" "}
-          and filter by <code>geolocation.country.iso_code === &quot;{code.toUpperCase()}&quot;</code>.
-          See the <Link href="/docs">docs page</Link> for code examples.
-        </p>
-      </section>
-
-      <section className={styles.tableSection} aria-label={`${countryName} proxy table`}>
-        {filteredProxies.length > 0 ? (
-          <ProxyTable proxies={filteredProxies} />
-        ) : (
-          <div className={styles.emptyState}>
-            <h3>No proxies currently available for {countryName}</h3>
-            <p>
-              Our validator hasn&apos;t found active proxies for this location
-              in the latest update cycle. The list refreshes every 15 minutes —
-              check back shortly.
-            </p>
-            <Link href="/" className={styles.primaryButton}>
-              View All Proxies
-            </Link>
-          </div>
-        )}
-      </section>
-    </div>
-  );
+  return <CountryView lang="en" code={code} />;
 }

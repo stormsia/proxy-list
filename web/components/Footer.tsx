@@ -2,8 +2,13 @@ import Link from "next/link";
 import { promises as fs } from "fs";
 import path from "path";
 import styles from "./Footer.module.css";
+import { getDictionary, Locale } from "@/lib/i18n";
 
-export default async function Footer() {
+export default async function Footer({ lang = "en" }: { lang?: Locale }) {
+  const dict = await getDictionary(lang);
+  const isRu = lang === "ru";
+  const base = isRu ? "/ru" : "";
+
   let allProxies: any[] = [];
   try {
     const filePath = path.join(process.cwd(), "public", "proxies.json");
@@ -63,10 +68,12 @@ export default async function Footer() {
   });
 
   // Sort countries by count descending, then alphabetically
-  const sortedCountries = Object.entries(countryCounts).sort((a, b) => {
-    if (b[1].count !== a[1].count) return b[1].count - a[1].count;
-    return a[1].name.localeCompare(b[1].name);
-  });
+  const sortedCountries = Object.entries(countryCounts)
+    .filter(([_, data]) => data.count > 0)
+    .sort((a, b) => {
+      if (b[1].count !== a[1].count) return b[1].count - a[1].count;
+      return a[1].name.localeCompare(b[1].name);
+    });
 
   // Sort protocols by count descending
   const sortedProtocols = Object.entries(protocolCounts).sort((a, b) => b[1] - a[1]);
@@ -81,49 +88,51 @@ export default async function Footer() {
                 href="https://github.com/stormsia/proxy-list"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.titleLink} // Если захотите стилизовать отдельно через CSS-модуль
-                style={{ transition: 'color 0.2s ease' }} // Плавный ховер, если нужен
+                className={styles.titleLink}
+                style={{ transition: 'color 0.2s ease' }}
               >
                 stormsia/proxy-list
               </a>
             </h3>
             <p className={styles.description}>
-              Open-source, auto-updated free proxy list. SOCKS5, SOCKS4, HTTP and HTTPS proxies
-              verified every 15 minutes by a validator daemon.
-              View the data on{" "}
+              {dict.footer.desc}
+              <br />
+              {dict.footer.viewData}
               <a href="https://github.com/stormsia/proxy-list" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>GitHub (proxy-list)</a>{" "}
-
             </p>
           </div>
 
           <div className={styles.column}>
-            <h4 className={styles.heading}>Proxy Protocols</h4>
+            <h4 className={styles.heading}>{dict.footer.proxyProtocols}</h4>
             <ul className={styles.list}>
               {sortedProtocols.map(([proto, count]) => (
                 <li key={proto}>
-                  <Link href={`/${proto}`}>Free {proto.toUpperCase()} Proxies ({count})</Link>
+                  <Link href={`${base}/${proto}`}>{lang === 'ru' ? "Бесплатные" : "Free"} {proto.toUpperCase()} {lang === 'ru' ? "Прокси" : "Proxies"} ({count})</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div className={styles.column}>
-            <h4 className={styles.heading}>Locations</h4>
+            <h4 className={styles.heading}>{dict.footer.locations}</h4>
             <ul className={styles.locationsList}>
               {sortedCountries.map(([code, { count, name }]) => (
                 <li key={code}>
-                  <Link href={`/country/${code}`}>{name} ({count})</Link>
+                  <Link href={`${base}/country/${code}`}>{name} ({count})</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div className={styles.column}>
-            <h4 className={styles.heading}>Proxy Types</h4>
+            <h4 className={styles.heading}>{dict.footer.resources}</h4>
             <ul className={styles.list}>
-              <li><Link href="/residential">Residential Proxies ({residentialCount})</Link></li>
-              <li><Link href="/datacenter">Datacenter Proxies ({datacenterCount})</Link></li>
-              <li><Link href="/docs">Developer API & Docs</Link></li>
+              <li><Link href={`${base}/residential`}>{dict.footer.residential} ({residentialCount})</Link></li>
+              <li><Link href={`${base}/datacenter`}>{dict.footer.datacenter} ({datacenterCount})</Link></li>
+              <li><Link href={`${base}/docs`}>{dict.footer.docs}</Link></li>
+              <li><a href="/proxy-list/sitemap.xml" target="_blank" rel="noopener noreferrer">Sitemap XML</a></li>
+              <li><a href="/proxy-list/robots.txt" target="_blank" rel="noopener noreferrer">robots.txt</a></li>
+              <li><a href="/proxy-list/llms.txt" target="_blank" rel="noopener noreferrer">llms.txt</a></li>
             </ul>
           </div>
         </div>
@@ -139,10 +148,10 @@ export default async function Footer() {
             >
               stormsia/proxy-list
             </a>
-            . Open-source. Free to use.
+            . {dict.footer.openSource}
           </p>
           <div className={styles.seoText}>
-            Free public proxy list: SOCKS5, SOCKS4, HTTP and HTTPS proxy servers sourced globally, verified by a validator every 15 minutes. Includes residential and datacenter proxies with geolocation and ASN data.
+            {dict.footer.seoText}
           </div>
         </div>
       </div>

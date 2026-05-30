@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -72,6 +73,7 @@ export const metadata: Metadata = {
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LanguageWrapper from "@/components/LanguageWrapper";
 
 export default function RootLayout({
   children,
@@ -106,6 +108,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/proxy-list/sitemap.xml" />
+        <link rel="help" type="text/plain" title="Robots" href="/proxy-list/robots.txt" />
+        <link rel="alternate" type="text/plain" title="LLMs" href="/proxy-list/llms.txt" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
@@ -118,10 +123,25 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <Script id="clarity-script" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "wz3d0xan93");
+          `}
+        </Script>
         <div className="main-layout">
-          <Navbar />
+          <LanguageWrapper 
+            en={<Navbar lang="en" />} 
+            ru={<Navbar lang="ru" />} 
+          />
           <main className="main-content">{children}</main>
-          <Footer />
+          <LanguageWrapper 
+            en={<Footer lang="en" />} 
+            ru={<Footer lang="ru" />} 
+          />
         </div>
       </body>
     </html>

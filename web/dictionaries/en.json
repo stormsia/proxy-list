@@ -1,0 +1,117 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "docs": "Docs & API"
+  },
+  "footer": {
+    "desc": "Open-source, auto-updated free proxy list. SOCKS5, SOCKS4, HTTP and HTTPS proxies verified every 15 minutes.",
+    "viewData": "View the data on ",
+    "proxyProtocols": "Proxy Protocols",
+    "locations": "Locations",
+    "residential": "Residential Proxies",
+    "datacenter": "Datacenter Proxies",
+    "docs": "Developer API & Docs",
+    "resources": "Resources",
+    "openSource": "Open-source. Free to use.",
+    "seoText": "Free public proxy list: SOCKS5, SOCKS4, HTTP and HTTPS proxy servers sourced globally, verified by a validator every 15 minutes. Includes residential and datacenter proxies with geolocation and ASN data."
+  },
+  "home": {
+    "title": "Free Proxy List | SOCKS5 · HTTP · HTTPS · SOCKS4",
+    "description": "Download a free, auto-updated proxy list with SOCKS5, HTTP, HTTPS and SOCKS4 proxies. Verified by a high-speed validator.",
+    "heroPrefix": "Global",
+    "heroHighlight": "Proxy",
+    "heroSuffix": "Network",
+    "subtitle": "Free, open-source proxy infrastructure for scraping, AI agents, and automation. Auto-updated every 15 minutes.",
+    "verifiedProxies": "Verified Proxies",
+    "avgResponseTime": "Avg Response Time",
+    "protocolsCovered": "Protocols Covered",
+    "networkTopology": "Network Topology",
+    "seoTitle": "Free Proxy List for Developers, Scrapers & AI Agents",
+    "proxyDirectory": "Proxy Directory",
+    "starPrefix": "Find this project useful? Please consider",
+    "starLink": "starring our repository on GitHub",
+    "starSuffix": "."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How often is the proxy list updated?",
+        "answer": "The proxy list is updated automatically every 15 minutes by our validation daemon."
+      },
+      {
+        "question": "Are these proxies really free?",
+        "answer": "Yes, all proxy servers listed are completely free and open-source. There are no paid tiers or registrations."
+      },
+      {
+        "question": "What protocols are supported?",
+        "answer": "We support SOCKS5, SOCKS4, HTTP, and HTTPS protocols."
+      },
+      {
+        "question": "Can I use these proxies for web scraping?",
+        "answer": "Yes, you can use these proxies for web scraping, AI agents, testing, and other automation tasks."
+      }
+    ]
+  },
+  "table": {
+    "protocol": "Protocol",
+    "ip": "IP Address",
+    "port": "Port",
+    "country": "Country",
+    "speed": "Speed (s)",
+    "action": "Action",
+    "copy": "Copy",
+    "copied": "Copied",
+    "allProtocols": "All Protocols",
+    "showing": "Showing",
+    "proxiesCount": "proxies",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
+    "of": "of",
+    "unknown": "Unknown",
+    "tableCaption": "List of verified free proxy servers"
+  },
+  "protocol": {
+    "titlePrefix": "Free",
+    "titleSuffix": "Proxy List",
+    "subtitle": "verified {protocol} proxy servers — updated every 15 minutes.",
+    "subtitleEmpty": "Continuously updated list of {protocol} proxy servers.",
+    "aboutTitle": "What is a {protocol} Proxy?",
+    "downloadTxt": "Download this list directly as a plain-text file:",
+    "emptyTitle": "No {protocol} proxies currently available",
+    "viewAll": "View All Proxies"
+  },
+  "country": {
+    "titlePrefix": "Free",
+    "titleSuffix": "Proxy List",
+    "subtitle": "verified proxy servers located in {country}. SOCKS5, SOCKS4 and HTTP — auto-updated every 15 minutes.",
+    "subtitleEmpty": "Proxy servers located in {country}. Filter by protocol, download as plain text or JSON.",
+    "proxiesLabel": "proxies",
+    "aboutTitle": "About {country} Proxies",
+    "aboutText1": "This page lists all verified proxy servers with an exit IP physically located in ",
+    "aboutText2": ". The data is sourced from the open-source ",
+    "emptyTitle": "No proxies currently available for {country}",
+    "viewAll": "View All Proxies"
+  },
+  "docs": {
+    "title": "Developer Docs & API",
+    "subtitle": "Integrate proxies into your scrapers, LLM pipelines and automation tools in minutes. No API keys, no registration.",
+    "intro1": "is a fully open-source project that runs an asynchronous Python daemon every 15 minutes to collect, validate and publish free proxy servers. Each proxy is tested by a native",
+    "intro2": "for actual connectivity and response time — only working proxies make it to the list.",
+    "intro3": "All data is freely accessible without authentication: grab a plain-text file with",
+    "intro4": ", poll the JSON feed, or query the GitHub REST API. This page documents every integration method available.",
+    "availableEndpoints": "Available Data Endpoints",
+    "endpointsDesc": "All endpoints below are publicly accessible without authentication. GitHub's raw CDN also supports HTTP range requests for partial downloads.",
+    "jsonDesc": "Full proxy list as JSON. Contains protocol, host, port, timeout, exit_ip, ASN, and geolocation for every entry.",
+    "txtAll": "All working proxies in host:port format. One entry per line.",
+    "txtSocks5": "SOCKS5-only proxies in host:port format.",
+    "txtHttp": "HTTP/HTTPS-only proxies.",
+    "jsonSchema": "JSON Schema Reference",
+    "jsonSchemaDesc": "Each entry in proxies.json follows this structure:",
+    "pythonTitle": "Python — Auto-Update & Use",
+    "pythonDesc": "Fetch and immediately use the latest proxies inside a requests session:",
+    "anonymityDisclaimer": "Anonymity Disclaimer",
+    "anonymityDesc": "Proxies in this list have varying anonymity levels — transparent, anonymous, and elite. The project does not guarantee anonymity for any specific proxy. Always verify the anonymity level of a proxy with a tool like httpbin.org/ip before using it in production."
+  }
+}

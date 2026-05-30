@@ -5,6 +5,7 @@ import ProxyTable from "@/components/ProxyTable";
 import styles from "@/app/page.module.css";
 import { Globe } from "lucide-react";
 import Link from "next/link";
+import FAQ from "@/components/FAQ";
 
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
@@ -110,11 +111,20 @@ export async function generateMetadata(
       title: meta.title,
       description: meta.description,
       keywords: meta.keywords,
-      alternates: { canonical: `${SITE_URL}/${protocol}` },
+      alternates: {
+        canonical: `${SITE_URL}/${protocol}`,
+        languages: {
+          en: `${SITE_URL}/${protocol}`,
+          ru: `${SITE_URL}/ru/${protocol}`,
+          "x-default": `${SITE_URL}/${protocol}`,
+        },
+      },
       openGraph: {
         title: meta.title,
         description: meta.description,
         url: `${SITE_URL}/${protocol}`,
+        locale: "en_US",
+        alternateLocale: "ru_RU",
       },
     };
   }
@@ -122,9 +132,18 @@ export async function generateMetadata(
   return {
     title: `Free ${protocol.toUpperCase()} Proxy List`,
     description: `Free ${protocol.toUpperCase()} proxies verified by a validator. Updated every 15 minutes.`,
-    alternates: { canonical: `${SITE_URL}/${protocol}` },
+    alternates: {
+      canonical: `${SITE_URL}/${protocol}`,
+      languages: {
+        en: `${SITE_URL}/${protocol}`,
+        ru: `${SITE_URL}/ru/${protocol}`,
+        "x-default": `${SITE_URL}/${protocol}`,
+      },
+    },
   };
 }
+
+import ProtocolView from "@/components/views/ProtocolView";
 
 export default async function ProtocolPage(
   props: { params: Promise<{ protocol: string }> }
@@ -132,109 +151,5 @@ export default async function ProtocolPage(
   const params = await props.params;
   const protocol = params.protocol.toLowerCase();
 
-  const filePath = path.join(process.cwd(), "public", "proxies.json");
-  const fileContents = await fs.readFile(filePath, "utf8");
-  const allProxies = JSON.parse(fileContents);
-
-  const filteredProxies = allProxies.filter((p: any) => {
-    return p.protocol.toLowerCase() === protocol;
-  });
-
-  const meta = PROTOCOL_META[protocol];
-  const color = meta?.color ?? "var(--primary)";
-  const about = meta?.about;
-  const txtFile = meta?.file ?? `${protocol}.txt`;
-
-  const schemaMarkup = {
-    "@context": "https://schema.org/",
-    "@type": "Dataset",
-    name: `Free ${protocol.toUpperCase()} Proxy List`,
-    description: `Auto-updated list of free ${protocol.toUpperCase()} proxy servers. Verified by a validator every 15 minutes.`,
-    url: `${SITE_URL}/${protocol}`,
-    license: "https://creativecommons.org/licenses/by/4.0/",
-    creator: {
-      "@type": "Organization",
-      name: "stormsia",
-      url: "https://github.com/stormsia",
-    },
-    distribution: [
-      {
-        "@type": "DataDownload",
-        encodingFormat: "text/plain",
-        contentUrl: `${REPO_RAW}/${txtFile}`,
-        name: `${protocol.toUpperCase()} Proxies (TXT)`,
-      },
-    ],
-  };
-
-  return (
-    <div className="container">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-      <header className={styles.header}>
-        <div
-          style={{
-            display: "inline-flex",
-            padding: "1rem",
-            background: `rgba(16, 185, 129, 0.1)`,
-            borderRadius: "50%",
-            marginBottom: "1.5rem",
-          }}
-        >
-          <Globe size={32} style={{ color }} />
-        </div>
-        <h1 className={styles.title}>
-          Free{" "}
-          <span className="text-gradient">{protocol.toUpperCase()}</span> Proxy
-          List
-        </h1>
-        <p className={styles.subtitle}>
-          {filteredProxies.length > 0
-            ? `${filteredProxies.length.toLocaleString()} verified ${protocol.toUpperCase()} proxy servers — updated every 15 minutes.`
-            : `Continuously updated list of ${protocol.toUpperCase()} proxy servers verified by a validator.`}
-        </p>
-      </header>
-
-      {about && (
-        <section className={styles.seoArticle}>
-          <h2>What is a {protocol.toUpperCase()} Proxy?</h2>
-          <p>{about}</p>
-          <p>
-            Download this list directly as a plain-text file:{" "}
-            <a
-              href={`${REPO_RAW}/${txtFile}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {txtFile}
-            </a>
-            , or use the <Link href="/proxies.json">JSON API</Link> to filter by
-            protocol, country, and latency. See the{" "}
-            <Link href="/docs">documentation page</Link> for code examples in Python,
-            Node.js, Go, and cURL.
-          </p>
-        </section>
-      )}
-
-      <section className={styles.tableSection} aria-label={`${protocol.toUpperCase()} proxy table`}>
-        {filteredProxies.length > 0 ? (
-          <ProxyTable proxies={filteredProxies} />
-        ) : (
-          <div className={styles.emptyState}>
-            <h3>No {protocol.toUpperCase()} proxies currently available</h3>
-            <p>
-              Our validator hasn&apos;t found active {protocol.toUpperCase()}{" "}
-              proxies in the latest update cycle. The list refreshes every 15
-              minutes — check back shortly.
-            </p>
-            <Link href="/" className={styles.primaryButton}>
-              View All Proxies
-            </Link>
-          </div>
-        )}
-      </section>
-    </div>
-  );
+  return <ProtocolView lang="en" protocol={protocol} />;
 }

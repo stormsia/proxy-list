@@ -20,7 +20,7 @@ type Proxy = {
   };
 };
 
-export default function ProxyTable({ proxies }: { proxies: Proxy[] }) {
+export default function ProxyTable({ proxies, dict }: { proxies: Proxy[], dict?: any }) {
   const [filterProtocol, setFilterProtocol] = useState<string>("all");
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -58,27 +58,28 @@ export default function ProxyTable({ proxies }: { proxies: Proxy[] }) {
             value={filterProtocol}
             onChange={(e) => setFilterProtocol(e.target.value)}
           >
-            <option value="all">All Protocols</option>
+            <option value="all">{dict?.allProtocols || "All Protocols"}</option>
             <option value="http">HTTP</option>
             <option value="socks4">SOCKS4</option>
             <option value="socks5">SOCKS5</option>
           </select>
         </div>
         <div className={styles.stats}>
-          Showing <span>{filteredProxies.length}</span> proxies
+          {dict?.showing || "Showing"} <span>{filteredProxies.length}</span> {dict?.proxiesCount || "proxies"}
         </div>
       </div>
 
       <div className={styles.tableWrapper}>
-        <table className={styles.table}>
+        <table className={styles.table} aria-label="Proxy Directory">
+          <caption style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', borderWidth: 0 }}>{dict?.tableCaption || "List of verified free proxy servers"}</caption>
           <thead>
             <tr>
-              <th>Protocol</th>
-              <th>IP Address</th>
-              <th>Port</th>
-              <th>Country</th>
-              <th>Speed (s)</th>
-              <th>Action</th>
+              <th scope="col">{dict?.protocol || "Protocol"}</th>
+              <th scope="col">{dict?.ip || "IP Address"}</th>
+              <th scope="col">{dict?.port || "Port"}</th>
+              <th scope="col">{dict?.country || "Country"}</th>
+              <th scope="col">{dict?.speed || "Speed (s)"}</th>
+              <th scope="col">{dict?.action || "Action"}</th>
             </tr>
           </thead>
           <tbody>
@@ -106,7 +107,7 @@ export default function ProxyTable({ proxies }: { proxies: Proxy[] }) {
                           className={styles.flag}
                         />
                       )}
-                      <span>{proxy.geolocation?.country?.names?.en || "Unknown"}</span>
+                      <span>{proxy.geolocation?.country?.names?.en || (dict?.unknown || "Unknown")}</span>
                     </div>
                   </td>
                   <td>
@@ -126,7 +127,7 @@ export default function ProxyTable({ proxies }: { proxies: Proxy[] }) {
                       className={`${styles.copyBtn} ${isCopied ? styles.copied : ""}`}
                     >
                       {isCopied ? <CheckCircle2 size={16} /> : <Copy size={16} />}
-                      {isCopied ? "Copied" : "Copy"}
+                      {isCopied ? (dict?.copied || "Copied") : (dict?.copy || "Copy")}
                     </button>
                   </td>
                 </tr>
@@ -143,17 +144,17 @@ export default function ProxyTable({ proxies }: { proxies: Proxy[] }) {
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
           >
-            Previous
+            {dict?.previous || "Previous"}
           </button>
           <span className={styles.pageInfo}>
-            Page {currentPage} of {totalPages}
+            {dict?.page || "Page"} {currentPage} {dict?.of || "of"} {totalPages}
           </span>
           <button 
             className={styles.pageBtn} 
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
           >
-            Next
+            {dict?.next || "Next"}
           </button>
         </div>
       )}

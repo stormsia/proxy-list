@@ -14,16 +14,42 @@ const PRIORITY_COUNTRIES = [
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}`,            lastModified: now, changeFrequency: "daily",  priority: 1.0 },
-    { url: `${SITE_URL}/docs`,       lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${SITE_URL}/socks5`,     lastModified: now, changeFrequency: "daily",  priority: 0.9 },
-    { url: `${SITE_URL}/socks4`,     lastModified: now, changeFrequency: "daily",  priority: 0.8 },
-    { url: `${SITE_URL}/http`,       lastModified: now, changeFrequency: "daily",  priority: 0.8 },
-    { url: `${SITE_URL}/https`,      lastModified: now, changeFrequency: "daily",  priority: 0.8 },
-    { url: `${SITE_URL}/residential`,lastModified: now, changeFrequency: "daily",  priority: 0.8 },
-    { url: `${SITE_URL}/datacenter`, lastModified: now, changeFrequency: "daily",  priority: 0.8 },
+  const staticRoutes = [
+    { path: "", priority: 1.0, freq: "daily" as const },
+    { path: "/docs", priority: 0.9, freq: "weekly" as const },
+    { path: "/socks5", priority: 0.9, freq: "daily" as const },
+    { path: "/socks4", priority: 0.8, freq: "daily" as const },
+    { path: "/http", priority: 0.8, freq: "daily" as const },
+    { path: "/https", priority: 0.8, freq: "daily" as const },
+    { path: "/residential", priority: 0.8, freq: "daily" as const },
+    { path: "/datacenter", priority: 0.8, freq: "daily" as const },
   ];
+
+  const staticPages: MetadataRoute.Sitemap = staticRoutes.map(route => ({
+    url: `${SITE_URL}${route.path}`,
+    lastModified: now,
+    changeFrequency: route.freq,
+    priority: route.priority,
+    alternates: {
+      languages: {
+        en: `${SITE_URL}${route.path}`,
+        ru: `${SITE_URL}/ru${route.path}`,
+      }
+    }
+  }));
+
+  const ruStaticPages: MetadataRoute.Sitemap = staticRoutes.map(route => ({
+    url: `${SITE_URL}/ru${route.path}`,
+    lastModified: now,
+    changeFrequency: route.freq,
+    priority: route.priority,
+    alternates: {
+      languages: {
+        en: `${SITE_URL}${route.path}`,
+        ru: `${SITE_URL}/ru${route.path}`,
+      }
+    }
+  }));
 
   // Collect all countries from the proxy list
   let countries = new Set<string>(PRIORITY_COUNTRIES);
@@ -40,14 +66,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // fallback: only use priority countries
   }
 
-  const countryPages: MetadataRoute.Sitemap = Array.from(countries).map(
-    (code) => ({
+  const countryPages: MetadataRoute.Sitemap = Array.from(countries).flatMap(code => [
+    {
       url: `${SITE_URL}/country/${code}`,
       lastModified: now,
       changeFrequency: "daily" as const,
       priority: PRIORITY_COUNTRIES.includes(code) ? 0.7 : 0.6,
-    })
-  );
+      alternates: {
+        languages: {
+          en: `${SITE_URL}/country/${code}`,
+          ru: `${SITE_URL}/ru/country/${code}`,
+        }
+      }
+    },
+    {
+      url: `${SITE_URL}/ru/country/${code}`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: PRIORITY_COUNTRIES.includes(code) ? 0.7 : 0.6,
+      alternates: {
+        languages: {
+          en: `${SITE_URL}/country/${code}`,
+          ru: `${SITE_URL}/ru/country/${code}`,
+        }
+      }
+    }
+  ]);
 
-  return [...staticPages, ...countryPages];
+  return [...staticPages, ...ruStaticPages, ...countryPages];
 }

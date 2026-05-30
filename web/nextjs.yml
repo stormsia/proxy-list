@@ -3,6 +3,8 @@ name: Deploy Next.js site to Pages
 on:
   push:
     branches: ["main"]
+    paths:
+      - "web/public/proxies.json"
   workflow_dispatch:
 
 permissions:

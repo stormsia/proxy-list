@@ -1,81 +1,36 @@
-# 🚀 High-Performance Verified Proxy Pool
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-An automated, ultra-fast proxy collector and validator running 24/7. This repository hosts pre-verified, active public proxy lists categorized by protocol, optimized for web scraping, anonymity, and integration.
+## Getting Started
 
----
-
-## 📊 Live Pool Statistics
-
-<div align="center">
-
-![Working Proxies](https://img.shields.io/badge/Verified%20Working-1723-success?style=for-the-badge&logo=shield)
-![Total Checked](https://img.shields.io/badge/Total%20Checked-131528-blue?style=for-the-badge&logo=speedtest)
-![Last Updated](https://img.shields.io/badge/Last%20Update-30.05.2026%2008:22:39-informational?style=for-the-badge&logo=clock)
-
-</div>
-
-### Protocol Distribution
-| Protocol | Active Count | Raw Access Link |
-| :--- | :---: | :--- |
-| **🌐 HTTP / HTTPS** | `492` | [http.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) |
-| **🛡️ SOCKS4** | `276` | [socks4.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) |
-| **🔒 SOCKS5** | `955` | [socks5.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) |
-| **📦 All Combined** | `1723` | [working_proxies.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) |
-
-### Performance Overview
-- **Deduplication Audit Rate:** 100% Unique Addresses
-- **Current Success Verification Rate:** `1.31%`
-- **Validation Protocol:** Full HTTP Request/Response Round-trip check.
-
----
-
-## 🛠️ Automated & Machine Integration (API)
-
-These lists are optimized for automated scripts, CI/CD pipelines, and applications. You can access the live lists programmatically through raw HTTP or GitHub's REST API.
-
-### 1. Direct Download (Raw CLI)
-Use these simple shell commands to dynamically integrate the proxy lists directly into your servers:
+First, run the development server:
 
 ```bash
-# Download all working proxies
-curl -o proxies.txt https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt
-
-# Download categorized lists
-curl -o http_proxies.txt https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt
-curl -o socks4_proxies.txt https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt
-curl -o socks5_proxies.txt https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### 2. Python Programmatic Fetch
-You can quickly parse the lists in Python using the standard `urllib` or `requests`:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```python
-import urllib.request
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-# Base URL for raw access
-base_url = "https://raw.githubusercontent.com/stormsia/proxy-list/main"
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-# Fetch and print active proxies for each protocol
-for protocol in ["http", "socks4", "socks5"]:
-    url = f"{base_url}/{protocol}.txt"
-    try:
-        with urllib.request.urlopen(url) as response:
-            proxies = response.read().decode('utf-8').splitlines()
-        print(f"Loaded {len(proxies)} active {protocol.upper()} proxies.")
-    except Exception as e:
-        print(f"Failed to fetch {protocol} list: {e}")
-```
+## Learn More
 
-### 3. GitHub API Machine Endpoint
-If your system integrates via GitHub API, fetch the file metadata and Base64 content using:
-```http
-GET https://api.github.com/repos/stormsia/proxy-list/contents/working_proxies.txt
-Accept: application/vnd.github.v3+json
-```
+To learn more about Next.js, take a look at the following resources:
 
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## ⚠️ Disclaimer
-These proxies are gathered from public directories. We do not host, control, or monitor proxy servers. Use at your own risk.
+## Deploy on Vercel
 
-**MIT License**
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

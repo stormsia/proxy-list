@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-# Disallow the raw JSON (too large for crawlers, not useful for indexing)
-Disallow: /proxies.json
-
-Sitemap: https://stormsia.github.io/proxy-list/sitemap.xml

@@ -3,83 +3,63 @@
     "protocol": "http",
     "username": null,
     "password": null,
-    "host": "62.241.133.227",
-    "port": 1973,
-    "timeout": 28.02,
-    "exit_ip": "156.207.161.154",
+    "host": "103.169.254.65",
+    "port": 6080,
+    "timeout": 23.89,
+    "exit_ip": "103.169.254.65",
     "asn": {
-      "autonomous_system_number": 8452,
-      "autonomous_system_organization": "IDDQD-AS"
+      "autonomous_system_number": 142370,
+      "autonomous_system_organization": "PT Master Star Network"
     },
     "geolocation": {
-      "city": {
-        "geoname_id": 356989,
-        "names": {
-          "en": "Fāqūs"
-        }
-      },
       "continent": {
-        "code": "AF",
-        "geoname_id": 6255146,
+        "code": "AS",
+        "geoname_id": 6255147,
         "names": {
-          "de": "Afrika",
-          "en": "Africa",
-          "es": "África",
-          "fr": "Afrique",
-          "ja": "アフリカ",
-          "pt-BR": "África",
-          "ru": "Африка",
-          "zh-CN": "非洲"
+          "de": "Asien",
+          "en": "Asia",
+          "es": "Asia",
+          "fr": "Asie",
+          "ja": "アジア",
+          "pt-BR": "Ásia",
+          "ru": "Азия",
+          "zh-CN": "亚洲"
         }
       },
       "country": {
-        "geoname_id": 357994,
-        "iso_code": "EG",
+        "geoname_id": 1643084,
+        "iso_code": "ID",
         "names": {
-          "de": "Ägypten",
-          "en": "Egypt",
-          "es": "Egipto",
-          "fr": "Égypte",
-          "ja": "エジプト・アラブ共和国",
-          "pt-BR": "Egito",
-          "ru": "Египет",
-          "zh-CN": "埃及"
+          "de": "Indonesien",
+          "en": "Indonesia",
+          "es": "Indonesia",
+          "fr": "Indonésie",
+          "ja": "インドネシア共和国",
+          "pt-BR": "Indonésia",
+          "ru": "Индонезия",
+          "zh-CN": "印度尼西亚"
         }
       },
       "location": {
-        "accuracy_radius": 20,
-        "latitude": 30.7316,
-        "longitude": 31.8007,
-        "time_zone": "Africa/Cairo"
+        "accuracy_radius": 1000,
+        "latitude": -6.175,
+        "longitude": 106.8286,
+        "time_zone": "Asia/Jakarta"
       },
       "registered_country": {
-        "geoname_id": 357994,
-        "iso_code": "EG",
+        "geoname_id": 1643084,
+        "iso_code": "ID",
         "names": {
-          "de": "Ägypten",
-          "en": "Egypt",
-          "es": "Egipto",
-          "fr": "Égypte",
-          "ja": "エジプト・アラブ共和国",
-          "pt-BR": "Egito",
-          "ru": "Египет",
-          "zh-CN": "埃及"
+          "de": "Indonesien",
+          "en": "Indonesia",
+          "es": "Indonesia",
+          "fr": "Indonésie",
+          "ja": "インドネシア共和国",
+          "pt-BR": "Indonésia",
+          "ru": "Индонезия",
+          "zh-CN": "印度尼西亚"
         }
-      },
-      "subdivisions": [
-        {
-          "geoname_id": 360016,
-          "iso_code": "SHR",
-          "names": {
-            "de": "Sharqia",
-            "en": "Sharqia",
-            "es": "Sharqia",
-            "fr": "Charqia",
-            "ja": "シャルキア県",
-            "pt-BR": "Sharqia"
-          }
-        }
-      ]
+      }
     }
   }
 ]

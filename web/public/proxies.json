@@ -1,402 +1,95 @@
 [
   {
-    "protocol": "socks5",
-    "username": null,
-    "password": null,
-    "host": "206.123.156.233",
-    "port": 4087,
-    "timeout": 4.18,
-    "exit_ip": "212.38.162.241",
-    "asn": {
-      "autonomous_system_number": 20860,
-      "autonomous_system_organization": "Iomart Cloud Services Limited"
-    },
-    "geolocation": {
-      "continent": {
-        "code": "EU",
-        "geoname_id": 6255148,
-        "names": {
-          "de": "Europa",
-          "en": "Europe",
-          "es": "Europa",
-          "fr": "Europe",
-          "ja": "ヨーロッパ",
-          "pt-BR": "Europa",
-          "ru": "Европа",
-          "zh-CN": "欧洲"
-        }
-      },
-      "country": {
-        "geoname_id": 2635167,
-        "iso_code": "GB",
-        "names": {
-          "de": "UK",
-          "en": "United Kingdom",
-          "es": "Reino Unido",
-          "fr": "Royaume-Uni",
-          "ja": "英国",
-          "pt-BR": "Reino Unido",
-          "ru": "Британия",
-          "zh-CN": "英国"
-        }
-      },
-      "location": {
-        "accuracy_radius": 200,
-        "latitude": 51.4964,
-        "longitude": -0.1224,
-        "time_zone": "Europe/London"
-      },
-      "registered_country": {
-        "geoname_id": 2635167,
-        "iso_code": "GB",
-        "names": {
-          "de": "UK",
-          "en": "United Kingdom",
-          "es": "Reino Unido",
-          "fr": "Royaume-Uni",
-          "ja": "英国",
-          "pt-BR": "Reino Unido",
-          "ru": "Британия",
-          "zh-CN": "英国"
-        }
-      }
-    }
-  },
-  {
-    "protocol": "socks5",
-    "username": null,
-    "password": null,
-    "host": "45.192.110.180",
-    "port": 1080,
-    "timeout": 4.3,
-    "exit_ip": "45.192.110.180",
-    "asn": {
-      "autonomous_system_number": 401701,
-      "autonomous_system_organization": "cognetcloud INC"
-    },
-    "geolocation": {
-      "continent": {
-        "code": "AF",
-        "geoname_id": 6255146,
-        "names": {
-          "de": "Afrika",
-          "en": "Africa",
-          "es": "África",
-          "fr": "Afrique",
-          "ja": "アフリカ",
-          "pt-BR": "África",
-          "ru": "Африка",
-          "zh-CN": "非洲"
-        }
-      },
-      "country": {
-        "geoname_id": 241170,
-        "iso_code": "SC",
-        "names": {
-          "de": "Seychellen",
-          "en": "Seychelles",
-          "es": "Seychelles",
-          "fr": "Seychelles",
-          "ja": "セーシェル",
-          "pt-BR": "Ilhas Seychelles",
-          "ru": "Сейшельские о-ва",
-          "zh-CN": "塞舌尔"
-        }
-      },
-      "location": {
-        "accuracy_radius": 1000,
-        "latitude": -4.5833,
-        "longitude": 55.6667,
-        "time_zone": "Indian/Mahe"
-      },
-      "registered_country": {
-        "geoname_id": 241170,
-        "iso_code": "SC",
-        "names": {
-          "de": "Seychellen",
-          "en": "Seychelles",
-          "es": "Seychelles",
-          "fr": "Seychelles",
-          "ja": "セーシェル",
-          "pt-BR": "Ilhas Seychelles",
-          "ru": "Сейшельские о-ва",
-          "zh-CN": "塞舌尔"
-        }
-      }
-    }
-  },
-  {
     "protocol": "http",
     "username": null,
     "password": null,
-    "host": "152.32.93.105",
-    "port": 8082,
-    "timeout": 5.61,
-    "exit_ip": "152.32.93.105",
+    "host": "71.198.208.169",
+    "port": 443,
+    "timeout": 21.99,
+    "exit_ip": "71.198.208.169",
     "asn": {
-      "autonomous_system_number": 17639,
-      "autonomous_system_organization": "Converge ICT Solutions Inc."
+      "autonomous_system_number": 7922,
+      "autonomous_system_organization": "Comcast Cable Communications, LLC"
     },
     "geolocation": {
       "city": {
-        "geoname_id": 7290466,
+        "geoname_id": 5383465,
         "names": {
-          "en": "Pasig"
+          "de": "Pittsburg",
+          "en": "Pittsburg",
+          "es": "Pittsburg",
+          "fr": "Pittsburg",
+          "ja": "ピッツバーグ",
+          "pt-BR": "Pittsburg",
+          "ru": "Питтсбург",
+          "zh-CN": "匹兹堡"
         }
       },
       "continent": {
-        "code": "AS",
-        "geoname_id": 6255147,
+        "code": "NA",
+        "geoname_id": 6255149,
         "names": {
-          "de": "Asien",
-          "en": "Asia",
-          "es": "Asia",
-          "fr": "Asie",
-          "ja": "アジア",
-          "pt-BR": "Ásia",
-          "ru": "Азия",
-          "zh-CN": "亚洲"
+          "de": "Nordamerika",
+          "en": "North America",
+          "es": "Norteamérica",
+          "fr": "Amérique du Nord",
+          "ja": "北アメリカ",
+          "pt-BR": "América do Norte",
+          "ru": "Северная Америка",
+          "zh-CN": "北美洲"
         }
       },
       "country": {
-        "geoname_id": 1694008,
-        "iso_code": "PH",
+        "geoname_id": 6252001,
+        "iso_code": "US",
         "names": {
-          "de": "Philippinen",
-          "en": "Philippines",
-          "es": "Filipinas",
-          "fr": "Philippines",
-          "ja": "フィリピン共和国",
-          "pt-BR": "Filipinas",
-          "ru": "Филиппины",
-          "zh-CN": "菲律宾"
+          "de": "USA",
+          "en": "United States",
+          "es": "Estados Unidos",
+          "fr": "États-Unis",
+          "ja": "アメリカ",
+          "pt-BR": "EUA",
+          "ru": "США",
+          "zh-CN": "美国"
         }
       },
       "location": {
-        "accuracy_radius": 100,
-        "latitude": 14.5788,
-        "longitude": 121.081,
-        "time_zone": "Asia/Manila"
+        "accuracy_radius": 50,
+        "latitude": 38.028,
+        "longitude": -121.8847,
+        "metro_code": 807,
+        "time_zone": "America/Los_Angeles"
       },
       "postal": {
-        "code": "1604"
+        "code": "94565"
       },
       "registered_country": {
-        "geoname_id": 1694008,
-        "iso_code": "PH",
+        "geoname_id": 6252001,
+        "iso_code": "US",
         "names": {
-          "de": "Philippinen",
-          "en": "Philippines",
-          "es": "Filipinas",
-          "fr": "Philippines",
-          "ja": "フィリピン共和国",
-          "pt-BR": "Filipinas",
-          "ru": "Филиппины",
-          "zh-CN": "菲律宾"
+          "de": "USA",
+          "en": "United States",
+          "es": "Estados Unidos",
+          "fr": "États-Unis",
+          "ja": "アメリカ",
+          "pt-BR": "EUA",
+          "ru": "США",
+          "zh-CN": "美国"
         }
       },
       "subdivisions": [
         {
-          "geoname_id": 7521311,
-          "iso_code": "00",
+          "geoname_id": 5332921,
+          "iso_code": "CA",
           "names": {
-            "de": "Metro Manila",
-            "en": "Metro Manila",
-            "es": "Metro Manila",
-            "fr": "Metro Manila",
-            "ja": "メトロ・マニラ",
-            "pt-BR": "Metro Manila"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "protocol": "http",
-    "username": null,
-    "password": null,
-    "host": "43.167.165.123",
-    "port": 10808,
-    "timeout": 6.35,
-    "exit_ip": "43.167.165.123",
-    "asn": {
-      "autonomous_system_number": 132203,
-      "autonomous_system_organization": "Tencent Building, Kejizhongyi Avenue"
-    },
-    "geolocation": {
-      "city": {
-        "geoname_id": 1850147,
-        "names": {
-          "de": "Tokio",
-          "en": "Tokyo",
-          "es": "Tokio",
-          "fr": "Tokyo",
-          "ja": "東京",
-          "pt-BR": "Tóquio",
-          "ru": "Токио",
-          "zh-CN": "东京"
-        }
-      },
-      "continent": {
-        "code": "AS",
-        "geoname_id": 6255147,
-        "names": {
-          "de": "Asien",
-          "en": "Asia",
-          "es": "Asia",
-          "fr": "Asie",
-          "ja": "アジア",
-          "pt-BR": "Ásia",
-          "ru": "Азия",
-          "zh-CN": "亚洲"
-        }
-      },
-      "country": {
-        "geoname_id": 1861060,
-        "iso_code": "JP",
-        "names": {
-          "de": "Japan",
-          "en": "Japan",
-          "es": "Japón",
-          "fr": "Japon",
-          "ja": "日本",
-          "pt-BR": "Japão",
-          "ru": "Япония",
-          "zh-CN": "日本"
-        }
-      },
-      "location": {
-        "accuracy_radius": 20,
-        "latitude": 35.6893,
-        "longitude": 139.6899,
-        "time_zone": "Asia/Tokyo"
-      },
-      "postal": {
-        "code": "151-0053"
-      },
-      "registered_country": {
-        "geoname_id": 1880251,
-        "iso_code": "SG",
-        "names": {
-          "de": "Singapur",
-          "en": "Singapore",
-          "es": "Singapur",
-          "fr": "Singapour",
-          "ja": "シンガポール",
-          "pt-BR": "Singapura",
-          "ru": "Сингапур",
-          "zh-CN": "新加坡"
-        }
-      },
-      "subdivisions": [
-        {
-          "geoname_id": 1850144,
-          "iso_code": "13",
-          "names": {
-            "de": "Tokio",
-            "en": "Tokyo",
-            "es": "Tokio",
-            "fr": "Préfecture de Tokyo",
-            "ja": "東京都",
-            "pt-BR": "Tóquio",
-            "ru": "Токио",
-            "zh-CN": "东京都"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "protocol": "http",
-    "username": null,
-    "password": null,
-    "host": "51.49.153.183",
-    "port": 12115,
-    "timeout": 29.64,
-    "exit_ip": "185.220.101.24",
-    "asn": {
-      "autonomous_system_number": 60729,
-      "autonomous_system_organization": "Stiftung Erneuerbare Freiheit"
-    },
-    "geolocation": {
-      "city": {
-        "geoname_id": 2945358,
-        "names": {
-          "de": "Brandenburg an der Havel",
-          "en": "Brandenburg an der Havel",
-          "es": "Brandenburg an der Havel",
-          "fr": "Brandebourg-sur-la-Havel",
-          "ja": "ブランデンブルク・アン・デア・ハーフェル",
-          "ru": "Бранденбург",
-          "zh-CN": "哈弗尔河畔勃兰登堡"
-        }
-      },
-      "continent": {
-        "code": "EU",
-        "geoname_id": 6255148,
-        "names": {
-          "de": "Europa",
-          "en": "Europe",
-          "es": "Europa",
-          "fr": "Europe",
-          "ja": "ヨーロッパ",
-          "pt-BR": "Europa",
-          "ru": "Европа",
-          "zh-CN": "欧洲"
-        }
-      },
-      "country": {
-        "geoname_id": 2921044,
-        "is_in_european_union": true,
-        "iso_code": "DE",
-        "names": {
-          "de": "Deutschland",
-          "en": "Germany",
-          "es": "Alemania",
-          "fr": "Allemagne",
-          "ja": "ドイツ連邦共和国",
-          "pt-BR": "Alemanha",
-          "ru": "ФРГ",
-          "zh-CN": "德国"
-        }
-      },
-      "location": {
-        "accuracy_radius": 20,
-        "latitude": 52.6171,
-        "longitude": 13.1207,
-        "time_zone": "Europe/Berlin"
-      },
-      "postal": {
-        "code": "14621"
-      },
-      "registered_country": {
-        "geoname_id": 2921044,
-        "is_in_european_union": true,
-        "iso_code": "DE",
-        "names": {
-          "de": "Deutschland",
-          "en": "Germany",
-          "es": "Alemania",
-          "fr": "Allemagne",
-          "ja": "ドイツ連邦共和国",
-          "pt-BR": "Alemanha",
-          "ru": "ФРГ",
-          "zh-CN": "德国"
-        }
-      },
-      "subdivisions": [
-        {
-          "geoname_id": 2945356,
-          "iso_code": "BB",
-          "names": {
-            "de": "Brandenburg",
-            "en": "Brandenburg",
-            "es": "Brandenburgo",
-            "fr": "Brandebourg",
-            "ja": "ブランデンブルク州",
-            "pt-BR": "Brandenburg",
-            "ru": "Бранденбург",
-            "zh-CN": "勃兰登堡"
+            "de": "Kalifornien",
+            "en": "California",
+            "es": "California",
+            "fr": "Californie",
+            "ja": "カリフォルニア州",
+            "pt-BR": "Califórnia",
+            "ru": "Калифорния",
+            "zh-CN": "加州"
           }
         }
       ]

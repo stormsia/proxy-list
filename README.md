@@ -9,8 +9,8 @@ An automated, ultra-fast proxy collector and validator running 24/7. This reposi
 <div align="center">
 
 ![Working Proxies](https://img.shields.io/badge/Verified%20Working-0-success?style=for-the-badge&logo=shield)
-![Total Checked](https://img.shields.io/badge/Total%20Checked-115698-blue?style=for-the-badge&logo=speedtest)
-![Last Updated](https://img.shields.io/badge/Last%20Update-07.07.2026%2006:19:57-informational?style=for-the-badge&logo=clock)
+![Total Checked](https://img.shields.io/badge/Total%20Checked-149019-blue?style=for-the-badge&logo=speedtest)
+![Last Updated](https://img.shields.io/badge/Last%20Update-07.07.2026%2006:38:37-informational?style=for-the-badge&logo=clock)
 
 </div>
 

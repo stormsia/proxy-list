@@ -1,1 +1,216 @@
-[]
+[
+  {
+    "protocol": "socks5",
+    "username": null,
+    "password": null,
+    "host": "206.123.156.219",
+    "port": 4302,
+    "timeout": 5.21,
+    "exit_ip": "212.38.162.241",
+    "asn": {
+      "autonomous_system_number": 20860,
+      "autonomous_system_organization": "Iomart Cloud Services Limited"
+    },
+    "geolocation": {
+      "continent": {
+        "code": "EU",
+        "geoname_id": 6255148,
+        "names": {
+          "de": "Europa",
+          "en": "Europe",
+          "es": "Europa",
+          "fr": "Europe",
+          "ja": "ヨーロッパ",
+          "pt-BR": "Europa",
+          "ru": "Европа",
+          "zh-CN": "欧洲"
+        }
+      },
+      "country": {
+        "geoname_id": 2635167,
+        "iso_code": "GB",
+        "names": {
+          "de": "UK",
+          "en": "United Kingdom",
+          "es": "Reino Unido",
+          "fr": "Royaume-Uni",
+          "ja": "英国",
+          "pt-BR": "Reino Unido",
+          "ru": "Британия",
+          "zh-CN": "英国"
+        }
+      },
+      "location": {
+        "accuracy_radius": 200,
+        "latitude": 51.4964,
+        "longitude": -0.1224,
+        "time_zone": "Europe/London"
+      },
+      "registered_country": {
+        "geoname_id": 2635167,
+        "iso_code": "GB",
+        "names": {
+          "de": "UK",
+          "en": "United Kingdom",
+          "es": "Reino Unido",
+          "fr": "Royaume-Uni",
+          "ja": "英国",
+          "pt-BR": "Reino Unido",
+          "ru": "Британия",
+          "zh-CN": "英国"
+        }
+      }
+    }
+  },
+  {
+    "protocol": "http",
+    "username": null,
+    "password": null,
+    "host": "174.137.134.182",
+    "port": 2999,
+    "timeout": 5.24,
+    "exit_ip": "174.137.134.182",
+    "asn": {
+      "autonomous_system_number": 27257,
+      "autonomous_system_organization": "Webair Internet Development Company Inc."
+    },
+    "geolocation": {
+      "continent": {
+        "code": "NA",
+        "geoname_id": 6255149,
+        "names": {
+          "de": "Nordamerika",
+          "en": "North America",
+          "es": "Norteamérica",
+          "fr": "Amérique du Nord",
+          "ja": "北アメリカ",
+          "pt-BR": "América do Norte",
+          "ru": "Северная Америка",
+          "zh-CN": "北美洲"
+        }
+      },
+      "country": {
+        "geoname_id": 6252001,
+        "iso_code": "US",
+        "names": {
+          "de": "USA",
+          "en": "United States",
+          "es": "Estados Unidos",
+          "fr": "États-Unis",
+          "ja": "アメリカ",
+          "pt-BR": "EUA",
+          "ru": "США",
+          "zh-CN": "美国"
+        }
+      },
+      "location": {
+        "accuracy_radius": 1000,
+        "latitude": 37.751,
+        "longitude": -97.822,
+        "time_zone": "America/Chicago"
+      },
+      "registered_country": {
+        "geoname_id": 6252001,
+        "iso_code": "US",
+        "names": {
+          "de": "USA",
+          "en": "United States",
+          "es": "Estados Unidos",
+          "fr": "États-Unis",
+          "ja": "アメリカ",
+          "pt-BR": "EUA",
+          "ru": "США",
+          "zh-CN": "美国"
+        }
+      }
+    }
+  },
+  {
+    "protocol": "http",
+    "username": null,
+    "password": null,
+    "host": "103.234.35.133",
+    "port": 3128,
+    "timeout": 23.2,
+    "exit_ip": "103.234.35.133",
+    "asn": {
+      "autonomous_system_number": 151521,
+      "autonomous_system_organization": "PT. Exabit Group Network"
+    },
+    "geolocation": {
+      "city": {
+        "geoname_id": 1642588,
+        "names": {
+          "en": "Jember"
+        }
+      },
+      "continent": {
+        "code": "AS",
+        "geoname_id": 6255147,
+        "names": {
+          "de": "Asien",
+          "en": "Asia",
+          "es": "Asia",
+          "fr": "Asie",
+          "ja": "アジア",
+          "pt-BR": "Ásia",
+          "ru": "Азия",
+          "zh-CN": "亚洲"
+        }
+      },
+      "country": {
+        "geoname_id": 1643084,
+        "iso_code": "ID",
+        "names": {
+          "de": "Indonesien",
+          "en": "Indonesia",
+          "es": "Indonesia",
+          "fr": "Indonésie",
+          "ja": "インドネシア共和国",
+          "pt-BR": "Indonésia",
+          "ru": "Индонезия",
+          "zh-CN": "印度尼西亚"
+        }
+      },
+      "location": {
+        "accuracy_radius": 20,
+        "latitude": -8.1036,
+        "longitude": 113.5363,
+        "time_zone": "Asia/Jakarta"
+      },
+      "postal": {
+        "code": "68154"
+      },
+      "registered_country": {
+        "geoname_id": 1643084,
+        "iso_code": "ID",
+        "names": {
+          "de": "Indonesien",
+          "en": "Indonesia",
+          "es": "Indonesia",
+          "fr": "Indonésie",
+          "ja": "インドネシア共和国",
+          "pt-BR": "Indonésia",
+          "ru": "Индонезия",
+          "zh-CN": "印度尼西亚"
+        }
+      },
+      "subdivisions": [
+        {
+          "geoname_id": 1642668,
+          "iso_code": "JI",
+          "names": {
+            "de": "Jawa Timur",
+            "en": "East Java",
+            "es": "Java Oriental",
+            "fr": "Java oriental",
+            "ja": "東ジャワ州",
+            "pt-BR": "Java Oriental",
+            "ru": "Восточная Ява",
+            "zh-CN": "东爪哇省"
+          }
+        }
+      ]
+    }
+  }
+]

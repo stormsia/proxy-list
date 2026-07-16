@@ -1,29 +1,23 @@
 import Link from "next/link";
 import { Globe, Map, FileCode2, Terminal } from "lucide-react";
 import styles from "./Navbar.module.css";
-import LanguageSwitcher from "./LanguageSwitcher";
-import { getDictionary, Locale } from "@/lib/i18n";
 
-export default async function Navbar({ lang = "en" }: { lang?: Locale }) {
-  const dict = await getDictionary(lang);
-  const isRu = lang === "ru";
-  const base = isRu ? "/ru" : "";
-
+export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={`container ${styles.navContainer}`}>
-        <Link href={base || "/"} className={styles.logo}>
+        <Link href="/" className={styles.logo}>
           <Globe className={styles.logoIcon} />
           <span className="text-gradient">proxy-list</span>
         </Link>
         <div className={styles.navLinks}>
-          <Link href={base || "/"} className={styles.link}>
+          <Link href="/" className={styles.link}>
             <Map className={styles.icon} size={18} />
-            {dict.nav.dashboard}
+            Dashboard
           </Link>
-          <Link href={`${base}/docs`} className={styles.link}>
+          <Link href="/docs" className={styles.link}>
             <Terminal className={styles.icon} size={18} />
-            {dict.nav.docs}
+            Docs & API
           </Link>
           <a href="https://github.com/stormsia/proxy-list" target="_blank" rel="noopener noreferrer" className={styles.exportBtn}>
             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '0.25rem' }}>
@@ -31,7 +25,6 @@ export default async function Navbar({ lang = "en" }: { lang?: Locale }) {
             </svg>
             GitHub
           </a>
-          <LanguageSwitcher currentLang={lang} />
         </div>
       </div>
     </nav>

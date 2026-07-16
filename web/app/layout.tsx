@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import Script from "next/script";
-import ClarityInitializer from "@/components/ClarityInitializer";
 import "./globals.css";
 
 const inter = Inter({
@@ -67,14 +65,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
-  verification: {
-    google: "Ilxb2F7zsbKpIgNLwUwwxbxNlrbuD6-89ZG-yCgwYbo",
-  },
 };
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import LanguageWrapper from "@/components/LanguageWrapper";
 
 export default function RootLayout({
   children,
@@ -109,24 +103,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link
-          rel="sitemap"
-          type="application/xml"
-          title="Sitemap"
-          href="/proxy-list/sitemap.xml"
-        />
-        <link
-          rel="help"
-          type="text/plain"
-          title="Robots"
-          href="/proxy-list/robots.txt"
-        />
-        <link
-          rel="alternate"
-          type="text/plain"
-          title="LLMs"
-          href="/proxy-list/llms.txt"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
@@ -139,17 +115,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <ClarityInitializer />
         <div className="main-layout">
-          <LanguageWrapper
-            en={<Navbar lang="en" />}
-            ru={<Navbar lang="ru" />}
-          />
+          <Navbar />
           <main className="main-content">{children}</main>
-          <LanguageWrapper
-            en={<Footer lang="en" />}
-            ru={<Footer lang="ru" />}
-          />
+          <Footer />
         </div>
       </body>
     </html>

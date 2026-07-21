@@ -38,6 +38,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+      - name: Install dependencies
+        run: npm install @microsoft/clarity
 
       - name: Build with Next.js
         run: npx next build

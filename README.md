@@ -8,23 +8,23 @@ An automated, ultra-fast proxy collector and validator running 24/7. This reposi
 
 <div align="center">
 
-![Working Proxies](https://img.shields.io/badge/Verified%20Working-112-success?style=for-the-badge&logo=shield)
-![Total Checked](https://img.shields.io/badge/Total%20Checked-2451-blue?style=for-the-badge&logo=speedtest)
-![Last Updated](https://img.shields.io/badge/Last%20Update-23.08.2026%2020:35:19-informational?style=for-the-badge&logo=clock)
+![Working Proxies](https://img.shields.io/badge/Verified%20Working-222-success?style=for-the-badge&logo=shield)
+![Total Checked](https://img.shields.io/badge/Total%20Checked-193789-blue?style=for-the-badge&logo=speedtest)
+![Last Updated](https://img.shields.io/badge/Last%20Update-23.08.2026%2020:57:09-informational?style=for-the-badge&logo=clock)
 
 </div>
 
 ### Protocol Distribution
 | Protocol | Active Count | Raw Access Link |
 | :--- | :---: | :--- |
-| **🌐 HTTP / HTTPS** | `101` | [http.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) |
-| **🛡️ SOCKS4** | `1` | [socks4.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) |
-| **🔒 SOCKS5** | `10` | [socks5.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) |
-| **📦 All Combined** | `112` | [working_proxies.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) |
+| **🌐 HTTP / HTTPS** | `157` | [http.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) |
+| **🛡️ SOCKS4** | `15` | [socks4.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) |
+| **🔒 SOCKS5** | `50` | [socks5.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) |
+| **📦 All Combined** | `222` | [working_proxies.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) |
 
 ### Performance Overview
 - **Deduplication Audit Rate:** 100% Unique Addresses
-- **Current Success Verification Rate:** `4.57%`
+- **Current Success Verification Rate:** `0.11%`
 - **Validation Protocol:** Full HTTP Request/Response Round-trip check.
 
 ---

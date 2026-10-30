@@ -8,23 +8,23 @@ An automated, ultra-fast proxy collector and validator running 24/7. This reposi
 
 <div align="center">
 
-![Working Proxies](https://img.shields.io/badge/Verified%20Working-417-success?style=for-the-badge&logo=shield)
-![Total Checked](https://img.shields.io/badge/Total%20Checked-5633-blue?style=for-the-badge&logo=speedtest)
-![Last Updated](https://img.shields.io/badge/Last%20Update-30.10.2026%2014:56:22-informational?style=for-the-badge&logo=clock)
+![Working Proxies](https://img.shields.io/badge/Verified%20Working-455-success?style=for-the-badge&logo=shield)
+![Total Checked](https://img.shields.io/badge/Total%20Checked-132118-blue?style=for-the-badge&logo=speedtest)
+![Last Updated](https://img.shields.io/badge/Last%20Update-30.10.2026%2015:16:39-informational?style=for-the-badge&logo=clock)
 
 </div>
 
 ### Protocol Distribution
 | Protocol | Active Count | Raw Access Link |
 | :--- | :---: | :--- |
-| **🌐 HTTP / HTTPS** | `265` | [http.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) |
-| **🛡️ SOCKS4** | `87` | [socks4.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) |
+| **🌐 HTTP / HTTPS** | `338` | [http.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) |
+| **🛡️ SOCKS4** | `52` | [socks4.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) |
 | **🔒 SOCKS5** | `65` | [socks5.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) |
-| **📦 All Combined** | `417` | [working_proxies.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) |
+| **📦 All Combined** | `455` | [working_proxies.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) |
 
 ### Performance Overview
 - **Deduplication Audit Rate:** 100% Unique Addresses
-- **Current Success Verification Rate:** `7.4%`
+- **Current Success Verification Rate:** `0.34%`
 - **Validation Protocol:** Full HTTP Request/Response Round-trip check.
 
 ---

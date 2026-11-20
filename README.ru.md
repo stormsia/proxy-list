@@ -8,7 +8,7 @@
 
 
 <!-- Row 1: Repository Lifecycle & Engine Status (All 20px flat-square) -->
-[![Last Update](https://img.shields.io/github/last-commit/stormsia/proxy-list?style=flat-square&logo=github&logoColor=white&label=Last%20Update&color=10b981)](https://github.com/stormsia/proxy-list/commits/main)
+[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--20%2023:50%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/Цикл%20обновления-Каждую%20минуту-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)
@@ -24,7 +24,7 @@
 
 <br/>
 
-[**Телеметрия онлайн**](#-телеметрия-сети-и-состояние-нод) • [**Прямые ссылки**](#-прямые-raw-ссылки) • [**Проверка Hydra**](#-проверено-с-помощью-hydra) • [**Быстрый старт**](#-быстрый-старт-и-примеры) • [**JSON схема**](#-схема-json-датасета-dataproxiesjson) • [**Архитектура**](#-архитектура-системы) • [**Вклад в проект**](#-участие-в-разработке) • [**Лицензия**](#-лицензия)
+[**Verified with Hydra**](#-verified-with-hydra) • [**Raw Endpoints**](#-direct-raw-endpoints) • [**Quickstart**](#-quickstart--download-guides) • [**JSON Schema**](#-json-dataset-schema-dataproxiesjson) • [**Architecture**](#-system-architecture) • [**Contributing**](#-contributing) • [**License**](#-license)
 
 </div>
 
@@ -46,17 +46,7 @@
 
 *Непрерывный аудит здоровья сокетов и протоколов*
 
-</div>
-
-
-> [!IMPORTANT]
-> **Гарантия актуальности:** Каждый опубликованный в этом репозитории прокси подтвержден как активный в рамках последнего 1-минутного цикла проверки. Мы никогда не накручиваем счетчики мертвыми или неотвечающими IP-адресами.
-
----
-
-## 📊 Телеметрия сети и состояние нод
-
-<div align="center">
+<br/>
 
 <img src="assets/telemetry-overview.svg" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
 
@@ -65,6 +55,10 @@
 *Телеметрия пересчитывается и визуализируется в каждом цикле проверки напрямую из данных движка Hydra.*
 
 </div>
+
+
+> [!IMPORTANT]
+> **Гарантия актуальности:** Каждый опубликованный в этом репозитории прокси подтвержден как активный в рамках последнего 1-минутного цикла проверки. Мы никогда не накручиваем счетчики мертвыми или неотвечающими IP-адресами.
 
 <details>
 <summary><b>📈 Детальные квантили задержки и географическое распределение (Нажмите, чтобы раскрыть)</b></summary>

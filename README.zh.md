@@ -8,7 +8,7 @@
 
 
 <!-- Row 1: Repository Lifecycle & Engine Status (All 20px flat-square) -->
-[![Last Update](https://img.shields.io/github/last-commit/stormsia/proxy-list?style=flat-square&logo=github&logoColor=white&label=Last%20Update&color=10b981)](https://github.com/stormsia/proxy-list/commits/main)
+[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--20%2023:50%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/更新周期-每分钟-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)
@@ -24,7 +24,7 @@
 
 <br/>
 
-[**实时遥测**](#-实时网络遥测与节点健康) • [**直链终端**](#-直链纯文本端点) • [**Hydra 验证**](#-通过-hydra-验证) • [**快速入门**](#-快速入门与下载指南) • [**JSON 规范**](#-json-数据集规范-dataproxiesjson) • [**系统架构**](#-系统架构) • [**贡献指南**](#-参与贡献) • [**开源协议**](#-开源协议)
+[**Verified with Hydra**](#-verified-with-hydra) • [**Raw Endpoints**](#-direct-raw-endpoints) • [**Quickstart**](#-quickstart--download-guides) • [**JSON Schema**](#-json-dataset-schema-dataproxiesjson) • [**Architecture**](#-system-architecture) • [**Contributing**](#-contributing) • [**License**](#-license)
 
 </div>
 
@@ -46,17 +46,7 @@
 
 *持续的套接字与协议健康审计*
 
-</div>
-
-
-> [!IMPORTANT]
-> **零失效保证：** 本仓库发布的每一个代理均在最近 1 分钟验证周期内确认存活。我们绝不使用失效或无响应的 IP 地址虚增数量。
-
----
-
-## 📊 实时网络遥测与节点健康
-
-<div align="center">
+<br/>
 
 <img src="assets/telemetry-overview.svg" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
 
@@ -65,6 +55,10 @@
 *遥测数据在每个验证周期由 Hydra 引擎直接重新计算并渲染。*
 
 </div>
+
+
+> [!IMPORTANT]
+> **零失效保证：** 本仓库发布的每一个代理均在最近 1 分钟验证周期内确认存活。我们绝不使用失效或无响应的 IP 地址虚增数量。
 
 <details>
 <summary><b>📈 详细延迟分位数与地理分布（点击展开）</b></summary>

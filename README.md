@@ -8,7 +8,7 @@
 
 
 <!-- Row 1: Repository Lifecycle & Engine Status (All 20px flat-square) -->
-[![Last Update](https://img.shields.io/github/last-commit/stormsia/proxy-list?style=flat-square&logo=github&logoColor=white&label=Last%20Update&color=10b981)](https://github.com/stormsia/proxy-list/commits/main)
+[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--20%2023:50%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/Update%20Cycle-Every%20Minute-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)
@@ -24,7 +24,7 @@
 
 <br/>
 
-[**Live Telemetry**](#-live-network-telemetry--node-health) • [**Raw Endpoints**](#-direct-raw-endpoints) • [**Verified with Hydra**](#-verified-with-hydra) • [**Quickstart**](#-quickstart--download-guides) • [**JSON Schema**](#-json-dataset-schema-dataproxiesjson) • [**Architecture**](#-system-architecture) • [**Contributing**](#-contributing) • [**License**](#-license)
+[**Verified with Hydra**](#-verified-with-hydra) • [**Raw Endpoints**](#-direct-raw-endpoints) • [**Quickstart**](#-quickstart--download-guides) • [**JSON Schema**](#-json-dataset-schema-dataproxiesjson) • [**Architecture**](#-system-architecture) • [**Contributing**](#-contributing) • [**License**](#-license)
 
 </div>
 
@@ -46,17 +46,7 @@ All proxies in this repository are actively audited and validated by [**Hydra**]
 
 *Continuous Socket & Protocol Health Audit*
 
-</div>
-
-
-> [!IMPORTANT]
-> **Zero-Stale Guarantee:** Every single proxy published in this repository was confirmed active within the last 1-minute verification cycle. We never pad numbers with dead or unresponsive IP addresses.
-
----
-
-## 📊 Live Network Telemetry & Node Health
-
-<div align="center">
+<br/>
 
 <img src="assets/telemetry-overview.svg" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
 
@@ -65,6 +55,10 @@ All proxies in this repository are actively audited and validated by [**Hydra**]
 *Telemetry is recalculated and rendered on every verification cycle directly from Hydra engine output.*
 
 </div>
+
+
+> [!IMPORTANT]
+> **Zero-Stale Guarantee:** Every single proxy published in this repository was confirmed active within the last 1-minute verification cycle. We never pad numbers with dead or unresponsive IP addresses.
 
 <details>
 <summary><b>📈 Detailed Quantiles & Geographic Distribution (Click to expand)</b></summary>

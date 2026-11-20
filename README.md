@@ -8,7 +8,7 @@
 
 
 <!-- Row 1: Repository Lifecycle & Engine Status (All 20px flat-square) -->
-[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--20%2023:53%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
+[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--20%2023:54%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/Update%20Cycle-Every%20Minute-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)

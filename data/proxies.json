@@ -28,7 +28,7 @@
     "remark": null,
     "first_seen_at": 1795171031,
     "last_checked_at": 1795204288,
-    "next_check_at": 1795205871
+    "next_check_at": 1795206008
   },
   {
     "id": "34.43.46.91:80:United States:",
@@ -59,7 +59,7 @@
     "remark": null,
     "first_seen_at": 1795148790,
     "last_checked_at": 1795205707,
-    "next_check_at": 1795205892
+    "next_check_at": 1795206022
   },
   {
     "id": "84.22.132.84:2080:Sweden:",
@@ -90,7 +90,7 @@
     "remark": null,
     "first_seen_at": 1795165947,
     "last_checked_at": 1795204346,
-    "next_check_at": 1795205892
+    "next_check_at": 1795206022
   },
   {
     "id": "13.239.253.213:54573",
@@ -152,6 +152,37 @@
     "remark": null,
     "first_seen_at": 1795147276,
     "last_checked_at": 1795205137,
-    "next_check_at": 1795205871
+    "next_check_at": 1795206008
+  },
+  {
+    "id": "18.230.23.72:24146",
+    "ip": "18.230.23.72",
+    "port": 24146,
+    "url": "http://18.230.23.72:24146",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": true,
+    "out_ip": "192.42.116.143",
+    "country": "NL",
+    "asn": 1101,
+    "asn_org": "SURF B.V.",
+    "anon": "anonymous",
+    "rtt_tcp_ms": 8337,
+    "rtt_handshake_ms": 3924,
+    "rtt_total_ms": 133003,
+    "uptime_pct": 33.333336,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 3,
+    "checks_success": 1,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795204045,
+    "last_checked_at": 1795205868,
+    "next_check_at": 1795205928
   }
 ]

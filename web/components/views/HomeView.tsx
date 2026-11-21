@@ -121,6 +121,11 @@ export default async function HomeView({ lang }: { lang: Locale }) {
         <MapClient proxies={proxies} lang={lang} />
       </section>
 
+      <section className={styles.tableSection} aria-label="Proxy directory">
+        <h2 className={styles.sectionTitle}>{dict.home.proxyDirectory}</h2>
+        <ProxyTable proxies={proxies} dict={dict.table} />
+      </section>
+
       <section className={styles.seoArticle} aria-label="About stormsia/proxy-list infrastructure">
         <h2>{dict.home.seoTitle}</h2>
         <p>{dict.footer.seoText}</p>
@@ -218,11 +223,6 @@ export default async function HomeView({ lang }: { lang: Locale }) {
         </div>
 
         <GitHubStarCard lang={lang} />
-      </section>
-
-      <section className={styles.tableSection} aria-label="Proxy directory">
-        <h2 className={styles.sectionTitle}>{dict.home.proxyDirectory}</h2>
-        <ProxyTable proxies={proxies} dict={dict.table} />
       </section>
 
       <FAQ items={homeFaq} title={dict.faq.title} />

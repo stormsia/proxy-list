@@ -24,3 +24,5 @@ http://Germany@5.161.50.82:8118
 http://Vietnam@171.238.156.104:3128
 http://Pakistan@203.99.183.197:3128
 http://Indonesia@203.175.102.67:3125
+http://Indonesia@160.22.45.74:8097
+http://India@45.116.230.79:8080

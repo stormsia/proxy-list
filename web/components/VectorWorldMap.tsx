@@ -2,7 +2,7 @@
 "use client";
 
 import { useMemo, useState, useRef, useCallback } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { Globe, Zap, ExternalLink, Activity, Radio, Share2, ShieldCheck, ArrowRight } from "lucide-react";
 import type { ProxyRecord } from "@/lib/types";
@@ -73,7 +73,8 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const isRu = lang === "ru";
+  const pathname = usePathname() || "";
+  const isRu = lang === "ru" || pathname.startsWith("/ru");
   const prefix = isRu ? "/ru" : "";
 
   // 1. Filter proxies by protocol

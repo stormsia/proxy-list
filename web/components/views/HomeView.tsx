@@ -28,6 +28,36 @@ export default async function HomeView({ lang }: { lang: Locale }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <header className={styles.header}>
+        <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.25rem" }}>
+          <a
+            href="https://github.com/stormsia/hydra"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              padding: "0.35rem 0.85rem",
+              background: "rgba(139, 92, 246, 0.12)",
+              border: "1px solid rgba(139, 92, 246, 0.3)",
+              borderRadius: "9999px",
+              color: "#c4b5fd",
+              fontSize: "0.82rem",
+              fontWeight: 500,
+              textDecoration: "none",
+              boxShadow: "0 0 16px rgba(139, 92, 246, 0.15)",
+              transition: "all 0.2s ease",
+            }}
+          >
+            <span>⚡</span>
+            <span>
+              {lang === "ru"
+                ? "Проверено 24/7 движком Hydra (Rust) • Обновление каждую минуту"
+                : "Audited 24/7 by Hydra (Rust Engine) • Updated Every Minute"}
+            </span>
+            <span style={{ opacity: 0.7 }}>→</span>
+          </a>
+        </div>
         <h1 className={styles.title}>
           {dict.home.heroPrefix}{" "}
           <span className="text-gradient">{dict.home.heroHighlight}</span>{" "}
@@ -80,7 +110,7 @@ export default async function HomeView({ lang }: { lang: Locale }) {
 
       <section className={styles.mapSection} aria-label="Network topology map">
         <h2 className={styles.sectionTitle}>{dict.home.networkTopology}</h2>
-        <MapClient proxies={proxies} />
+        <MapClient proxies={proxies} lang={lang} />
       </section>
 
       <section className={styles.seoArticle}>

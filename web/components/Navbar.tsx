@@ -62,10 +62,20 @@ export default function Navbar() {
             <span className={styles.brandTitle}>proxy-list</span>
           </Link>
 
-          <div className={styles.liveBadge} title="Automated 15-min validator daemon active">
+          <div className={styles.liveBadge} title="Continuous 1-minute Hydra validator active">
             <span className={styles.liveDot} />
             <span className={styles.liveText}>Live</span>
           </div>
+
+          <a
+            href="https://github.com/stormsia/hydra"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.hydraBadge}
+            title={isRu ? "Проверено движком Hydra Rust (каждую минуту)" : "Verified by Hydra Rust Engine (every minute)"}
+          >
+            <span>⚡ Hydra</span>
+          </a>
         </div>
 
         <nav className={styles.navLinks} aria-label="Main Navigation">

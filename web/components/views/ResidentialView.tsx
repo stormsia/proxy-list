@@ -183,7 +183,7 @@ export default async function ResidentialView({ lang }: { lang: Locale }) {
                 ? "В данный момент нет активных резидентных прокси"
                 : "No active residential proxies at this moment"}
             </h3>
-            <Link href="/" className={styles.primaryButton}>
+            <Link href={isRu ? "/ru" : "/"} className={styles.primaryButton}>
               {isRu ? "Посмотреть все прокси" : "View All Proxies"}
             </Link>
           </div>

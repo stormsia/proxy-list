@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import CountryView from "@/components/views/CountryView";
 import { getStaticCountryParams } from "@/lib/proxies";
-import { COUNTRY_META, getCountryDisplayName } from "@/lib/countries";
+import { getCountryMetadata } from "@/lib/countries";
 import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -13,23 +13,14 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const params = await props.params;
   const code = params.code.toLowerCase();
-  const countryName = getCountryDisplayName(code, code.toUpperCase(), "ru");
-  const meta = COUNTRY_META[code];
+  const { title, description, keywords } = getCountryMetadata(code, "ru");
 
   return buildPageMetadata({
-    title:
-      meta?.titleRu ||
-      `Бесплатные Прокси в ${countryName} | Прокси-серверы (${code.toUpperCase()})`,
-    description:
-      meta?.descriptionRu ||
-      `Бесплатные проверенные прокси-серверы в регионе ${countryName}. SOCKS5, HTTP и HTTPS прокси. Обновляются каждые 15 минут.`,
+    title,
+    description,
     subpath: `country/${code}`,
     lang: "ru",
-    keywords: meta?.keywordsRu || [
-      `прокси ${countryName.toLowerCase()}`,
-      `бесплатные прокси ${code}`,
-      `${code} proxy list`,
-    ],
+    keywords,
   });
 }
 

@@ -2,7 +2,8 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
-import { Copy, Check, Search, X, Download, ChevronDown, SlidersHorizontal, ArrowUpDown, ShieldCheck, Lock } from "lucide-react";
+import Link from "next/link";
+import { Copy, Check, Search, X, Download, ChevronDown, SlidersHorizontal, ArrowUpDown, ShieldCheck, Lock, Zap } from "lucide-react";
 import type { ProxyRecord } from "@/lib/types";
 import { getCountryDisplayName } from "@/lib/countries";
 import styles from "./ProxyTable.module.css";
@@ -419,6 +420,18 @@ export default function ProxyTable({ proxies, dict }: ProxyTableProps) {
               </div>
             )}
           </div>
+
+          {/* Hydra Link */}
+          <a
+            href="https://github.com/stormsia/hydra"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.hydraPill}
+            title={isRu ? "Проверено движком Hydra Rust каждую минуту" : "Audited 24/7 by Hydra Rust Engine"}
+          >
+            <Zap size={13} style={{ color: "var(--accent)" }} />
+            <span>Hydra</span>
+          </a>
         </div>
       </div>
 
@@ -511,8 +524,13 @@ export default function ProxyTable({ proxies, dict }: ProxyTableProps) {
                       <span className={`${styles.mono} tabular-nums`}>{port}</span>
                     </td>
                     <td>
-                      <div className={styles.countryCell}>
-                        {countryCode ? (
+                      {countryCode ? (
+                        <Link
+                          href={`${isRu ? "/ru" : ""}/country/${countryCode}`}
+                          className={styles.countryCell}
+                          title={isRu ? `Прокси в регионе ${countryName}` : `Proxies in ${countryName}`}
+                          style={{ textDecoration: "none", color: "inherit" }}
+                        >
                           <img
                             src={`https://flagcdn.com/24x18/${countryCode}.png`}
                             alt={countryName}
@@ -522,13 +540,16 @@ export default function ProxyTable({ proxies, dict }: ProxyTableProps) {
                             loading="lazy"
                             decoding="async"
                           />
-                        ) : (
+                          <span className={styles.countryName}>
+                            {countryName}
+                          </span>
+                        </Link>
+                      ) : (
+                        <div className={styles.countryCell}>
                           <span className={styles.flagPlaceholder} />
-                        )}
-                        <span className={styles.countryName} title={countryName}>
-                          {countryName}
-                        </span>
-                      </div>
+                          <span className={styles.countryName}>{countryName}</span>
+                        </div>
+                      )}
                     </td>
                     <td>
                       {renderAnonymityBadge(proxy.anon)}
@@ -581,18 +602,25 @@ export default function ProxyTable({ proxies, dict }: ProxyTableProps) {
               <div key={`m-${id}`} className={styles.proxyCard}>
                 <div className={styles.cardHeader}>
                   <div className={styles.cardCountry}>
-                    {countryCode && (
-                      <img
-                        src={`https://flagcdn.com/24x18/${countryCode}.png`}
-                        alt={countryName}
-                        className={styles.flag}
-                        width={20}
-                        height={15}
-                        loading="lazy"
-                        decoding="async"
-                      />
+                    {countryCode ? (
+                      <Link
+                        href={`${isRu ? "/ru" : ""}/country/${countryCode}`}
+                        style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem", textDecoration: "none", color: "inherit" }}
+                      >
+                        <img
+                          src={`https://flagcdn.com/24x18/${countryCode}.png`}
+                          alt={countryName}
+                          className={styles.flag}
+                          width={20}
+                          height={15}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <span className={styles.countryName}>{countryName}</span>
+                      </Link>
+                    ) : (
+                      <span className={styles.countryName}>{countryName}</span>
                     )}
-                    <span className={styles.countryName}>{countryName}</span>
                   </div>
 
                   <div className={styles.cardBadges}>

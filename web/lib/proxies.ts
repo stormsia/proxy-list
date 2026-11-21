@@ -3,7 +3,7 @@ import fsSync from "fs";
 import path from "path";
 import { cache } from "react";
 import { ProxyRecord, ProxyStats } from "./types";
-import { COUNTRY_META } from "./countries";
+import { COUNTRY_META, ALL_ISO_COUNTRY_CODES } from "./countries";
 
 export const DC_KEYWORDS = [
   "digitalocean",
@@ -179,7 +179,7 @@ export function getProxyStats(proxies: ProxyRecord[]): ProxyStats {
 
 export async function getStaticCountryParams(): Promise<{ code: string }[]> {
   const proxies = await getProxies();
-  const countries = new Set<string>(Object.keys(COUNTRY_META));
+  const countries = new Set<string>(ALL_ISO_COUNTRY_CODES);
 
   for (const p of proxies) {
     if (p.country) {
@@ -187,7 +187,7 @@ export async function getStaticCountryParams(): Promise<{ code: string }[]> {
     }
   }
 
-  return Array.from(countries).map((code) => ({ code }));
+  return Array.from(countries).sort().map((code) => ({ code }));
 }
 
 export async function getStaticProtocolParams(): Promise<{ protocol: string }[]> {

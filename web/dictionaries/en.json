@@ -21,7 +21,7 @@
     "heroPrefix": "Global",
     "heroHighlight": "Proxy",
     "heroSuffix": "Network",
-    "subtitle": "Free, open-source proxy infrastructure for scraping, AI agents, and automation. Auto-updated every 15 minutes.",
+    "subtitle": "Free, open-source proxy infrastructure for scraping, AI agents, and automation. Verified every minute by Hydra.",
     "verifiedProxies": "Verified Proxies",
     "avgResponseTime": "Avg Response Time",
     "protocolsCovered": "Protocols Covered",
@@ -37,7 +37,7 @@
     "items": [
       {
         "question": "How often is the proxy list updated?",
-        "answer": "The proxy list is updated automatically every 15 minutes by our validation daemon."
+        "answer": "The proxy pool is validated continuously every minute by the Hydra Rust engine with a zero-stale guarantee."
       },
       {
         "question": "Are these proxies really free?",

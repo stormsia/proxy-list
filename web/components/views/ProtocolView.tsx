@@ -247,9 +247,22 @@ export default async function ProtocolView({
                 normalizedProtocol.toUpperCase()
               )}
             </h3>
-            <Link href="/" className={styles.primaryButton}>
-              {dict.protocol.viewAll}
-            </Link>
+            <p style={{ color: "var(--text-secondary)", maxWidth: "600px", margin: "0.5rem auto 1.5rem" }}>
+              {isRu
+                ? `В данный момент нет доступных прокси для протокола ${normalizedProtocol.toUpperCase()}. Движок Hydra проверяет сокеты каждую минуту — новые серверы появятся здесь автоматически сразу после подтверждения. Вы можете использовать другие рабочие прокси ниже:`
+                : `No active proxies available for ${normalizedProtocol.toUpperCase()} at the moment. Our Hydra engine tests sockets every minute — new nodes will appear here automatically once validated. Explore other verified proxies below:`}
+            </p>
+            <div style={{ marginBottom: "2rem" }}>
+              <Link href={isRu ? "/ru" : "/"} className={styles.primaryButton}>
+                {dict.protocol.viewAll}
+              </Link>
+            </div>
+            <div style={{ textAlign: "left", marginTop: "1rem" }}>
+              <h4 style={{ marginBottom: "1rem", color: "var(--text-primary)" }}>
+                {isRu ? "Альтернативные проверенные прокси:" : "Alternative Verified Proxies:"}
+              </h4>
+              <ProxyTable proxies={allProxies.slice(0, 20)} dict={dict.table} />
+            </div>
           </div>
         )}
       </section>

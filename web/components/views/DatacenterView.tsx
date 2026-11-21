@@ -194,7 +194,7 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
                 ? "В данный момент нет активных серверных прокси"
                 : "No active datacenter proxies at this moment"}
             </h3>
-            <Link href="/" className={styles.primaryButton}>
+            <Link href={isRu ? "/ru" : "/"} className={styles.primaryButton}>
               {isRu ? "Посмотреть все прокси" : "View All Proxies"}
             </Link>
           </div>

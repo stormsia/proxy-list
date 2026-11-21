@@ -158,34 +158,17 @@ export default async function ResidentialView({ lang }: { lang: Locale }) {
         className={styles.tableSection}
         aria-label="Residential proxy table"
       >
-        {residentialProxies.length > 0 ? (
-          <ProxyTable proxies={residentialProxies} dict={dict.table} />
-        ) : (
-          <div className={styles.emptyState}>
-            <h3>
-              {isRu
-                ? "Нет активных резидентных прокси в текущем цикле"
-                : "No residential proxies active in the current cycle"}
-            </h3>
-            <p
-              style={{
-                color: "var(--text-secondary)",
-                maxWidth: "600px",
-                margin: "0.5rem auto 1.5rem",
-              }}
-            >
-              {isRu
-                ? "Резидентные узлы обладают динамическим временем жизни. Движок Hydra тестирует новые адреса каждую минуту. Вы можете использовать проверенные серверные ноды из общего пула ниже:"
-                : "Residential endpoints rotate frequently. Our Hydra engine verifies candidate nodes every 60 seconds. You can explore verified endpoints from our global pool below:"}
-            </p>
-            <div style={{ marginBottom: "2rem" }}>
-              <Link href={isRu ? "/ru" : "/"} className={styles.primaryButton}>
-                {dict.protocol.viewAll}
-              </Link>
-            </div>
-            <ProxyTable proxies={allProxies.slice(0, 20)} dict={dict.table} />
-          </div>
-        )}
+        <ProxyTable
+          proxies={allProxies}
+          dict={dict.table}
+          initialType="residential"
+          viewAllHref={isRu ? "/ru" : "/"}
+          pageContext={{
+            type: "category",
+            value: "residential",
+            label: isRu ? "Резидентные" : "Residential",
+          }}
+        />
       </section>
 
       <FAQ items={faqItems} title={dict.faq.title} />

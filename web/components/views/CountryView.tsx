@@ -179,31 +179,17 @@ export default async function CountryView({
         className={styles.tableSection}
         aria-label={`${countryName} proxy table`}
       >
-        {filteredProxies.length > 0 ? (
-          <ProxyTable proxies={filteredProxies} dict={dict.table} />
-        ) : (
-          <div className={styles.emptyState}>
-            <h3>
-              {dict.country.emptyTitle.replace("{country}", countryName)}
-            </h3>
-            <p style={{ color: "var(--text-secondary)", maxWidth: "600px", margin: "0.5rem auto 1.5rem" }}>
-              {isRu
-                ? `В данный момент в регионе ${countryName} нет активных прокси. Валидатор Hydra проверяет сокеты каждую минуту — новые рабочие серверы появятся здесь автоматически сразу после подтверждения. Вы можете использовать альтернативные проверенные серверы ниже:`
-                : `No active proxies in ${countryName} at the moment. Our Hydra engine verifies socket health every minute — new nodes will appear here automatically once confirmed. In the meantime, explore the global pool below:`}
-            </p>
-            <div style={{ marginBottom: "2rem" }}>
-              <Link href={isRu ? "/ru" : "/"} className={styles.primaryButton}>
-                {dict.country.viewAll}
-              </Link>
-            </div>
-            <div style={{ textAlign: "left", marginTop: "1rem" }}>
-              <h4 style={{ marginBottom: "1rem", color: "var(--text-primary)" }}>
-                {isRu ? "Альтернативные быстрые прокси со всего мира:" : "Fast Alternative Global Proxies:"}
-              </h4>
-              <ProxyTable proxies={allProxies.slice(0, 20)} dict={dict.table} />
-            </div>
-          </div>
-        )}
+        <ProxyTable
+          proxies={allProxies}
+          dict={dict.table}
+          initialCountry={normalizedCode}
+          viewAllHref={isRu ? "/ru" : "/"}
+          pageContext={{
+            type: "country",
+            value: normalizedCode,
+            label: countryName,
+          }}
+        />
       </section>
 
       <FAQ items={faqItems} title={dict.faq.title} />

@@ -750,4 +750,203 @@
   .resultsCount {
     align-self: flex-end;
   }
+
+  .activeFilterBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .activeFilterActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* Active Filter Bar */
+.activeFilterBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0.9rem;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: var(--radius);
+  flex-wrap: wrap;
+}
+
+.activeFilterTags {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.activeFilterLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.filterChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.filterChip button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 0 0.15rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filterChip button:hover {
+  color: var(--status-slow);
+}
+
+.activeFilterActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.resetFilterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.resetFilterBtn:hover {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: var(--primary);
+}
+
+.catalogLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.catalogLink:hover {
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+}
+
+/* Empty Table State */
+.emptyTableState {
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.emptyIconCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.emptyTitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.emptySubtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.emptyButtonGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.primaryActionButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.1rem;
+  background: var(--primary);
+  color: #030712;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.primaryActionButton:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.secondaryActionButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.55rem 1rem;
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.825rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.secondaryActionButton:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--border-hover);
 }

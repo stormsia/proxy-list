@@ -158,34 +158,17 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
         className={styles.tableSection}
         aria-label="Datacenter proxy table"
       >
-        {dcProxies.length > 0 ? (
-          <ProxyTable proxies={dcProxies} dict={dict.table} />
-        ) : (
-          <div className={styles.emptyState}>
-            <h3>
-              {isRu
-                ? "Нет доступных серверных прокси"
-                : "No datacenter proxies currently available"}
-            </h3>
-            <p
-              style={{
-                color: "var(--text-secondary)",
-                maxWidth: "600px",
-                margin: "0.5rem auto 1.5rem",
-              }}
-            >
-              {isRu
-                ? "Все серверные узлы проходят 60-секундную перепроверку движком Hydra. Ознакомьтесь с общим пулом прокси ниже:"
-                : "All nodes are being re-audited by Hydra's 60-second cycle. Browse the global pool below:"}
-            </p>
-            <div style={{ marginBottom: "2rem" }}>
-              <Link href={isRu ? "/ru" : "/"} className={styles.primaryButton}>
-                {dict.protocol.viewAll}
-              </Link>
-            </div>
-            <ProxyTable proxies={allProxies.slice(0, 20)} dict={dict.table} />
-          </div>
-        )}
+        <ProxyTable
+          proxies={allProxies}
+          dict={dict.table}
+          initialType="datacenter"
+          viewAllHref={isRu ? "/ru" : "/"}
+          pageContext={{
+            type: "category",
+            value: "datacenter",
+            label: isRu ? "Датацентр" : "Datacenter",
+          }}
+        />
       </section>
 
       <FAQ items={faqItems} title={dict.faq.title} />

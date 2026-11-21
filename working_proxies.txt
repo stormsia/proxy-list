@@ -6,11 +6,7 @@ http://3 mins ago@89.58.57.45:80
 http://Philippines@180.190.80.43:5050
 http://Indonesia@163.61.55.243:8081
 http://Thailand@180.180.156.96:80
-http://Indonesia@103.39.51.160:8082
-http://Indonesia@180.211.93.105:8080
-http://Greece@188.164.201.197:666
 http://Philippines@112.203.116.237:8082
-http://Kenya@197.248.18.97:8080
 http://India@103.155.130.134:8082
 http://Philippines@180.191.124.206:8081
 http://Germany@5.161.50.82:8118

@@ -150,6 +150,24 @@
   border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
+.endpointBadge[data-type="md"] {
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.agentReadyBadge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+}
+
 .endpointPath {
   font-family: var(--font-mono);
   font-size: 0.875rem;

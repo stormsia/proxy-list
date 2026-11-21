@@ -1,4 +1,4 @@
-import { Terminal, Code2, Layers, Download, Zap, Shield, BookOpen, ExternalLink, GitBranch, Sparkles } from "lucide-react";
+import { Terminal, Code2, Layers, Download, Zap, Shield, BookOpen, ExternalLink, GitBranch, Sparkles, Bot } from "lucide-react";
 import styles from "@/app/docs/page.module.css";
 import CodeSnippet from "@/components/CodeSnippet";
 import GitHubStarCard from "@/components/GitHubStarCard";
@@ -104,7 +104,7 @@ export default async function DocsView({ lang }: { lang: Locale }) {
             : "Integrate verified proxies into your scrapers, LLM agents, and automation pipelines in minutes. 100% free, zero authentication, no API keys."}
         </p>
 
-        {/* Motivating header action pills */}
+        {/* Motivating header action buttons */}
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "0.75rem", flexWrap: "wrap", marginTop: "1.25rem" }}>
           <a
             href={readmeBaseUrl}
@@ -115,58 +115,6 @@ export default async function DocsView({ lang }: { lang: Locale }) {
           >
             <GitHubIcon size={14} />
             <span>{isRu ? "Полная документация в README на GitHub" : "Complete Documentation in GitHub README"}</span>
-            <ExternalLink size={12} style={{ opacity: 0.7 }} />
-          </a>
-
-          <a
-            href="https://stormsia.github.io/proxy-list/llms.txt"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.readmePill}
-            style={{ background: "rgba(16, 185, 129, 0.1)", borderColor: "rgba(16, 185, 129, 0.3)", color: "#6ee7b7" }}
-            title="Machine-readable context file for LLMs and AI Agents"
-          >
-            <span>🤖</span>
-            <span>llms.txt (AI Agent Spec)</span>
-            <ExternalLink size={12} style={{ opacity: 0.7 }} />
-          </a>
-
-          <a
-            href="https://stormsia.github.io/proxy-list/llms-full.txt"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.readmePill}
-            style={{ background: "rgba(56, 189, 248, 0.1)", borderColor: "rgba(56, 189, 248, 0.3)", color: "#7dd3fc" }}
-            title="Complete developer and AI agent manual"
-          >
-            <span>📖</span>
-            <span>llms-full.txt</span>
-            <ExternalLink size={12} style={{ opacity: 0.7 }} />
-          </a>
-
-          <a
-            href="https://stormsia.github.io/proxy-list/.well-known/ai-catalog.json"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.readmePill}
-            style={{ background: "rgba(245, 158, 11, 0.1)", borderColor: "rgba(245, 158, 11, 0.3)", color: "#fcd34d" }}
-            title="Agentic Resource Discovery (ARD) JSON Catalog"
-          >
-            <span>⚡</span>
-            <span>ai-catalog.json (ARD)</span>
-            <ExternalLink size={12} style={{ opacity: 0.7 }} />
-          </a>
-
-          <a
-            href="https://stormsia.github.io/proxy-list/pricing.md"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.readmePill}
-            style={{ background: "rgba(168, 85, 247, 0.1)", borderColor: "rgba(168, 85, 247, 0.3)", color: "#d8b4fe" }}
-            title="Free tier and rate limit specification for agents"
-          >
-            <span>🏷️</span>
-            <span>pricing.md (Free Tier)</span>
             <ExternalLink size={12} style={{ opacity: 0.7 }} />
           </a>
 
@@ -254,6 +202,69 @@ export default async function DocsView({ lang }: { lang: Locale }) {
                   : "HTTP and HTTPS proxy servers for standard scrapers and cURL automation."}
               </div>
               <a href={`${REPO_RAW}/http.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open Raw HTTP →</a>
+            </div>
+          </div>
+        </section>
+
+        {/* Machine-Readable Endpoints for AI Agents & LLMs */}
+        <section className={styles.section}>
+          <div className={styles.sectionHeaderRow}>
+            <div className={styles.sectionHeading} style={{ marginBottom: 0 }}>
+              <Bot size={20} style={{ color: "var(--primary)" }} />
+              <h2>{isRu ? "Манифесты для ИИ-Агентов и LLM" : "Machine-Readable AI Agent Endpoints"}</h2>
+            </div>
+            <span className={styles.agentReadyBadge}>AgentReady ARD 1.0</span>
+          </div>
+
+          <p>
+            {isRu
+              ? "Стандартизированные документы в открытом текстовом формате для автономных LLM-агентов, парсеров и поисковых ботов (Perplexity, ChatGPT, Claude, Cursor):"
+              : "Standardized plain-text discovery manifests for autonomous AI agents, scrapers, and answer engines (ChatGPT, Claude, Perplexity, Cursor):"}
+          </p>
+
+          <div className={styles.endpointGrid}>
+            <div className={styles.endpointCard}>
+              <span className={styles.endpointBadge} data-type="txt">TXT</span>
+              <div className={styles.endpointPath}>llms.txt</div>
+              <div className={styles.endpointDesc}>
+                {isRu
+                  ? "Контекстный файл по спецификации llmstxt.org: архитектура, эндпоинты, схема и правила выбора прокси."
+                  : "LLM context according to llmstxt.org: architecture, endpoints, schema, and agent decision matrix."}
+              </div>
+              <a href={`${SITE_URL}/llms.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open llms.txt →</a>
+            </div>
+
+            <div className={styles.endpointCard}>
+              <span className={styles.endpointBadge} data-type="txt">TXT</span>
+              <div className={styles.endpointPath}>llms-full.txt</div>
+              <div className={styles.endpointDesc}>
+                {isRu
+                  ? "Полное техническое руководство с готовыми примерами кода для Python, Node.js, Go, Rust и Playwright."
+                  : "Complete developer manual and multi-language code recipes for Python, Node.js, Go, Rust, and Playwright."}
+              </div>
+              <a href={`${SITE_URL}/llms-full.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open llms-full.txt →</a>
+            </div>
+
+            <div className={styles.endpointCard}>
+              <span className={styles.endpointBadge} data-type="json">JSON</span>
+              <div className={styles.endpointPath}>.well-known/ai-catalog.json</div>
+              <div className={styles.endpointDesc}>
+                {isRu
+                  ? "Официальный манифест возможностей по стандарту Agentic Resource Discovery (ARD 1.0)."
+                  : "Official capability manifest adhering to the Agentic Resource Discovery (ARD 1.0) specification."}
+              </div>
+              <a href={`${SITE_URL}/.well-known/ai-catalog.json`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open ai-catalog.json →</a>
+            </div>
+
+            <div className={styles.endpointCard}>
+              <span className={styles.endpointBadge} data-type="md">MD</span>
+              <div className={styles.endpointPath}>pricing.md & AGENTS.md</div>
+              <div className={styles.endpointDesc}>
+                {isRu
+                  ? "Декларация 100% бесплатного тарифа (zero-auth) и протокол ротации IP без банов для автономных ботов."
+                  : "Free tier usage declaration, zero rate limits, and ban-prevention rotation guidelines for agents."}
+              </div>
+              <a href={`${SITE_URL}/pricing.md`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open pricing.md →</a>
             </div>
           </div>
         </section>

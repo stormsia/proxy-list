@@ -1,4 +1,4 @@
-import { Terminal, Code2, Layers, Download, Zap, Shield, Globe } from "lucide-react";
+import { Terminal, Code2, Layers, Download, Zap, Shield, BookOpen, ExternalLink, GitBranch, Sparkles } from "lucide-react";
 import styles from "@/app/docs/page.module.css";
 import CodeSnippet from "@/components/CodeSnippet";
 import Link from "next/link";
@@ -6,7 +6,26 @@ import { getDictionary, Locale } from "@/lib/i18n";
 
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
+const GITHUB_REPO = "https://github.com/stormsia/proxy-list";
 const HYDRA_URL = "https://github.com/stormsia/hydra";
+
+function GitHubIcon({ size = 15 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+    </svg>
+  );
+}
 
 export default async function DocsView({ lang }: { lang: Locale }) {
   const dict = await getDictionary(lang);
@@ -14,6 +33,10 @@ export default async function DocsView({ lang }: { lang: Locale }) {
 
   const pageUrl = isRu ? `${SITE_URL}/ru/docs` : `${SITE_URL}/docs`;
   const homeUrl = isRu ? `${SITE_URL}/ru` : SITE_URL;
+
+  const readmeBaseUrl = isRu
+    ? `${GITHUB_REPO}/blob/main/README.ru.md`
+    : `${GITHUB_REPO}#readme`;
 
   const schemaMarkup = {
     "@context": "https://schema.org/",
@@ -80,32 +103,31 @@ export default async function DocsView({ lang }: { lang: Locale }) {
             : "Integrate verified proxies into your scrapers, LLM agents, and automation pipelines in minutes. 100% free, zero authentication, no API keys."}
         </p>
 
-        <div style={{ marginTop: "1rem" }}>
+        {/* Motivating header action pills */}
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "0.75rem", flexWrap: "wrap", marginTop: "1.25rem" }}>
+          <a
+            href={readmeBaseUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.readmePill}
+            title={isRu ? "Открыть расширенную документацию в репозитории на GitHub" : "View complete developer manual on GitHub"}
+          >
+            <GitHubIcon size={14} />
+            <span>{isRu ? "Полная документация в README на GitHub" : "Complete Documentation in GitHub README"}</span>
+            <ExternalLink size={12} style={{ opacity: 0.7 }} />
+          </a>
+
           <a
             href={HYDRA_URL}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              padding: "0.4rem 0.9rem",
-              background: "rgba(139, 92, 246, 0.12)",
-              border: "1px solid rgba(139, 92, 246, 0.3)",
-              borderRadius: "9999px",
-              color: "#c4b5fd",
-              fontSize: "0.85rem",
-              fontWeight: 500,
-              textDecoration: "none",
-            }}
+            className={styles.readmePill}
+            style={{ background: "rgba(139, 92, 246, 0.1)", borderColor: "rgba(139, 92, 246, 0.3)", color: "#c4b5fd" }}
+            title={isRu ? "Движок валидации Hydra на Rust" : "Hydra Rust Engine Repository"}
           >
-            <Zap size={14} style={{ color: "#a78bfa" }} />
-            <span>
-              {isRu
-                ? "Проверено движком Hydra Rust (проверка каждую минуту)"
-                : "Audited 24/7 by Hydra Rust Engine (1-minute cycle)"}
-            </span>
-            <span>↗</span>
+            <Zap size={13} style={{ color: "var(--accent)" }} />
+            <span>{isRu ? "Движок проверки Hydra (Rust)" : "Hydra Validation Engine (Rust)"}</span>
+            <ExternalLink size={12} style={{ opacity: 0.7 }} />
           </a>
         </div>
       </header>
@@ -113,10 +135,23 @@ export default async function DocsView({ lang }: { lang: Locale }) {
       <div className={styles.content}>
         {/* Endpoints */}
         <section className={styles.section}>
-          <div className={styles.sectionHeading}>
-            <Download size={20} style={{ color: "var(--primary)" }} />
-            <h2>{isRu ? "Прямые Raw CDN Эндпоинты" : "Direct Raw CDN Endpoints"}</h2>
+          <div className={styles.sectionHeaderRow}>
+            <div className={styles.sectionHeading} style={{ marginBottom: 0 }}>
+              <Download size={20} style={{ color: "var(--primary)" }} />
+              <h2>{isRu ? "Прямые Raw CDN Эндпоинты" : "Direct Raw CDN Endpoints"}</h2>
+            </div>
+            <a
+              href={`${readmeBaseUrl}#-direct-raw-endpoints`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.readmeInlineBtn}
+              title={isRu ? "Подробная таблица эндпоинтов в README на GitHub" : "View complete endpoints spec in README"}
+            >
+              <BookOpen size={13} />
+              <span>{isRu ? "Спецификация в README →" : "Endpoints in README →"}</span>
+            </a>
           </div>
+
           <p>
             {isRu
               ? "Все эндпоинты ниже доступны напрямую через GET-запросы с глобального CDN GitHub без ограничений скорости (rate limits) и без авторизации:"
@@ -172,10 +207,23 @@ export default async function DocsView({ lang }: { lang: Locale }) {
 
         {/* JSON Schema */}
         <section className={styles.section}>
-          <div className={styles.sectionHeading}>
-            <Layers size={20} style={{ color: "var(--accent)" }} />
-            <h2>{isRu ? "Актуальная JSON Схема (Hydra Engine)" : "Accurate JSON Dataset Schema (Hydra Engine)"}</h2>
+          <div className={styles.sectionHeaderRow}>
+            <div className={styles.sectionHeading} style={{ marginBottom: 0 }}>
+              <Layers size={20} style={{ color: "var(--accent)" }} />
+              <h2>{isRu ? "Актуальная JSON Схема (Hydra Engine)" : "Accurate JSON Dataset Schema (Hydra Engine)"}</h2>
+            </div>
+            <a
+              href={`${readmeBaseUrl}#-json-dataset-schema-dataproxiesjson`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.readmeInlineBtn}
+              title={isRu ? "Подробное описание типов и полей в README" : "Detailed type interface in README"}
+            >
+              <GitHubIcon size={13} />
+              <span>{isRu ? "Типы и спецификация в README →" : "Schema Specs in README →"}</span>
+            </a>
           </div>
+
           <p>
             {isRu
               ? "Актуальный файл данных находится в репозитории по пути data/proxies.json. Каждый объект валидируется Rust-движком Hydra и содержит следующую структуру:"
@@ -216,14 +264,50 @@ export default async function DocsView({ lang }: { lang: Locale }) {
   }
 ]`}
           />
+
+          {/* Motivation card for schema details */}
+          <div className={styles.readmeCardBanner}>
+            <div className={styles.readmeCardContent}>
+              <Sparkles size={20} style={{ color: "var(--accent)" }} />
+              <div className={styles.readmeCardText}>
+                <strong>{isRu ? "Нужны готовые TypeScript интерфейсы и валидаторы?" : "Need Ready-to-Use TypeScript Interfaces & Type Guards?"}</strong>
+                <span>
+                  {isRu
+                    ? "В README на GitHub приведены полные интерфейсы ProxyRecord, примеры строгого парсинга и фильтрации по SLA."
+                    : "The GitHub README contains the complete ProxyRecord TypeScript definitions, filter utilities, and quantile benchmarks."}
+                </span>
+              </div>
+            </div>
+            <a
+              href={`${readmeBaseUrl}#-quickstart--download-guides`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.readmeCardBtn}
+            >
+              <span>{isRu ? "Открыть в README" : "Read in README"}</span>
+              <ExternalLink size={13} />
+            </a>
+          </div>
         </section>
 
         {/* Bash & cURL */}
         <section className={styles.section}>
-          <div className={styles.sectionHeading}>
-            <Terminal size={20} style={{ color: "#10b981" }} />
-            <h2>{isRu ? "Bash и cURL Однострочники" : "Bash & cURL One-Liners"}</h2>
+          <div className={styles.sectionHeaderRow}>
+            <div className={styles.sectionHeading} style={{ marginBottom: 0 }}>
+              <Terminal size={20} style={{ color: "#10b981" }} />
+              <h2>{isRu ? "Bash и cURL Однострочники" : "Bash & cURL One-Liners"}</h2>
+            </div>
+            <a
+              href={`${readmeBaseUrl}#-bash--curl-one-liners`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.readmeInlineBtn}
+            >
+              <GitHubIcon size={13} />
+              <span>{isRu ? "Больше скриптов в README →" : "More Scripts in README →"}</span>
+            </a>
           </div>
+
           <p>
             {isRu
               ? "Мгновенное использование в терминале или CI/CD скриптах:"
@@ -252,10 +336,22 @@ curl -sSfL "${REPO_RAW}/data/proxies.json" | \\
 
         {/* Python */}
         <section className={styles.section}>
-          <div className={styles.sectionHeading}>
-            <Code2 size={20} style={{ color: "#3b82f6" }} />
-            <h2>{isRu ? "Python (Requests, Async HTTPX и фильтрация JSON)" : "Python (Requests, Async HTTPX & JSON Ingestion)"}</h2>
+          <div className={styles.sectionHeaderRow}>
+            <div className={styles.sectionHeading} style={{ marginBottom: 0 }}>
+              <Code2 size={20} style={{ color: "#3b82f6" }} />
+              <h2>{isRu ? "Python (Requests, Async HTTPX и фильтрация JSON)" : "Python (Requests, Async HTTPX & JSON Ingestion)"}</h2>
+            </div>
+            <a
+              href={`${readmeBaseUrl}#-python-requests-httpx-async--json-filtering`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.readmeInlineBtn}
+            >
+              <GitHubIcon size={13} />
+              <span>{isRu ? "Python гайды в README →" : "Python Guides in README →"}</span>
+            </a>
           </div>
+
           <p>
             {isRu
               ? "Пример загрузки датасета с фильтрацией по протоколу, стране, уровню анонимности и задержке:"
@@ -286,10 +382,22 @@ for node in qualified[:5]:
 
         {/* Node.js / TypeScript */}
         <section className={styles.section}>
-          <div className={styles.sectionHeading}>
-            <Code2 size={20} style={{ color: "#f59e0b" }} />
-            <h2>{isRu ? "JavaScript / TypeScript / Node.js" : "JavaScript / TypeScript / Node.js"}</h2>
+          <div className={styles.sectionHeaderRow}>
+            <div className={styles.sectionHeading} style={{ marginBottom: 0 }}>
+              <Code2 size={20} style={{ color: "#f59e0b" }} />
+              <h2>{isRu ? "JavaScript / TypeScript / Node.js" : "JavaScript / TypeScript / Node.js"}</h2>
+            </div>
+            <a
+              href={`${readmeBaseUrl}#-javascript--typescript--nodejs-native-fetch-node-18`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.readmeInlineBtn}
+            >
+              <GitHubIcon size={13} />
+              <span>{isRu ? "Node.js примеры в README →" : "Node.js Examples in README →"}</span>
+            </a>
           </div>
+
           <p>
             {isRu
               ? "Работа с типизированным фидом через нативный Fetch (Node.js 18+ без внешних библиотек):"
@@ -321,8 +429,32 @@ fetchHighSlaProxies().then((proxies) => {
           />
         </section>
 
+        {/* Comprehensive Architecture & Telemetry Banner */}
+        <div className={styles.readmeCardBanner} style={{ marginTop: "2.5rem", background: "linear-gradient(135deg, rgba(30, 27, 75, 0.6) 0%, rgba(17, 24, 39, 0.8) 100%)", borderColor: "rgba(139, 92, 246, 0.3)" }}>
+          <div className={styles.readmeCardContent}>
+            <GitBranch size={24} style={{ color: "#a78bfa" }} />
+            <div className={styles.readmeCardText}>
+              <strong>{isRu ? "Подробная архитектура системы и графики квантилей" : "Complete System Architecture & Quantile Charts"}</strong>
+              <span>
+                {isRu
+                  ? "В официальном README на GitHub представлены распределения RTT (xychart), географические доли стран, схемы жизненного цикла нод и документация интеграции."
+                  : "The official GitHub README features RTT latency distribution charts, top geographic source tables, node state machines, and Docker/CLI workflows."}
+              </span>
+            </div>
+          </div>
+          <a
+            href={`${readmeBaseUrl}#-system-architecture`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.readmeCardBtn}
+          >
+            <GitHubIcon size={14} />
+            <span>{isRu ? "Смотреть в README на GitHub →" : "Explore on GitHub README →"}</span>
+          </a>
+        </div>
+
         {/* Anonymity Levels Guide */}
-        <section className={styles.section}>
+        <section className={styles.section} style={{ marginTop: "3.5rem" }}>
           <div className={styles.sectionHeading}>
             <Shield size={20} style={{ color: "#8b5cf6" }} />
             <h2>{isRu ? "Классификация Уровней Анонимности" : "Anonymity Classification Guide"}</h2>

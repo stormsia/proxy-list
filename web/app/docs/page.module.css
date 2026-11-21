@@ -277,3 +277,116 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* GitHub Readme links and buttons */
+.readmePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.readmePill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.sectionHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.readmeInlineBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--primary);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.readmeInlineBtn:hover {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.readmeCardBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(135deg, rgba(24, 24, 27, 0.8) 0%, rgba(18, 18, 22, 0.9) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-top: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.readmeCardBanner:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.readmeCardContent {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-width: 250px;
+}
+
+.readmeCardText {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.readmeCardText strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.readmeCardBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.readmeCardBtn:hover {
+  background: rgba(139, 92, 246, 0.35);
+  border-color: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+}

@@ -10,3 +10,17 @@ http://Indonesia@160.25.35.204:8181
 http://Switzerland@147.161.246.34:10803
 http://Switzerland@147.161.246.34:10152
 http://Philippines@180.190.80.43:5050
+http://Indonesia@163.61.55.243:8081
+http://Thailand@180.180.156.96:80
+http://Indonesia@103.39.51.160:8082
+http://Indonesia@103.24.215.249:8082
+http://Indonesia@180.211.93.105:8080
+http://Greece@188.164.201.197:666
+http://Philippines@112.203.116.237:8082
+http://Kenya@197.248.18.97:8080
+http://India@103.155.130.134:8082
+http://Philippines@180.191.124.206:8081
+http://Germany@5.161.50.82:8118
+http://Vietnam@171.238.156.104:3128
+http://Pakistan@203.99.183.197:3128
+http://Indonesia@203.175.102.67:3125

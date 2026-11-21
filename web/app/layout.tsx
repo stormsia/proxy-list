@@ -79,6 +79,9 @@ export const metadata: Metadata = {
       "Open-source, auto-updated proxy list. SOCKS5, HTTP, HTTPS, SOCKS4. Verified by async validator. JSON API available.",
     creator: "@stormsia",
   },
+  verification: {
+    google: "Ilxb2F7zsbKpIgNLwUwwxbxNlrbuD6-89ZG-yCgwYbo",
+  },
   icons: {
     icon: [
       { url: "/proxy-list/icon.svg", type: "image/svg+xml" },
@@ -162,6 +165,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Site Verification (Search Console) */}
+        <meta
+          name="google-site-verification"
+          content="Ilxb2F7zsbKpIgNLwUwwxbxNlrbuD6-89ZG-yCgwYbo"
+        />
+
+        {/* Microsoft Clarity */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "wz3d0xan93");`,
+          }}
+        />
+
         <link rel="icon" type="image/svg+xml" href={`${SITE_URL}/icon.svg`} />
         <link rel="apple-touch-icon" sizes="180x180" href={`${SITE_URL}/apple-touch-icon.png`} />
         <link rel="alternate" type="text/markdown" href={`${SITE_URL}/llms.txt`} title="LLM Context (llms.txt)" />

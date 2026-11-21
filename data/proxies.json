@@ -59,69 +59,7 @@
     "remark": null,
     "first_seen_at": 1795224594,
     "last_checked_at": 1795228968,
-    "next_check_at": 1795229148
-  },
-  {
-    "id": "41.220.16.209:80",
-    "ip": "41.220.16.209",
-    "port": 80,
-    "url": "http://41.220.16.209:80",
-    "protocol": "http",
-    "has_auth": false,
-    "auth_user": null,
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "41.220.17.62",
-    "country": "ZW",
-    "asn": 37204,
-    "asn_org": "TELONE",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 264,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 2726,
-    "uptime_pct": 100.0,
-    "stability_pct": 100.0,
-    "stability_window_min": 5,
-    "checks_total": 1,
-    "checks_success": 1,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224440,
-    "last_checked_at": 1795229014,
-    "next_check_at": 1795229195
-  },
-  {
-    "id": "41.220.16.223:80",
-    "ip": "41.220.16.223",
-    "port": 80,
-    "url": "http://41.220.16.223:80",
-    "protocol": "http",
-    "has_auth": false,
-    "auth_user": null,
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "41.220.17.62",
-    "country": "ZW",
-    "asn": 37204,
-    "asn_org": "TELONE",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 264,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 3113,
-    "uptime_pct": 100.0,
-    "stability_pct": 100.0,
-    "stability_window_min": 5,
-    "checks_total": 1,
-    "checks_success": 1,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224440,
-    "last_checked_at": 1795229015,
-    "next_check_at": 1795229195
+    "next_check_at": 1795229273
   },
   {
     "id": "202.43.165.140:10802:Indonesia:",
@@ -152,7 +90,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795228959,
-    "next_check_at": 1795229139
+    "next_check_at": 1795229259
   },
   {
     "id": "110.76.144.112:1080:Indonesia:",
@@ -183,7 +121,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795228950,
-    "next_check_at": 1795229130
+    "next_check_at": 1795229259
   },
   {
     "id": "34.207.102.197:39323",
@@ -245,7 +183,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795228944,
-    "next_check_at": 1795229124
+    "next_check_at": 1795229259
   },
   {
     "id": "45.74.31.46:5113:United States:",
@@ -276,7 +214,7 @@
     "remark": null,
     "first_seen_at": 1795225622,
     "last_checked_at": 1795228931,
-    "next_check_at": 1795229111
+    "next_check_at": 1795229237
   },
   {
     "id": "45.74.31.42:5782:Vietnam:",
@@ -400,7 +338,7 @@
     "remark": null,
     "first_seen_at": 1795224523,
     "last_checked_at": 1795228963,
-    "next_check_at": 1795229143
+    "next_check_at": 1795229273
   },
   {
     "id": "110.39.151.50:1080:Pakistan:",
@@ -493,7 +431,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795228968,
-    "next_check_at": 1795229148
+    "next_check_at": 1795229273
   },
   {
     "id": "5.75.133.113:10802:United States:",
@@ -524,7 +462,7 @@
     "remark": null,
     "first_seen_at": 1795225622,
     "last_checked_at": 1795228954,
-    "next_check_at": 1795229134
+    "next_check_at": 1795229259
   },
   {
     "id": "147.161.246.37:11361",
@@ -555,37 +493,6 @@
     "remark": null,
     "first_seen_at": 1795224731,
     "last_checked_at": 1795228971,
-    "next_check_at": 1795229152
-  },
-  {
-    "id": "197.221.240.240:80",
-    "ip": "197.221.240.240",
-    "port": 80,
-    "url": "http://197.221.240.240:80",
-    "protocol": "http",
-    "has_auth": false,
-    "auth_user": null,
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "41.220.17.62",
-    "country": "ZW",
-    "asn": 37204,
-    "asn_org": "TELONE",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 265,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 17345,
-    "uptime_pct": 100.0,
-    "stability_pct": 100.0,
-    "stability_window_min": 5,
-    "checks_total": 1,
-    "checks_success": 1,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224440,
-    "last_checked_at": 1795228965,
-    "next_check_at": 1795229145
+    "next_check_at": 1795229273
   }
 ]

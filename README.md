@@ -8,7 +8,7 @@
 
 
 <!-- Row 1: Repository Lifecycle & Engine Status (All 20px flat-square) -->
-[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--21%2005:39%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
+[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--21%2005%3A41%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/Update%20Cycle-Every%20Minute-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)
@@ -16,10 +16,10 @@
 <br/>
 
 <!-- Row 2: Live Proxy Inventory & Protocol Breakdown (All 20px flat-square) -->
-[![Total Active](https://img.shields.io/badge/Total%20Active-961%20Nodes-10b981?style=flat-square)](working_proxies.txt)
-[![HTTP / HTTPS](https://img.shields.io/badge/HTTP%20%2F%20HTTPS-389-3b82f6?style=flat-square)](http.txt)
+[![Total Active](https://img.shields.io/badge/Total%20Active-1028%20Nodes-10b981?style=flat-square)](working_proxies.txt)
+[![HTTP / HTTPS](https://img.shields.io/badge/HTTP%20%2F%20HTTPS-401-3b82f6?style=flat-square)](http.txt)
 [![SOCKS4](https://img.shields.io/badge/SOCKS4-0-8b5cf6?style=flat-square)](socks4.txt)
-[![SOCKS5](https://img.shields.io/badge/SOCKS5-572-ec4899?style=flat-square)](socks5.txt)
+[![SOCKS5](https://img.shields.io/badge/SOCKS5-627-ec4899?style=flat-square)](socks5.txt)
 [![Proxies by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-by-hydra-pill-20.svg)](https://github.com/stormsia/hydra)
 
 <br/>
@@ -48,7 +48,7 @@ All proxies in this repository are actively audited and validated by [**Hydra**]
 
 <br/>
 
-<img src="assets/telemetry-overview.svg?t=1795239592" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
+<img src="assets/telemetry-overview.svg?t=1795239700" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
 
 <br/>
 
@@ -70,19 +70,19 @@ All proxies in this repository are actively audited and validated by [**Hydra**]
 xychart-beta
     title "Round-Trip Time Distribution across Active Nodes"
     x-axis ["< 2s (Fast)", "2s - 5s (Normal)", "5s - 10s (High)", "> 10s (Queue)"]
-    y-axis "Node Count" 0 --> 350
-    bar [263, 251, 270, 177]
+    y-axis "Node Count" 0 --> 450
+    bar [166, 269, 356, 237]
 ```
 
 ### Top Geographic Sources
 | Country | Code | Share | Nodes | Primary Protocols |
 | :--- | :---: | :--- | :---: | :--- |
-| **United States** | `US` | `████░░░░░░░░░░░░░░` 22.6% | 217 | HTTP, SOCKS5 |
-| **Türkiye** | `TR` | `██░░░░░░░░░░░░░░░░` 11.1% | 107 | HTTP |
-| **France** | `FR` | `██░░░░░░░░░░░░░░░░` 9.5% | 91 | HTTP, SOCKS5 |
-| **Switzerland** | `CH` | `██░░░░░░░░░░░░░░░░` 9.1% | 87 | HTTP |
-| **India** | `IN` | `█░░░░░░░░░░░░░░░░░` 5.0% | 48 | HTTP, SOCKS5 |
-| **Russia** | `RU` | `█░░░░░░░░░░░░░░░░░` 4.4% | 42 | HTTP, SOCKS5 |
+| **United States** | `US` | `████░░░░░░░░░░░░░░` 23.9% | 246 | HTTP, SOCKS5 |
+| **Switzerland** | `CH` | `██░░░░░░░░░░░░░░░░` 10.3% | 106 | HTTP |
+| **Türkiye** | `TR` | `██░░░░░░░░░░░░░░░░` 9.4% | 97 | HTTP, SOCKS5 |
+| **France** | `FR` | `██░░░░░░░░░░░░░░░░` 8.7% | 89 | HTTP, SOCKS5 |
+| **India** | `IN` | `█░░░░░░░░░░░░░░░░░` 6.3% | 65 | SOCKS5 |
+| **Russia** | `RU` | `█░░░░░░░░░░░░░░░░░` 3.5% | 36 | HTTP, SOCKS5 |
 </details>
 
 ---
@@ -93,11 +93,14 @@ Use these direct raw CDN links in your scrapers, CLI automation scripts, CI/CD p
 
 | Protocol / Dataset | Format | Active Count | Line Example | Target Use Case | Raw Direct CDN Link | Local File |
 | :--- | :---: | :---: | :--- | :--- | :---: | :---: |
-| **🌐 HTTP / HTTPS** | `URI` | `389 nodes` | `http://109.199.119.160:80` | Web scrapers, standard cURL, REST APIs | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) | [`http.txt`](http.txt) |
+| **🌐 HTTP / HTTPS** | `URI` | `401 nodes` | `http://109.199.119.160:80` | Web scrapers, standard cURL, REST APIs | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) | [`http.txt`](http.txt) |
 | **🛡️ SOCKS4** | `URI` | `0 nodes` | `socks4://host:port` | TCP stream routing, firewall traversal | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) | [`socks4.txt`](socks4.txt) |
-| **🔒 SOCKS5** | `URI` | `572 nodes` | `socks5://Germany@91.107.179.68:10809` | High-anonymity clients, UDP/TCP tunneling | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) | [`socks5.txt`](socks5.txt) |
-| **📦 All Combined** | `URI` | `961 nodes` | `protocol://host:port` | General rotators, universal fallback pools | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) | [`working_proxies.txt`](working_proxies.txt) |
-| **🗺️ Enriched Telemetry** | `JSON` | `961 objects` | `[{"ip":"...","country":"DE",...}]` | Geo-routing, ASN targeting, SLA filtering | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json) | [`data/proxies.json`](data/proxies.json) |
+| **🔒 SOCKS5** | `URI` | `627 nodes` | `socks5://45.74.31.47:4148` | High-anonymity clients, UDP/TCP tunneling | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) | [`socks5.txt`](socks5.txt) |
+| **📦 All Combined** | `URI` | `1028 nodes` | `protocol://host:port` | General rotators, universal fallback pools | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) | [`working_proxies.txt`](working_proxies.txt) |
+| **🗺️ Enriched Telemetry** | `JSON` | `1028 objects` | `[{"ip":"...","country":"DE",...}]` | Geo-routing, ASN targeting, SLA filtering | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json) | [`data/proxies.json`](data/proxies.json) |
+
+> [!NOTE]
+> If a proxy in `http.txt`, `socks5.txt`, or `working_proxies.txt` contains a username and password, it is distributed in `protocol://user:password@host:port` format instead of `protocol://host:port`.
 
 > [!TIP]
 > Need structured metadata such as **Country code**, **ASN Organization**, **Elite anonymity tier**, and **sub-second latency metrics**? Use [`data/proxies.json`](https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json) to filter nodes programmatically before routing traffic.
@@ -118,10 +121,15 @@ curl -sSfL "https://raw.githubusercontent.com/stormsia/proxy-list/main/working_p
 
 # 2. Pick a random HTTP proxy and route a request through it
 RANDOM_HTTP=$(curl -sSfL "https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt" | shuf -n 1)
-echo "Testing via: ${RANDOM_HTTP}"
+echo "Testing HTTP via: ${RANDOM_HTTP}"
 curl -s --connect-timeout 5 -x "${RANDOM_HTTP}" https://httpbin.org/ip
 
-# 3. Stream and filter JSON dataset using jq (SOCKS5, non-null latency < 500ms)
+# 3. Pick a random SOCKS5 proxy and route through it (with remote DNS resolution)
+RANDOM_SOCKS5=$(curl -sSfL "https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt" | shuf -n 1)
+echo "Testing SOCKS5 via: ${RANDOM_SOCKS5}"
+curl -s --connect-timeout 5 -x "${RANDOM_SOCKS5}" https://httpbin.org/ip
+
+# 4. Stream and filter JSON dataset using jq (SOCKS5, non-null latency < 500ms)
 curl -sSfL "https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json" | \
   jq -r '.[] | select(.protocol == "socks5" and .rtt_total_ms != null and .rtt_total_ms < 500) | .url'
 ```
@@ -379,11 +387,11 @@ func main() {
 
 	var fastAlive []ProxyRecord
 	for _, p := range dataset {
-		if p.State == "alive" && p.RTTTotalMs != nil && *p.RTTTotalMs < 500 {
+		if p.State == "alive" && p.Protocol == "socks5" && p.RTTTotalMs != nil && *p.RTTTotalMs < 500 {
 			fastAlive = append(fastAlive, p)
 		}
 	}
-	fmt.Printf("Filtered %d alive nodes with latency < 500ms.\n", len(fastAlive))
+	fmt.Printf("Filtered %d alive SOCKS5 nodes with latency < 500ms.\n", len(fastAlive))
 }
 ```
 </details>

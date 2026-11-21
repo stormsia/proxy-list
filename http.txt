@@ -1,11 +1,5 @@
-http://3 mins ago@89.58.57.45:80
 http://Singapore@159.223.41.216:9090
-http://1 min ago@103.82.20.76:8080
 http://Cameroon@102.244.78.61:8082
-http://2 mins ago@197.221.249.197:80
-http://3 mins ago@197.221.240.246:80
-http://3 mins ago@197.221.234.253:80
-http://3 mins ago@197.221.240.178:80
 http://Indonesia@160.25.35.204:8181
 http://Switzerland@147.161.246.34:10803
 http://Switzerland@147.161.246.34:10152

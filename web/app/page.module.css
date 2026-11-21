@@ -3,6 +3,66 @@
   text-align: center;
 }
 
+.heroBadgeRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.hydraHeroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 9999px;
+  color: #c4b5fd;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 0 16px rgba(139, 92, 246, 0.15);
+  transition: all 0.2s ease;
+}
+
+.hydraHeroBadge:hover {
+  background: rgba(139, 92, 246, 0.22);
+  border-color: rgba(139, 92, 246, 0.55);
+  color: #ffffff;
+}
+
+.starHeroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.9rem;
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.12) 0%, rgba(245, 158, 11, 0.06) 100%);
+  border: 1px solid rgba(234, 179, 8, 0.35);
+  border-radius: 9999px;
+  color: #fde047;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 16px rgba(234, 179, 8, 0.12);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.starHeroBadge:hover {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.22) 0%, rgba(245, 158, 11, 0.15) 100%);
+  border-color: rgba(234, 179, 8, 0.65);
+  box-shadow: 0 0 24px rgba(234, 179, 8, 0.25);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.heroStarIcon {
+  color: #f59e0b;
+  filter: drop-shadow(0 0 4px rgba(234, 179, 8, 0.5));
+}
+
 .title {
   font-size: 3.5rem;
   font-weight: 800;

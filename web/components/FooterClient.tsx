@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Star } from "lucide-react";
 import styles from "./Footer.module.css";
 import { getCountryDisplayName } from "@/lib/countries";
 import type { ProxyStats } from "@/lib/types";
@@ -45,7 +46,7 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
                 ? "Бесплатный открытый список прокси SOCKS5, SOCKS4, HTTP и HTTPS, непрерывно проверяемый валидатором Hydra каждую минуту."
                 : "Open-source, auto-updated free proxy list. SOCKS5, SOCKS4, HTTP and HTTPS proxies verified continuously every minute by the Hydra engine."}
             </p>
-            <div style={{ marginTop: "0.85rem" }}>
+            <div style={{ marginTop: "0.85rem", display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
               <a
                 href="https://github.com/stormsia/hydra"
                 target="_blank"
@@ -65,6 +66,16 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
                 }}
               >
                 ⚡ {isRu ? "Проверено движком Hydra" : "Verified with Hydra Engine"} ↗
+              </a>
+              <a
+                href="https://github.com/stormsia/proxy-list"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.footerStarBadge}
+                title={isRu ? "Поставить звезду stormsia/proxy-list на GitHub" : "Star stormsia/proxy-list on GitHub"}
+              >
+                <Star size={13} fill="#eab308" color="#eab308" />
+                <span>{isRu ? "Поставить звезду" : "Star on GitHub"}</span>
               </a>
             </div>
           </div>
@@ -115,6 +126,26 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
               </li>
               <li>
                 <a
+                  href="https://stormsia.github.io/proxy-list/llms.txt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LLM Context for AI Agents"
+                >
+                  llms.txt (AI Context) ↗
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://stormsia.github.io/proxy-list/llms-full.txt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Comprehensive Developer and AI Agent Reference"
+                >
+                  llms-full.txt (Full AI Spec) ↗
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://github.com/stormsia/hydra"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -138,7 +169,17 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
             >
               stormsia/proxy-list
             </a>
-            . {isRu ? "Открытый исходный код. Полностью бесплатно." : "Open-source. Free to use."}
+            . {isRu ? "Открытый исходный код. Полностью бесплатно." : "Open-source. Free to use."}{" "}
+            <a
+              href="https://github.com/stormsia/proxy-list"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.bottomStarPill}
+              title={isRu ? "Поставить звезду на GitHub" : "Star on GitHub"}
+            >
+              <Star size={11} fill="#eab308" color="#eab308" />
+              <span>{isRu ? "Поставить звезду" : "Star on GitHub"}</span>
+            </a>
           </p>
           <div className={styles.seoText}>
             {isRu

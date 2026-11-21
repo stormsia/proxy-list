@@ -11,6 +11,7 @@
 [![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--21%2009%3A47%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/更新周期-每分钟-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/stormsia/proxy-list?style=flat-square&logo=github&color=eab308&label=Stars)](https://github.com/stormsia/proxy-list/stargazers)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)
 
 <br/>
@@ -33,6 +34,8 @@
 专为网络爬虫、自动化机器人、安全研究人员与开发者设计的高吞吐量、持续测试的开源代理池。我们的自动化守护进程每分钟聚合候选代理，并通过严格的多阶段套接字与协议验证。
 
 所有列表均通过 GitHub 全球高速 CDN 以纯文本端点和丰富 JSON 形式发布 —— **100% 免费，无需认证，无需 API Key，无速率限制**。
+
+> ⭐️ **觉得这个项目对你有帮助？** 请在 [GitHub 上为我们点亮一颗 Star](https://github.com/stormsia/proxy-list)，帮助更多开发者和数据工程师发现这个免费代理池！
 
 ---
 

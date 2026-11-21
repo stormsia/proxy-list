@@ -145,3 +145,48 @@
   line-height: 1.5;
   opacity: 0.8;
 }
+
+.footerStarBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fde047;
+  background: rgba(234, 179, 8, 0.1);
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid rgba(234, 179, 8, 0.25);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footerStarBadge:hover {
+  background: rgba(234, 179, 8, 0.2);
+  border-color: rgba(234, 179, 8, 0.5);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.bottomStarPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-left: 0.5rem;
+  padding: 0.15rem 0.55rem;
+  background: rgba(234, 179, 8, 0.1);
+  border: 1px solid rgba(234, 179, 8, 0.25);
+  border-radius: var(--radius-full);
+  color: #fbbf24 !important;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  vertical-align: middle;
+  transition: all 0.2s ease;
+}
+
+.bottomStarPill:hover {
+  background: rgba(234, 179, 8, 0.2);
+  border-color: rgba(234, 179, 8, 0.5);
+  color: #ffffff !important;
+}

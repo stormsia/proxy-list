@@ -4,8 +4,8 @@
     "docs": "Docs & API"
   },
   "footer": {
-    "desc": "Open-source, auto-updated free proxy list. SOCKS5, SOCKS4, HTTP and HTTPS proxies verified every 15 minutes.",
-    "viewData": "View the data on ",
+    "desc": "Open-source, continuously updated free proxy pool. SOCKS5, SOCKS4, HTTP and HTTPS nodes audited every 60 seconds by the Hydra Rust engine.",
+    "viewData": "View raw data on ",
     "proxyProtocols": "Proxy Protocols",
     "locations": "Locations",
     "residential": "Residential Proxies",
@@ -13,43 +13,57 @@
     "docs": "Developer API & Docs",
     "resources": "Resources",
     "openSource": "Open-source. Free to use.",
-    "seoText": "Free public proxy list: SOCKS5, SOCKS4, HTTP and HTTPS proxy servers sourced globally, verified by a validator every 15 minutes. Includes residential and datacenter proxies with geolocation and ASN data."
+    "seoText": "Free public proxy pool: live SOCKS5, SOCKS4, HTTP and HTTPS nodes across 239 countries, verified every 60 seconds by the Hydra validation engine. Includes residential and datacenter IPs with millisecond RTT benchmarks and ASN telemetry."
   },
   "home": {
-    "title": "Free Proxy List | SOCKS5 · HTTP · HTTPS · SOCKS4",
-    "description": "Download a free, auto-updated proxy list with SOCKS5, HTTP, HTTPS and SOCKS4 proxies. Verified by a high-speed validator.",
+    "title": "Free Proxy List — Live SOCKS5, HTTP & HTTPS Proxies (Updated Every Minute)",
+    "description": "Download free, continuously verified SOCKS5, SOCKS4, HTTP and HTTPS proxies. Audited every 60 seconds by the Hydra engine with millisecond latency, uptime metrics, and raw JSON feeds.",
     "heroPrefix": "Global",
     "heroHighlight": "Proxy",
     "heroSuffix": "Network",
-    "subtitle": "Free, open-source proxy infrastructure for scraping, AI agents, and automation. Verified every minute by Hydra.",
+    "subtitle": "Zero-auth public proxy infrastructure for web scraping, AI agents, and network testing. Audited every 60 seconds by Hydra with millisecond RTT telemetry.",
     "verifiedProxies": "Verified Proxies",
     "avgResponseTime": "Avg Response Time",
     "protocolsCovered": "Protocols Covered",
     "networkTopology": "Network Topology",
-    "seoTitle": "Free Proxy List for Developers, Scrapers & AI Agents",
+    "seoTitle": "Free Verified Proxy Infrastructure for Scrapers, Data Pipelines & AI Agents",
     "proxyDirectory": "Proxy Directory",
-    "starPrefix": "Find this project useful? Please consider",
+    "starPrefix": "Help other developers find this project by",
     "starLink": "starring our repository on GitHub",
     "starSuffix": "."
+  },
+  "starCard": {
+    "badge": "Open-Source Community",
+    "title": "Help Other Developers Discover This Project",
+    "description": "Starring stormsia/proxy-list on GitHub boosts project visibility, helping scrapers, AI agent builders, and backend developers discover an actively tested, zero-stale proxy pool.",
+    "button": "Star on GitHub"
   },
   "faq": {
     "title": "Frequently Asked Questions",
     "items": [
       {
-        "question": "How often is the proxy list updated?",
-        "answer": "The proxy pool is validated continuously every minute by the Hydra Rust engine with a zero-stale guarantee."
+        "question": "How often is the proxy list updated and tested?",
+        "answer": "The proxy pool is re-validated continuously every 60 seconds by Hydra, a multi-threaded Rust validation engine. Nodes that fail TCP socket handshakes, TLS negotiation, or response deadlines are placed into cooldown or purged immediately, ensuring zero stale endpoints in the active pool."
       },
       {
-        "question": "Are these proxies really free?",
-        "answer": "Yes, all proxy servers listed are completely free and open-source. There are no paid tiers or registrations."
+        "question": "Are these proxies free, and do they require API keys?",
+        "answer": "All endpoints (JSON feed, plain-text files, and web directory) are 100% free and open-source under MIT / CC-BY 4.0 licenses. No sign-ups, subscriptions, or API keys are required. You can consume raw feeds directly via GitHub's global CDN with zero rate limits."
       },
       {
-        "question": "What protocols are supported?",
-        "answer": "We support SOCKS5, SOCKS4, HTTP, and HTTPS protocols."
+        "question": "What is the difference between SOCKS5 and HTTP proxies for web scraping?",
+        "answer": "HTTP proxies operate at the application layer and tunnel HTTP/HTTPS traffic via the CONNECT method. SOCKS5 operates at layer 5 (session layer), routing arbitrary TCP and UDP traffic without altering request headers. For tools like curl, Python httpx, and Puppeteer, SOCKS5 with remote DNS resolution (socks5h://) prevents DNS leaks and minimizes target-side bot detection."
       },
       {
-        "question": "Can I use these proxies for web scraping?",
-        "answer": "Yes, you can use these proxies for web scraping, AI agents, testing, and other automation tasks."
+        "question": "How do you classify proxy anonymity (Elite vs Anonymous vs Transparent)?",
+        "answer": "Anonymity is determined during Hydra's protocol inspection: Elite (Level 1) forwards no identifying proxy headers (Via, X-Forwarded-For), making requests indistinguishable from direct visits; Anonymous (Level 2) conceals your real IP but declares proxy presence; Transparent (Level 3) transmits your client IP in headers. We recommend Elite and Anonymous nodes for scraping."
+      },
+      {
+        "question": "How should I handle proxy rotation and prevent IP bans?",
+        "answer": "Pull a local pool from our raw endpoints (data/proxies.json or working_proxies.txt). Filter nodes by RTT < 1000ms and uptime > 80%. Rotate your egress IP every 10–25 requests or immediately upon receiving HTTP 429 (Too Many Requests) or 403 (Forbidden). Always apply jitter to request intervals and rotate User-Agent headers alongside IPs."
+      },
+      {
+        "question": "How can I integrate this proxy pool into Python, Node.js, or cURL?",
+        "answer": "Fetch https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json for rich metadata or socks5.txt for flat host:port pairs. In cURL, route via 'curl -x socks5h://host:port https://httpbin.org/ip'. In Python, pass the proxy URL to requests or httpx.AsyncClient(proxy='socks5://host:port'). Check our Docs & API page for complete, runnable code examples."
       }
     ]
   },
@@ -75,8 +89,8 @@
   "protocol": {
     "titlePrefix": "Free",
     "titleSuffix": "Proxy List",
-    "subtitle": "verified {protocol} proxy servers — updated every 15 minutes.",
-    "subtitleEmpty": "Continuously updated list of {protocol} proxy servers.",
+    "subtitle": "verified {protocol} proxy servers — audited every 60 seconds by Hydra.",
+    "subtitleEmpty": "Continuously validated pool of {protocol} proxy servers with millisecond latency metrics.",
     "aboutTitle": "What is a {protocol} Proxy?",
     "downloadTxt": "Download this list directly as a plain-text file:",
     "emptyTitle": "No {protocol} proxies currently available",
@@ -85,33 +99,33 @@
   "country": {
     "titlePrefix": "Free",
     "titleSuffix": "Proxy List",
-    "subtitle": "verified proxy servers located in {country}. SOCKS5, SOCKS4 and HTTP — auto-updated every 15 minutes.",
+    "subtitle": "verified proxy servers located in {country}. SOCKS5, SOCKS4 and HTTP — audited every 60 seconds by Hydra.",
     "subtitleEmpty": "Proxy servers located in {country}. Filter by protocol, download as plain text or JSON.",
     "proxiesLabel": "proxies",
     "aboutTitle": "About {country} Proxies",
     "aboutText1": "This page lists all verified proxy servers with an exit IP physically located in ",
-    "aboutText2": ". The data is sourced from the open-source ",
+    "aboutText2": ". Sourced and validated in real time by the open-source Hydra engine.",
     "emptyTitle": "No proxies currently available for {country}",
     "viewAll": "View All Proxies"
   },
   "docs": {
     "title": "Developer Docs & API",
-    "subtitle": "Integrate proxies into your scrapers, LLM pipelines and automation tools in minutes. No API keys, no registration.",
-    "intro1": "is a fully open-source project that runs an asynchronous Python daemon every 15 minutes to collect, validate and publish free proxy servers. Each proxy is tested by a native",
-    "intro2": "for actual connectivity and response time — only working proxies make it to the list.",
-    "intro3": "All data is freely accessible without authentication: grab a plain-text file with",
-    "intro4": ", poll the JSON feed, or query the GitHub REST API. This page documents every integration method available.",
+    "subtitle": "Integrate proxies into your scrapers, LLM pipelines, and automation tools in minutes. Zero auth, no API keys, direct CDN access.",
+    "intro1": "is an open-source proxy infrastructure project running continuous 60-second validation cycles powered by the Hydra Rust engine. Each candidate proxy undergoes real-time socket handshakes, TLS verification, and latency benchmarks — only confirmed active nodes are published.",
+    "intro2": "All data feeds are freely accessible without authentication: download plain-text lists, stream our flat JSON dataset, or query raw endpoints via CDN.",
+    "intro3": "All endpoints are updated in real time directly on GitHub and served through edge CDNs with full CORS support.",
+    "intro4": "This page documents every integration method, JSON schema definition, and runnable code snippet in Python, Node.js, Go, and cURL.",
     "availableEndpoints": "Available Data Endpoints",
     "endpointsDesc": "All endpoints below are publicly accessible without authentication. GitHub's raw CDN also supports HTTP range requests for partial downloads.",
-    "jsonDesc": "Full proxy list as JSON. Contains protocol, host, port, timeout, exit_ip, ASN, and geolocation for every entry.",
+    "jsonDesc": "Full proxy list as JSON. Contains protocol, host, port, RTT latency, exit IP, ASN, ISP name, and geolocation for every entry.",
     "txtAll": "All working proxies in host:port format. One entry per line.",
     "txtSocks5": "SOCKS5-only proxies in host:port format.",
-    "txtHttp": "HTTP/HTTPS-only proxies.",
+    "txtHttp": "HTTP/HTTPS-only proxies in host:port format.",
     "jsonSchema": "JSON Schema Reference",
-    "jsonSchemaDesc": "Each entry in proxies.json follows this structure:",
+    "jsonSchemaDesc": "Each entry in proxies.json follows the flat Hydra Engine schema:",
     "pythonTitle": "Python — Auto-Update & Use",
-    "pythonDesc": "Fetch and immediately use the latest proxies inside a requests session:",
+    "pythonDesc": "Fetch and immediately use the latest proxies inside a requests or httpx session:",
     "anonymityDisclaimer": "Anonymity Disclaimer",
-    "anonymityDesc": "Proxies in this list have varying anonymity levels — transparent, anonymous, and elite. The project does not guarantee anonymity for any specific proxy. Always verify the anonymity level of a proxy with a tool like httpbin.org/ip before using it in production."
+    "anonymityDesc": "Proxies in this pool have varying anonymity levels: Elite, Anonymous, and Transparent. The project does not guarantee anonymity for third-party servers. Always verify the anonymity level of an egress IP using an inspection endpoint (such as httpbin.org/ip) before routing production workloads."
   }
 }

@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useMemo, useState, useRef } from "react";
+import { useMemo, useState, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { Globe, Zap, ExternalLink } from "lucide-react";
+import { Globe, Zap, ExternalLink, Activity, Radio, Share2, ShieldCheck, ArrowRight } from "lucide-react";
 import type { ProxyRecord } from "@/lib/types";
 import { getCountryCoordinates, getCountryDisplayName } from "@/lib/countries";
+import { WORLD_LAND_PATH } from "@/lib/worldLandmass";
 import styles from "./VectorWorldMap.module.css";
 
 interface VectorWorldMapProps {
@@ -22,50 +23,51 @@ interface CountryCluster {
   protocols: Record<string, number>;
   avgLatency: number;
   sampleProxy?: string;
+  sharePercent: number;
+  rank: number;
 }
 
-// Simplified high-aesthetic landmass paths for natural world map projection (1000x500 viewBox)
-const CONTINENT_PATHS = [
-  // North America
-  "M 160 65 L 195 55 L 250 50 L 310 65 L 340 90 L 300 115 L 290 140 L 250 140 L 235 170 L 260 195 L 285 190 L 305 210 L 285 240 L 245 255 L 230 240 L 225 210 L 190 200 L 175 170 L 150 160 L 130 135 L 120 100 L 135 75 Z",
-  // Greenland
-  "M 350 40 L 415 35 L 440 60 L 400 95 L 360 85 Z",
-  // Central America & Caribbean
-  "M 230 245 L 250 260 L 275 275 L 290 295 L 270 305 L 250 285 L 225 260 Z",
-  // South America
-  "M 285 300 L 335 315 L 380 340 L 410 380 L 380 435 L 350 480 L 320 495 L 305 450 L 295 400 L 275 350 L 270 320 Z",
-  // Europe
-  "M 470 95 L 525 80 L 565 75 L 595 100 L 585 130 L 545 155 L 520 170 L 495 175 L 465 150 L 450 120 L 470 95 Z",
-  // Scandinavia
-  "M 515 55 L 555 45 L 575 70 L 550 100 L 525 90 Z",
-  // United Kingdom & Ireland
-  "M 455 105 L 475 95 L 480 120 L 460 130 Z M 440 115 L 450 110 L 450 125 L 440 125 Z",
-  // Africa
-  "M 480 185 L 545 180 L 595 210 L 635 255 L 610 320 L 585 385 L 545 425 L 515 410 L 485 340 L 460 280 L 445 220 L 470 190 Z",
-  // Madagascar
-  "M 640 350 L 655 355 L 645 400 L 630 390 Z",
-  // Asia (Mainland & Siberia)
-  "M 590 75 L 680 50 L 780 45 L 890 55 L 940 85 L 910 125 L 860 135 L 830 170 L 870 210 L 845 250 L 790 260 L 760 230 L 715 255 L 675 225 L 640 175 L 610 135 Z",
-  // Japan
-  "M 890 145 L 910 140 L 925 175 L 895 190 Z",
-  // Southeast Asia & Indonesia
-  "M 740 260 L 785 270 L 805 305 L 775 320 L 735 290 Z M 770 340 L 820 335 L 860 355 L 800 370 Z",
-  // Australia
-  "M 810 375 L 880 365 L 935 390 L 930 450 L 880 475 L 825 450 L 800 410 Z",
-  // New Zealand
-  "M 950 450 L 970 445 L 965 485 L 945 480 Z"
-];
+interface TransitRoute {
+  id: string;
+  sourceCode: string;
+  targetCode: string;
+  sourceX: number;
+  sourceY: number;
+  targetX: number;
+  targetY: number;
+  path: string;
+  distance: number;
+}
 
+// Equirectangular projection for 1000x500 viewBox
 function projectCoords(lat: number, lon: number): [number, number] {
-  // Equirectangular projection for 1000x500 viewBox
   const x = ((lon + 180) / 360) * 1000;
   const y = ((90 - lat) / 180) * 500;
   return [Math.round(x * 10) / 10, Math.round(y * 10) / 10];
 }
 
+// Generate quadratic Bezier arc curving gracefully upward towards the poles
+function createCurvedArc(x1: number, y1: number, x2: number, y2: number): string {
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  const dist = Math.hypot(dx, dy);
+
+  // Midpoint
+  const mx = (x1 + x2) / 2;
+  const my = (y1 + y2) / 2;
+
+  // Arc height arches upward
+  const arcHeight = Math.min(65, Math.max(18, dist * 0.16));
+  const cx = mx;
+  const cy = my - arcHeight;
+
+  return `M ${x1.toFixed(1)} ${y1.toFixed(1)} Q ${cx.toFixed(1)} ${cy.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+}
+
 export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapProps) {
   const router = useRouter();
   const [activeProtocol, setActiveProtocol] = useState<string>("all");
+  const [showRoutes, setShowRoutes] = useState<boolean>(true);
   const [hoveredCluster, setHoveredCluster] = useState<CountryCluster | null>(null);
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -73,7 +75,7 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
   const isRu = lang === "ru";
   const prefix = isRu ? "/ru" : "";
 
-  // Filter proxies by protocol if selected
+  // 1. Filter proxies by protocol
   const filteredProxies = useMemo(() => {
     if (activeProtocol === "all") return proxies;
     const p = activeProtocol.toLowerCase();
@@ -83,15 +85,18 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
     return proxies.filter((item) => (item.protocol || "").toLowerCase() === p);
   }, [proxies, activeProtocol]);
 
-  // Aggregate country clusters with coordinates
+  // 2. Aggregate country clusters
   const clusters = useMemo<CountryCluster[]>(() => {
-    const map = new Map<string, {
-      count: number;
-      protocols: Record<string, number>;
-      totalLatency: number;
-      latencyCount: number;
-      sample?: string;
-    }>();
+    const map = new Map<
+      string,
+      {
+        count: number;
+        protocols: Record<string, number>;
+        totalLatency: number;
+        latencyCount: number;
+        sample?: string;
+      }
+    >();
 
     for (const p of filteredProxies) {
       const code = (p.country || "").toLowerCase();
@@ -102,7 +107,7 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
         protocols: {},
         totalLatency: 0,
         latencyCount: 0,
-        sample: `${p.protocol}://${p.ip}:${p.port}`,
+        sample: `${(p.protocol || "http").toLowerCase()}://${p.ip}:${p.port}`,
       };
 
       existing.count++;
@@ -120,7 +125,9 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
       map.set(code, existing);
     }
 
+    const totalProxies = filteredProxies.length || 1;
     const list: CountryCluster[] = [];
+
     map.forEach((data, code) => {
       const coords = getCountryCoordinates(code);
       if (!coords) return;
@@ -128,6 +135,7 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
       const [x, y] = projectCoords(coords[0], coords[1]);
       const avgLatency = data.latencyCount > 0 ? Math.round(data.totalLatency / data.latencyCount) : 0;
       const name = getCountryDisplayName(code, code.toUpperCase(), lang);
+      const sharePercent = Math.round((data.count / totalProxies) * 1000) / 10;
 
       list.push({
         code,
@@ -138,141 +146,341 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
         protocols: data.protocols,
         avgLatency,
         sampleProxy: data.sample,
+        sharePercent,
+        rank: 0,
       });
     });
 
-    return list.sort((a, b) => b.count - a.count);
+    list.sort((a, b) => b.count - a.count);
+    list.forEach((c, i) => {
+      c.rank = i + 1;
+    });
+
+    return list;
   }, [filteredProxies, lang]);
 
+  // 3. Compute dynamic planetary backbone transit routes
+  const transitRoutes = useMemo<TransitRoute[]>(() => {
+    if (!showRoutes || clusters.length < 2) return [];
+
+    // Focus on top 8 hubs for meaningful backbone connectivity
+    const hubs = clusters.slice(0, 8);
+    const routes: TransitRoute[] = [];
+    const connectedPairs = new Set<string>();
+
+    for (let i = 0; i < hubs.length; i++) {
+      for (let j = i + 1; j < hubs.length; j++) {
+        const h1 = hubs[i];
+        const h2 = hubs[j];
+
+        // Avoid long Pacific wraps for now to keep equirectangular lines clean
+        const dx = Math.abs(h2.x - h1.x);
+        if (dx > 540) continue;
+
+        const pairKey = [h1.code, h2.code].sort().join("::");
+        if (connectedPairs.has(pairKey)) continue;
+
+        const distance = Math.hypot(h2.x - h1.x, h2.y - h1.y);
+        // Skip excessively distant or tiny routes
+        if (distance < 35 || distance > 580) continue;
+
+        connectedPairs.add(pairKey);
+        routes.push({
+          id: pairKey,
+          sourceCode: h1.code,
+          targetCode: h2.code,
+          sourceX: h1.x,
+          sourceY: h1.y,
+          targetX: h2.x,
+          targetY: h2.y,
+          path: createCurvedArc(h1.x, h1.y, h2.x, h2.y),
+          distance,
+        });
+
+        // Limit to maximum 12 backbone routes for ultra-clean aesthetics
+        if (routes.length >= 12) break;
+      }
+      if (routes.length >= 12) break;
+    }
+
+    return routes;
+  }, [clusters, showRoutes]);
+
+  // Metrics summary
   const totalCountries = clusters.length;
   const totalMappedNodes = filteredProxies.length;
   const topCluster = clusters[0];
 
-  const handleNodeClick = (code: string) => {
-    router.push(`${prefix}/country/${code.toLowerCase()}`);
-  };
+  const overallAvgLatency = useMemo(() => {
+    const latencies = clusters.filter((c) => c.avgLatency > 0);
+    if (!latencies.length) return 0;
+    const sum = latencies.reduce((acc, c) => acc + c.avgLatency, 0);
+    return Math.round(sum / latencies.length);
+  }, [clusters]);
 
-  const handleMouseEnter = (cluster: CountryCluster, e: React.MouseEvent) => {
-    setHoveredCluster(cluster);
-    updateTooltipPos(e);
-  };
+  const handleNodeClick = useCallback(
+    (code: string) => {
+      router.push(`${prefix}/country/${code.toLowerCase()}`);
+    },
+    [router, prefix]
+  );
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (hoveredCluster) {
-      updateTooltipPos(e);
-    }
-  };
-
-  const updateTooltipPos = (e: React.MouseEvent) => {
+  const updateTooltipPos = useCallback((e: React.MouseEvent) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
+    const x = Math.max(110, Math.min(rect.width - 110, e.clientX - rect.left));
     const y = e.clientY - rect.top;
     setTooltipPos({ x, y });
-  };
+  }, []);
 
-  const handleMouseLeave = () => {
+  const handleMouseEnter = useCallback(
+    (cluster: CountryCluster, e: React.MouseEvent) => {
+      setHoveredCluster(cluster);
+      updateTooltipPos(e);
+    },
+    [updateTooltipPos]
+  );
+
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent) => {
+      if (hoveredCluster) {
+        updateTooltipPos(e);
+      }
+    },
+    [hoveredCluster, updateTooltipPos]
+  );
+
+  const handleMouseLeave = useCallback(() => {
     setHoveredCluster(null);
     setTooltipPos(null);
-  };
+  }, []);
 
   return (
     <div className={styles.mapContainer} ref={containerRef} onMouseMove={handleMouseMove}>
-      {/* Map Control Header */}
+      {/* Top HUD Control Bar */}
       <div className={styles.mapHeader}>
         <div className={styles.headerLeft}>
           <div className={styles.mapTitle}>
-            <Globe size={18} style={{ color: "var(--primary)" }} />
-            <span>{isRu ? "Топология сети и геораспределение" : "Global Network Topology & Geodistribution"}</span>
+            <span className={styles.beaconDot} aria-hidden="true" />
+            <Globe size={17} className={styles.titleIcon} />
+            <span className={styles.titleText}>
+              {isRu ? "Топология глобальной сети" : "Global Network Topology"}
+            </span>
           </div>
 
           <div className={styles.headerPills}>
-            <span className={styles.statPill}>
-              <strong style={{ color: "var(--text-primary)" }}>{totalMappedNodes}</strong> {isRu ? "нод" : "nodes"}
-            </span>
-            <span className={styles.statPill}>
-              <strong style={{ color: "var(--text-primary)" }}>{totalCountries}</strong> {isRu ? "стран" : "countries"}
-            </span>
+            <div className={styles.statPill}>
+              <Activity size={12} className={styles.pillIcon} />
+              <strong className={styles.statValue}>{totalMappedNodes}</strong>
+              <span className={styles.statLabel}>{isRu ? "нод" : "nodes"}</span>
+            </div>
+
+            <div className={styles.statPill}>
+              <Radio size={12} className={styles.pillIcon} />
+              <strong className={styles.statValue}>{totalCountries}</strong>
+              <span className={styles.statLabel}>{isRu ? "стран" : "countries"}</span>
+            </div>
+
+            {overallAvgLatency > 0 && (
+              <div className={styles.statPill} title={isRu ? "Средний пинг пула" : "Pool average latency"}>
+                <Zap size={12} className={styles.pillIcon} style={{ color: "#38bdf8" }} />
+                <strong className={styles.statValue}>{overallAvgLatency}</strong>
+                <span className={styles.statLabel}>ms</span>
+              </div>
+            )}
+
             {topCluster && (
-              <span className={styles.statPill} title={`Top country: ${topCluster.name}`}>
-                🏆 {topCluster.name} ({topCluster.count})
-              </span>
+              <div
+                className={`${styles.statPill} ${styles.topHubPill}`}
+                title={`${isRu ? "Ведущий хаб сети" : "Network Primary Hub"}: ${topCluster.name}`}
+              >
+                <span className={styles.hubCrown}>👑</span>
+                <span className={styles.hubName}>{topCluster.name}</span>
+                <span className={styles.hubCount}>({topCluster.count})</span>
+              </div>
             )}
           </div>
         </div>
 
-        {/* Protocol filter pills on map */}
-        <div className={styles.filterGroup}>
-          {(["all", "socks5", "http", "socks4"] as const).map((proto) => (
-            <button
-              key={proto}
-              type="button"
-              className={`${styles.filterBtn} ${activeProtocol === proto ? styles.filterBtnActive : ""}`}
-              onClick={() => setActiveProtocol(proto)}
-            >
-              {proto === "all" ? (isRu ? "Все" : "All") : proto.toUpperCase()}
-            </button>
-          ))}
+        {/* Controls: Protocol filters & Transit Routes toggle */}
+        <div className={styles.headerRight}>
+          <button
+            type="button"
+            className={`${styles.toggleRoutesBtn} ${showRoutes ? styles.toggleRoutesActive : ""}`}
+            onClick={() => setShowRoutes(!showRoutes)}
+            title={isRu ? "Переключить отображение магистралей" : "Toggle backbone transit routes"}
+            aria-pressed={showRoutes}
+          >
+            <Share2 size={13} />
+            <span>{isRu ? "Магистрали" : "Routes"}</span>
+          </button>
+
+          <div className={styles.filterGroup}>
+            {(["all", "socks5", "http", "socks4"] as const).map((proto) => (
+              <button
+                key={proto}
+                type="button"
+                className={`${styles.filterBtn} ${activeProtocol === proto ? styles.filterBtnActive : ""}`}
+                onClick={() => setActiveProtocol(proto)}
+              >
+                {proto === "all" ? (isRu ? "Все" : "All") : proto.toUpperCase()}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* SVG Canvas */}
+      {/* Interactive SVG Surface */}
       <div className={styles.svgWrapper} onMouseLeave={handleMouseLeave}>
         <svg
           viewBox="0 0 1000 500"
           className={styles.worldSvg}
           preserveAspectRatio="xMidYMid meet"
-          aria-label="Interactive world map showing active proxy distribution"
+          aria-label="Interactive high-precision world map of proxy servers"
         >
           <defs>
-            {/* Coordinate grid pattern */}
-            <pattern id="world-grid" width="50" height="50" patternUnits="userSpaceOnUse">
-              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255, 255, 255, 0.02)" strokeWidth="0.5" />
+            {/* Background Cyber Coordinate Grid */}
+            <pattern id="cyber-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path
+                d="M 40 0 L 0 0 0 40"
+                fill="none"
+                stroke="rgba(255, 255, 255, 0.02)"
+                strokeWidth="0.5"
+              />
+              <circle cx="0" cy="0" r="0.75" fill="rgba(56, 189, 248, 0.15)" />
             </pattern>
 
-            {/* Glowing radial gradient for radar nodes */}
-            <radialGradient id="emeraldGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#10b981" stopOpacity="0.8" />
-              <stop offset="60%" stopColor="#10b981" stopOpacity="0.25" />
+            {/* Landmass Matrix Micro-Dot Grid */}
+            <pattern id="cyber-dots" width="9" height="9" patternUnits="userSpaceOnUse">
+              <circle cx="4.5" cy="4.5" r="0.85" fill="#38bdf8" fillOpacity="0.16" />
+            </pattern>
+
+            {/* Node Radial Glow Halos */}
+            <radialGradient id="glowEmerald" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#10b981" stopOpacity="0.85" />
+              <stop offset="45%" stopColor="#10b981" stopOpacity="0.3" />
               <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
             </radialGradient>
 
-            <radialGradient id="violetGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
-              <stop offset="60%" stopColor="#8b5cf6" stopOpacity="0.25" />
-              <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0" />
+            <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.85" />
+              <stop offset="45%" stopColor="#06b6d4" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#06b6d4" stopOpacity="0" />
             </radialGradient>
+
+            <radialGradient id="glowViolet" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#a855f7" stopOpacity="0.85" />
+              <stop offset="45%" stopColor="#a855f7" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
+            </radialGradient>
+
+            {/* Linear Radar Sweep Gradient */}
+            <linearGradient id="radarSweepGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0" />
+              <stop offset="70%" stopColor="#06b6d4" stopOpacity="0.04" />
+              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.12" />
+            </linearGradient>
+
+            {/* Backbone route gradient */}
+            <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#10b981" stopOpacity="0.25" />
+              <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.65" />
+              <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.25" />
+            </linearGradient>
           </defs>
 
-          {/* Grid Background */}
-          <rect width="1000" height="500" fill="url(#world-grid)" />
+          {/* Layer 1: Background & Graticule */}
+          <rect width="1000" height="500" fill="#08090d" />
+          <rect width="1000" height="500" fill="url(#cyber-grid)" />
 
-          {/* Longitude & Latitude lines */}
-          <line x1="0" y1="250" x2="1000" y2="250" className={styles.equator} />
-          <line x1="500" y1="0" x2="500" y2="500" className={styles.gridLines} />
-          <line x1="250" y1="0" x2="250" y2="500" className={styles.gridLines} />
-          <line x1="750" y1="0" x2="750" y2="500" className={styles.gridLines} />
+          {/* Latitude Parallels */}
+          <line x1="0" y1="250" x2="1000" y2="250" className={styles.equatorLine} />
+          <line x1="0" y1="185" x2="1000" y2="185" className={styles.tropicLine} />
+          <line x1="0" y1="315" x2="1000" y2="315" className={styles.tropicLine} />
 
-          {/* Continents */}
-          <g className={styles.continentsGroup}>
-            {CONTINENT_PATHS.map((d, index) => (
-              <path key={index} d={d} className={styles.continent} />
-            ))}
+          {/* Longitude Meridians */}
+          <line x1="500" y1="0" x2="500" y2="500" className={styles.meridianPrime} />
+          <line x1="250" y1="0" x2="250" y2="500" className={styles.meridianLine} />
+          <line x1="750" y1="0" x2="750" y2="500" className={styles.meridianLine} />
+
+          {/* Coordinate Watermarks */}
+          <text x="14" y="246" className={styles.geoLabel}>
+            0° EQUATOR
+          </text>
+          <text x="506" y="16" className={styles.geoLabel}>
+            0° UTC
+          </text>
+          <text x="14" y="181" className={styles.geoLabel}>
+            +23.5° TROPIC
+          </text>
+          <text x="14" y="329" className={styles.geoLabel}>
+            -23.5° TROPIC
+          </text>
+
+          {/* Layer 2: Geographic Landmass Topology */}
+          <g className={styles.landmassGroup}>
+            {/* Solid sleek landmass base */}
+            <path d={WORLD_LAND_PATH} className={styles.landmassBase} />
+            {/* Cyber Dot-Matrix Overlay */}
+            <path d={WORLD_LAND_PATH} fill="url(#cyber-dots)" className={styles.landmassDots} />
+            {/* Razor-sharp glowing coastline rim */}
+            <path d={WORLD_LAND_PATH} className={styles.landmassRim} fill="none" />
           </g>
 
-          {/* Interactive Country Cluster Nodes */}
+          {/* Layer 3: Radar Scan Beam */}
+          <g className={styles.radarGroup}>
+            <rect x="0" y="0" width="80" height="500" fill="url(#radarSweepGrad)" className={styles.radarSweep} />
+          </g>
+
+          {/* Layer 4: Backbone Telemetry Transit Routes */}
+          {showRoutes && (
+            <g className={styles.transitGroup}>
+              {transitRoutes.map((route) => {
+                const isHoverConnected =
+                  hoveredCluster &&
+                  (hoveredCluster.code === route.sourceCode || hoveredCluster.code === route.targetCode);
+                const isDimmed = hoveredCluster && !isHoverConnected;
+
+                return (
+                  <g
+                    key={route.id}
+                    className={`${styles.routeItem} ${isHoverConnected ? styles.routeActive : ""} ${
+                      isDimmed ? styles.routeDimmed : ""
+                    }`}
+                  >
+                    {/* Shadow / Base Arc */}
+                    <path d={route.path} className={styles.routeBase} />
+                    {/* Glowing animated laser packet pulse */}
+                    <path d={route.path} className={styles.routePulse} />
+                    {/* Live traveling telemetry packet */}
+                    <circle r="2.2" className={styles.routePacket}>
+                      <animateMotion
+                        dur={`${Math.max(3.2, Math.min(8.5, route.distance / 45))}s`}
+                        repeatCount="indefinite"
+                        path={route.path}
+                      />
+                    </circle>
+                  </g>
+                );
+              })}
+            </g>
+          )}
+
+          {/* Layer 5: Interactive Country Cluster Nodes */}
           <g className={styles.nodesGroup}>
             {clusters.map((cluster) => {
-              // Size proportional to node count
-              const radius = Math.min(18, Math.max(5, 5 + Math.log2(cluster.count) * 2.2));
+              // Proportional radius with clean bounds
+              const radius = Math.min(16, Math.max(5, 4.5 + Math.log2(cluster.count) * 1.8));
               const isLarge = cluster.count >= 50;
               const isMedium = cluster.count >= 15;
-              const coreColor = isLarge ? "#10b981" : isMedium ? "#38bdf8" : "#8b5cf6";
+              const coreColor = isLarge ? "#10b981" : isMedium ? "#06b6d4" : "#a855f7";
+              const glowGradient = isLarge ? "url(#glowEmerald)" : isMedium ? "url(#glowCyan)" : "url(#glowViolet)";
+              const isSelected = hoveredCluster?.code === cluster.code;
 
               return (
                 <g
                   key={cluster.code}
-                  className={styles.nodeGroup}
+                  className={`${styles.nodeGroup} ${isSelected ? styles.nodeGroupHovered : ""}`}
                   transform={`translate(${cluster.x}, ${cluster.y})`}
                   onClick={() => handleNodeClick(cluster.code)}
                   onMouseEnter={(e) => handleMouseEnter(cluster, e)}
@@ -281,43 +489,44 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
                   aria-label={`${cluster.name}: ${cluster.count} active proxies`}
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
                       handleNodeClick(cluster.code);
                     }
                   }}
                 >
-                  {/* Outer animated radar ping ring */}
+                  {/* Concentric radar ping rings */}
                   <circle
-                    r={radius * 1.8}
+                    r={radius * 1.7}
                     fill="none"
                     stroke={coreColor}
-                    strokeWidth="1.5"
+                    strokeWidth="1.2"
                     className={styles.nodePing}
+                    style={{
+                      animationDelay: `${((cluster.x + cluster.y) % 24) * 0.12}s`,
+                    }}
                   />
 
-                  {/* Soft ambient glow halo */}
-                  <circle
-                    r={radius * 1.5}
-                    fill={isLarge ? "url(#emeraldGlow)" : "url(#violetGlow)"}
-                  />
+                  {/* Soft ambient glow halo for hubs */}
+                  <circle r={radius * 1.55} fill={glowGradient} className={styles.nodeGlow} />
 
                   {/* Core node dot */}
                   <circle
                     r={radius}
                     fill={coreColor}
-                    stroke="#09090c"
-                    strokeWidth="1.5"
+                    stroke="#08090d"
+                    strokeWidth="1.75"
                     className={styles.nodeCore}
                   />
 
-                  {/* Count badge for prominent clusters */}
-                  {cluster.count >= 20 && (
+                  {/* Hub count label for prominent nodes */}
+                  {cluster.count >= 15 && (
                     <text
-                      y="3.5"
+                      y="3.2"
                       textAnchor="middle"
                       fill="#ffffff"
-                      fontSize="9"
+                      fontSize={cluster.count >= 100 ? "8" : "8.5"}
                       fontWeight="700"
-                      style={{ pointerEvents: "none", userSelect: "none" }}
+                      className={styles.nodeText}
                     >
                       {cluster.count}
                     </text>
@@ -328,78 +537,119 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
           </g>
         </svg>
 
-        {/* Floating Tooltip */}
+        {/* Cinematic HUD Floating Tooltip */}
         {hoveredCluster && tooltipPos && (
           <div
-            className={styles.tooltip}
+            className={styles.tooltipCard}
             style={{
               left: `${tooltipPos.x}px`,
-              top: `${tooltipPos.y}px`,
+              top: `${tooltipPos.y < 170 ? tooltipPos.y + 24 : tooltipPos.y - 12}px`,
+              transform: tooltipPos.y < 170 ? "translate(-50%, 0)" : "translate(-50%, -100%)",
             }}
           >
-            <div className={styles.tooltipHeader}>
-              <img
-                src={`https://flagcdn.com/24x18/${hoveredCluster.code.toLowerCase()}.png`}
-                alt={hoveredCluster.name}
-                width={18}
-                height={13}
-                className={styles.tooltipFlag}
-              />
-              <span className={styles.tooltipCountry}>{hoveredCluster.name}</span>
+            {/* Tooltip Header */}
+            <div className={styles.tooltipHead}>
+              <div className={styles.tooltipHeadLeft}>
+                <img
+                  src={`https://flagcdn.com/24x18/${hoveredCluster.code.toLowerCase()}.png`}
+                  alt=""
+                  width={20}
+                  height={15}
+                  className={styles.tooltipFlag}
+                  loading="lazy"
+                />
+                <div className={styles.tooltipTitleWrap}>
+                  <span className={styles.tooltipCountry}>{hoveredCluster.name}</span>
+                  <span className={styles.tooltipIso}>{hoveredCluster.code.toUpperCase()}</span>
+                </div>
+              </div>
+
+              <div className={styles.tooltipRankPill}>
+                #{hoveredCluster.rank} {isRu ? "хаб" : "hub"}
+              </div>
             </div>
 
-            <div className={styles.tooltipCount}>
-              ⚡ <strong>{hoveredCluster.count}</strong> {isRu ? "активных нод" : "active nodes"}
-            </div>
-
-            <div className={styles.tooltipMeta}>
-              {Object.entries(hoveredCluster.protocols).map(([proto, count]) => (
-                <span key={proto}>
-                  {proto.toUpperCase()}: <strong>{count}</strong>
+            {/* Metrics Breakdown */}
+            <div className={styles.tooltipBody}>
+              <div className={styles.tooltipMetricRow}>
+                <span className={styles.tooltipMetricLabel}>{isRu ? "Активных нод:" : "Active Nodes:"}</span>
+                <span className={styles.tooltipMetricVal}>
+                  ⚡ <strong>{hoveredCluster.count}</strong>{" "}
+                  <span className={styles.tooltipPercent}>({hoveredCluster.sharePercent}%)</span>
                 </span>
-              ))}
+              </div>
+
               {hoveredCluster.avgLatency > 0 && (
-                <span>
-                  • {isRu ? "Пинг" : "RTT"}: <strong>{hoveredCluster.avgLatency}ms</strong>
-                </span>
+                <div className={styles.tooltipMetricRow}>
+                  <span className={styles.tooltipMetricLabel}>{isRu ? "Средний RTT:" : "Avg Latency:"}</span>
+                  <span
+                    className={styles.tooltipLatencyBadge}
+                    data-latency={
+                      hoveredCluster.avgLatency <= 120 ? "fast" : hoveredCluster.avgLatency <= 250 ? "med" : "slow"
+                    }
+                  >
+                    {hoveredCluster.avgLatency} ms
+                  </span>
+                </div>
+              )}
+
+              {/* Protocols Bar */}
+              <div className={styles.tooltipProtocols}>
+                {Object.entries(hoveredCluster.protocols).map(([proto, count]) => (
+                  <div key={proto} className={styles.protoPill} data-proto={proto}>
+                    <span className={styles.protoKey}>{proto.toUpperCase()}</span>
+                    <span className={styles.protoCount}>{count}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Sample proxy */}
+              {hoveredCluster.sampleProxy && (
+                <div className={styles.tooltipSample}>
+                  <span className={styles.sampleLabel}>{isRu ? "Пример узла:" : "Sample endpoint:"}</span>
+                  <code className={styles.sampleCode}>{hoveredCluster.sampleProxy}</code>
+                </div>
               )}
             </div>
 
-            <div className={styles.tooltipAction}>
-              {isRu ? "Кликните для просмотра прокси →" : "Click to view proxies →"}
+            {/* Action CTA */}
+            <div className={styles.tooltipFoot}>
+              <span>{isRu ? "Открыть прокси страны" : "Inspect country proxies"}</span>
+              <ArrowRight size={13} className={styles.tooltipArrow} />
             </div>
           </div>
         )}
       </div>
 
-      {/* Map Legend Footer */}
+      {/* Map Legend & Telemetry Footer */}
       <div className={styles.mapFooter}>
         <div className={styles.legend}>
-          <span style={{ fontWeight: 600, color: "var(--text-primary)" }}>{isRu ? "Плотность нод:" : "Node Density:"}</span>
+          <span className={styles.legendTitle}>{isRu ? "Плотность пула:" : "Pool Density:"}</span>
           <div className={styles.legendItem}>
-            <span className={styles.legendDot} style={{ background: "#8b5cf6" }} />
-            <span>&lt; 15</span>
+            <span className={styles.legendDot} style={{ background: "#a855f7" }} />
+            <span>&lt; 15 {isRu ? "(Периферия)" : "(Edge)"}</span>
           </div>
           <div className={styles.legendItem}>
-            <span className={styles.legendDot} style={{ background: "#38bdf8" }} />
-            <span>15 - 50</span>
+            <span className={styles.legendDot} style={{ background: "#06b6d4" }} />
+            <span>15 – 50 {isRu ? "(Региональные)" : "(Regional)"}</span>
           </div>
           <div className={styles.legendItem}>
-            <span className={styles.legendDot} style={{ background: "#10b981" }} />
-            <span>50+</span>
+            <span className={styles.legendDot} style={{ background: "#10b981", boxShadow: "0 0 6px #10b981" }} />
+            <span>50+ {isRu ? "(Магистральные)" : "(Core Hubs)"}</span>
           </div>
         </div>
 
-        <div>
+        <div className={styles.footerRight}>
           <a
             href="https://github.com/stormsia/hydra"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.hydraFooterLink}
+            title={isRu ? "Движок проверки прокси Hydra" : "Hydra Proxy Verification Engine"}
           >
-            <Zap size={13} />
-            <span>{isRu ? "Геоданные проверены движком Hydra" : "Telemetry audited by Hydra Engine"}</span>
-            <ExternalLink size={12} />
+            <ShieldCheck size={14} className={styles.hydraIcon} />
+            <span>{isRu ? "Телеметрия Hydra Engine" : "Hydra Telemetry Mesh"}</span>
+            <ExternalLink size={11} />
           </a>
         </div>
       </div>

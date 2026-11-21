@@ -15,8 +15,8 @@ export async function generateMetadata(
   const upper = protocol.toUpperCase();
 
   return buildPageMetadata({
-    title: `Бесплатные ${upper} Прокси | Рабочие списки ${upper}`,
-    description: `Бесплатный список ${upper} прокси. Проверено валидатором. Обновляется каждые 15 минут.`,
+    title: `Бесплатные ${upper} Прокси — Рабочий Список (Обновление Каждую Минуту)`,
+    description: `Актуальный список проверенных ${upper} прокси. Непрерывный аудит каждые 60 секунд движком Hydra: замеры RTT, аптайм, текстовые списки и JSON фид.`,
     subpath: protocol,
     lang: "ru",
     keywords: [
@@ -24,6 +24,7 @@ export async function generateMetadata(
       `список ${protocol} прокси`,
       `${protocol} proxy list`,
       `free ${protocol} proxy`,
+      `рабочие ${protocol} прокси`,
     ],
   });
 }

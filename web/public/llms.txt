@@ -1,50 +1,98 @@
-# stormsia/proxy-list — LLMs & AI Agent Context
+# stormsia/proxy-list — AI Agent & LLM Documentation (llms.txt)
 
-> Free, auto-updated, and actively validated public proxy infrastructure. Sourced globally, filtered by an async high-speed Hydra validation engine, and published continuously to GitHub.
+> Zero-auth, continuously audited public proxy infrastructure. Filtered every 60 seconds by the multi-threaded Hydra Rust validation engine and published directly to GitHub CDN.
 
-## Project Overview
+## Project Summary
 
-**stormsia/proxy-list** is an open-source project providing continuously verified public proxies (HTTP, SOCKS4, SOCKS5). Powered by the high-concurrency Hydra validation engine, it tests TCP handshakes, TLS negotiation, round-trip latency (`rtt_total_ms`), uptime percentage (`uptime_pct`), and anonymity classification (`anon`).
+**stormsia/proxy-list** is an open-source, machine-readable repository of actively validated proxy servers across 239 countries. The system solves the "stale proxy" problem by replacing static scrapers with Hydra, a high-concurrency Rust engine that performs TCP socket handshakes, TLS negotiation, round-trip latency (`rtt_total_ms`) benchmarks, and header inspection (`anon`).
 
-- **Website**: https://stormsia.github.io/proxy-list
+- **Homepage**: https://stormsia.github.io/proxy-list
 - **GitHub Repository**: https://github.com/stormsia/proxy-list
-- **Primary Dataset (`data/proxies.json`)**: https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json
-- **Developer Documentation & API**: https://stormsia.github.io/proxy-list/docs
-- **Full AI Context & Code Examples**: https://stormsia.github.io/proxy-list/llms-full.txt
+- **Documentation & Integration Guide**: https://stormsia.github.io/proxy-list/docs
+- **Complete AI Reference & Code Cookbook**: https://stormsia.github.io/proxy-list/llms-full.txt
+- **License**: MIT (Code) / CC-BY 4.0 (Dataset)
 
-## Core Endpoints
+## Direct Data Endpoints
 
-All endpoints are free, public, and require no authentication:
+All endpoints are free, unauthenticated, CORS-enabled (`Access-Control-Allow-Origin: *`), and served over GitHub / Fastly global CDN:
 
-- [data/proxies.json](https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json): Complete flat JSON dataset with IP, port, protocol, RTT latency (ms), uptime %, ASN, ISP org, country, and anonymity level.
-- [working_proxies.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt): All working proxies formatted as `host:port`.
-- [socks5.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt): SOCKS5 proxies only (`host:port`).
-- [socks4.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt): SOCKS4 proxies only (`host:port`).
-- [http.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt): HTTP & HTTPS proxies only (`host:port`).
+| Endpoint | Protocol | Format | Update Rate | Description |
+|---|---|---|---|---|
+| [data/proxies.json](https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json) | All (HTTP, SOCKS4, SOCKS5) | JSON (flat array) | Every 60s | Complete dataset with latency (ms), uptime %, ASN, ISP, country, and anonymity tier |
+| [working_proxies.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) | All | Plain text (`host:port`) | Every 60s | Active working nodes, one per line |
+| [socks5.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) | SOCKS5 | Plain text (`host:port`) | Every 60s | High-anonymity SOCKS5 nodes (TCP/UDP, remote DNS) |
+| [socks4.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) | SOCKS4 | Plain text (`host:port`) | Every 60s | SOCKS4 TCP stream proxy nodes |
+| [http.txt](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) | HTTP / HTTPS | Plain text (`host:port`) | Every 60s | HTTP and HTTPS CONNECT tunnel proxy nodes |
 
-## Hydra Engine Data Schema (`data/proxies.json`)
+## Hydra Schema Specification (`data/proxies.json`)
 
-Each entry in `data/proxies.json` contains:
-- `id`: string — Unique identifier (`"1.10.248.240:80"`)
-- `ip`: string — IPv4 address
-- `port`: number — Port number
-- `url`: string — Formatted proxy URL (`"http://1.10.248.240:80"`)
-- `protocol`: string — `"http"` | `"socks4"` | `"socks5"`
-- `supports_https`: boolean — Whether CONNECT tunnel / HTTPS is supported
-- `state`: string — `"alive"` | `"cooldown"` | `"dead_permanent"`
-- `country`: string | null — Two-letter ISO 3166-1 alpha-2 country code (`"US"`, `"DE"`, `"TH"`)
-- `asn`: number | null — Autonomous System Number
-- `asn_org`: string | null — ISP / Carrier organization name
-- `anon`: string | null — Anonymity level: `"transparent"` | `"anonymous"` | `"elite"`
-- `rtt_total_ms`: number | null — Measured round-trip response time in milliseconds
-- `uptime_pct`: number | null — Measured historical availability percentage (0–100)
-- `stability_pct`: number | null — Short-term stability percentage
+Each entry in `data/proxies.json` is a flat JSON object:
 
-## Usage for AI Agents & Developers
+```json
+{
+  "id": "1.10.248.240:80",
+  "ip": "1.10.248.240",
+  "port": 80,
+  "url": "http://1.10.248.240:80",
+  "protocol": "http",
+  "has_auth": false,
+  "auth_user": null,
+  "auth_pass": null,
+  "state": "alive",
+  "supports_https": true,
+  "out_ip": "1.10.248.240",
+  "country": "TH",
+  "asn": 23969,
+  "asn_org": "TOT Public Company Limited",
+  "anon": "anonymous",
+  "rtt_tcp_ms": 227,
+  "rtt_handshake_ms": 313,
+  "rtt_total_ms": 540,
+  "uptime_pct": 98.5,
+  "stability_pct": 100.0,
+  "stability_window_min": 5,
+  "checks_total": 45,
+  "checks_success": 44,
+  "dead_strikes": 0,
+  "last_error": null,
+  "first_seen_at": 1795224444,
+  "last_checked_at": 1795248007,
+  "next_check_at": 1795248067
+}
+```
 
-When generating scraping, network testing, or automation code:
-- **Filtering by Country**: Inspect `p.country` (e.g. `p.country === "US"`).
-- **Filtering by Latency**: Filter by `p.rtt_total_ms < 1000` for low-latency nodes.
-- **Anonymity Selection**: Filter by `p.anon === "elite"` or `p.anon === "anonymous"` to ensure privacy.
-- **Protocol Choice**: Prefer SOCKS5 for TCP/UDP socket level proxying and compatibility with modern HTTP clients.
-- **Integration**: For copy-paste snippets in Python (requests, httpx, aiohttp), Node.js (fetch, socks-proxy-agent), Go, and cURL, refer to [llms-full.txt](https://stormsia.github.io/proxy-list/llms-full.txt).
+### Anonymity Levels (`anon`)
+- `elite` (Level 1): Client IP is completely hidden; no proxy headers (`Via`, `X-Forwarded-For`) forwarded. Target servers cannot distinguish traffic from a direct visitor.
+- `anonymous` (Level 2): Client IP is hidden, but the server knows a proxy is being used.
+- `transparent` (Level 3): Client IP is transmitted in `X-Forwarded-For`. Useful only for caching or non-sensitive scraping.
+
+## AI Agent Decision Matrix
+
+When building autonomous agents or scripts that consume this data:
+1. **Low Latency Workloads**: Filter by `p.rtt_total_ms < 800` and `p.state === "alive"`.
+2. **Stealth & Anti-Bot Resilience**: Select `p.protocol === "socks5"` and `p.anon === "elite"`. Always configure remote DNS resolution (`socks5h://`) to eliminate DNS leak signatures.
+3. **Geo-Targeting**: Filter by ISO 3166-1 alpha-2 `p.country` (e.g. `"US"`, `"DE"`, `"JP"`, `"GB"`).
+4. **Reliability Guarantee**: Filter by `(p.uptime_pct || 0) >= 85.0` to filter out volatile nodes.
+5. **Failover Handling**: Implement retry backoff on HTTP status `429` (Rate Limited) and `403` (Forbidden), rotating to the next node in the pool.
+
+## Quick Integration Snippets
+
+### cURL (SOCKS5 with Remote DNS)
+```bash
+curl -x socks5h://1.10.248.240:1080 https://httpbin.org/ip --connect-timeout 8
+```
+
+### Python (`httpx` + `data/proxies.json`)
+```python
+import httpx
+
+proxies = httpx.get("https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json").json()
+alive_socks5 = [p for p in proxies if p["state"] == "alive" and p["protocol"] == "socks5" and (p["rtt_total_ms"] or 9999) < 1000]
+
+if alive_socks5:
+    node = alive_socks5[0]
+    client = httpx.Client(proxy=f"socks5://{node['ip']}:{node['port']}", timeout=10.0)
+    print("Routed via proxy:", client.get("https://httpbin.org/ip").json())
+```
+
+For complete, multi-language implementations (Node.js, Go, Rust, Playwright, Scrapy), detailed quantile benchmarks, and architecture diagrams, see [llms-full.txt](https://stormsia.github.io/proxy-list/llms-full.txt).

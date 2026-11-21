@@ -15,8 +15,8 @@ export async function generateMetadata(
   const upper = protocol.toUpperCase();
 
   return buildPageMetadata({
-    title: `Free ${upper} Proxy List | Fast ${upper} Proxies`,
-    description: `Download a free ${upper} proxy list. High-speed ${upper} proxies verified by a validator. Updated automatically every 15 minutes.`,
+    title: `Free ${upper} Proxy List — Verified Live Endpoints (Updated Every Minute)`,
+    description: `Download verified ${upper} proxy list. Tested every 60 seconds by the Hydra Rust engine with millisecond latency metrics, uptime %, and raw JSON/TXT feeds.`,
     subpath: protocol,
     lang: "en",
     keywords: [
@@ -24,6 +24,7 @@ export async function generateMetadata(
       `${protocol} proxy download`,
       `${protocol} proxy server`,
       `fast ${protocol} proxies`,
+      `working ${protocol} proxies`,
     ],
   });
 }

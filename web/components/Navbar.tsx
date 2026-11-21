@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Globe, Map, Terminal, Menu, X, Languages } from "lucide-react";
+import { Globe, Map, Terminal, Menu, X, Languages, Star } from "lucide-react";
 import styles from "./Navbar.module.css";
 
 function GitHubIcon({ size = 16 }: { size?: number }) {
@@ -111,10 +111,12 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.gitHubBtn}
-            aria-label="View on GitHub"
+            aria-label={isRu ? "Поставить звезду stormsia/proxy-list на GitHub" : "Star stormsia/proxy-list on GitHub"}
+            title={isRu ? "Поставить звезду нашему репозиторию на GitHub" : "Star our repository on GitHub"}
           >
-            <GitHubIcon size={16} />
-            <span>GitHub</span>
+            <GitHubIcon size={15} />
+            <Star size={13} className={styles.starNavIcon} fill="#eab308" color="#eab308" />
+            <span className={styles.gitHubText}>{isRu ? "Поставить звезду" : "Star on GitHub"}</span>
           </a>
         </nav>
 
@@ -159,10 +161,10 @@ export default function Navbar() {
               href="https://github.com/stormsia/proxy-list"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.mobileLink}
+              className={`${styles.mobileLink} ${styles.mobileStarLink}`}
             >
-              <GitHubIcon size={18} />
-              <span>GitHub Repository</span>
+              <Star size={18} className={styles.starNavIcon} fill="#eab308" color="#eab308" />
+              <span>{isRu ? "Поставить звезду на GitHub" : "Star on GitHub"}</span>
             </a>
           </div>
         </div>

@@ -81,7 +81,7 @@ export default function RootLayout({
     url: SITE_URL,
     sameAs: ["https://github.com/stormsia/proxy-list"],
     description:
-      "Open-source project that automatically collects, validates and publishes free proxy lists using an async Python daemon and a high-speed validator.",
+      "Open-source proxy infrastructure network that collects, validates, and publishes free proxy lists using the high-concurrency Hydra Rust engine.",
   };
 
   const websiteSchema = {
@@ -112,12 +112,15 @@ export default function RootLayout({
       priceCurrency: "USD",
     },
     description:
-      "Free open-source proxy list and network topology monitor with automated 15-minute verification cycles.",
+      "Free open-source proxy list and network topology monitor with continuous 60-second verification cycles by Hydra.",
   };
 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="alternate" type="text/plain" href={`${SITE_URL}/llms.txt`} title="LLM Context (llms.txt)" />
+        <link rel="alternate" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="Full AI Agent Reference (llms-full.txt)" />
+        <link rel="alternate" type="application/json" href="https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json" title="Live Proxy JSON Feed" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}

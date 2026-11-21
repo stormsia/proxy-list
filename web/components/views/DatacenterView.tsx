@@ -3,6 +3,7 @@ import styles from "@/app/page.module.css";
 import { Server } from "lucide-react";
 import Link from "next/link";
 import FAQ from "@/components/FAQ";
+import GitHubStarCard from "@/components/GitHubStarCard";
 import { getDictionary, Locale } from "@/lib/i18n";
 import { getProxies, getDatacenterProxies } from "@/lib/proxies";
 import { getBreadcrumbSchema, getFaqSchema } from "@/lib/seo";
@@ -24,14 +25,15 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
     "@context": "https://schema.org/",
     "@type": "Dataset",
     name: isRu
-      ? "Бесплатные Серверные (Датацентр) Прокси"
-      : "Free Datacenter Proxy List",
+      ? "Бесплатные Серверные (Датацентр) Прокси — Рабочий Список"
+      : "Free Datacenter Proxy List — High-Bandwidth Cloud Endpoints",
     description: isRu
-      ? "Список бесплатных прокси-серверов в облачных датацентрах (AWS, DigitalOcean, Hetzner, OVH). Проверяется валидатором каждые 15 минут."
-      : "A list of free proxy servers hosted in cloud and datacenter infrastructure. Verified by a validator and updated every 15 minutes.",
+      ? "Список проверенных серверных прокси-узлов в облачных датацентрах (AWS, Hetzner, DigitalOcean, OVH). Проверяется валидатором Hydra каждые 60 секунд."
+      : "Continuously updated dataset of free datacenter proxy servers hosted on high-throughput cloud infrastructure. Audited every 60 seconds by Hydra.",
     url: pageUrl,
     inLanguage: isRu ? "ru" : "en",
     license: "https://creativecommons.org/licenses/by/4.0/",
+    isAccessibleForFree: true,
     creator: {
       "@type": "Organization",
       name: "stormsia",
@@ -44,6 +46,12 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
         contentUrl: `${REPO_RAW}/working_proxies.txt`,
         name: "All Working Proxies (TXT)",
       },
+      {
+        "@type": "DataDownload",
+        encodingFormat: "application/json",
+        contentUrl: `${REPO_RAW}/data/proxies.json`,
+        name: "Full Hydra JSON Dataset",
+      },
     ],
   };
 
@@ -55,36 +63,36 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
   const faqItems = isRu
     ? [
         {
-          question: "Что такое серверные (датацентр) прокси?",
+          question: "Что такое серверные (датацентр) прокси и в чем их преимущество?",
           answer:
-            "Датацентр-прокси размещаются в крупных облачных центрах обработки данных (AWS, Hetzner, DigitalOcean, OVH). Они обеспечивают высокую скорость и низкий пинг.",
+            "Датацентр-прокси развернуты на физических и виртуальных серверах в центрах обработки данных (AWS, Hetzner, DigitalOcean, OVH, Leaseweb). Их ключевые преимущества — гигабитные каналы связи, минимальный джиттер и стабильно низкое время отклика (RTT < 400 мс).",
         },
         {
-          question: "Для чего лучше всего подходят датацентр прокси?",
+          question: "Для каких задач подходят серверные прокси?",
           answer:
-            "Они идеальны для автоматического парсинга, тестирования API, высокоскоростной загрузки и задач с высокой пропускной способностью.",
+            "Они оптимальны для высокоскоростного парсинга каталогов, API-нагрузочного тестирования, мониторинга цен, сбора открытых структурированных данных и микросервисной балансировки, где критична пропускная способность канала.",
         },
         {
-          question: "Как часто обновляются эти серверные прокси?",
+          question: "Как часто тестируются серверные узлы?",
           answer:
-            "Список проверяется автоматическим демоном каждые 15 минут, исключая неработающие узлы.",
+            "Многопоточный движок Hydra на Rust тестирует все серверные узлы каждые 60 секунд. Серверы с повышенной потерей пакетов или недоступным портом немедленно исключаются из списка.",
         },
       ]
     : [
         {
-          question: "What are datacenter proxies?",
+          question: "What are datacenter proxies and what are their technical advantages?",
           answer:
-            "Datacenter proxies are hosted in commercial data centers (AWS, Hetzner, DigitalOcean, OVH). They offer fast connections and low latency.",
+            "Datacenter proxies originate from cloud hosting providers and commercial server facilities (AWS, Hetzner, OVH, DigitalOcean). They provide Gigabit uplink bandwidth, minimal packet jitter, and predictable sub-second round-trip latency (often RTT < 400ms).",
         },
         {
-          question: "What are datacenter proxies best used for?",
+          question: "What workloads are datacenter proxies best suited for?",
           answer:
-            "They are ideal for web scraping, API testing, high-bandwidth streaming, and fast content extraction.",
+            "They are ideal for high-throughput web scraping, API stress testing, price monitoring, streaming data ingestion, and bulk asset downloads where network speed and bandwidth take priority over residential ASN stealth.",
         },
         {
-          question: "How often are these datacenter proxies verified?",
+          question: "How frequently are datacenter nodes monitored?",
           answer:
-            "Our async daemon tests all proxies every 15 minutes, removing dead endpoints automatically.",
+            "Hydra's multi-threaded Rust engine audits every datacenter IP every 60 seconds. Sockets failing connection deadlines or dropping TLS handshakes are pruned immediately.",
         },
       ];
 
@@ -109,35 +117,23 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
           style={{
             display: "inline-flex",
             padding: "1rem",
-            background: "rgba(56, 189, 248, 0.1)",
+            background: "rgba(59, 130, 246, 0.1)",
             borderRadius: "50%",
             marginBottom: "1.5rem",
           }}
         >
-          <Server size={32} style={{ color: "#38bdf8" }} />
+          <Server size={32} style={{ color: "var(--primary)" }} />
         </div>
         <h1 className={styles.title}>
-          {isRu ? "Бесплатные " : "Free "}
-          <span
-            className="text-gradient"
-            style={{
-              backgroundImage: "linear-gradient(to right, #38bdf8, #818cf8)",
-            }}
-          >
-            Datacenter
+          {isRu ? "Бесплатные" : "Free"}{" "}
+          <span className="text-gradient">
+            {isRu ? "Серверные Прокси" : "Datacenter Proxies"}
           </span>
-          {isRu ? " Прокси" : " Proxies"}
         </h1>
         <p className={styles.subtitle}>
-          {dcProxies.length > 0
-            ? `${dcProxies.length.toLocaleString()} ${
-                isRu
-                  ? "высокоскоростных датацентр прокси онлайн."
-                  : "high-bandwidth datacenter proxies online."
-              }`
-            : isRu
-            ? "Нет активных датацентр прокси."
-            : "No active datacenter proxies."}
+          {isRu
+            ? `${dcProxies.length.toLocaleString()} проверенных датацентр-узлов (AWS, Hetzner, DigitalOcean, OVH). Проверка каждые 60 секунд движком Hydra.`
+            : `${dcProxies.length.toLocaleString()} verified datacenter proxy nodes hosted on cloud infrastructure. Audited every 60 seconds by Hydra.`}
         </p>
       </header>
 
@@ -147,38 +143,15 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
       >
         <h2>
           {isRu
-            ? "О серверных прокси (Datacenter Proxies)"
-            : "About Free Datacenter Proxies"}
+            ? "Высокоскоростные Серверные Прокси"
+            : "High-Bandwidth Datacenter Proxies"}
         </h2>
         <p>
           {isRu
-            ? "Датацентр прокси размещены на мощных выделенных серверах в датацентрах по всему миру. Они гарантируют гигабитные каналы и мгновенный отклик."
-            : "Datacenter proxies originate from secondary corporations and cloud hosts rather than traditional residential ISPs. They provide superior network speed, massive bandwidth, and lower latency for automated systems."}
+            ? "Серверные прокси расположены на оптических каналах в ведущих датацентрах мира. Они обеспечивают максимальную скорость скачивания и идеальны для задач с высокой сетевой нагрузкой."
+            : "Datacenter proxies offer raw connection speed and low latency across global cloud backbones. Sourced from enterprise hosting facilities, these endpoints are built for high-throughput network workloads."}
         </p>
-        <p
-          style={{
-            marginTop: "1.5rem",
-            padding: "1rem",
-            background: "rgba(139, 92, 246, 0.1)",
-            borderRadius: "8px",
-            borderLeft: "4px solid var(--accent)",
-          }}
-        >
-          ⭐ <strong>{dict.home.starPrefix}</strong>{" "}
-          <a
-            href="https://github.com/stormsia/proxy-list"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: "var(--accent)",
-              fontWeight: "bold",
-              textDecoration: "underline",
-            }}
-          >
-            {dict.home.starLink}
-          </a>
-          {dict.home.starSuffix}
-        </p>
+        <GitHubStarCard lang={lang} />
       </section>
 
       <section
@@ -191,12 +164,26 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
           <div className={styles.emptyState}>
             <h3>
               {isRu
-                ? "В данный момент нет активных серверных прокси"
-                : "No active datacenter proxies at this moment"}
+                ? "Нет доступных серверных прокси"
+                : "No datacenter proxies currently available"}
             </h3>
-            <Link href={isRu ? "/ru" : "/"} className={styles.primaryButton}>
-              {isRu ? "Посмотреть все прокси" : "View All Proxies"}
-            </Link>
+            <p
+              style={{
+                color: "var(--text-secondary)",
+                maxWidth: "600px",
+                margin: "0.5rem auto 1.5rem",
+              }}
+            >
+              {isRu
+                ? "Все серверные узлы проходят 60-секундную перепроверку движком Hydra. Ознакомьтесь с общим пулом прокси ниже:"
+                : "All nodes are being re-audited by Hydra's 60-second cycle. Browse the global pool below:"}
+            </p>
+            <div style={{ marginBottom: "2rem" }}>
+              <Link href={isRu ? "/ru" : "/"} className={styles.primaryButton}>
+                {dict.protocol.viewAll}
+              </Link>
+            </div>
+            <ProxyTable proxies={allProxies.slice(0, 20)} dict={dict.table} />
           </div>
         )}
       </section>

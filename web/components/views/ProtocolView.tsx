@@ -3,6 +3,7 @@ import styles from "@/app/page.module.css";
 import { Globe } from "lucide-react";
 import Link from "next/link";
 import FAQ from "@/components/FAQ";
+import GitHubStarCard from "@/components/GitHubStarCard";
 import { getDictionary, Locale } from "@/lib/i18n";
 import { getProxies, getProxiesByProtocol } from "@/lib/proxies";
 import { getFaqSchema } from "@/lib/seo";
@@ -27,6 +28,7 @@ export default async function ProtocolView({
   const dict = await getDictionary(lang);
   const isRu = lang === "ru";
   const normalizedProtocol = protocol.toLowerCase();
+  const upper = normalizedProtocol.toUpperCase();
 
   const allProxies = await getProxies();
   const filteredProxies = getProxiesByProtocol(allProxies, normalizedProtocol);
@@ -37,24 +39,24 @@ export default async function ProtocolView({
 
   const aboutEn: Record<string, string> = {
     socks5:
-      "SOCKS5 is the most versatile proxy protocol — it supports TCP and UDP traffic, handles any type of data (HTTP, FTP, email, torrents), and does not alter your request headers, making it the hardest to detect. Ideal for web scraping, P2P, and applications that need full network-layer proxying.",
+      "SOCKS5 operates at OSI Layer 5 (Session Layer), routing arbitrary TCP and UDP packets without inspecting or modifying application payload headers. By configuring remote DNS resolution via socks5h://, your scraper prevents local DNS leak traces and bypasses domain-level SNI filtering. SOCKS5 is the recommended standard for Python httpx, Puppeteer, Playwright, and high-concurrency data scraping pipelines.",
     socks4:
-      "SOCKS4 is an older proxy protocol that supports TCP connections only (no UDP). It does not require authentication and is widely supported by legacy applications. Use SOCKS5 when possible for broader compatibility.",
+      "SOCKS4 is an established stream-oriented proxy protocol designed strictly for TCP connections (IPv4 only, no UDP support and no native user authentication). It introduces minimal transport overhead, making it useful for legacy automation tools, socket wrappers, and network testing where basic IP relaying is sufficient.",
     http:
-      "HTTP proxies operate at the application layer and are designed for web traffic. They can forward HTTP requests and some support HTTPS via the CONNECT tunnel method. Widely supported by browsers, scrapers and automation tools.",
+      "HTTP proxies operate at OSI Layer 7 (Application Layer), handling direct HTTP GET/POST requests and relaying them to destination web servers. When evaluated as Elite or Anonymous, they strip identifying headers. They integrate natively with standard command-line tools like cURL, Wget, and default HTTP clients across Node.js, Go, and Python.",
     https:
-      "HTTPS proxies support the HTTP CONNECT method, allowing them to tunnel encrypted TLS traffic. They are ideal for scraping HTTPS websites while keeping your requests secure in transit between your client and the proxy server.",
+      "HTTPS proxies support the HTTP CONNECT tunneling method (RFC 2817), establishing an opaque end-to-end TCP tunnel between your client and the target server. Because TLS encryption is negotiated directly between your client and the destination, the proxy server only sees raw encrypted ciphertext and destination hostnames, ensuring end-to-end confidentiality.",
   };
 
   const aboutRu: Record<string, string> = {
     socks5:
-      "SOCKS5 — самый универсальный протокол. Он поддерживает TCP и UDP, обрабатывает любые данные (HTTP, FTP, P2P) и не меняет заголовки, что делает его труднообнаружимым. Идеален для парсинга и анонимности.",
+      "SOCKS5 функционирует на 5 (сессионном) уровне модели OSI, маршрутизируя произвольные TCP и UDP пакеты без изменения заголовков прикладного уровня. При использовании удаленного DNS-резолвинга (схема socks5h://) исключаются утечки DNS-запросов и обходятся блокировки на уровне SNI. Протокол SOCKS5 оптимален для Python httpx, Puppeteer, Playwright и многопоточных скрейперов.",
     socks4:
-      "SOCKS4 — проверенный временем протокол прокси, поддерживающий только TCP. Не требует аутентификации, поддерживается legacy-приложениями. По возможности используйте SOCKS5.",
+      "SOCKS4 — потоковый протокол передачи данных для протокола TCP (только IPv4, без поддержки UDP и встроенной аутентификации). Обладает минимальным накладным расходом на обработку пакетов, что удобно для интеграции в legacy-библиотеки, системные утилиты и сетевые скрипты тестирования.",
     http:
-      "HTTP-прокси работают на прикладном уровне и созданы для веб-трафика. Поддерживаются любыми браузерами и инструментами для автоматизации.",
+      "HTTP-прокси работают на 7 (прикладном) уровне OSI, принимая HTTP-запросы и перенаправляя их на целевые серверы. При уровне анонимности Elite или Anonymous они удаляют клиентские идентификаторы. Протокол поддерживается из коробки всеми библиотеками: cURL, Wget, Axios, Requests и стандартными сетевыми пакетами.",
     https:
-      "HTTPS-прокси поддерживают туннелирование CONNECT, позволяя безопасно передавать зашифрованный TLS трафик.",
+      "HTTPS-прокси поддерживают метод туннелирования HTTP CONNECT (RFC 2817), создавая сквозной TCP-туннель к целевому серверу. Поскольку TLS-рукопожатие происходит напрямую между клиентом и сайтом, промежуточный прокси видит только зашифрованный трафик, гарантируя конфиденциальность сессии.",
   };
 
   const about = isRu ? aboutRu[normalizedProtocol] : aboutEn[normalizedProtocol];
@@ -67,14 +69,15 @@ export default async function ProtocolView({
     "@context": "https://schema.org/",
     "@type": "Dataset",
     name: isRu
-      ? `Бесплатные ${normalizedProtocol.toUpperCase()} Прокси`
-      : `Free ${normalizedProtocol.toUpperCase()} Proxy List`,
+      ? `Бесплатные ${upper} Прокси — Рабочий Список`
+      : `Free ${upper} Proxy List — Live Verified Endpoints`,
     description: isRu
-      ? `Автообновляемый список бесплатных ${normalizedProtocol.toUpperCase()} прокси-серверов. Проверяется валидатором каждые 15 минут.`
-      : `Auto-updated list of free ${normalizedProtocol.toUpperCase()} proxy servers. Verified by a validator every 15 minutes.`,
+      ? `Автообновляемый список проверенных ${upper} прокси-серверов. Непрерывный аудит каждые 60 секунд движком Hydra с замером задержки RTT и аптайма.`
+      : `Continuously updated dataset of active ${upper} proxy servers. Audited every 60 seconds by the Hydra Rust engine with millisecond RTT benchmarks.`,
     url: pageUrl,
     inLanguage: isRu ? "ru" : "en",
     license: "https://creativecommons.org/licenses/by/4.0/",
+    isAccessibleForFree: true,
     creator: {
       "@type": "Organization",
       name: "stormsia",
@@ -85,7 +88,13 @@ export default async function ProtocolView({
         "@type": "DataDownload",
         encodingFormat: "text/plain",
         contentUrl: `${REPO_RAW}/${txtFile}`,
-        name: `${normalizedProtocol.toUpperCase()} Proxies (TXT)`,
+        name: `${upper} Proxies Raw (TXT)`,
+      },
+      {
+        "@type": "DataDownload",
+        encodingFormat: "application/json",
+        contentUrl: `${REPO_RAW}/data/proxies.json`,
+        name: "Full Hydra JSON Dataset",
       },
     ],
   };
@@ -103,9 +112,7 @@ export default async function ProtocolView({
       {
         "@type": "ListItem",
         position: 2,
-        name: isRu
-          ? `${normalizedProtocol.toUpperCase()} Прокси`
-          : `${normalizedProtocol.toUpperCase()} Proxies`,
+        name: isRu ? `${upper} Прокси` : `${upper} Proxies`,
         item: pageUrl,
       },
     ],
@@ -114,30 +121,36 @@ export default async function ProtocolView({
   const faqItems = isRu
     ? [
         {
-          question: `Бесплатны ли прокси ${normalizedProtocol.toUpperCase()}?`,
-          answer: `Да, все прокси ${normalizedProtocol.toUpperCase()} полностью бесплатны.`,
+          question: `Как подключить ${upper} прокси в cURL и Python?`,
+          answer:
+            normalizedProtocol === "socks5"
+              ? "В cURL используйте: `curl -x socks5h://host:port https://httpbin.org/ip`. Схема socks5h передает DNS-запрос на сторону прокси. В Python (httpx): `httpx.AsyncClient(proxy='socks5://host:port')` с установленным пакетом socksio."
+              : `В cURL выполните: \`curl -x ${normalizedProtocol}://host:port https://httpbin.org/ip\`. В Python (requests): \`requests.get('https://example.com', proxies={'http': '${normalizedProtocol}://host:port', 'https': '${normalizedProtocol}://host:port'})\`.`,
         },
         {
-          question: `Как часто вы тестируете эти прокси?`,
-          answer: `Наш автоматический валидатор проверяет каждый ${normalizedProtocol.toUpperCase()} прокси на доступность и время ответа каждые 15 минут.`,
+          question: `Как часто обновляется пул ${upper} прокси?`,
+          answer: `Валидация выполняется непрерывно каждые 60 секунд движком Hydra на Rust. Прокси, переставшие отвечать на TCP-рукопожатие или превысившие таймаут задержки, исключаются из рабочего списка без задержек.`,
         },
         {
-          question: `Могу ли я использовать ${normalizedProtocol.toUpperCase()} прокси для парсинга?`,
-          answer: `Абсолютно. ${normalizedProtocol.toUpperCase()} прокси часто используются разработчиками для гео-таргетированного парсинга и обхода блокировок.`,
+          question: `Подходят ли эти ${upper} прокси для парсинга и скрейпинга?`,
+          answer: `Да. Пул активно используется дата-инженерами и разработчиками ботов. Для предотвращения блокировок рекомендуем ротировать IP каждые 10–25 запросов, фильтровать ноды с RTT < 1000 мс и отслеживать HTTP-статусы 429 и 403.`,
         },
       ]
     : [
         {
-          question: `Are the ${normalizedProtocol.toUpperCase()} proxies free to use?`,
-          answer: `Yes, all ${normalizedProtocol.toUpperCase()} proxies listed on this page are completely free and open-source.`,
+          question: `How do I connect to a ${upper} proxy using cURL or Python?`,
+          answer:
+            normalizedProtocol === "socks5"
+              ? "In cURL, run: `curl -x socks5h://host:port https://httpbin.org/ip`. The socks5h protocol ensures DNS resolution occurs on the proxy server. In Python, install `httpx socksio` and initialize: `client = httpx.AsyncClient(proxy='socks5://host:port')`."
+              : `In cURL, pass the proxy flag: \`curl -x ${normalizedProtocol}://host:port https://httpbin.org/ip\`. In Python requests: \`requests.get('https://example.com', proxies={'http': '${normalizedProtocol}://host:port', 'https': '${normalizedProtocol}://host:port'})\`.`,
         },
         {
-          question: `How often do you test these ${normalizedProtocol.toUpperCase()} proxies?`,
-          answer: `Our automated validator checks every ${normalizedProtocol.toUpperCase()} proxy for connectivity and response time every 15 minutes.`,
+          question: `How frequently are ${upper} proxies tested?`,
+          answer: `Every node in the ${upper} pool is audited every 60 seconds by our multi-threaded Hydra Rust validator. Dead nodes, high packet-loss servers, and unresponsive sockets are culled immediately.`,
         },
         {
-          question: `Can I use these ${normalizedProtocol.toUpperCase()} proxies for web scraping?`,
-          answer: `Absolutely. These ${normalizedProtocol.toUpperCase()} proxies are frequently used by developers for geo-targeted web scraping.`,
+          question: `Can I use these ${upper} proxies for high-volume web scraping?`,
+          answer: `Yes. For best results, pool multiple nodes from data/proxies.json, filter for latency under 1000ms and uptime above 80%, and rotate exit nodes on each request cycle or upon hitting HTTP 429/403 status codes.`,
         },
       ];
 
@@ -171,18 +184,18 @@ export default async function ProtocolView({
         </div>
         <h1 className={styles.title}>
           {dict.protocol.titlePrefix}{" "}
-          <span className="text-gradient">{normalizedProtocol.toUpperCase()}</span>{" "}
+          <span className="text-gradient">{upper}</span>{" "}
           {dict.protocol.titleSuffix}
         </h1>
         <p className={styles.subtitle}>
           {filteredProxies.length > 0
             ? `${filteredProxies.length.toLocaleString()} ${dict.protocol.subtitle.replace(
                 "{protocol}",
-                normalizedProtocol.toUpperCase()
+                upper
               )}`
             : dict.protocol.subtitleEmpty.replace(
                 "{protocol}",
-                normalizedProtocol.toUpperCase()
+                upper
               )}
         </p>
       </header>
@@ -192,7 +205,7 @@ export default async function ProtocolView({
           <h2>
             {dict.protocol.aboutTitle.replace(
               "{protocol}",
-              normalizedProtocol.toUpperCase()
+              upper
             )}
           </h2>
           <p>{about}</p>
@@ -202,40 +215,18 @@ export default async function ProtocolView({
               href={`${REPO_RAW}/${txtFile}`}
               target="_blank"
               rel="noopener noreferrer"
+              style={{ fontWeight: "bold", textDecoration: "underline" }}
             >
               {txtFile}
             </a>
           </p>
-          <p
-            style={{
-              marginTop: "1.5rem",
-              padding: "1rem",
-              background: "rgba(139, 92, 246, 0.1)",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--accent)",
-            }}
-          >
-            ⭐ <strong>{dict.home.starPrefix}</strong>{" "}
-            <a
-              href="https://github.com/stormsia/proxy-list"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: "var(--accent)",
-                fontWeight: "bold",
-                textDecoration: "underline",
-              }}
-            >
-              {dict.home.starLink}
-            </a>
-            {dict.home.starSuffix}
-          </p>
+          <GitHubStarCard lang={lang} />
         </section>
       )}
 
       <section
         className={styles.tableSection}
-        aria-label={`${normalizedProtocol.toUpperCase()} proxy table`}
+        aria-label={`${upper} proxy table`}
       >
         {filteredProxies.length > 0 ? (
           <ProxyTable proxies={filteredProxies} dict={dict.table} />
@@ -244,13 +235,13 @@ export default async function ProtocolView({
             <h3>
               {dict.protocol.emptyTitle.replace(
                 "{protocol}",
-                normalizedProtocol.toUpperCase()
+                upper
               )}
             </h3>
             <p style={{ color: "var(--text-secondary)", maxWidth: "600px", margin: "0.5rem auto 1.5rem" }}>
               {isRu
-                ? `В данный момент нет доступных прокси для протокола ${normalizedProtocol.toUpperCase()}. Движок Hydra проверяет сокеты каждую минуту — новые серверы появятся здесь автоматически сразу после подтверждения. Вы можете использовать другие рабочие прокси ниже:`
-                : `No active proxies available for ${normalizedProtocol.toUpperCase()} at the moment. Our Hydra engine tests sockets every minute — new nodes will appear here automatically once validated. Explore other verified proxies below:`}
+                ? `В данный момент нет доступных прокси для протокола ${upper}. Движок Hydra проверяет сокеты каждую минуту — новые серверы появятся здесь автоматически сразу после подтверждения. Вы можете использовать другие рабочие прокси ниже:`
+                : `No active proxies available for ${upper} at the moment. Our Hydra engine tests sockets every minute — new nodes will appear here automatically once validated. Explore other verified proxies below:`}
             </p>
             <div style={{ marginBottom: "2rem" }}>
               <Link href={isRu ? "/ru" : "/"} className={styles.primaryButton}>

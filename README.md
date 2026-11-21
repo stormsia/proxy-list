@@ -11,6 +11,7 @@
 [![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--21%2009%3A47%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/Update%20Cycle-Every%20Minute-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/stormsia/proxy-list?style=flat-square&logo=github&color=eab308&label=Stars)](https://github.com/stormsia/proxy-list/stargazers)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)
 
 <br/>
@@ -33,6 +34,8 @@
 A high-throughput, continuously tested open-source proxy pool engineered for web scrapers, automation bots, security researchers, and developers. Every minute, our automated daemon aggregates proxy candidates and runs them through rigorous multi-stage socket and protocol verification.
 
 All lists are published as plain-text raw endpoints and rich JSON via GitHub's high-speed global CDN — **100% free, zero authentication required, no API keys, and no rate limits**.
+
+> ⭐️ **Found this project useful?** Give us a [star on GitHub](https://github.com/stormsia/proxy-list) to help other developers, scrapers, and AI engineers discover this free proxy pool!
 
 ---
 

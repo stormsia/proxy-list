@@ -1,37 +1,81 @@
+# robots.txt for stormsia/proxy-list
+# https://stormsia.github.io/proxy-list
+
 User-agent: *
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /proxies.json
 Disallow: /data/proxies.json
 
-# Explicitly permit AI Search and Discovery Bots
+# Explicitly permit Search and Discovery Bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+# Explicitly permit AI Search and Answer Engine Bots
 User-agent: OAI-SearchBot
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /proxies.json
 Disallow: /data/proxies.json
 
 User-agent: PerplexityBot
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /proxies.json
 Disallow: /data/proxies.json
 
 User-agent: Claude-SearchBot
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /proxies.json
 Disallow: /data/proxies.json
 
+# Permit Model Training and Evaluation Crawlers
 User-agent: GPTBot
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /proxies.json
 Disallow: /data/proxies.json
 
 User-agent: ClaudeBot
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /proxies.json
 Disallow: /data/proxies.json
 
 User-agent: Google-Extended
 Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
 Disallow: /proxies.json
 Disallow: /data/proxies.json
 
+User-agent: Applebot-Extended
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /proxies.json
+Disallow: /data/proxies.json
+
+User-agent: CCBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /proxies.json
+Disallow: /data/proxies.json
+
+# Content-Usage Declaration (AgentReady standard)
+# AI Search / Citations / Training: Allowed
 Sitemap: https://stormsia.github.io/proxy-list/sitemap.xml

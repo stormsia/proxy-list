@@ -11,6 +11,7 @@
 [![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--21%2009%3A47%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/Цикл%20обновления-Каждую%20минуту-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/stormsia/proxy-list?style=flat-square&logo=github&color=eab308&label=Stars)](https://github.com/stormsia/proxy-list/stargazers)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)
 
 <br/>
@@ -33,6 +34,8 @@
 Высокопроизводительный, непрерывно тестируемый open-source пул прокси, созданный для веб-скрейперов, ботов автоматизации, исследователей безопасности и разработчиков. Каждую минуту наш автоматический демон собирает кандидатов в прокси и прогоняет их через строгую многоэтапную проверку сокетов и протоколов.
 
 Все списки публикуются в виде прямых текстовых файлов и обогащенного JSON через глобальный CDN GitHub — **100% бесплатно, без авторизации, без API-ключей и без лимитов**.
+
+> ⭐️ **Проект полезен?** Поставьте [звезду на GitHub](https://github.com/stormsia/proxy-list) — это поднимет репозиторий в поиске и поможет другим разработчикам быстрее найти надежные бесплатные прокси!
 
 ---
 

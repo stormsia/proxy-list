@@ -106,7 +106,18 @@ export function getDatasetSchema() {
       "Lifecycle State (state: alive, cooldown, dead_permanent)",
     ],
     spatialCoverage: "Global",
-    temporalCoverage: "Live (updated continuously by Hydra Engine)",
+    temporalCoverage: "Live (audited continuously every 60 seconds by Hydra Rust engine)",
+    keywords: [
+      "free proxy list",
+      "socks5 proxy list",
+      "http proxy list",
+      "https proxies",
+      "socks4 proxies",
+      "public proxy servers",
+      "residential proxies",
+      "datacenter proxies",
+      "hydra validation engine",
+    ],
     distribution: [
       {
         "@type": "DataDownload",
@@ -187,7 +198,7 @@ export function getWebApplicationSchema() {
       priceCurrency: "USD",
     },
     description:
-      "Free open-source proxy list and network topology monitor with automated 15-minute verification cycles.",
+      "Free open-source proxy list and network topology monitor with continuous 60-second verification cycles by Hydra.",
   };
 }
 

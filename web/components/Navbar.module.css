@@ -169,20 +169,46 @@
 .gitHubBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border);
+  gap: 0.45rem;
+  background: linear-gradient(135deg, rgba(24, 24, 27, 0.95) 0%, rgba(39, 39, 42, 0.85) 100%);
+  border: 1px solid rgba(234, 179, 8, 0.3);
   color: var(--text-primary);
   padding: 0.4rem 0.85rem;
   border-radius: var(--radius-sm);
   font-size: 0.8125rem;
-  font-weight: 500;
-  transition: all 0.15s ease;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(234, 179, 8, 0.08);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gitHubBtn:hover {
-  background: var(--bg-surface-hover);
-  border-color: var(--border-hover);
+  background: linear-gradient(135deg, rgba(39, 39, 42, 0.95) 0%, rgba(63, 63, 70, 0.85) 100%);
+  border-color: rgba(234, 179, 8, 0.65);
+  box-shadow: 0 0 16px rgba(234, 179, 8, 0.22);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.starNavIcon {
+  color: #eab308;
+  filter: drop-shadow(0 0 4px rgba(234, 179, 8, 0.5));
+  animation: starPulse 2.5s infinite ease-in-out;
+}
+
+.gitHubText {
+  letter-spacing: -0.01em;
+}
+
+.mobileStarLink {
+  color: #fbbf24 !important;
+  background: rgba(234, 179, 8, 0.08);
+  border: 1px solid rgba(234, 179, 8, 0.2);
+  font-weight: 600;
+}
+
+.mobileStarLink:hover {
+  background: rgba(234, 179, 8, 0.16) !important;
+  border-color: rgba(234, 179, 8, 0.4);
 }
 
 .mobileToggle {

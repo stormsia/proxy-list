@@ -1,6 +1,7 @@
 import { Terminal, Code2, Layers, Download, Zap, Shield, BookOpen, ExternalLink, GitBranch, Sparkles } from "lucide-react";
 import styles from "@/app/docs/page.module.css";
 import CodeSnippet from "@/components/CodeSnippet";
+import GitHubStarCard from "@/components/GitHubStarCard";
 import Link from "next/link";
 import { getDictionary, Locale } from "@/lib/i18n";
 
@@ -114,6 +115,32 @@ export default async function DocsView({ lang }: { lang: Locale }) {
           >
             <GitHubIcon size={14} />
             <span>{isRu ? "Полная документация в README на GitHub" : "Complete Documentation in GitHub README"}</span>
+            <ExternalLink size={12} style={{ opacity: 0.7 }} />
+          </a>
+
+          <a
+            href="https://stormsia.github.io/proxy-list/llms.txt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.readmePill}
+            style={{ background: "rgba(16, 185, 129, 0.1)", borderColor: "rgba(16, 185, 129, 0.3)", color: "#6ee7b7" }}
+            title="Machine-readable context file for LLMs and AI Agents"
+          >
+            <span>🤖</span>
+            <span>llms.txt (AI Agent Spec)</span>
+            <ExternalLink size={12} style={{ opacity: 0.7 }} />
+          </a>
+
+          <a
+            href="https://stormsia.github.io/proxy-list/llms-full.txt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.readmePill}
+            style={{ background: "rgba(56, 189, 248, 0.1)", borderColor: "rgba(56, 189, 248, 0.3)", color: "#7dd3fc" }}
+            title="Complete developer and AI agent manual"
+          >
+            <span>📖</span>
+            <span>llms-full.txt</span>
             <ExternalLink size={12} style={{ opacity: 0.7 }} />
           </a>
 
@@ -486,6 +513,9 @@ fetchHighSlaProxies().then((proxies) => {
             </div>
           </div>
         </section>
+
+        {/* Star CTA Card */}
+        <GitHubStarCard lang={lang} />
 
         {/* Disclaimer */}
         <section className={styles.noticeSection}>

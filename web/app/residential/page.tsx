@@ -3,9 +3,9 @@ import ResidentialView from "@/components/views/ResidentialView";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Free Residential Proxy List | Residential IP Proxies",
+  title: "Free Residential Proxy List — Verified ISP Endpoints (Updated Every Minute)",
   description:
-    "Free residential proxies sourced from real ISP-assigned IP addresses. Lower detection rates compared to datacenter proxies. Verified automatically every 15 minutes. No registration required.",
+    "Free residential proxy list sourced from genuine ISP consumer connections. Lower block rates for web scraping. Audited every 60 seconds by Hydra with millisecond latency metrics.",
   subpath: "residential",
   lang: "en",
   keywords: [
@@ -14,6 +14,7 @@ export const metadata: Metadata = buildPageMetadata({
     "residential ip proxy",
     "isp proxy list",
     "real ip proxy",
+    "anti bot proxies",
   ],
 });
 

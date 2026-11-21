@@ -3,6 +3,7 @@ import styles from "@/app/page.module.css";
 import { MapPin } from "lucide-react";
 import Link from "next/link";
 import FAQ from "@/components/FAQ";
+import GitHubStarCard from "@/components/GitHubStarCard";
 import { getDictionary, Locale } from "@/lib/i18n";
 import { getProxies, getProxiesByCountry } from "@/lib/proxies";
 import { COUNTRY_META, getCountryDisplayName } from "@/lib/countries";
@@ -34,14 +35,6 @@ export default async function CountryView({
     isRu ? "ru" : "en"
   );
 
-  const protoCounts: Record<string, number> = {};
-  filteredProxies.forEach((p) => {
-    if (p.protocol) {
-      const proto = p.protocol.toLowerCase();
-      protoCounts[proto] = (protoCounts[proto] || 0) + 1;
-    }
-  });
-
   const pageUrl = isRu
     ? `${SITE_URL}/ru/country/${normalizedCode}`
     : `${SITE_URL}/country/${normalizedCode}`;
@@ -51,14 +44,15 @@ export default async function CountryView({
     "@context": "https://schema.org/",
     "@type": "Dataset",
     name: isRu
-      ? `Бесплатные Прокси в ${countryName}`
-      : `Free ${countryName} Proxy List`,
+      ? `Бесплатные Прокси в ${countryName} — Рабочие Серверы`
+      : `Free ${countryName} Proxy List — Verified Live Endpoints`,
     description: isRu
-      ? `Бесплатный автообновляемый список прокси-серверов, расположенных в ${countryName}. Включает SOCKS5, SOCKS4 и HTTP прокси, проверенные валидатором.`
-      : `A free, auto-updated list of proxy servers located in ${countryName}. Includes SOCKS5, SOCKS4, and HTTP proxies verified by a validator.`,
+      ? `Актуальный список проверенных прокси-серверов в ${countryName} (SOCKS5, SOCKS4, HTTP). Непрерывный аудит каждые 60 секунд движком Hydra с замером RTT и ASN.`
+      : `Continuously audited list of free proxy servers located in ${countryName}. SOCKS5, SOCKS4, and HTTP protocols verified every 60 seconds by the Hydra Rust engine.`,
     url: pageUrl,
     inLanguage: isRu ? "ru" : "en",
     license: "https://creativecommons.org/licenses/by/4.0/",
+    isAccessibleForFree: true,
     creator: {
       "@type": "Organization",
       name: "stormsia",
@@ -69,6 +63,7 @@ export default async function CountryView({
         "@type": "DataDownload",
         encodingFormat: "application/json",
         contentUrl: `${SITE_URL}/data/proxies.json`,
+        name: "Full Hydra JSON Dataset",
       },
     ],
   };
@@ -95,30 +90,30 @@ export default async function CountryView({
   const faqItems = isRu
     ? [
         {
-          question: `Бесплатны ли прокси из региона ${countryName}?`,
-          answer: `Да, все прокси в ${countryName} на этой странице полностью бесплатны для использования.`,
+          question: `Как подтверждается геолокация серверов в ${countryName}?`,
+          answer: `При каждой валидации движок Hydra сверяет IP-адрес с базами MaxMind GeoIP и BGP routing tables. Мы сохраняем двухбуквенный ISO-код страны и номер автономной системы (ASN), чтобы вы могли быть уверены в реальном географическом выходе трафика.`,
         },
         {
-          question: `Как часто обновляются прокси в ${countryName}?`,
-          answer: `Наш автоматический чекер проверяет работоспособность каждого прокси-сервера каждые 15 минут.`,
+          question: `Как часто обновляется список прокси для ${countryName}?`,
+          answer: `Валидация выполняется непрерывно каждые 60 секунд. Серверы, переставшие отвечать на TCP-запросы или показавшие нестабильное соединение, автоматически помечаются как неактивные.`,
         },
         {
-          question: `Подходят ли эти прокси для парсинга сайтов в ${countryName}?`,
-          answer: `Да, локальные IP-адреса помогают получать гео-специфичные данные и страницы для региона ${countryName}.`,
+          question: `Подходят ли эти прокси для парсинга локализованных данных в ${countryName}?`,
+          answer: `Да. Выходной IP-адрес в ${countryName} позволяет получать региональные поисковые выдачи, ценообразование и контент без срабатывания географических перенаправлений.`,
         },
       ]
     : [
         {
-          question: `Are the proxies in ${countryName} free to use?`,
-          answer: `Yes, all ${countryName} proxy servers listed on this page are completely free and open-source.`,
+          question: `How is server geolocation in ${countryName} verified?`,
+          answer: `During every validation pass, the Hydra engine matches proxy egress IPs against MaxMind GeoIP datasets and BGP autonomous system tables. Each entry includes the ISO 3166-1 alpha-2 country code and ASN name to guarantee authentic geographic routing.`,
         },
         {
-          question: `How often is the ${countryName} proxy list updated?`,
-          answer: `Our automated validator checks every proxy server in ${countryName} for availability and latency every 15 minutes.`,
+          question: `How often is the ${countryName} proxy list audited?`,
+          answer: `Audits run continuously every 60 seconds. Dead sockets, lagging endpoints, and timed-out connections are purged automatically without human intervention.`,
         },
         {
-          question: `Can I use these proxies for geo-targeted scraping in ${countryName}?`,
-          answer: `Yes, physically located proxy servers in ${countryName} provide accurate local IP addresses for location-dependent web scraping.`,
+          question: `Can I use ${countryName} proxies for localized web scraping and testing?`,
+          answer: `Yes. Routing requests through localized IPs in ${countryName} ensures access to geo-specific search results, localized pricing, currency formats, and regional content restrictions.`,
         },
       ];
 
@@ -177,30 +172,7 @@ export default async function CountryView({
           <strong>{countryName}</strong>
           {dict.country.aboutText2}
         </p>
-        <p
-          style={{
-            marginTop: "1.5rem",
-            padding: "1rem",
-            background: "rgba(139, 92, 246, 0.1)",
-            borderRadius: "8px",
-            borderLeft: "4px solid var(--accent)",
-          }}
-        >
-          ⭐ <strong>{dict.home.starPrefix}</strong>{" "}
-          <a
-            href="https://github.com/stormsia/proxy-list"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: "var(--accent)",
-              fontWeight: "bold",
-              textDecoration: "underline",
-            }}
-          >
-            {dict.home.starLink}
-          </a>
-          {dict.home.starSuffix}
-        </p>
+        <GitHubStarCard lang={lang} />
       </section>
 
       <section

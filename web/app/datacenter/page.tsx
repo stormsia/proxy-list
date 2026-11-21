@@ -3,17 +3,18 @@ import DatacenterView from "@/components/views/DatacenterView";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Free Datacenter Proxy List | Fast DC Proxy Servers",
+  title: "Free Datacenter Proxy List — Fast Cloud Endpoints (Updated Every Minute)",
   description:
-    "Free datacenter proxy list featuring high-bandwidth, low-latency IPs from cloud providers. Ideal for bulk scraping, API polling, and automated testing. Verified every 15 minutes by a validator.",
+    "Download free datacenter proxies hosted on high-speed cloud infrastructure (AWS, Hetzner, OVH, DigitalOcean). Audited every 60 seconds by Hydra with millisecond latency metrics.",
   subpath: "datacenter",
   lang: "en",
   keywords: [
     "free datacenter proxies",
     "datacenter proxy list",
-    "cheap datacenter proxy",
     "fast datacenter proxy",
     "cloud proxy server",
+    "high speed proxies",
+    "bulk scraping proxies",
   ],
 });
 

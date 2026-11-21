@@ -102,7 +102,9 @@ jobs:
       # 8. Build Next.js on 4 vCPUs
       - name: Build Next.js
         if: steps.check_changes.outputs.skip != 'true'
-        run: bun run build
+        run: |
+          bun run build
+          touch out/.nojekyll
 
       # 9. Upload Pages artifact
       - name: Upload Pages artifact

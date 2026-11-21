@@ -145,6 +145,32 @@ export default async function DocsView({ lang }: { lang: Locale }) {
           </a>
 
           <a
+            href="https://stormsia.github.io/proxy-list/.well-known/ai-catalog.json"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.readmePill}
+            style={{ background: "rgba(245, 158, 11, 0.1)", borderColor: "rgba(245, 158, 11, 0.3)", color: "#fcd34d" }}
+            title="Agentic Resource Discovery (ARD) JSON Catalog"
+          >
+            <span>⚡</span>
+            <span>ai-catalog.json (ARD)</span>
+            <ExternalLink size={12} style={{ opacity: 0.7 }} />
+          </a>
+
+          <a
+            href="https://stormsia.github.io/proxy-list/pricing.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.readmePill}
+            style={{ background: "rgba(168, 85, 247, 0.1)", borderColor: "rgba(168, 85, 247, 0.3)", color: "#d8b4fe" }}
+            title="Free tier and rate limit specification for agents"
+          >
+            <span>🏷️</span>
+            <span>pricing.md (Free Tier)</span>
+            <ExternalLink size={12} style={{ opacity: 0.7 }} />
+          </a>
+
+          <a
             href={HYDRA_URL}
             target="_blank"
             rel="noopener noreferrer"

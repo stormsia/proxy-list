@@ -9,6 +9,9 @@
 - **Homepage**: https://stormsia.github.io/proxy-list
 - **GitHub Repository**: https://github.com/stormsia/proxy-list
 - **Documentation & Integration Guide**: https://stormsia.github.io/proxy-list/docs
+- **Agentic Resource Discovery (ARD)**: https://stormsia.github.io/proxy-list/.well-known/ai-catalog.json
+- **Pricing & Free Tier Specification**: https://stormsia.github.io/proxy-list/pricing.md
+- **Agent Protocol Guidelines**: https://stormsia.github.io/proxy-list/AGENTS.md
 - **Complete AI Reference & Code Cookbook**: https://stormsia.github.io/proxy-list/llms-full.txt
 - **License**: MIT (Code) / CC-BY 4.0 (Dataset)
 

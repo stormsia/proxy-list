@@ -146,6 +146,36 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
               </li>
               <li>
                 <a
+                  href="https://stormsia.github.io/proxy-list/.well-known/ai-catalog.json"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Agentic Resource Discovery (ARD) Manifest"
+                >
+                  ai-catalog.json (ARD Manifest) ↗
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://stormsia.github.io/proxy-list/pricing.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Open Source & Free Tier Pricing Declaration"
+                >
+                  pricing.md (Free Tier Spec) ↗
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://stormsia.github.io/proxy-list/AGENTS.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="AI Agent Interaction Guidelines & Protocols"
+                >
+                  AGENTS.md (Agent Protocol) ↗
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://github.com/stormsia/hydra"
                   target="_blank"
                   rel="noopener noreferrer"

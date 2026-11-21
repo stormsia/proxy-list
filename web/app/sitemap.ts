@@ -89,5 +89,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     addLocalizedPair(enPath, ruPath, priority, "daily");
   }
 
+  // Machine-readable AI Agent discovery manifests
+  const aiManifests: { path: string; priority: number; changeFrequency: RouteDef["changeFrequency"] }[] = [
+    { path: "/llms.txt",                    priority: 0.8, changeFrequency: "daily" },
+    { path: "/llms-full.txt",               priority: 0.8, changeFrequency: "daily" },
+    { path: "/.well-known/ai-catalog.json", priority: 0.8, changeFrequency: "daily" },
+    { path: "/ai-catalog.json",             priority: 0.7, changeFrequency: "daily" },
+    { path: "/pricing.md",                  priority: 0.7, changeFrequency: "weekly" },
+    { path: "/AGENTS.md",                   priority: 0.7, changeFrequency: "weekly" },
+  ];
+
+  for (const manifest of aiManifests) {
+    entries.push({
+      url: `${SITE_URL}${manifest.path}`,
+      lastModified: now,
+      changeFrequency: manifest.changeFrequency,
+      priority: manifest.priority,
+    });
+  }
+
   return entries;
 }

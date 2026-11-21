@@ -1,14 +1,26 @@
 # robots.txt for stormsia/proxy-list
-# https://stormsia.github.io/proxy-list
+# Canonical URL: https://stormsia.github.io/proxy-list
 
 User-agent: *
 Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
-Disallow: /proxies.json
-Disallow: /data/proxies.json
+Allow: /ai-catalog.json
+Allow: /.well-known/ai-catalog.json
+Allow: /pricing.md
+Allow: /AGENTS.md
+Allow: /proxies.json
+Allow: /data/proxies.json
+Allow: /proxy-list/
+Allow: /proxy-list/llms.txt
+Allow: /proxy-list/llms-full.txt
+Allow: /proxy-list/ai-catalog.json
+Allow: /proxy-list/.well-known/ai-catalog.json
+Allow: /proxy-list/pricing.md
+Allow: /proxy-list/AGENTS.md
+Allow: /proxy-list/proxies.json
 
-# Explicitly permit Search and Discovery Bots
+# Explicitly permit and welcome Search & Discovery Crawlers
 User-agent: Googlebot
 Allow: /
 
@@ -18,64 +30,54 @@ Allow: /
 User-agent: Yandex
 Allow: /
 
-# Explicitly permit AI Search and Answer Engine Bots
+# Explicitly permit AI Search & Answer Engine Bots
 User-agent: OAI-SearchBot
 Allow: /
-Allow: /llms.txt
-Allow: /llms-full.txt
-Disallow: /proxies.json
-Disallow: /data/proxies.json
 
 User-agent: PerplexityBot
 Allow: /
-Allow: /llms.txt
-Allow: /llms-full.txt
-Disallow: /proxies.json
-Disallow: /data/proxies.json
 
 User-agent: Claude-SearchBot
 Allow: /
-Allow: /llms.txt
-Allow: /llms-full.txt
-Disallow: /proxies.json
-Disallow: /data/proxies.json
+
+User-agent: meta-webindexer
+Allow: /
+
+# Permit AI Model Fetchers & Assistants
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
 
 # Permit Model Training and Evaluation Crawlers
 User-agent: GPTBot
 Allow: /
-Allow: /llms.txt
-Allow: /llms-full.txt
-Disallow: /proxies.json
-Disallow: /data/proxies.json
 
 User-agent: ClaudeBot
 Allow: /
-Allow: /llms.txt
-Allow: /llms-full.txt
-Disallow: /proxies.json
-Disallow: /data/proxies.json
 
 User-agent: Google-Extended
 Allow: /
-Allow: /llms.txt
-Allow: /llms-full.txt
-Disallow: /proxies.json
-Disallow: /data/proxies.json
 
 User-agent: Applebot-Extended
 Allow: /
-Allow: /llms.txt
-Allow: /llms-full.txt
-Disallow: /proxies.json
-Disallow: /data/proxies.json
 
 User-agent: CCBot
 Allow: /
-Allow: /llms.txt
-Allow: /llms-full.txt
-Disallow: /proxies.json
-Disallow: /data/proxies.json
 
-# Content-Usage Declaration (AgentReady standard)
-# AI Search / Citations / Training: Allowed
+# Content-Usage Declaration (AgentReady AR-FIND-01 standard)
+# AI Search / Citations / Training / Agent Access: Allowed
+#
+# Machine-Readable AI Manifests:
+# AI Context: https://stormsia.github.io/proxy-list/llms.txt
+# Full Reference: https://stormsia.github.io/proxy-list/llms-full.txt
+# ARD Catalog: https://stormsia.github.io/proxy-list/.well-known/ai-catalog.json
+# Fallback Catalog: https://stormsia.github.io/proxy-list/ai-catalog.json
+# Pricing Spec: https://stormsia.github.io/proxy-list/pricing.md
+# Agent Policy: https://stormsia.github.io/proxy-list/AGENTS.md
+
 Sitemap: https://stormsia.github.io/proxy-list/sitemap.xml

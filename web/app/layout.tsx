@@ -33,10 +33,25 @@ export const metadata: Metadata = {
     "proxy checker",
     "residential proxies",
     "datacenter proxies",
+    "llms.txt",
+    "ai proxy api",
+    "agentic resource discovery",
   ],
   authors: [{ name: "stormsia", url: "https://github.com/stormsia" }],
   creator: "stormsia",
   publisher: "stormsia",
+  alternates: {
+    canonical: "./",
+    languages: {
+      en: SITE_URL,
+      ru: `${SITE_URL}/ru`,
+      "x-default": SITE_URL,
+    },
+    types: {
+      "text/markdown": `${SITE_URL}/llms.txt`,
+      "application/json": `${SITE_URL}/.well-known/ai-catalog.json`,
+    },
+  },
   robots: {
     index: true,
     follow: true,
@@ -79,7 +94,12 @@ export default function RootLayout({
     "@type": "Organization",
     name: "stormsia/proxy-list",
     url: SITE_URL,
-    sameAs: ["https://github.com/stormsia/proxy-list"],
+    sameAs: [
+      "https://github.com/stormsia/proxy-list",
+      "https://github.com/stormsia/hydra",
+      `${SITE_URL}/llms.txt`,
+      `${SITE_URL}/.well-known/ai-catalog.json`,
+    ],
     description:
       "Open-source proxy infrastructure network that collects, validates, and publishes free proxy lists using the high-concurrency Hydra Rust engine.",
   };
@@ -89,6 +109,11 @@ export default function RootLayout({
     "@type": "WebSite",
     name: "stormsia/proxy-list",
     url: SITE_URL,
+    sameAs: [
+      `${SITE_URL}/llms.txt`,
+      `${SITE_URL}/.well-known/ai-catalog.json`,
+      `${SITE_URL}/pricing.md`,
+    ],
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -118,8 +143,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="alternate" type="text/markdown" href={`${SITE_URL}/llms.txt`} title="LLM Context (llms.txt)" />
         <link rel="alternate" type="text/plain" href={`${SITE_URL}/llms.txt`} title="LLM Context (llms.txt)" />
-        <link rel="alternate" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="Full AI Agent Reference (llms-full.txt)" />
+        <link rel="help" type="text/markdown" href={`${SITE_URL}/llms.txt`} title="Agent Guidance (llms.txt)" />
+        <link rel="alternate" type="text/markdown" href={`${SITE_URL}/llms-full.txt`} title="Full AI Agent Reference (llms-full.txt)" />
+        <link rel="ai-catalog" type="application/json" href={`${SITE_URL}/.well-known/ai-catalog.json`} title="Agentic Resource Discovery Catalog" />
+        <link rel="service-desc" type="application/json" href={`${SITE_URL}/.well-known/ai-catalog.json`} title="AI Catalog Manifest" />
+        <link rel="ai-catalog" type="application/json" href={`${SITE_URL}/ai-catalog.json`} />
+        <link rel="pricing" type="text/markdown" href={`${SITE_URL}/pricing.md`} title="Free Tier Pricing Spec" />
+        <link rel="agent-guidelines" type="text/markdown" href={`${SITE_URL}/AGENTS.md`} title="Agent Guidelines" />
         <link rel="alternate" type="application/json" href="https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json" title="Live Proxy JSON Feed" />
         <script
           type="application/ld+json"

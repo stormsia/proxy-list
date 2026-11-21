@@ -1,0 +1,102 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "stormsia/proxy-list",
+    "identifier": "did:web:stormsia.github.io:proxy-list",
+    "documentationUrl": "https://stormsia.github.io/proxy-list/docs",
+    "logoUrl": "https://stormsia.github.io/proxy-list/globe.svg"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:stormsia.github.io:proxy-list:api:proxies-json",
+      "displayName": "Live Validated Proxies JSON Feed",
+      "type": "application/json",
+      "url": "https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json",
+      "description": "Continuously updated (every 60 seconds) array of actively verified public proxies across 239 countries with latency (RTT), uptime percentage, protocol, ASN, and anonymity level verified by Hydra.",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-21T10:00:00Z",
+      "tags": ["proxy", "socks5", "http", "anonymity", "scraping", "network"],
+      "capabilities": ["fetch-proxies", "filter-by-country", "filter-by-protocol", "low-latency-selection"],
+      "representativeQueries": [
+        "find working free socks5 proxies with low latency",
+        "get latest verified proxy list in JSON format",
+        "download public http and https proxy servers by country"
+      ]
+    },
+    {
+      "identifier": "urn:air:stormsia.github.io:proxy-list:feed:text-endpoints",
+      "displayName": "Working Proxies Plain Text Feeds (host:port)",
+      "type": "text/plain",
+      "url": "https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt",
+      "description": "Direct plain text proxy lists separated by protocol (socks5.txt, http.txt, socks4.txt, working_proxies.txt), updated every 60 seconds from Hydra validation passes.",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-21T10:00:00Z",
+      "tags": ["proxy-list", "plain-text", "curl", "socks5"],
+      "capabilities": ["raw-proxy-rotation", "cli-curl-routing"],
+      "representativeQueries": [
+        "download socks5 proxy list as plain text host:port",
+        "curl working proxy endpoints for web scraping"
+      ]
+    },
+    {
+      "identifier": "urn:air:stormsia.github.io:proxy-list:doc:llms-txt",
+      "displayName": "AI Agent Integration & Decision Matrix (llms.txt)",
+      "type": "text/markdown",
+      "url": "https://stormsia.github.io/proxy-list/llms.txt",
+      "description": "Structured documentation, machine-readable specifications, schema definition, and decision algorithms for autonomous agents consuming proxy datasets.",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-21T10:00:00Z",
+      "tags": ["llms-txt", "ai-seo", "agent-readiness", "agent-discovery"],
+      "capabilities": ["agent-context", "decision-matrix", "schema-docs"],
+      "representativeQueries": [
+        "how to integrate stormsia proxy list in Python or Node.js",
+        "what is the schema of proxies.json from stormsia"
+      ]
+    },
+    {
+      "identifier": "urn:air:stormsia.github.io:proxy-list:doc:llms-full-txt",
+      "displayName": "Full Agent Reference and Multi-Language Code Cookbook",
+      "type": "text/markdown",
+      "url": "https://stormsia.github.io/proxy-list/llms-full.txt",
+      "description": "Complete AI agent handbook with code examples in Python, Rust, Go, TypeScript/Node.js, Playwright, Scrapy, and percentile latency benchmarks.",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-21T10:00:00Z",
+      "tags": ["code-examples", "playwright", "httpx", "scraping", "cookbook"],
+      "capabilities": ["code-cookbook", "proxy-rotation-algorithms"],
+      "representativeQueries": [
+        "code examples for rotating proxies in Playwright and httpx",
+        "how to configure resilient proxy fallbacks in Python"
+      ]
+    },
+    {
+      "identifier": "urn:air:stormsia.github.io:proxy-list:spec:pricing",
+      "displayName": "Free Community Tier & Usage Specifications (pricing.md)",
+      "type": "text/markdown",
+      "url": "https://stormsia.github.io/proxy-list/pricing.md",
+      "description": "Declarative pricing and limits specification verifying 100% free open-source availability with zero authentication, zero credit card requirements, and CDN rate limits.",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-21T10:00:00Z",
+      "tags": ["pricing", "free-tier", "zero-auth", "agent-ready"],
+      "capabilities": ["pricing-verification", "rate-limit-inspection"],
+      "representativeQueries": [
+        "is stormsia proxy list completely free to use",
+        "what are the rate limits and authentication for stormsia proxy list"
+      ]
+    },
+    {
+      "identifier": "urn:air:stormsia.github.io:proxy-list:engine:hydra",
+      "displayName": "Hydra High-Concurrency Rust Validator Engine",
+      "type": "text/html",
+      "url": "https://github.com/stormsia/hydra",
+      "description": "Open-source Rust verification engine performing asynchronous TCP socket handshakes, TLS negotiation, and RTT latency benchmarking every 60 seconds.",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-21T10:00:00Z",
+      "tags": ["rust", "proxy-validator", "hydra", "open-source"],
+      "capabilities": ["proxy-validation", "latency-measurement"],
+      "representativeQueries": [
+        "how does stormsia validate proxies in rust",
+        "benchmark and test proxy response time with hydra"
+      ]
+    }
+  ]
+}

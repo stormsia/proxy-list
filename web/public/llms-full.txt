@@ -13,6 +13,9 @@
 - **Primary Data Endpoint:** https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json
 - **Documentation & API:** https://stormsia.github.io/proxy-list/docs
 - **Short AI Context:** https://stormsia.github.io/proxy-list/llms.txt
+- **Agentic Resource Discovery (ARD):** https://stormsia.github.io/proxy-list/.well-known/ai-catalog.json
+- **Pricing & Free Tier Specification:** https://stormsia.github.io/proxy-list/pricing.md
+- **Agent Interaction Guidelines:** https://stormsia.github.io/proxy-list/AGENTS.md
 - **License:** MIT License (Software) / CC-BY 4.0 (Dataset)
 
 ### The Hydra Engine Validation Pipeline

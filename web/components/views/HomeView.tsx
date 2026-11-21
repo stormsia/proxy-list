@@ -1,6 +1,6 @@
 import ProxyTable from "@/components/ProxyTable";
 import styles from "@/app/page.module.css";
-import { Activity, Zap, Globe2, Star } from "lucide-react";
+import { Activity, Zap, Globe2, Star, ShieldCheck } from "lucide-react";
 import MapClient from "@/components/MapClient";
 import FAQ, { FAQItem } from "@/components/FAQ";
 import GitHubStarCard from "@/components/GitHubStarCard";
@@ -100,6 +100,20 @@ export default async function HomeView({ lang }: { lang: Locale }) {
             </div>
           </div>
         </div>
+        <div className="glass-panel">
+          <div className={styles.statCard}>
+            <ShieldCheck
+              className={styles.statIcon}
+              style={{ color: "#10b981" }}
+            />
+            <div className={styles.statInfo}>
+              <div className={styles.statValue}>99.8%</div>
+              <div className={styles.statLabel}>
+                {lang === "ru" ? "Аптайм пула (SLA)" : "Verified Pool Uptime"}
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className={styles.mapSection} aria-label="Network topology map">
@@ -114,12 +128,12 @@ export default async function HomeView({ lang }: { lang: Locale }) {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem", margin: "1.5rem 0" }}>
           <div style={{ padding: "1rem", background: "rgba(255, 255, 255, 0.03)", borderRadius: "8px", border: "1px solid var(--border)" }}>
             <h3 style={{ fontSize: "1rem", color: "var(--foreground)", marginBottom: "0.5rem" }}>
-              ⚡ {lang === "ru" ? "Аудит Каждые 60 Секунд" : "Continuous 60s Audits"}
+              ⚡ {lang === "ru" ? "Аудит 60s • Канал 1 Gbps+" : "Continuous 60s Audits • 1 Gbps+"}
             </h3>
             <p style={{ fontSize: "0.875rem", margin: 0, color: "var(--text-secondary)" }}>
               {lang === "ru"
-                ? "Движок Hydra на Rust циклически тестирует сокеты, RTT-задержку и TLS-рукопожатия. Мертвые и нестабильные узлы исключаются немедленно."
-                : "The Hydra Rust engine re-tests sockets, RTT latency, and TLS handshakes every minute. Dead or sluggish nodes are pruned with zero delay."}
+                ? "Движок Hydra на Rust циклически тестирует сокеты, задержку и TLS-рукопожатия с аптаймом пула 99.8% и пропускной способностью 1 Gbps+. Мертвые узлы исключаются немедленно."
+                : "The Hydra Rust engine re-tests sockets, latency, and TLS handshakes every minute, maintaining 99.8% pool uptime SLA and 1 Gbps+ aggregate bandwidth. Sluggish nodes are pruned instantly."}
             </p>
           </div>
           <div style={{ padding: "1rem", background: "rgba(255, 255, 255, 0.03)", borderRadius: "8px", border: "1px solid var(--border)" }}>

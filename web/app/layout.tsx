@@ -103,14 +103,24 @@ export default function RootLayout({
     "@type": "Organization",
     name: "stormsia/proxy-list",
     url: SITE_URL,
+    logo: `${SITE_URL}/logo.svg`,
+    image: `${SITE_URL}/logo.svg`,
     sameAs: [
       "https://github.com/stormsia/proxy-list",
       "https://github.com/stormsia/hydra",
       `${SITE_URL}/llms.txt`,
       `${SITE_URL}/.well-known/ai-catalog.json`,
+      `${SITE_URL}/pricing.md`,
+      `${SITE_URL}/AGENTS.md`,
     ],
     description:
       "Open-source proxy infrastructure network that collects, validates, and publishes free proxy lists using the high-concurrency Hydra Rust engine.",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "technical support",
+      url: "https://github.com/stormsia/proxy-list/issues",
+      availableLanguage: ["English", "Russian"],
+    },
   };
 
   const websiteSchema = {
@@ -152,6 +162,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="icon" type="image/svg+xml" href={`${SITE_URL}/icon.svg`} />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${SITE_URL}/apple-touch-icon.png`} />
         <link rel="alternate" type="text/markdown" href={`${SITE_URL}/llms.txt`} title="LLM Context (llms.txt)" />
         <link rel="alternate" type="text/plain" href={`${SITE_URL}/llms.txt`} title="LLM Context (llms.txt)" />
         <link rel="help" type="text/markdown" href={`${SITE_URL}/llms.txt`} title="Agent Guidance (llms.txt)" />

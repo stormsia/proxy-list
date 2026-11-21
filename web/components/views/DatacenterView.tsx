@@ -132,8 +132,8 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
         </h1>
         <p className={styles.subtitle}>
           {isRu
-            ? `${dcProxies.length.toLocaleString()} проверенных датацентр-узлов (AWS, Hetzner, DigitalOcean, OVH). Проверка каждые 60 секунд движком Hydra.`
-            : `${dcProxies.length.toLocaleString()} verified datacenter proxy nodes hosted on cloud infrastructure. Audited every 60 seconds by Hydra.`}
+            ? `${dcProxies.length.toLocaleString("en-US")} проверенных датацентр-узлов (AWS, Hetzner, DigitalOcean, OVH). Проверка каждые 60 секунд движком Hydra.`
+            : `${dcProxies.length.toLocaleString("en-US")} verified datacenter proxy nodes hosted on cloud infrastructure. Audited every 60 seconds by Hydra.`}
         </p>
       </header>
 

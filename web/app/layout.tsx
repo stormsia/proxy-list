@@ -79,6 +79,15 @@ export const metadata: Metadata = {
       "Open-source, auto-updated proxy list. SOCKS5, HTTP, HTTPS, SOCKS4. Verified by async validator. JSON API available.",
     creator: "@stormsia",
   },
+  icons: {
+    icon: [
+      { url: "/proxy-list/icon.svg", type: "image/svg+xml" },
+      { url: "/proxy-list/favicon.ico" },
+    ],
+    apple: [
+      { url: "/proxy-list/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 import Navbar from "@/components/Navbar";

@@ -132,8 +132,8 @@ export default async function ResidentialView({ lang }: { lang: Locale }) {
         </h1>
         <p className={styles.subtitle}>
           {isRu
-            ? `${residentialProxies.length.toLocaleString()} проверенных прокси с реальными IP интернет-провайдеров (ISP). Аудит каждые 60 секунд движком Hydra.`
-            : `${residentialProxies.length.toLocaleString()} verified residential proxy servers with real ISP-assigned IPs. Audited every 60 seconds by Hydra.`}
+            ? `${residentialProxies.length.toLocaleString("en-US")} проверенных прокси с реальными IP интернет-провайдеров (ISP). Аудит каждые 60 секунд движком Hydra.`
+            : `${residentialProxies.length.toLocaleString("en-US")} verified residential proxy servers with real ISP-assigned IPs. Audited every 60 seconds by Hydra.`}
         </p>
       </header>
 

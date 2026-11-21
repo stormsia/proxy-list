@@ -189,7 +189,7 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
         </div>
 
         <div className={styles.bottom}>
-          <p>
+          <p suppressHydrationWarning>
             &copy; {new Date().getFullYear()}{" "}
             <a
               href="https://github.com/stormsia/proxy-list"

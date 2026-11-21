@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useMemo, useState, useRef, useCallback } from "react";
+import { useMemo, useState, useRef, useCallback, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
-import { Globe, Zap, ExternalLink, Activity, Radio, Share2, ShieldCheck, ArrowRight } from "lucide-react";
+import { Globe, Zap, ExternalLink, Activity, Radio, Share2, ShieldCheck, ArrowRight, X } from "lucide-react";
 import type { ProxyRecord } from "@/lib/types";
 import { getCountryCoordinates, getCountryDisplayName } from "@/lib/countries";
 import { WORLD_LAND_PATH } from "@/lib/worldLandmass";
@@ -70,12 +70,25 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
   const [activeProtocol, setActiveProtocol] = useState<string>("all");
   const [showRoutes, setShowRoutes] = useState<boolean>(true);
   const [hoveredCluster, setHoveredCluster] = useState<CountryCluster | null>(null);
+  const [selectedCluster, setSelectedCluster] = useState<CountryCluster | null>(null);
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const pathname = usePathname() || "";
   const isRu = lang === "ru" || pathname.startsWith("/ru");
   const prefix = isRu ? "/ru" : "";
+
+  // Detect coarse pointer / touch screens
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const mq = window.matchMedia("(hover: none), (pointer: coarse)");
+      setIsTouchDevice(mq.matches);
+      const listener = (e: MediaQueryListEvent) => setIsTouchDevice(e.matches);
+      mq.addEventListener?.("change", listener);
+      return () => mq.removeEventListener?.("change", listener);
+    }
+  }, []);
 
   // 1. Filter proxies by protocol
   const filteredProxies = useMemo(() => {
@@ -161,6 +174,9 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
     return list;
   }, [filteredProxies, lang]);
 
+  // Active cluster: either hovered on desktop or tapped/selected on mobile
+  const activeCluster = hoveredCluster || selectedCluster;
+
   // 3. Compute dynamic planetary backbone transit routes
   const transitRoutes = useMemo<TransitRoute[]>(() => {
     if (!showRoutes || clusters.length < 2) return [];
@@ -208,6 +224,22 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
     return routes;
   }, [clusters, showRoutes]);
 
+  // Order clusters in SVG so that the active node is drawn last (on top in SVG z-order)
+  const orderedClusters = useMemo(() => {
+    const activeCode = activeCluster?.code;
+    if (!activeCode) return clusters;
+    const regular: CountryCluster[] = [];
+    let topNode: CountryCluster | null = null;
+    for (const c of clusters) {
+      if (c.code === activeCode) {
+        topNode = c;
+      } else {
+        regular.push(c);
+      }
+    }
+    return topNode ? [...regular, topNode] : clusters;
+  }, [clusters, activeCluster]);
+
   // Metrics summary
   const totalCountries = clusters.length;
   const totalMappedNodes = filteredProxies.length;
@@ -220,23 +252,18 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
     return Math.round(sum / latencies.length);
   }, [clusters]);
 
-  const handleNodeClick = useCallback(
-    (code: string) => {
-      router.push(`${prefix}/country/${code.toLowerCase()}`);
-    },
-    [router, prefix]
-  );
-
   const updateTooltipPos = useCallback((e: React.MouseEvent) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-    const x = Math.max(110, Math.min(rect.width - 110, e.clientX - rect.left));
+    const x = Math.max(70, Math.min(rect.width - 70, e.clientX - rect.left));
     const y = e.clientY - rect.top;
     setTooltipPos({ x, y });
   }, []);
 
   const handleMouseEnter = useCallback(
     (cluster: CountryCluster, e: React.MouseEvent) => {
+      // Ignore hover if pointer is touch
+      if ((e.nativeEvent as PointerEvent)?.pointerType === "touch") return;
       setHoveredCluster(cluster);
       updateTooltipPos(e);
     },
@@ -255,6 +282,52 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
   const handleMouseLeave = useCallback(() => {
     setHoveredCluster(null);
     setTooltipPos(null);
+  }, []);
+
+  // Node interaction: tap-to-select on touch, navigate on second tap or desktop click
+  const handleNodeClick = useCallback(
+    (cluster: CountryCluster, e: React.MouseEvent) => {
+      e.stopPropagation();
+      const isTouch =
+        (e.nativeEvent as PointerEvent)?.pointerType === "touch" || isTouchDevice;
+
+      if (isTouch) {
+        if (selectedCluster?.code === cluster.code) {
+          // Second tap on already selected country -> navigate to catalog
+          router.push(`${prefix}/country/${cluster.code.toLowerCase()}`);
+        } else {
+          // First tap -> select and display in Docked HUD
+          setSelectedCluster(cluster);
+          setHoveredCluster(null);
+        }
+      } else {
+        // Desktop mouse click -> navigate directly
+        router.push(`${prefix}/country/${cluster.code.toLowerCase()}`);
+      }
+    },
+    [isTouchDevice, selectedCluster, prefix, router]
+  );
+
+  const handleNodeKeyDown = useCallback(
+    (cluster: CountryCluster, e: React.KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        router.push(`${prefix}/country/${cluster.code.toLowerCase()}`);
+      }
+    },
+    [prefix, router]
+  );
+
+  // Clicking empty SVG space deselects on mobile
+  const handleSvgClick = useCallback((e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (
+      target.tagName === "svg" ||
+      target.tagName === "rect" ||
+      target.classList?.contains(styles.landmassBase)
+    ) {
+      setSelectedCluster(null);
+    }
   }, []);
 
   return (
@@ -333,7 +406,7 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
       </div>
 
       {/* Interactive SVG Surface */}
-      <div className={styles.svgWrapper} onMouseLeave={handleMouseLeave}>
+      <div className={styles.svgWrapper} onMouseLeave={handleMouseLeave} onClick={handleSvgClick}>
         <svg
           viewBox="0 0 1000 500"
           className={styles.worldSvg}
@@ -421,11 +494,8 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
 
           {/* Layer 2: Geographic Landmass Topology */}
           <g className={styles.landmassGroup}>
-            {/* Solid sleek landmass base */}
             <path d={WORLD_LAND_PATH} className={styles.landmassBase} />
-            {/* Cyber Dot-Matrix Overlay */}
             <path d={WORLD_LAND_PATH} fill="url(#cyber-dots)" className={styles.landmassDots} />
-            {/* Razor-sharp glowing coastline rim */}
             <path d={WORLD_LAND_PATH} className={styles.landmassRim} fill="none" />
           </g>
 
@@ -439,9 +509,9 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
             <g className={styles.transitGroup}>
               {transitRoutes.map((route) => {
                 const isHoverConnected =
-                  hoveredCluster &&
-                  (hoveredCluster.code === route.sourceCode || hoveredCluster.code === route.targetCode);
-                const isDimmed = hoveredCluster && !isHoverConnected;
+                  activeCluster &&
+                  (activeCluster.code === route.sourceCode || activeCluster.code === route.targetCode);
+                const isDimmed = activeCluster && !isHoverConnected;
 
                 return (
                   <g
@@ -450,11 +520,8 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
                       isDimmed ? styles.routeDimmed : ""
                     }`}
                   >
-                    {/* Shadow / Base Arc */}
                     <path d={route.path} className={styles.routeBase} />
-                    {/* Glowing animated laser packet pulse */}
                     <path d={route.path} className={styles.routePulse} />
-                    {/* Live traveling telemetry packet */}
                     <circle r="2.2" className={styles.routePacket}>
                       <animateMotion
                         dur={`${Math.max(3.2, Math.min(8.5, route.distance / 45))}s`}
@@ -468,157 +535,238 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
             </g>
           )}
 
-          {/* Layer 5: Interactive Country Cluster Nodes */}
+          {/* Layer 5: Interactive Country Cluster Nodes (Zero-Jitter: geometry stays constant) */}
           <g className={styles.nodesGroup}>
-            {clusters.map((cluster) => {
-              // Proportional radius with clean bounds
+            {orderedClusters.map((cluster) => {
               const radius = Math.min(16, Math.max(5, 4.5 + Math.log2(cluster.count) * 1.8));
               const isLarge = cluster.count >= 50;
               const isMedium = cluster.count >= 15;
               const coreColor = isLarge ? "#10b981" : isMedium ? "#06b6d4" : "#a855f7";
               const glowGradient = isLarge ? "url(#glowEmerald)" : isMedium ? "url(#glowCyan)" : "url(#glowViolet)";
-              const isSelected = hoveredCluster?.code === cluster.code;
+              const isSelected = activeCluster?.code === cluster.code;
 
               return (
-                <Link
+                <g
                   key={cluster.code}
-                  href={`${prefix}/country/${cluster.code.toLowerCase()}`}
-                  aria-label={`${cluster.name}: ${cluster.count} active proxies`}
-                  style={{ textDecoration: "none" }}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`${cluster.name}: ${cluster.count} ${isRu ? "активных нод" : "active nodes"}`}
+                  className={`${styles.nodeGroup} ${isSelected ? styles.nodeGroupHovered : ""}`}
+                  transform={`translate(${cluster.x}, ${cluster.y})`}
+                  onMouseEnter={(e) => handleMouseEnter(cluster, e)}
+                  onClick={(e) => handleNodeClick(cluster, e)}
+                  onKeyDown={(e) => handleNodeKeyDown(cluster, e)}
                 >
-                  <g
-                    className={`${styles.nodeGroup} ${isSelected ? styles.nodeGroupHovered : ""}`}
-                    transform={`translate(${cluster.x}, ${cluster.y})`}
-                    onMouseEnter={(e) => handleMouseEnter(cluster, e)}
-                  >
-                    {/* Concentric radar ping rings */}
-                    <circle
-                      r={radius * 1.7}
-                      fill="none"
-                      stroke={coreColor}
-                      strokeWidth="1.2"
-                      className={styles.nodePing}
-                      style={{
-                        animationDelay: `${((cluster.x + cluster.y) % 24) * 0.12}s`,
-                      }}
-                    />
+                  {/* Concentric radar ping rings - pointer-events: none */}
+                  <circle
+                    r={radius * 1.7}
+                    fill="none"
+                    stroke={coreColor}
+                    strokeWidth="1.2"
+                    className={styles.nodePing}
+                    style={{
+                      animationDelay: `${((cluster.x + cluster.y) % 24) * 0.12}s`,
+                    }}
+                  />
 
-                    {/* Soft ambient glow halo for hubs */}
-                    <circle r={radius * 1.55} fill={glowGradient} className={styles.nodeGlow} />
+                  {/* Soft ambient glow halo for hubs */}
+                  <circle r={radius * 1.55} fill={glowGradient} className={styles.nodeGlow} />
 
-                    {/* Core node dot */}
-                    <circle
-                      r={radius}
-                      fill={coreColor}
-                      stroke="#08090d"
-                      strokeWidth="1.75"
-                      className={styles.nodeCore}
-                    />
+                  {/* Core node dot: Stable size, neon highlight on hover */}
+                  <circle
+                    r={radius}
+                    fill={coreColor}
+                    stroke="#08090d"
+                    strokeWidth="1.75"
+                    className={styles.nodeCore}
+                  />
 
-                    {/* Hub count label for prominent nodes */}
-                    {cluster.count >= 15 && (
-                      <text
-                        y="3.2"
-                        textAnchor="middle"
-                        fill="#ffffff"
-                        fontSize={cluster.count >= 100 ? "8" : "8.5"}
-                        fontWeight="700"
-                        className={styles.nodeText}
-                      >
-                        {cluster.count}
-                      </text>
-                    )}
-                  </g>
-                </Link>
+                  {/* Hub count label for prominent nodes */}
+                  {cluster.count >= 15 && (
+                    <text
+                      y="3.2"
+                      textAnchor="middle"
+                      fill="#ffffff"
+                      fontSize={cluster.count >= 100 ? "8" : "8.5"}
+                      fontWeight="700"
+                      className={styles.nodeText}
+                    >
+                      {cluster.count}
+                    </text>
+                  )}
+                </g>
               );
             })}
           </g>
         </svg>
 
-        {/* Cinematic HUD Floating Tooltip */}
-        {hoveredCluster && tooltipPos && (
+        {/* Lightweight Desktop Micro-Marker (Non-blocking, zero occlusion of neighbouring nodes) */}
+        {hoveredCluster && tooltipPos && !isTouchDevice && (
           <div
-            className={styles.tooltipCard}
+            className={styles.microMarker}
             style={{
               left: `${tooltipPos.x}px`,
-              top: `${tooltipPos.y < 170 ? tooltipPos.y + 24 : tooltipPos.y - 12}px`,
-              transform: tooltipPos.y < 170 ? "translate(-50%, 0)" : "translate(-50%, -100%)",
+              top: `${tooltipPos.y < 45 ? tooltipPos.y + 20 : tooltipPos.y - 28}px`,
             }}
           >
-            {/* Tooltip Header */}
-            <div className={styles.tooltipHead}>
-              <div className={styles.tooltipHeadLeft}>
-                <img
-                  src={`https://flagcdn.com/24x18/${hoveredCluster.code.toLowerCase()}.png`}
-                  alt=""
-                  width={20}
-                  height={15}
-                  className={styles.tooltipFlag}
-                  loading="lazy"
-                />
-                <div className={styles.tooltipTitleWrap}>
-                  <span className={styles.tooltipCountry}>{hoveredCluster.name}</span>
-                  <span className={styles.tooltipIso}>{hoveredCluster.code.toUpperCase()}</span>
-                </div>
-              </div>
+            <img
+              src={`https://flagcdn.com/20x15/${hoveredCluster.code.toLowerCase()}.png`}
+              alt=""
+              width={14}
+              height={10}
+              className={styles.microFlag}
+              loading="lazy"
+            />
+            <span className={styles.microName}>{hoveredCluster.name}</span>
+            <span className={styles.microCount}>· {hoveredCluster.count} {isRu ? "нод" : "nodes"}</span>
+          </div>
+        )}
+      </div>
 
-              <div className={styles.tooltipRankPill}>
-                #{hoveredCluster.rank} {isRu ? "хаб" : "hub"}
+      {/* Docked HUD Telemetry Bar (Zero map occlusion, full telemetry & instant mobile action) */}
+      <div className={styles.dockedHud}>
+        {activeCluster ? (
+          <div className={styles.hudActive}>
+            {/* Identity & Rank */}
+            <div className={styles.hudIdentity}>
+              <img
+                src={`https://flagcdn.com/28x21/${activeCluster.code.toLowerCase()}.png`}
+                alt=""
+                width={26}
+                height={19}
+                className={styles.hudFlag}
+                loading="lazy"
+              />
+              <div className={styles.hudTitleGroup}>
+                <div className={styles.hudCountryRow}>
+                  <span className={styles.hudCountryName}>{activeCluster.name}</span>
+                  <span className={styles.hudIsoBadge}>{activeCluster.code.toUpperCase()}</span>
+                </div>
+                <div className={styles.hudRankRow}>
+                  <span className={styles.hudRankPill}>
+                    #{activeCluster.rank} {isRu ? "хаб в сети" : "network hub"}
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* Metrics Breakdown */}
-            <div className={styles.tooltipBody}>
-              <div className={styles.tooltipMetricRow}>
-                <span className={styles.tooltipMetricLabel}>{isRu ? "Активных нод:" : "Active Nodes:"}</span>
-                <span className={styles.tooltipMetricVal}>
-                  ⚡ <strong>{hoveredCluster.count}</strong>{" "}
-                  <span className={styles.tooltipPercent}>({hoveredCluster.sharePercent}%)</span>
+            {/* Live Telemetry Metrics */}
+            <div className={styles.hudMetrics}>
+              <div className={styles.hudMetricItem}>
+                <span className={styles.hudMetricLabel}>{isRu ? "Активных нод" : "Active Nodes"}</span>
+                <span className={styles.hudMetricValue}>
+                  <strong className={styles.hudHighlightNodes}>{activeCluster.count}</strong>
+                  <span className={styles.hudSharePercent}>({activeCluster.sharePercent}%)</span>
                 </span>
               </div>
 
-              {hoveredCluster.avgLatency > 0 && (
-                <div className={styles.tooltipMetricRow}>
-                  <span className={styles.tooltipMetricLabel}>{isRu ? "Средний RTT:" : "Avg Latency:"}</span>
-                  <span
-                    className={styles.tooltipLatencyBadge}
-                    data-latency={
-                      hoveredCluster.avgLatency <= 120 ? "fast" : hoveredCluster.avgLatency <= 250 ? "med" : "slow"
-                    }
-                  >
-                    {hoveredCluster.avgLatency} ms
+              {activeCluster.avgLatency > 0 && (
+                <div className={styles.hudMetricItem}>
+                  <span className={styles.hudMetricLabel}>{isRu ? "Средний RTT" : "Avg Latency"}</span>
+                  <span className={styles.hudMetricValue}>
+                    <span
+                      className={styles.hudLatencyBadge}
+                      data-latency={
+                        activeCluster.avgLatency <= 120
+                          ? "fast"
+                          : activeCluster.avgLatency <= 250
+                          ? "med"
+                          : "slow"
+                      }
+                    >
+                      ⚡ {activeCluster.avgLatency} ms ·{" "}
+                      {activeCluster.avgLatency <= 120
+                        ? isRu
+                          ? "Быстрый"
+                          : "Fast"
+                        : activeCluster.avgLatency <= 250
+                        ? isRu
+                          ? "Средний"
+                          : "Fair"
+                        : isRu
+                        ? "Медленный"
+                        : "High Latency"}
+                    </span>
                   </span>
                 </div>
               )}
 
-              {/* Protocols Bar */}
-              <div className={styles.tooltipProtocols}>
-                {Object.entries(hoveredCluster.protocols).map(([proto, count]) => (
-                  <div key={proto} className={styles.protoPill} data-proto={proto}>
-                    <span className={styles.protoKey}>{proto.toUpperCase()}</span>
-                    <span className={styles.protoCount}>{count}</span>
-                  </div>
-                ))}
+              <div className={styles.hudMetricItem}>
+                <span className={styles.hudMetricLabel}>{isRu ? "Протоколы" : "Protocols"}</span>
+                <div className={styles.hudProtoPills}>
+                  {Object.entries(activeCluster.protocols).map(([proto, count]) => (
+                    <span key={proto} className={styles.hudProtoPill} data-proto={proto}>
+                      {proto.toUpperCase()} <strong>{count}</strong>
+                    </span>
+                  ))}
+                </div>
               </div>
 
-              {/* Sample proxy */}
-              {hoveredCluster.sampleProxy && (
-                <div className={styles.tooltipSample}>
-                  <span className={styles.sampleLabel}>{isRu ? "Пример узла:" : "Sample endpoint:"}</span>
-                  <code className={styles.sampleCode}>{hoveredCluster.sampleProxy}</code>
+              {activeCluster.sampleProxy && (
+                <div className={`${styles.hudMetricItem} ${styles.hudSampleItem}`}>
+                  <span className={styles.hudMetricLabel}>{isRu ? "Пример узла" : "Sample Endpoint"}</span>
+                  <code className={styles.hudSampleCode}>{activeCluster.sampleProxy}</code>
                 </div>
               )}
             </div>
 
-            {/* Action CTA */}
-            <Link
-              href={`${prefix}/country/${hoveredCluster.code.toLowerCase()}`}
-              className={styles.tooltipFoot}
-              title={`${isRu ? "Открыть прокси страны" : "Inspect country proxies"} ${hoveredCluster.name}`}
-            >
-              <span>{isRu ? "Открыть прокси страны" : "Inspect country proxies"}</span>
-              <ArrowRight size={13} className={styles.tooltipArrow} />
-            </Link>
+            {/* Action CTA & Selection Dismiss */}
+            <div className={styles.hudActions}>
+              <Link
+                href={`${prefix}/country/${activeCluster.code.toLowerCase()}`}
+                className={styles.hudCtaBtn}
+                title={`${isRu ? "Открыть прокси страны" : "Inspect country proxies"} ${activeCluster.name}`}
+              >
+                <span>{isRu ? "Открыть прокси страны" : "Inspect country proxies"}</span>
+                <ArrowRight size={14} className={styles.hudCtaArrow} />
+              </Link>
+              {selectedCluster && (
+                <button
+                  type="button"
+                  className={styles.hudCloseBtn}
+                  onClick={() => setSelectedCluster(null)}
+                  title={isRu ? "Снять выбор" : "Clear selection"}
+                  aria-label={isRu ? "Снять выбор" : "Clear selection"}
+                >
+                  <X size={15} />
+                </button>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div className={styles.hudIdle}>
+            <div className={styles.hudIdleLeft}>
+              <span className={styles.idleBeacon} aria-hidden="true" />
+              <span className={styles.idleStatusText}>
+                {isRu ? (
+                  <>
+                    Сеть активна: <strong>{totalMappedNodes}</strong> нод в <strong>{totalCountries}</strong> странах
+                    {topCluster && (
+                      <>
+                        {" "}• Ведущий хаб: <strong>{topCluster.name}</strong> ({topCluster.count})
+                      </>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    Mesh active: <strong>{totalMappedNodes}</strong> nodes across <strong>{totalCountries}</strong> countries
+                    {topCluster && (
+                      <>
+                        {" "}• Primary hub: <strong>{topCluster.name}</strong> ({topCluster.count})
+                      </>
+                    )}
+                  </>
+                )}
+              </span>
+            </div>
+            <div className={styles.hudIdleHint}>
+              <Activity size={13} className={styles.idleHintIcon} />
+              <span>
+                {isRu
+                  ? "Наведите или нажмите на узел для детальной телеметрии"
+                  : "Hover or tap any node for detailed telemetry"}
+              </span>
+            </div>
           </div>
         )}
       </div>

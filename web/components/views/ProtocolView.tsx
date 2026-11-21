@@ -189,7 +189,7 @@ export default async function ProtocolView({
         </h1>
         <p className={styles.subtitle}>
           {filteredProxies.length > 0
-            ? `${filteredProxies.length.toLocaleString()} ${dict.protocol.subtitle.replace(
+            ? `${filteredProxies.length.toLocaleString("en-US")} ${dict.protocol.subtitle.replace(
                 "{protocol}",
                 upper
               )}`

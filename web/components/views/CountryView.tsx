@@ -152,7 +152,7 @@ export default async function CountryView({
         </h1>
         <p className={styles.subtitle}>
           {filteredProxies.length > 0
-            ? `${filteredProxies.length.toLocaleString()} ${dict.country.subtitle.replace(
+            ? `${filteredProxies.length.toLocaleString("en-US")} ${dict.country.subtitle.replace(
                 "{country}",
                 countryName
               )}`

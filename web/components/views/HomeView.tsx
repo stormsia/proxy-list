@@ -16,17 +16,12 @@ export default async function HomeView({ lang }: { lang: Locale }) {
   const schemaMarkup = getDatasetSchema();
   const faqData = dict.faq as unknown as { items?: FAQItem[] };
   const homeFaq: FAQItem[] = faqData?.items || [];
-  const faqSchema = getFaqSchema(homeFaq);
 
   return (
     <div className="container">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <header className={styles.header}>
         <div className={styles.heroBadgeRow}>
@@ -74,7 +69,7 @@ export default async function HomeView({ lang }: { lang: Locale }) {
             />
             <div className={styles.statInfo}>
               <div className={styles.statValue}>
-                {stats.totalCount.toLocaleString()}
+                {stats.totalCount.toLocaleString("en-US")}
               </div>
               <div className={styles.statLabel}>{dict.home.verifiedProxies}</div>
             </div>

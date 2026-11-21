@@ -11,19 +11,18 @@ socks5://Indonesia@103.119.60.219:1080
 http://40.192.70.191:4083
 socks5://United States@45.74.31.40:5767
 socks5://US@47.85.13.198:1080
+http://185.49.31.205:8080
 socks5://Colombia@45.74.31.47:4069
 http://Romania@144.76.42.215:8118
 socks5://RU@134.19.149.8:1080
 socks5://US@24.121.176.155:1080
 socks5://Cambodia@43.230.193.154:1080
 socks5://ID@45.198.20.28:1080
-socks5://45.74.31.41:4986
 socks5://The Netherlands@89.46.131.79:10000
 http://46.232.249.203:80
 socks5://Japan@101.36.104.46:10808
 socks5://Colombia@45.74.31.46:17451
 socks5://United States@45.74.31.40:5667
-http://152.42.170.187:9090
 http://147.161.246.36:11725
 http://Switzerland@147.161.246.34:12702
 http://Switzerland@147.161.246.34:11206

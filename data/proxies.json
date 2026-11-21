@@ -28,7 +28,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225564,
-    "next_check_at": 1795227649
+    "next_check_at": 1795227771
   },
   {
     "id": "160.25.35.204:8181:Indonesia:",
@@ -59,7 +59,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225567,
-    "next_check_at": 1795227667
+    "next_check_at": 1795227798
   },
   {
     "id": "147.161.246.34:10803:Switzerland:",
@@ -186,37 +186,6 @@
     "next_check_at": 1795227727
   },
   {
-    "id": "163.61.55.243:8081:Indonesia:",
-    "ip": "163.61.55.243",
-    "port": 8081,
-    "url": "http://Indonesia@163.61.55.243:8081",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "Indonesia",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "163.61.55.243",
-    "country": "ID",
-    "asn": null,
-    "asn_org": null,
-    "anon": "transparent",
-    "rtt_tcp_ms": 7433,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 90284,
-    "uptime_pct": 100.0,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 1,
-    "checks_success": 1,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224441,
-    "last_checked_at": 1795225658,
-    "next_check_at": 1795227739
-  },
-  {
     "id": "180.180.156.96:80:Thailand:",
     "ip": "180.180.156.96",
     "port": 80,
@@ -338,7 +307,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225691,
-    "next_check_at": 1795227667
+    "next_check_at": 1795227798
   },
   {
     "id": "171.238.156.104:3128:Vietnam:",
@@ -369,7 +338,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225702,
-    "next_check_at": 1795227696
+    "next_check_at": 1795227817
   },
   {
     "id": "203.99.183.197:3128:Pakistan:",
@@ -400,7 +369,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225702,
-    "next_check_at": 1795227696
+    "next_check_at": 1795227817
   },
   {
     "id": "203.175.102.67:3125:Indonesia:",
@@ -431,7 +400,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795225702,
-    "next_check_at": 1795227696
+    "next_check_at": 1795227817
   },
   {
     "id": "45.116.230.79:8080:India:",

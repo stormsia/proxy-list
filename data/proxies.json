@@ -28,7 +28,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225564,
-    "next_check_at": 1795227900
+    "next_check_at": 1795228022
   },
   {
     "id": "89.58.57.45:80:3 mins ago:",
@@ -45,21 +45,21 @@
     "country": "DE",
     "asn": 197540,
     "asn_org": "netcup GmbH",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 9375,
+    "anon": "elite",
+    "rtt_tcp_ms": 4096,
     "rtt_handshake_ms": 0,
-    "rtt_total_ms": 24310,
+    "rtt_total_ms": 18396,
     "uptime_pct": 100.0,
     "stability_pct": 100.0,
     "stability_window_min": 5,
-    "checks_total": 3,
-    "checks_success": 3,
+    "checks_total": 4,
+    "checks_success": 4,
     "dead_strikes": 0,
     "last_error": null,
     "remark": null,
     "first_seen_at": 1795224920,
-    "last_checked_at": 1795227745,
-    "next_check_at": 1795227934
+    "last_checked_at": 1795227913,
+    "next_check_at": 1795227973
   },
   {
     "id": "147.161.246.34:10803:Switzerland:",
@@ -90,7 +90,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795227293,
-    "next_check_at": 1795227851
+    "next_check_at": 1795227977
   },
   {
     "id": "147.161.246.34:10152:Switzerland:",
@@ -121,7 +121,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795227293,
-    "next_check_at": 1795227851
+    "next_check_at": 1795227977
   },
   {
     "id": "180.190.80.43:5050:Philippines:",
@@ -152,7 +152,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225641,
-    "next_check_at": 1795227851
+    "next_check_at": 1795227977
   },
   {
     "id": "5.161.50.82:8118:Germany:",

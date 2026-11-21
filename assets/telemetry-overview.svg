@@ -44,7 +44,7 @@
     <circle cx="6" cy="6" r="5" fill="#10b981" class="pulse" />
     <text x="20" y="10" class="badge-txt">HYDRA POOL TELEMETRY • 24/7 ACTIVE</text>
     <text x="0" y="38" class="title">Live Node Fleet Metrics</text>
-    <text x="792" y="10" text-anchor="end" class="sub">Updated: 2026-11-21 02:24 UTC</text>
+    <text x="792" y="10" text-anchor="end" class="sub">Updated: 2026-11-21 02:25 UTC</text>
     <text x="792" y="38" text-anchor="end" class="metric-val mono" fill="#38bdf8">7 <tspan font-size="12" fill="#64748b">VERIFIED NODES</tspan></text>
   </g>
 
@@ -90,14 +90,14 @@
     <!-- Elite Bar -->
     <text x="16" y="52" class="metric-lbl">Elite (L1)</text>
     <rect x="95" y="44" width="160" height="8" rx="4" fill="#1e293b" />
-    <rect x="95" y="44" width="0.0" height="8" rx="4" fill="#10b981" />
-    <text x="368" y="52" text-anchor="end" class="mono sub" fill="#e2e8f0">0 (0.0%)</text>
+    <rect x="95" y="44" width="22.9" height="8" rx="4" fill="#10b981" />
+    <text x="368" y="52" text-anchor="end" class="mono sub" fill="#e2e8f0">1 (14.3%)</text>
 
     <!-- Anonymous Bar -->
     <text x="16" y="76" class="metric-lbl">Anonymous</text>
     <rect x="95" y="68" width="160" height="8" rx="4" fill="#1e293b" />
-    <rect x="95" y="68" width="68.6" height="8" rx="4" fill="#38bdf8" />
-    <text x="368" y="76" text-anchor="end" class="mono sub" fill="#e2e8f0">3 (42.9%)</text>
+    <rect x="95" y="68" width="45.7" height="8" rx="4" fill="#38bdf8" />
+    <text x="368" y="76" text-anchor="end" class="mono sub" fill="#e2e8f0">2 (28.6%)</text>
 
     <!-- HTTPS Connect Support -->
     <line x1="16" y1="94" x2="368" y2="94" stroke="#1e293b" stroke-width="1" />

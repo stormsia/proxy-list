@@ -81,7 +81,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 39894,
     "uptime_pct": 100.0,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 3,
     "checks_success": 3,
@@ -90,7 +90,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795227293,
-    "next_check_at": 1795227607
+    "next_check_at": 1795227727
   },
   {
     "id": "147.161.246.34:10152:Switzerland:",
@@ -112,7 +112,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 39896,
     "uptime_pct": 100.0,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 3,
     "checks_success": 3,
@@ -121,7 +121,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795227293,
-    "next_check_at": 1795227607
+    "next_check_at": 1795227727
   },
   {
     "id": "89.58.57.45:80:3 mins ago:",
@@ -152,7 +152,7 @@
     "remark": null,
     "first_seen_at": 1795224920,
     "last_checked_at": 1795227435,
-    "next_check_at": 1795227623
+    "next_check_at": 1795227751
   },
   {
     "id": "180.190.80.43:5050:Philippines:",
@@ -183,7 +183,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225641,
-    "next_check_at": 1795227607
+    "next_check_at": 1795227727
   },
   {
     "id": "163.61.55.243:8081:Indonesia:",
@@ -214,7 +214,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225658,
-    "next_check_at": 1795227611
+    "next_check_at": 1795227739
   },
   {
     "id": "180.180.156.96:80:Thailand:",
@@ -245,7 +245,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225671,
-    "next_check_at": 1795227636
+    "next_check_at": 1795227764
   },
   {
     "id": "112.203.116.237:8082:Philippines:",
@@ -276,38 +276,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225675,
-    "next_check_at": 1795227636
-  },
-  {
-    "id": "103.155.130.134:8082:India:",
-    "ip": "103.155.130.134",
-    "port": 8082,
-    "url": "http://India@103.155.130.134:8082",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "India",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "103.155.130.134",
-    "country": "IN",
-    "asn": null,
-    "asn_org": null,
-    "anon": "transparent",
-    "rtt_tcp_ms": 1232,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 101516,
-    "uptime_pct": 50.0,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 2,
-    "checks_success": 1,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224441,
-    "last_checked_at": 1795225675,
-    "next_check_at": 1795227636
+    "next_check_at": 1795227764
   },
   {
     "id": "180.191.124.206:8081:Philippines:",
@@ -338,7 +307,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225675,
-    "next_check_at": 1795227636
+    "next_check_at": 1795227764
   },
   {
     "id": "5.161.50.82:8118:Germany:",
@@ -465,37 +434,6 @@
     "next_check_at": 1795227696
   },
   {
-    "id": "160.22.45.74:8097:Indonesia:",
-    "ip": "160.22.45.74",
-    "port": 8097,
-    "url": "http://Indonesia@160.22.45.74:8097",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "Indonesia",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "160.22.45.74",
-    "country": "ID",
-    "asn": null,
-    "asn_org": null,
-    "anon": "anonymous",
-    "rtt_tcp_ms": 291,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 136059,
-    "uptime_pct": 50.0,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 2,
-    "checks_success": 1,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224441,
-    "last_checked_at": 1795225715,
-    "next_check_at": 1795227580
-  },
-  {
     "id": "45.116.230.79:8080:India:",
     "ip": "45.116.230.79",
     "port": 8080,
@@ -524,6 +462,6 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225733,
-    "next_check_at": 1795227580
+    "next_check_at": 1795227708
   }
 ]

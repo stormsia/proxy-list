@@ -4,7 +4,12 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "web/public/proxies.json"
+      - "web/**"
+      - "!web/public/proxies.json"
+      - "!web/public/data/**"
+  schedule:
+    # Rebuild at most once every 5 minutes to stay fresh without queuing every minute
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -14,7 +19,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -30,6 +35,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
+          cache-dependency-path: "./web/package-lock.json"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -37,9 +44,7 @@ jobs:
           static_site_generator: next
 
       - name: Install dependencies
-        run: npm install
-      - name: Install dependencies
-        run: npm install @microsoft/clarity
+        run: npm ci || npm install
 
       - name: Build with Next.js
         run: npx next build

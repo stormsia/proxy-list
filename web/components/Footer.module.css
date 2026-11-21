@@ -1,5 +1,5 @@
 .footer {
-  background: var(--surface);
+  background: var(--bg-surface);
   border-top: 1px solid var(--border);
   padding: 4rem 0 2rem;
   margin-top: auto;
@@ -8,46 +8,59 @@
 .footerContainer {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2.5rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 3fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 1.4fr 1fr 2.5fr 1fr;
+  gap: 2.5rem;
 }
 
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 }
 
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.titleLink {
+  color: var(--text-primary);
+  transition: color 0.15s ease;
+}
+
+.titleLink:hover {
   color: var(--primary);
-  margin-bottom: 1rem;
 }
 
 .description {
-  color: #a1a1aa;
+  color: var(--text-secondary);
   font-size: 0.875rem;
   line-height: 1.6;
-  max-width: 400px;
+  max-width: 380px;
 }
 
 .heading {
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: var(--foreground);
-  margin-bottom: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
 }
 
 .list {
@@ -56,13 +69,13 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 .list a {
-  color: #a1a1aa;
+  color: var(--text-secondary);
   font-size: 0.875rem;
-  transition: color 0.2s;
+  transition: color 0.15s ease;
 }
 
 .list a:hover {
@@ -70,22 +83,28 @@
 }
 
 .locationsList {
-  column-count: 3;
-  column-gap: 2rem;
+  columns: 3 140px;
+  column-gap: 1.5rem;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  .locationsList {
+    columns: 2 120px;
+  }
+}
+
 .locationsList li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
   break-inside: avoid;
 }
 
 .locationsList a {
-  color: #a1a1aa;
+  color: var(--text-secondary);
   font-size: 0.875rem;
-  transition: color 0.2s;
+  transition: color 0.15s ease;
   display: inline-block;
 }
 
@@ -95,18 +114,34 @@
 
 .bottom {
   border-top: 1px solid var(--border);
-  padding-top: 2rem;
+  padding-top: 1.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
   text-align: center;
-  color: #71717a;
-  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+}
+
+.bottom p {
+  margin-bottom: 0;
+  color: var(--text-muted);
+}
+
+.bottom a {
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+}
+
+.bottom a:hover {
+  color: var(--primary);
 }
 
 .seoText {
   font-size: 0.75rem;
-  color: #52525b;
-  max-width: 800px;
+  color: var(--text-muted);
+  max-width: 760px;
+  line-height: 1.5;
+  opacity: 0.8;
 }

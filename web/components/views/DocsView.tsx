@@ -1,4 +1,4 @@
-import { Terminal, BookOpen, Code2, Layers, Download, GitBranch, Cpu } from "lucide-react";
+import { Terminal, Code2, Layers, Download } from "lucide-react";
 import styles from "@/app/docs/page.module.css";
 import CodeSnippet from "@/components/CodeSnippet";
 import Link from "next/link";
@@ -6,7 +6,6 @@ import { getDictionary, Locale } from "@/lib/i18n";
 
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
-const REPO_API = "https://api.github.com/repos/stormsia/proxy-list";
 
 export default async function DocsView({ lang }: { lang: Locale }) {
   const dict = await getDictionary(lang);

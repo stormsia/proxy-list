@@ -1,7 +1,37 @@
 User-agent: *
 Allow: /
-
-# Disallow the raw JSON (too large for crawlers, not useful for indexing)
 Disallow: /proxies.json
+Disallow: /data/proxies.json
+
+# Explicitly permit AI Search and Discovery Bots
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /proxies.json
+Disallow: /data/proxies.json
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /proxies.json
+Disallow: /data/proxies.json
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /proxies.json
+Disallow: /data/proxies.json
+
+User-agent: GPTBot
+Allow: /
+Disallow: /proxies.json
+Disallow: /data/proxies.json
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /proxies.json
+Disallow: /data/proxies.json
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /proxies.json
+Disallow: /data/proxies.json
 
 Sitemap: https://stormsia.github.io/proxy-list/sitemap.xml

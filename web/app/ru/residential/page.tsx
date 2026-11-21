@@ -1,14 +1,21 @@
 import { Metadata } from "next";
 import ResidentialView from "@/components/views/ResidentialView";
+import { buildPageMetadata } from "@/lib/seo";
 
-const SITE_URL = "https://stormsia.github.io/proxy-list";
-
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Бесплатные Резидентные Прокси | Residential IP Proxies",
-  description: "Бесплатные резидентные прокси с реальными IP-адресами от провайдеров. Более низкая вероятность блокировки. Автообновление каждые 15 минут.",
-  alternates: { canonical: `${SITE_URL}/ru/residential` },
-};
+  description:
+    "Бесплатные резидентные прокси с реальными IP-адресами от провайдеров. Более низкая вероятность блокировки. Автообновление каждые 15 минут.",
+  subpath: "residential",
+  lang: "ru",
+  keywords: [
+    "резидентные прокси",
+    "домашние прокси",
+    "residential proxy list",
+    "isp прокси",
+  ],
+});
 
-export default function ResidentialPage() {
+export default function RuResidentialPage() {
   return <ResidentialView lang="ru" />;
 }

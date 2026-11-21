@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@microsoft/clarity": "^1.0.2",
     "@types/react-syntax-highlighter": "^15.5.13",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.17.0",

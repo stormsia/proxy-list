@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     languages: {
       en: SITE_URL,
       ru: `${SITE_URL}/ru`,
+      "x-default": SITE_URL,
     },
   },
 };

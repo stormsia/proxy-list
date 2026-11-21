@@ -1,6 +1,5 @@
 import { MetadataRoute } from "next";
-import { promises as fs } from "fs";
-import path from "path";
+import { getStaticCountryParams } from "@/lib/proxies";
 
 export const dynamic = "force-static";
 
@@ -11,43 +10,84 @@ const PRIORITY_COUNTRIES = [
   "cn", "br", "in", "jp", "sg",
 ];
 
+interface RouteDef {
+  path: string;
+  priority: number;
+  changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}`,            lastModified: now, changeFrequency: "daily",  priority: 1.0 },
-    { url: `${SITE_URL}/docs`,       lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${SITE_URL}/socks5`,     lastModified: now, changeFrequency: "daily",  priority: 0.9 },
-    { url: `${SITE_URL}/socks4`,     lastModified: now, changeFrequency: "daily",  priority: 0.8 },
-    { url: `${SITE_URL}/http`,       lastModified: now, changeFrequency: "daily",  priority: 0.8 },
-    { url: `${SITE_URL}/https`,      lastModified: now, changeFrequency: "daily",  priority: 0.8 },
-    { url: `${SITE_URL}/residential`,lastModified: now, changeFrequency: "daily",  priority: 0.8 },
-    { url: `${SITE_URL}/datacenter`, lastModified: now, changeFrequency: "daily",  priority: 0.8 },
+  const coreRoutes: RouteDef[] = [
+    { path: "",             priority: 1.0, changeFrequency: "daily" },
+    { path: "/docs",        priority: 0.9, changeFrequency: "weekly" },
+    { path: "/socks5",      priority: 0.9, changeFrequency: "daily" },
+    { path: "/socks4",      priority: 0.8, changeFrequency: "daily" },
+    { path: "/http",        priority: 0.8, changeFrequency: "daily" },
+    { path: "/https",       priority: 0.8, changeFrequency: "daily" },
+    { path: "/residential", priority: 0.8, changeFrequency: "daily" },
+    { path: "/datacenter",  priority: 0.8, changeFrequency: "daily" },
   ];
 
-  // Collect all countries from the proxy list
-  let countries = new Set<string>(PRIORITY_COUNTRIES);
-  try {
-    const filePath = path.join(process.cwd(), "public", "proxies.json");
-    const fileContents = await fs.readFile(filePath, "utf8");
-    const proxies = JSON.parse(fileContents);
-    proxies.forEach((p: any) => {
-      if (p.geolocation?.country?.iso_code) {
-        countries.add(p.geolocation.country.iso_code.toLowerCase());
-      }
+  const countryParams = await getStaticCountryParams();
+
+  const entries: MetadataRoute.Sitemap = [];
+
+  // Helper to generate paired en/ru entries with bidirectional hreflang alternates
+  const addLocalizedPair = (
+    enPath: string,
+    ruPath: string,
+    priority: number,
+    changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never"
+  ) => {
+    const enUrl = `${SITE_URL}${enPath}`;
+    const ruUrl = `${SITE_URL}${ruPath}`;
+
+    const languages = {
+      en: enUrl,
+      ru: ruUrl,
+      "x-default": enUrl,
+    };
+
+    // English entry
+    entries.push({
+      url: enUrl,
+      lastModified: now,
+      changeFrequency,
+      priority,
+      alternates: {
+        languages,
+      },
     });
-  } catch {
-    // fallback: only use priority countries
+
+    // Russian entry
+    entries.push({
+      url: ruUrl,
+      lastModified: now,
+      changeFrequency,
+      priority,
+      alternates: {
+        languages,
+      },
+    });
+  };
+
+  // Add static core pages
+  for (const route of coreRoutes) {
+    const enPath = route.path;
+    const ruPath = `/ru${route.path}`;
+    addLocalizedPair(enPath, ruPath, route.priority, route.changeFrequency);
   }
 
-  const countryPages: MetadataRoute.Sitemap = Array.from(countries).map(
-    (code) => ({
-      url: `${SITE_URL}/country/${code}`,
-      lastModified: now,
-      changeFrequency: "daily" as const,
-      priority: PRIORITY_COUNTRIES.includes(code) ? 0.7 : 0.6,
-    })
-  );
+  // Add dynamic country pages (100% parity with static generation)
+  for (const { code } of countryParams) {
+    const isPriority = PRIORITY_COUNTRIES.includes(code.toLowerCase());
+    const priority = isPriority ? 0.7 : 0.6;
+    const enPath = `/country/${code.toLowerCase()}`;
+    const ruPath = `/ru/country/${code.toLowerCase()}`;
+    addLocalizedPair(enPath, ruPath, priority, "daily");
+  }
 
-  return [...staticPages, ...countryPages];
+  return entries;
 }

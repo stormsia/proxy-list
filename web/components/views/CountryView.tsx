@@ -1,63 +1,58 @@
-import { promises as fs } from "fs";
-import path from "path";
 import ProxyTable from "@/components/ProxyTable";
 import styles from "@/app/page.module.css";
 import { MapPin } from "lucide-react";
 import Link from "next/link";
 import FAQ from "@/components/FAQ";
 import { getDictionary, Locale } from "@/lib/i18n";
+import { getProxies, getProxiesByCountry } from "@/lib/proxies";
+import { COUNTRY_META, getCountryDisplayName } from "@/lib/countries";
+import { getFaqSchema } from "@/lib/seo";
 
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 
-// Full country names & SEO copy for high-traffic countries (keep metadata in page.tsx)
-// We just need it for display name fallback if not found in JSON
-export const COUNTRY_META: Record<string, { name: string }> = {
-  us: { name: "United States" },
-  de: { name: "Germany" },
-  gb: { name: "United Kingdom" },
-  nl: { name: "Netherlands" },
-  fr: { name: "France" },
-  ca: { name: "Canada" },
-  ru: { name: "Russia" },
-  ua: { name: "Ukraine" },
-  cn: { name: "China" },
-  br: { name: "Brazil" },
-  in: { name: "India" },
-  jp: { name: "Japan" },
-  sg: { name: "Singapore" },
-};
+export { COUNTRY_META };
 
-export default async function CountryView({ lang, code }: { lang: Locale, code: string }) {
+export default async function CountryView({
+  lang,
+  code,
+}: {
+  lang: Locale;
+  code: string;
+}) {
   const dict = await getDictionary(lang);
-  const filePath = path.join(process.cwd(), "public", "proxies.json");
-  const fileContents = await fs.readFile(filePath, "utf8");
-  const allProxies = JSON.parse(fileContents);
+  const isRu = lang === "ru";
+  const normalizedCode = code.toLowerCase();
 
-  const filteredProxies = allProxies.filter((p: any) => {
-    return p.geolocation?.country?.iso_code?.toLowerCase() === code;
-  });
+  const allProxies = await getProxies();
+  const filteredProxies = getProxiesByCountry(allProxies, normalizedCode);
 
-  const countryName =
-    COUNTRY_META[code]?.name ||
-    filteredProxies[0]?.geolocation?.country?.names?.en ||
-    code.toUpperCase();
+  const fallbackName = code.toUpperCase();
+
+  const countryName = getCountryDisplayName(
+    normalizedCode,
+    fallbackName,
+    isRu ? "ru" : "en"
+  );
 
   const protoCounts: Record<string, number> = {};
-  filteredProxies.forEach((p: any) => {
+  filteredProxies.forEach((p) => {
     if (p.protocol) {
       const proto = p.protocol.toLowerCase();
       protoCounts[proto] = (protoCounts[proto] || 0) + 1;
     }
   });
 
-  const isRu = lang === "ru";
-  const pageUrl = isRu ? `${SITE_URL}/ru/country/${code}` : `${SITE_URL}/country/${code}`;
+  const pageUrl = isRu
+    ? `${SITE_URL}/ru/country/${normalizedCode}`
+    : `${SITE_URL}/country/${normalizedCode}`;
   const homeUrl = isRu ? `${SITE_URL}/ru` : SITE_URL;
 
   const schemaMarkup = {
     "@context": "https://schema.org/",
     "@type": "Dataset",
-    name: isRu ? `Бесплатные Прокси в ${countryName}` : `Free ${countryName} Proxy List`,
+    name: isRu
+      ? `Бесплатные Прокси в ${countryName}`
+      : `Free ${countryName} Proxy List`,
     description: isRu
       ? `Бесплатный автообновляемый список прокси-серверов, расположенных в ${countryName}. Включает SOCKS5, SOCKS4 и HTTP прокси, проверенные валидатором.`
       : `A free, auto-updated list of proxy servers located in ${countryName}. Includes SOCKS5, SOCKS4, and HTTP proxies verified by a validator.`,
@@ -69,10 +64,13 @@ export default async function CountryView({ lang, code }: { lang: Locale, code: 
       name: "stormsia",
       url: "https://github.com/stormsia",
     },
-    spatialCoverage: {
-      "@type": "Country",
-      name: countryName,
-    },
+    distribution: [
+      {
+        "@type": "DataDownload",
+        encodingFormat: "application/json",
+        contentUrl: `${SITE_URL}/proxies.json`,
+      },
+    ],
   };
 
   const breadcrumbSchema = {
@@ -88,24 +86,43 @@ export default async function CountryView({ lang, code }: { lang: Locale, code: 
       {
         "@type": "ListItem",
         position: 2,
-        name: isRu ? "Прокси по странам" : "Country Proxies",
-        item: `${homeUrl}/#countries`,
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: countryName,
+        name: isRu ? `Прокси в ${countryName}` : `${countryName} Proxies`,
         item: pageUrl,
       },
     ],
   };
-  const faqItems = isRu ? [
-    { question: `Находятся ли эти прокси физически в ${countryName}?`, answer: `Да, IP-адреса этих прокси геолоцируются в ${countryName}.` },
-    { question: `Бесплатны ли прокси ${countryName}?`, answer: `Да, все прокси на этой странице бесплатны и с открытым исходным кодом.` }
-  ] : [
-    { question: `Are these proxies physically located in ${countryName}?`, answer: `Yes, the exit IP addresses of the proxies listed on this page are geolocated to ${countryName}.` },
-    { question: `Are the ${countryName} proxies free?`, answer: `Yes, all proxy servers listed in our directory are completely free and open-source.` }
-  ];
+
+  const faqItems = isRu
+    ? [
+        {
+          question: `Бесплатны ли прокси из региона ${countryName}?`,
+          answer: `Да, все прокси в ${countryName} на этой странице полностью бесплатны для использования.`,
+        },
+        {
+          question: `Как часто обновляются прокси в ${countryName}?`,
+          answer: `Наш автоматический чекер проверяет работоспособность каждого прокси-сервера каждые 15 минут.`,
+        },
+        {
+          question: `Подходят ли эти прокси для парсинга сайтов в ${countryName}?`,
+          answer: `Да, локальные IP-адреса помогают получать гео-специфичные данные и страницы для региона ${countryName}.`,
+        },
+      ]
+    : [
+        {
+          question: `Are the proxies in ${countryName} free to use?`,
+          answer: `Yes, all ${countryName} proxy servers listed on this page are completely free and open-source.`,
+        },
+        {
+          question: `How often is the ${countryName} proxy list updated?`,
+          answer: `Our automated validator checks every proxy server in ${countryName} for availability and latency every 15 minutes.`,
+        },
+        {
+          question: `Can I use these proxies for geo-targeted scraping in ${countryName}?`,
+          answer: `Yes, physically located proxy servers in ${countryName} provide accurate local IP addresses for location-dependent web scraping.`,
+        },
+      ];
+
+  const faqSchema = getFaqSchema(faqItems);
 
   return (
     <div className="container">
@@ -117,87 +134,86 @@ export default async function CountryView({ lang, code }: { lang: Locale, code: 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <header className={styles.header}>
         <div
           style={{
             display: "inline-flex",
             padding: "1rem",
-            background: "rgba(139, 92, 246, 0.1)",
+            background: "rgba(16, 185, 129, 0.1)",
             borderRadius: "50%",
             marginBottom: "1.5rem",
           }}
         >
-          <MapPin size={32} style={{ color: "var(--accent)" }} />
+          <MapPin size={32} style={{ color: "var(--primary)" }} />
         </div>
         <h1 className={styles.title}>
-          {dict.country.titlePrefix} <span className="text-gradient">{countryName}</span> {dict.country.titleSuffix}
+          {dict.country.titlePrefix}{" "}
+          <span className="text-gradient">{countryName}</span>{" "}
+          {dict.country.titleSuffix}
         </h1>
         <p className={styles.subtitle}>
           {filteredProxies.length > 0
-            ? `${filteredProxies.length.toLocaleString()} ${dict.country.subtitle.replace("{country}", countryName)}`
+            ? `${filteredProxies.length.toLocaleString()} ${dict.country.subtitle.replace(
+                "{country}",
+                countryName
+              )}`
             : dict.country.subtitleEmpty.replace("{country}", countryName)}
         </p>
       </header>
 
-      {filteredProxies.length > 0 && Object.keys(protoCounts).length > 0 && (
-        <section
-          className={styles.statsSection}
-          style={{ marginBottom: "2rem" }}
-          aria-label="Protocol breakdown"
-        >
-          {Object.entries(protoCounts)
-            .sort((a, b) => b[1] - a[1])
-            .map(([proto, count]) => (
-              <a
-                key={proto}
-                href={`/${proto}`}
-                className="glass-panel"
-                style={{ textDecoration: "none", display: "block" }}
-              >
-                <div className={styles.statCard}>
-                  <div className={styles.statInfo}>
-                    <div
-                      className={styles.statValue}
-                      style={{ fontSize: "1.4rem" }}
-                    >
-                      {count.toLocaleString()}
-                    </div>
-                    <div className={styles.statLabel}>
-                      {proto.toUpperCase()} {dict.country.proxiesLabel}
-                    </div>
-                  </div>
-                </div>
-              </a>
-            ))}
-        </section>
-      )}
-
-      <section className={styles.seoArticle}>
+      <section
+        className={styles.seoArticle}
+        aria-label={`About proxies in ${countryName}`}
+      >
         <h2>
           {dict.country.aboutTitle.replace("{country}", countryName)}
         </h2>
         <p>
-          {dict.country.aboutText1}<strong>{countryName}</strong>{dict.country.aboutText2}
+          {dict.country.aboutText1}
+          <strong>{countryName}</strong>
+          {dict.country.aboutText2}
+        </p>
+        <p
+          style={{
+            marginTop: "1.5rem",
+            padding: "1rem",
+            background: "rgba(139, 92, 246, 0.1)",
+            borderRadius: "8px",
+            borderLeft: "4px solid var(--accent)",
+          }}
+        >
+          ⭐ <strong>{dict.home.starPrefix}</strong>{" "}
           <a
             href="https://github.com/stormsia/proxy-list"
             target="_blank"
             rel="noopener noreferrer"
+            style={{
+              color: "var(--accent)",
+              fontWeight: "bold",
+              textDecoration: "underline",
+            }}
           >
-            stormsia/proxy-list
+            {dict.home.starLink}
           </a>
-          {isRu ? "." : " repository."}
-        </p>
-        <p style={{ marginTop: "1.5rem", padding: "1rem", background: "rgba(139, 92, 246, 0.1)", borderRadius: "8px", borderLeft: "4px solid var(--accent)" }}>
-          ⭐ <strong>{dict.home.starPrefix}</strong> <a href="https://github.com/stormsia/proxy-list" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", fontWeight: "bold", textDecoration: "underline" }}>{dict.home.starLink}</a>{dict.home.starSuffix}
+          {dict.home.starSuffix}
         </p>
       </section>
 
-      <section className={styles.tableSection} aria-label={`${countryName} proxy table`}>
+      <section
+        className={styles.tableSection}
+        aria-label={`${countryName} proxy table`}
+      >
         {filteredProxies.length > 0 ? (
           <ProxyTable proxies={filteredProxies} dict={dict.table} />
         ) : (
           <div className={styles.emptyState}>
-            <h3>{dict.country.emptyTitle.replace("{country}", countryName)}</h3>
+            <h3>
+              {dict.country.emptyTitle.replace("{country}", countryName)}
+            </h3>
             <Link href="/" className={styles.primaryButton}>
               {dict.country.viewAll}
             </Link>

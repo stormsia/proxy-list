@@ -1,0 +1,285 @@
+# stormsia/proxy-list — Comprehensive Developer & AI Agent Reference (llms-full.txt)
+
+> The definitive, zero-auth, machine-readable manual for stormsia/proxy-list. Powered by the Hydra Engine. Contains full data schemas, HTTP/SOCKS endpoints, architecture notes, and ready-to-run implementation snippets in Python, Node.js, Go, and cURL.
+
+---
+
+## 1. Project Overview
+
+**stormsia/proxy-list** is an open-source, automated proxy aggregation and validation network powered by the Hydra Engine.
+- **Official Website:** https://stormsia.github.io/proxy-list
+- **GitHub Repository:** https://github.com/stormsia/proxy-list
+- **Primary Data Endpoint:** https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json
+- **Raw Data Branch:** https://raw.githubusercontent.com/stormsia/proxy-list/main
+- **License:** MIT License (Software) / CC-BY 4.0 (Dataset)
+
+### Architecture & Hydra Validation Pipeline
+1. **Source Harvester:** Continuous scrapers harvest candidate proxies from dozens of vetted public upstream sources.
+2. **Hydra Engine Validator:** High-concurrency native validator actively tests TCP handshake (`rtt_tcp_ms`), TLS negotiation, round-trip latency (`rtt_total_ms`), HTTP tunneling (`supports_https`), and anonymity classification (`anon`).
+3. **Geo & ASN Enrichment:** Each record is enriched with BGP Autonomous System Number (`asn`), carrier name (`asn_org`), and ISO 3166-1 alpha-2 country codes (`country`).
+4. **Availability & Stability Scoring:** Calculates rolling uptime percentage (`uptime_pct`) and short-term stability score (`stability_pct`). Non-responsive proxies receive strike penalties and are transitioned from `alive` to `cooldown` or `dead_permanent`.
+5. **Publishing:** Validated records are compiled into `data/proxies.json` and committed directly to GitHub.
+
+---
+
+## 2. API Endpoints
+
+All endpoints are free, public, CORS-enabled (`Access-Control-Allow-Origin: *`), and do not require API keys, accounts, or rate limiting.
+
+### Summary of Endpoints
+
+| Format | URL | Protocol | Update Rate | Description |
+|--------|-----|----------|-------------|-------------|
+| **JSON** | `https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json` | All | Continuous | Primary Hydra Engine flat dataset with full telemetry |
+| **JSON** | `https://stormsia.github.io/proxy-list/data/proxies.json` | All | Continuous | Static site mirrored JSON endpoint |
+| **TXT**  | `https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt` | All | Continuous | Flat list of all working proxies in `host:port` format |
+| **TXT**  | `https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt` | SOCKS5 | Continuous | SOCKS5 proxies in `host:port` format |
+| **TXT**  | `https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt` | SOCKS4 | Continuous | SOCKS4 proxies in `host:port` format |
+| **TXT**  | `https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt` | HTTP/HTTPS | Continuous | HTTP and HTTPS proxies in `host:port` format |
+
+---
+
+## 3. Data Schema (`data/proxies.json`)
+
+`data/proxies.json` delivers a flat array of `ProxyRecord` objects conforming to the Hydra Engine schema:
+
+```json
+{
+  "id": "1.10.248.240:80",
+  "ip": "1.10.248.240",
+  "port": 80,
+  "url": "http://1.10.248.240:80",
+  "protocol": "http",
+  "has_auth": false,
+  "auth_user": null,
+  "auth_pass": null,
+  "state": "alive",
+  "supports_https": true,
+  "out_ip": "1.10.248.240",
+  "country": "TH",
+  "asn": 23969,
+  "asn_org": "TOT Public Company Limited",
+  "anon": "anonymous",
+  "rtt_tcp_ms": 2271,
+  "rtt_handshake_ms": 313,
+  "rtt_total_ms": 1250,
+  "uptime_pct": 98.5,
+  "stability_pct": 100.0,
+  "stability_window_min": 5,
+  "checks_total": 23,
+  "checks_success": 22,
+  "dead_strikes": 0,
+  "last_error": null,
+  "remark": null,
+  "first_seen_at": 1795224444,
+  "last_checked_at": 1795248007,
+  "next_check_at": 1795248067
+}
+```
+
+### Field Definitions
+
+- `id` *(string)*: Unique identifier formatted as `ip:port`.
+- `ip` *(string)*: IPv4 address of the proxy server.
+- `port` *(number)*: Destination TCP port number (1–65535).
+- `url` *(string)*: Formatted connection URL (e.g. `"http://1.10.248.240:80"`).
+- `protocol` *(string)*: Proxy protocol: `"http"`, `"socks4"`, or `"socks5"`.
+- `supports_https` *(boolean)*: `true` if the server supports the HTTP `CONNECT` tunneling method for TLS/HTTPS traffic.
+- `state` *(string)*: Lifecycle health status: `"alive"`, `"cooldown"`, or `"dead_permanent"`.
+- `out_ip` *(string | null)*: The public egress IP observed on the target when routing through the proxy.
+- `country` *(string | null)*: ISO 3166-1 alpha-2 two-letter country code (e.g. `"US"`, `"DE"`, `"TH"`).
+- `asn` *(number | null)*: BGP Autonomous System Number (e.g. `23969`).
+- `asn_org` *(string | null)*: Legal ISP, cloud provider, or carrier name.
+- `anon` *(string | null)*: Anonymity level:
+  - `"elite"`: No proxy headers forwarded; remote server cannot distinguish proxy traffic from direct visitor.
+  - `"anonymous"`: Hides client IP, but forwards proxy identification headers (`Via`, etc.).
+  - `"transparent"`: Forwards client IP address in `X-Forwarded-For`.
+- `rtt_tcp_ms` *(number | null)*: TCP handshake duration in milliseconds.
+- `rtt_handshake_ms` *(number | null)*: TLS/protocol negotiation time in milliseconds.
+- `rtt_total_ms` *(number | null)*: Measured round-trip response time in milliseconds.
+- `uptime_pct` *(number | null)*: Historical availability percentage (0.0 to 100.0).
+- `stability_pct` *(number | null)*: Short-term rolling stability score (0.0 to 100.0).
+
+---
+
+## 4. Code Integration Snippets
+
+### Python (Async: `httpx` with `data/proxies.json`)
+
+Requires: `pip install httpx socksio`
+
+```python
+import asyncio
+import httpx
+
+DATASET_URL = "https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json"
+
+async def fetch_and_route():
+    async with httpx.AsyncClient() as client:
+        res = await client.get(DATASET_URL)
+        proxies = res.json()
+
+    # Filter for alive US proxies with latency < 1500ms and elite/anonymous anonymity
+    fast_us = [
+        p for p in proxies
+        if p.get("state") == "alive"
+        and p.get("country") == "US"
+        and (p.get("rtt_total_ms") or 99999) < 1500
+        and p.get("anon") in ("elite", "anonymous")
+    ]
+    print(f"Discovered {len(fast_us)} fast US proxies")
+
+    if not fast_us:
+        return
+
+    target = fast_us[0]
+    proxy_url = target.get("url") or f"{target['protocol']}://{target['ip']}:{target['port']}"
+    print(f"Connecting via {proxy_url} ({target.get('asn_org')})")
+
+    async with httpx.AsyncClient(proxy=proxy_url, timeout=10.0) as proxy_client:
+        try:
+            r = await proxy_client.get("https://httpbin.org/ip")
+            print("Response via proxy:", r.json())
+        except Exception as err:
+            print("Proxy request failed:", err)
+
+if __name__ == "__main__":
+    asyncio.run(fetch_and_route())
+```
+
+### Python (Sync: `requests` with SOCKS5)
+
+Requires: `pip install "requests[socks]"`
+
+```python
+import random
+import requests
+
+PROXIES_TXT = "https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt"
+resp = requests.get(PROXIES_TXT, timeout=10)
+proxies = [line.strip() for line in resp.text.splitlines() if line.strip()]
+
+chosen = random.choice(proxies)
+proxy_url = f"socks5h://{chosen}"
+
+proxies_config = {
+    "http": proxy_url,
+    "https": proxy_url,
+}
+
+try:
+    r = requests.get("https://httpbin.org/ip", proxies=proxies_config, timeout=10)
+    print("Success! IP seen by target:", r.json())
+except requests.exceptions.RequestException as e:
+    print("Failed:", e)
+```
+
+### Node.js / TypeScript (`socks-proxy-agent`)
+
+Requires: `npm install socks-proxy-agent node-fetch`
+
+```typescript
+import fetch from "node-fetch";
+import { SocksProxyAgent } from "socks-proxy-agent";
+
+interface ProxyRecord {
+  ip: string;
+  port: number;
+  protocol: string;
+  country: string | null;
+  rtt_total_ms: number | null;
+  anon: string | null;
+}
+
+async function run() {
+  const res = await fetch("https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json");
+  const proxies = (await res.json()) as ProxyRecord[];
+
+  // Filter for SOCKS5 proxies with latency under 2000ms
+  const eligible = proxies.filter(
+    (p) => p.protocol === "socks5" && (p.rtt_total_ms ?? 9999) < 2000
+  );
+
+  if (eligible.length === 0) return;
+  const selected = eligible[0];
+  console.log(`Routing through socks5://${selected.ip}:${selected.port} (${selected.country})`);
+
+  const agent = new SocksProxyAgent(`socks5://${selected.ip}:${selected.port}`);
+  try {
+    const testRes = await fetch("https://httpbin.org/ip", { agent, timeout: 8000 });
+    const json = await testRes.json();
+    console.log("Egress IP:", json);
+  } catch (err) {
+    console.error("Connection failed:", err);
+  }
+}
+
+run();
+```
+
+### Go (`golang.org/x/net/proxy`)
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"io"
+	"net"
+	"net/http"
+	"time"
+
+	"golang.org/x/net/proxy"
+)
+
+func main() {
+	proxyAddr := "1.10.248.240:80" // Example host:port
+
+	dialer, err := proxy.SOCKS5("tcp", proxyAddr, nil, proxy.Direct)
+	if err != nil {
+		panic(err)
+	}
+
+	transport := &http.Transport{
+		DialContext: func(ctx context.Context, network, addr string) (net.Conn, error) {
+			return dialer.Dial(network, addr)
+		},
+	}
+
+	client := &http.Client{
+		Transport: transport,
+		Timeout:   10 * time.Second,
+	}
+
+	resp, err := client.Get("https://httpbin.org/ip")
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+	defer resp.Body.Close()
+
+	body, _ := io.ReadAll(resp.Body)
+	fmt.Printf("Response: %s\n", string(body))
+}
+```
+
+### cURL
+
+```bash
+# SOCKS5 proxy with remote DNS resolution (socks5h)
+curl -x socks5h://1.10.248.240:1080 https://httpbin.org/ip --max-time 10
+
+# HTTP proxy with HTTPS CONNECT tunneling
+curl -x http://1.10.248.240:80 https://httpbin.org/ip --max-time 10
+```
+
+---
+
+## 5. Guidance for Autonomous AI Agents
+
+1. **Schema Awareness:** Always parse `data/proxies.json` using the flat `ProxyRecord` model (`p.ip`, `p.port`, `p.country`, `p.anon`, `p.rtt_total_ms`). Avoid expecting legacy nested objects (`p.geolocation.country.iso_code`).
+2. **Filtering by Anonymity:** When privacy is required, filter for `p.anon === "elite"` or `"anonymous"`. Transparent proxies leak your originating IP in `X-Forwarded-For`.
+3. **Filtering by Latency:** The `rtt_total_ms` field provides millisecond latency. Filter `p.rtt_total_ms < 1500` for responsive browsing tasks.
+4. **Proxy State Check:** Only route traffic through records where `p.state === "alive"`. Nodes in `cooldown` are experiencing transient packet loss.
+5. **DNS Leaks:** When utilizing SOCKS5, always configure remote DNS resolution (`socks5h://` in cURL/Python) to prevent DNS leaks to local resolvers.

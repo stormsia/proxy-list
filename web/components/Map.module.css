@@ -7,6 +7,7 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 10;
+  contain: content;
 }
 
 .map {
@@ -29,26 +30,138 @@
 
 /* Customizing Leaflet popups for dark theme */
 :global(.leaflet-popup-content-wrapper) {
-  background: var(--surface) !important;
-  color: var(--foreground) !important;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: #18181b !important;
+  color: #f4f4f5 !important;
+  border: 1px solid #27272a;
+  border-radius: var(--radius, 8px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8) !important;
 }
 
 :global(.leaflet-popup-tip) {
-  background: var(--surface) !important;
-  border: 1px solid var(--border);
+  background: #18181b !important;
+  border: 1px solid #27272a;
+}
+
+:global(.leaflet-container) {
+  font-family: inherit;
 }
 
 .popupContent {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  padding: 2px 0;
+  min-width: 170px;
 }
 
-.popupContent strong {
+.popupCountryHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.popupCountryName {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #f4f4f5;
+}
+
+.popupStat {
   font-family: var(--font-mono);
-  color: var(--primary);
-  font-size: 0.95rem;
+  font-size: 0.8125rem;
+  color: #10b981;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.popupProtocols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.popupBadge {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.popupBadgeSocks5 {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.popupBadgeSocks4 {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
+
+.popupBadgeHttp {
+  background: rgba(167, 139, 250, 0.15);
+  color: #a78bfa;
+}
+
+.popupBadgeHttps {
+  background: rgba(244, 114, 182, 0.15);
+  color: #f472b6;
+}
+
+.popupHost {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #a1a1aa;
+  margin-bottom: 8px;
+  word-break: break-all;
+}
+
+.popupFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #27272a;
+}
+
+.popupCopyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 4px;
+  color: #f4f4f5;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.popupCopyBtn:hover {
+  background: #3f3f46;
+}
+
+.popupLink {
+  color: #38bdf8;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.popupLink:hover {
+  color: #7dd3fc;
+}
+
+.popupFlag {
+  border-radius: 2px;
+  object-fit: cover;
 }

@@ -1,29 +1,23 @@
-import HomeView from "@/components/views/HomeView";
 import { Metadata } from "next";
+import HomeView from "@/components/views/HomeView";
+import { buildPageMetadata } from "@/lib/seo";
 
-const SITE_URL = "https://stormsia.github.io/proxy-list";
-
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Бесплатные Прокси | SOCKS5 · HTTP · HTTPS · SOCKS4",
   description:
     "Скачать бесплатный, обновляемый список SOCKS5, HTTP, HTTPS и SOCKS4 прокси. Все прокси проверены высокоскоростным валидатором.",
-  alternates: {
-    canonical: `${SITE_URL}/ru`,
-    languages: {
-      en: SITE_URL,
-      ru: `${SITE_URL}/ru`,
-      "x-default": SITE_URL,
-    },
-  },
-  openGraph: {
-    title: "Бесплатные Прокси | SOCKS5 · HTTP · HTTPS",
-    description: "Автообновляемый список прокси. Проверено валидатором.",
-    url: `${SITE_URL}/ru`,
-    locale: "ru_RU",
-    alternateLocale: "en_US",
-  },
-};
+  lang: "ru",
+  keywords: [
+    "бесплатные прокси",
+    "список прокси",
+    "socks5 прокси",
+    "http прокси",
+    "публичные прокси",
+    "чекер прокси",
+    "скачать прокси бесплатно",
+  ],
+});
 
-export default function Page() {
+export default function RuHomePage() {
   return <HomeView lang="ru" />;
 }

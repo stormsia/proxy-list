@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import styles from "./FAQ.module.css";
 
 export interface FAQItem {
@@ -12,7 +15,22 @@ interface FAQProps {
 }
 
 export default function FAQ({ items, title = "Frequently Asked Questions" }: FAQProps) {
+  // First item open by default for discovery
+  const [openIndices, setOpenIndices] = useState<Set<number>>(new Set([0]));
+
   if (!items || items.length === 0) return null;
+
+  const toggleItem = (index: number) => {
+    setOpenIndices((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
+  };
 
   const schema = {
     "@context": "https://schema.org",
@@ -34,13 +52,42 @@ export default function FAQ({ items, title = "Frequently Asked Questions" }: FAQ
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <h2 className={styles.title}>{title}</h2>
-      <div className={styles.grid}>
-        {items.map((item, index) => (
-          <div key={index} className={styles.card}>
-            <h3 className={styles.question}>{item.question}</h3>
-            <p className={styles.answer}>{item.answer}</p>
-          </div>
-        ))}
+      <div className={styles.accordionList}>
+        {items.map((item, index) => {
+          const isOpen = openIndices.has(index);
+          const buttonId = `faq-btn-${index}`;
+          const contentId = `faq-panel-${index}`;
+
+          return (
+            <div key={index} className={`${styles.item} ${isOpen ? styles.itemOpen : ""}`}>
+              <button
+                type="button"
+                id={buttonId}
+                aria-expanded={isOpen}
+                aria-controls={contentId}
+                className={styles.questionButton}
+                onClick={() => toggleItem(index)}
+              >
+                <span className={styles.questionText}>{item.question}</span>
+                <ChevronDown
+                  className={`${styles.chevron} ${isOpen ? styles.chevronRotated : ""}`}
+                  size={18}
+                  aria-hidden="true"
+                />
+              </button>
+              <div
+                id={contentId}
+                role="region"
+                aria-labelledby={buttonId}
+                className={`${styles.answerWrapper} ${isOpen ? styles.answerOpen : ""}`}
+              >
+                <div className={styles.answerInner}>
+                  <p className={styles.answerText}>{item.answer}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

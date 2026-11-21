@@ -4,12 +4,14 @@ import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
 });
 
 const SITE_URL = "https://stormsia.github.io/proxy-list";
@@ -62,9 +64,6 @@ export const metadata: Metadata = {
       "Open-source, auto-updated proxy list. SOCKS5, HTTP, HTTPS, SOCKS4. Verified by async validator. JSON API available.",
     creator: "@stormsia",
   },
-  alternates: {
-    canonical: SITE_URL,
-  },
 };
 
 import Navbar from "@/components/Navbar";
@@ -100,6 +99,22 @@ export default function RootLayout({
     },
   };
 
+  const webAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "stormsia/proxy-list",
+    url: SITE_URL,
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    description:
+      "Free open-source proxy list and network topology monitor with automated 15-minute verification cycles.",
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -110,6 +125,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
         />
       </head>
       <body

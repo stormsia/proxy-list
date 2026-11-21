@@ -3,6 +3,7 @@
 
 import { useMemo, useState, useRef, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Globe, Zap, ExternalLink, Activity, Radio, Share2, ShieldCheck, ArrowRight } from "lucide-react";
 import type { ProxyRecord } from "@/lib/types";
 import { getCountryCoordinates, getCountryDisplayName } from "@/lib/countries";
@@ -478,60 +479,56 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
               const isSelected = hoveredCluster?.code === cluster.code;
 
               return (
-                <g
+                <Link
                   key={cluster.code}
-                  className={`${styles.nodeGroup} ${isSelected ? styles.nodeGroupHovered : ""}`}
-                  transform={`translate(${cluster.x}, ${cluster.y})`}
-                  onClick={() => handleNodeClick(cluster.code)}
-                  onMouseEnter={(e) => handleMouseEnter(cluster, e)}
-                  tabIndex={0}
-                  role="button"
+                  href={`${prefix}/country/${cluster.code.toLowerCase()}`}
                   aria-label={`${cluster.name}: ${cluster.count} active proxies`}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      handleNodeClick(cluster.code);
-                    }
-                  }}
+                  style={{ textDecoration: "none" }}
                 >
-                  {/* Concentric radar ping rings */}
-                  <circle
-                    r={radius * 1.7}
-                    fill="none"
-                    stroke={coreColor}
-                    strokeWidth="1.2"
-                    className={styles.nodePing}
-                    style={{
-                      animationDelay: `${((cluster.x + cluster.y) % 24) * 0.12}s`,
-                    }}
-                  />
+                  <g
+                    className={`${styles.nodeGroup} ${isSelected ? styles.nodeGroupHovered : ""}`}
+                    transform={`translate(${cluster.x}, ${cluster.y})`}
+                    onMouseEnter={(e) => handleMouseEnter(cluster, e)}
+                  >
+                    {/* Concentric radar ping rings */}
+                    <circle
+                      r={radius * 1.7}
+                      fill="none"
+                      stroke={coreColor}
+                      strokeWidth="1.2"
+                      className={styles.nodePing}
+                      style={{
+                        animationDelay: `${((cluster.x + cluster.y) % 24) * 0.12}s`,
+                      }}
+                    />
 
-                  {/* Soft ambient glow halo for hubs */}
-                  <circle r={radius * 1.55} fill={glowGradient} className={styles.nodeGlow} />
+                    {/* Soft ambient glow halo for hubs */}
+                    <circle r={radius * 1.55} fill={glowGradient} className={styles.nodeGlow} />
 
-                  {/* Core node dot */}
-                  <circle
-                    r={radius}
-                    fill={coreColor}
-                    stroke="#08090d"
-                    strokeWidth="1.75"
-                    className={styles.nodeCore}
-                  />
+                    {/* Core node dot */}
+                    <circle
+                      r={radius}
+                      fill={coreColor}
+                      stroke="#08090d"
+                      strokeWidth="1.75"
+                      className={styles.nodeCore}
+                    />
 
-                  {/* Hub count label for prominent nodes */}
-                  {cluster.count >= 15 && (
-                    <text
-                      y="3.2"
-                      textAnchor="middle"
-                      fill="#ffffff"
-                      fontSize={cluster.count >= 100 ? "8" : "8.5"}
-                      fontWeight="700"
-                      className={styles.nodeText}
-                    >
-                      {cluster.count}
-                    </text>
-                  )}
-                </g>
+                    {/* Hub count label for prominent nodes */}
+                    {cluster.count >= 15 && (
+                      <text
+                        y="3.2"
+                        textAnchor="middle"
+                        fill="#ffffff"
+                        fontSize={cluster.count >= 100 ? "8" : "8.5"}
+                        fontWeight="700"
+                        className={styles.nodeText}
+                      >
+                        {cluster.count}
+                      </text>
+                    )}
+                  </g>
+                </Link>
               );
             })}
           </g>
@@ -613,10 +610,14 @@ export default function VectorWorldMap({ proxies, lang = "en" }: VectorWorldMapP
             </div>
 
             {/* Action CTA */}
-            <div className={styles.tooltipFoot}>
+            <Link
+              href={`${prefix}/country/${hoveredCluster.code.toLowerCase()}`}
+              className={styles.tooltipFoot}
+              title={`${isRu ? "Открыть прокси страны" : "Inspect country proxies"} ${hoveredCluster.name}`}
+            >
               <span>{isRu ? "Открыть прокси страны" : "Inspect country proxies"}</span>
               <ArrowRight size={13} className={styles.tooltipArrow} />
-            </div>
+            </Link>
           </div>
         )}
       </div>

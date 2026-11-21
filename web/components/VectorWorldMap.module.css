@@ -399,7 +399,7 @@
 .tooltipCard {
   position: absolute;
   z-index: 50;
-  pointer-events: none;
+  pointer-events: auto;
   background: rgba(9, 12, 18, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -603,8 +603,21 @@
   font-weight: 600;
   color: #38bdf8;
   margin-top: 0.5rem;
-  padding-top: 0.45rem;
+  padding: 0.45rem 0.4rem 0.2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-radius: 4px;
+}
+
+.tooltipFoot:hover {
+  color: #ffffff;
+  background: rgba(56, 189, 248, 0.15);
+}
+
+.tooltipFoot:hover .tooltipArrow {
+  transform: translateX(3px);
 }
 
 .tooltipArrow {

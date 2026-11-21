@@ -28,6 +28,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/https",       priority: 0.8, changeFrequency: "daily" },
     { path: "/residential", priority: 0.8, changeFrequency: "daily" },
     { path: "/datacenter",  priority: 0.8, changeFrequency: "daily" },
+    { path: "/about",       priority: 0.8, changeFrequency: "monthly" },
+    { path: "/privacy",     priority: 0.7, changeFrequency: "monthly" },
   ];
 
   const countryParams = await getStaticCountryParams();

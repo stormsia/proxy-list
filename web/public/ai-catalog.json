@@ -4,7 +4,7 @@
     "displayName": "stormsia/proxy-list",
     "identifier": "did:web:stormsia.github.io:proxy-list",
     "documentationUrl": "https://stormsia.github.io/proxy-list/docs",
-    "logoUrl": "https://stormsia.github.io/proxy-list/globe.svg"
+    "logoUrl": "https://stormsia.github.io/proxy-list/logo.svg"
   },
   "entries": [
     {
@@ -96,6 +96,36 @@
       "representativeQueries": [
         "how does stormsia validate proxies in rust",
         "benchmark and test proxy response time with hydra"
+      ]
+    },
+    {
+      "identifier": "urn:air:stormsia.github.io:proxy-list:page:about",
+      "displayName": "About & Infrastructure Provenance",
+      "type": "text/html",
+      "url": "https://stormsia.github.io/proxy-list/about",
+      "description": "Comprehensive information regarding stormsia/proxy-list mission, open-source principles, Hydra validation architecture, and project maintainers.",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-21T10:00:00Z",
+      "tags": ["about", "infrastructure", "provenance", "trust"],
+      "capabilities": ["vendor-verification", "license-inspection"],
+      "representativeQueries": [
+        "who maintains stormsia proxy list",
+        "how does the stormsia proxy pipeline work"
+      ]
+    },
+    {
+      "identifier": "urn:air:stormsia.github.io:proxy-list:page:privacy",
+      "displayName": "Zero-Log Privacy Policy & Security Guidance",
+      "type": "text/html",
+      "url": "https://stormsia.github.io/proxy-list/privacy",
+      "description": "Zero-collection privacy policy, public proxy usage ethics, encryption requirements, and DNS leak prevention guidelines.",
+      "version": "1.0.0",
+      "updatedAt": "2026-11-21T10:00:00Z",
+      "tags": ["privacy", "zero-log", "security", "encryption"],
+      "capabilities": ["privacy-verification", "security-audit"],
+      "representativeQueries": [
+        "what is the privacy policy of stormsia proxy list",
+        "does stormsia proxy list collect user data"
       ]
     }
   ]

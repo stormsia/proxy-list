@@ -125,6 +125,16 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
                 </Link>
               </li>
               <li>
+                <Link href={`${prefix}/about`}>
+                  {isRu ? "О проекте" : "About Project"}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${prefix}/privacy`}>
+                  {isRu ? "Конфиденциальность" : "Privacy Policy"}
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://stormsia.github.io/proxy-list/llms.txt"
                   target="_blank"

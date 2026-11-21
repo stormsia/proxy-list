@@ -7,7 +7,6 @@ http://Philippines@180.190.80.43:5050
 http://Indonesia@163.61.55.243:8081
 http://Thailand@180.180.156.96:80
 http://Indonesia@103.39.51.160:8082
-http://Indonesia@103.24.215.249:8082
 http://Indonesia@180.211.93.105:8080
 http://Greece@188.164.201.197:666
 http://Philippines@112.203.116.237:8082

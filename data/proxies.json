@@ -90,7 +90,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795227293,
-    "next_check_at": 1795227480
+    "next_check_at": 1795227607
   },
   {
     "id": "147.161.246.34:10152:Switzerland:",
@@ -121,7 +121,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795227293,
-    "next_check_at": 1795227480
+    "next_check_at": 1795227607
   },
   {
     "id": "89.58.57.45:80:3 mins ago:",
@@ -152,7 +152,7 @@
     "remark": null,
     "first_seen_at": 1795224920,
     "last_checked_at": 1795227435,
-    "next_check_at": 1795227495
+    "next_check_at": 1795227623
   },
   {
     "id": "180.190.80.43:5050:Philippines:",
@@ -183,7 +183,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225641,
-    "next_check_at": 1795227480
+    "next_check_at": 1795227607
   },
   {
     "id": "163.61.55.243:8081:Indonesia:",
@@ -214,7 +214,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225658,
-    "next_check_at": 1795227491
+    "next_check_at": 1795227611
   },
   {
     "id": "180.180.156.96:80:Thailand:",
@@ -276,38 +276,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225671,
-    "next_check_at": 1795227491
-  },
-  {
-    "id": "103.24.215.249:8082:Indonesia:",
-    "ip": "103.24.215.249",
-    "port": 8082,
-    "url": "http://Indonesia@103.24.215.249:8082",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "Indonesia",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "103.24.214.69",
-    "country": "ID",
-    "asn": null,
-    "asn_org": null,
-    "anon": "anonymous",
-    "rtt_tcp_ms": 5438,
-    "rtt_handshake_ms": 2440,
-    "rtt_total_ms": 95518,
-    "uptime_pct": 50.0,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 2,
-    "checks_success": 1,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224441,
-    "last_checked_at": 1795225671,
-    "next_check_at": 1795227491
+    "next_check_at": 1795227611
   },
   {
     "id": "180.211.93.105:8080:Indonesia:",
@@ -555,7 +524,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225702,
-    "next_check_at": 1795227446
+    "next_check_at": 1795227566
   },
   {
     "id": "203.99.183.197:3128:Pakistan:",
@@ -586,7 +555,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225702,
-    "next_check_at": 1795227446
+    "next_check_at": 1795227566
   },
   {
     "id": "203.175.102.67:3125:Indonesia:",
@@ -617,7 +586,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795225702,
-    "next_check_at": 1795227446
+    "next_check_at": 1795227566
   },
   {
     "id": "160.22.45.74:8097:Indonesia:",
@@ -648,7 +617,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225715,
-    "next_check_at": 1795227446
+    "next_check_at": 1795227580
   },
   {
     "id": "45.116.230.79:8080:India:",
@@ -679,6 +648,6 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795225733,
-    "next_check_at": 1795227446
+    "next_check_at": 1795227580
   }
 ]

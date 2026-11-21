@@ -1,7 +1,8 @@
-http://Cameroon@102.244.78.61:8082
 http://3 mins ago@89.58.57.45:80
+http://2 mins ago@197.221.249.197:80
+http://Vietnam@171.238.156.104:3128
+http://Cameroon@102.244.78.61:8082
 http://Switzerland@147.161.246.34:10803
 http://Switzerland@147.161.246.34:10152
-http://Philippines@180.190.80.43:5050
-http://Germany@5.161.50.82:8118
-http://Vietnam@171.238.156.104:3128
+http://Indonesia@103.24.215.249:8082
+http://Singapore@159.223.41.216:9090

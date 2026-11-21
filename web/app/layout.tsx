@@ -71,6 +71,14 @@ export const metadata: Metadata = {
     title: "Free Proxy List | stormsia/proxy-list",
     description:
       "Open-source, auto-updated proxy list. SOCKS5, HTTP, HTTPS, SOCKS4. Verified by async validator. JSON API available.",
+    images: [
+      {
+        url: `${SITE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "stormsia/proxy-list - Free SOCKS5, HTTP & SOCKS4 Proxies",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -78,9 +86,13 @@ export const metadata: Metadata = {
     description:
       "Open-source, auto-updated proxy list. SOCKS5, HTTP, HTTPS, SOCKS4. Verified by async validator. JSON API available.",
     creator: "@stormsia",
+    images: [`${SITE_URL}/og-image.png`],
   },
   verification: {
     google: "Ilxb2F7zsbKpIgNLwUwwxbxNlrbuD6-89ZG-yCgwYbo",
+    other: {
+      "msvalidate.01": "4D27CA575B813AAEA9224B7F6560D260",
+    },
   },
   icons: {
     icon: [
@@ -107,7 +119,7 @@ export default function RootLayout({
     name: "stormsia/proxy-list",
     url: SITE_URL,
     logo: `${SITE_URL}/logo.svg`,
-    image: `${SITE_URL}/logo.svg`,
+    image: `${SITE_URL}/og-image.png`,
     sameAs: [
       "https://github.com/stormsia/proxy-list",
       "https://github.com/stormsia/hydra",
@@ -169,6 +181,12 @@ export default function RootLayout({
         <meta
           name="google-site-verification"
           content="Ilxb2F7zsbKpIgNLwUwwxbxNlrbuD6-89ZG-yCgwYbo"
+        />
+
+        {/* Bing Webmaster Tools Verification */}
+        <meta
+          name="msvalidate.01"
+          content="4D27CA575B813AAEA9224B7F6560D260"
         />
 
         {/* Microsoft Clarity */}

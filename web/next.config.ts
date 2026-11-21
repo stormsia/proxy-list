@@ -23,6 +23,7 @@ try {
 const nextConfig: NextConfig = {
   output: "export",
   basePath: "/proxy-list",
+  trailingSlash: true,
   turbopack: {
     root: path.resolve(__dirname),
   },

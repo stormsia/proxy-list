@@ -144,6 +144,65 @@ export default async function HomeView({ lang }: { lang: Locale }) {
           </div>
         </div>
 
+        <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+          <h3 style={{ fontSize: "1.15rem", color: "var(--foreground)", marginBottom: "0.75rem" }}>
+            💻 {lang === "ru" ? "Быстрая интеграция в 1 строку (cURL & Python)" : "Quick One-Line Integration (cURL & Python)"}
+          </h3>
+          <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginBottom: "0.5rem" }}>
+            {lang === "ru"
+              ? "Используйте живые прокси напрямую через протоколы HTTP CONNECT или SOCKS5h:"
+              : "Route live traffic directly through HTTP CONNECT or remote-DNS SOCKS5h:"}
+          </p>
+          <pre className={styles.codeBlock}>
+            <code>curl -x socks5h://IP:PORT https://api.ipify.org?format=json</code>
+          </pre>
+          <pre className={styles.codeBlock}>
+            <code>python -c &quot;import httpx; print(httpx.get(&apos;https://api.ipify.org&apos;, proxy=&apos;http://IP:PORT&apos;).text)&quot;</code>
+          </pre>
+        </div>
+
+        <div style={{ marginTop: "2rem", marginBottom: "2rem" }}>
+          <h3 style={{ fontSize: "1.15rem", color: "var(--foreground)", marginBottom: "0.75rem" }}>
+            📊 {lang === "ru" ? "Сравнительная матрица протоколов" : "Protocol Architecture Comparison Matrix"}
+          </h3>
+          <div className={styles.matrixTableWrapper}>
+            <table className={styles.matrixTable}>
+              <thead>
+                <tr>
+                  <th>{lang === "ru" ? "Протокол" : "Protocol"}</th>
+                  <th>{lang === "ru" ? "Уровень OSI" : "OSI Layer"}</th>
+                  <th>{lang === "ru" ? "UDP / DNS" : "UDP / Remote DNS"}</th>
+                  <th>{lang === "ru" ? "Анонимность заголовков" : "Header Stripping"}</th>
+                  <th>{lang === "ru" ? "Оптимальный сценарий" : "Best Use Case"}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style={{ fontWeight: 600, color: "var(--primary)" }}>SOCKS5</td>
+                  <td>Layer 5 (Session)</td>
+                  <td>TCP + UDP / Remote (socks5h)</td>
+                  <td>Elite (No headers added)</td>
+                  <td>{lang === "ru" ? "AI-агенты, парсеры, Telegram, торренты" : "AI agents, scrapers, bots, streaming"}</td>
+                </tr>
+                <tr>
+                  <td style={{ fontWeight: 600, color: "var(--accent)" }}>HTTP / HTTPS</td>
+                  <td>Layer 7 (Application)</td>
+                  <td>TCP only / Local DNS</td>
+                  <td>Elite / Anonymous / Transparent</td>
+                  <td>{lang === "ru" ? "REST API, браузерные расширения, cURL" : "REST APIs, browser extensions, cURL"}</td>
+                </tr>
+                <tr>
+                  <td style={{ fontWeight: 600, color: "#9ca3af" }}>SOCKS4</td>
+                  <td>Layer 5 (Session)</td>
+                  <td>TCP only / IPv4 only</td>
+                  <td>No authentication</td>
+                  <td>{lang === "ru" ? "Устаревшее ПО и легковесные туннели" : "Legacy clients, lightweight TCP relays"}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <GitHubStarCard lang={lang} />
       </section>
 

@@ -237,3 +237,52 @@
   opacity: 0.9;
 }
 
+.codeBlock {
+  background: #09090b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.85rem 1.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #38bdf8;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin: 0.75rem 0;
+}
+
+.matrixTableWrapper {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.matrixTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.matrixTable th {
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.matrixTable td {
+  padding: 0.75rem 1rem;
+  color: #9ca3af;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  line-height: 1.4;
+}
+
+.matrixTable tr:last-child td {
+  border-bottom: none;
+}
+
+

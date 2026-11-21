@@ -176,6 +176,19 @@ export const COUNTRY_META: Record<string, CountryMetadata> = {
     keywordsEn: ["singapore proxy list", "sg proxy server", "free singapore socks5"],
     keywordsRu: ["прокси сингапур", "сингапурские прокси", "sg proxy list"],
   },
+  hk: {
+    code: "hk",
+    name: "Hong Kong",
+    nameRu: "Гонконг",
+    titleEn: "Free Hong Kong (HK) Proxy List | SOCKS5 & HTTP",
+    titleRu: "Бесплатные Прокси Гонконга (HK) | SOCKS5 & HTTP",
+    descriptionEn:
+      "Free proxy servers located in Hong Kong (HK). SOCKS5 and HTTP proxies auto-updated by Hydra.",
+    descriptionRu:
+      "Бесплатные прокси-серверы Гонконга (HK). SOCKS5 и HTTP прокси с проверкой Hydra.",
+    keywordsEn: ["hong kong proxy list", "hk proxy", "free hk socks5"],
+    keywordsRu: ["прокси гонконг", "гонконг прокси", "socks5 гонконг"],
+  },
   it: {
     code: "it",
     name: "Italy",
@@ -260,7 +273,9 @@ export function getCountryDisplayName(
   try {
     const upper = code.toUpperCase();
     const localized = lang === "ru" ? regionNamesRu.of(upper) : regionNamesEn.of(upper);
-    if (localized) return localized;
+    if (localized) {
+      return localized.replace(/\s+SAR(\s+China)?/i, "").trim();
+    }
   } catch {}
   return fallbackName || code.toUpperCase();
 }

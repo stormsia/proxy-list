@@ -180,7 +180,7 @@
   border-radius: 4px;
   background: transparent;
   border: none;
-  color: #64748b;
+  color: #94a3b8;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -510,7 +510,7 @@
   align-items: center;
   gap: 0.4rem;
   font-size: 0.75rem;
-  color: #64748b;
+  color: #94a3b8;
   background: rgba(255, 255, 255, 0.03);
   padding: 0.25rem 0.6rem;
   border-radius: 6px;
@@ -612,7 +612,7 @@
 
 .hudMetricLabel {
   font-size: 0.66rem;
-  color: #64748b;
+  color: #94a3b8;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-weight: 500;
@@ -634,7 +634,7 @@
 
 .hudSharePercent {
   font-size: 0.72rem;
-  color: #64748b;
+  color: #94a3b8;
 }
 
 .hudLatencyBadge {

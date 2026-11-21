@@ -98,7 +98,7 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
             <ul className={styles.locationsList}>
               {sortedCountries.slice(0, 20).map(({ code, count, name }) => (
                 <li key={code}>
-                  <Link href={`${prefix}/country/${code}`}>
+                  <Link href={`${prefix}/country/${code}`} suppressHydrationWarning>
                     {name} ({count})
                   </Link>
                 </li>

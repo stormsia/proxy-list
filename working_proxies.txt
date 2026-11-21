@@ -1,13 +1,7 @@
 http://Cameroon@102.244.78.61:8082
-http://Indonesia@160.25.35.204:8181
 http://3 mins ago@89.58.57.45:80
 http://Switzerland@147.161.246.34:10803
 http://Switzerland@147.161.246.34:10152
 http://Philippines@180.190.80.43:5050
-http://Philippines@112.203.116.237:8082
-http://Philippines@180.191.124.206:8081
 http://Germany@5.161.50.82:8118
 http://Vietnam@171.238.156.104:3128
-http://Pakistan@203.99.183.197:3128
-http://Indonesia@203.175.102.67:3125
-http://India@45.116.230.79:8080

@@ -113,7 +113,12 @@ jobs:
         with:
           path: ./web/out
 
-      # 10. Direct single-job deployment to GitHub Pages (eliminates second VM spin-up)
+      # 10. Wait for artifact service indexing (prevents 0-artifact race condition in single-job deploys)
+      - name: Await artifact indexing
+        if: steps.check_changes.outputs.skip != 'true'
+        run: sleep 8
+
+      # 11. Direct single-job deployment to GitHub Pages
       - name: Deploy to GitHub Pages
         if: steps.check_changes.outputs.skip != 'true'
         id: deployment

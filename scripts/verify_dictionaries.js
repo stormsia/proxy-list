@@ -4,10 +4,10 @@ const path = require('path');
 const dictDir = path.join(__dirname, '../web/dictionaries');
 const enPath = path.join(dictDir, 'en.json');
 
-const targetLocales = ['es', 'zh', 'hi', 'ar', 'pt', 'fr', 'bn', 'id'];
+const targetLocales = ['ru', 'es', 'zh', 'hi', 'ar', 'pt', 'fr', 'bn', 'id'];
 
 console.log('================================================================');
-console.log('  VALIDATING I18N DICTIONARIES FOR 8 NEW LANGUAGES');
+console.log('  VALIDATING ALL I18N DICTIONARIES AGAINST en.json');
 console.log('================================================================');
 
 // 1. Validate JSON.parse on en.json
@@ -120,35 +120,15 @@ for (const loc of targetLocales) {
 console.log('\n================================================================');
 console.log('  PARITY AUDIT SUMMARY:');
 console.log('================================================================');
-const missingInEs = missingCounts['es'];
-const missingInZh = missingCounts['zh'];
-const missingInHi = missingCounts['hi'];
-const missingInAr = missingCounts['ar'];
-const missingInPt = missingCounts['pt'];
-const missingInFr = missingCounts['fr'];
-const missingInBn = missingCounts['bn'];
-const missingInId = missingCounts['id'];
+let hasMissing = false;
+for (const loc of targetLocales) {
+  const count = missingCounts[loc];
+  console.log(`missingIn${loc.toUpperCase()}: ${count}`);
+  if (count !== 0) hasMissing = true;
+}
 
-console.log(`missingInEs: ${missingInEs}`);
-console.log(`missingInZh: ${missingInZh}`);
-console.log(`missingInHi: ${missingInHi}`);
-console.log(`missingInAr: ${missingInAr}`);
-console.log(`missingInPt: ${missingInPt}`);
-console.log(`missingInFr: ${missingInFr}`);
-console.log(`missingInBn: ${missingInBn}`);
-console.log(`missingInId: ${missingInId}`);
-
-if (
-  missingInEs === 0 &&
-  missingInZh === 0 &&
-  missingInHi === 0 &&
-  missingInAr === 0 &&
-  missingInPt === 0 &&
-  missingInFr === 0 &&
-  missingInBn === 0 &&
-  missingInId === 0
-) {
-  console.log('\n✓ PASS: All 8 dictionaries verified with 100% key parity and 0 missing keys!');
+if (!hasMissing && allPassed) {
+  console.log(`\n✓ PASS: All ${targetLocales.length} dictionaries verified with 100% key parity and 0 missing keys!`);
   process.exit(0);
 } else {
   console.error('\n✗ FAIL: One or more dictionaries failed parity verification!');

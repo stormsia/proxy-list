@@ -32,16 +32,16 @@
     "bottomStarTitle": "在 GitHub 上加星",
     "bottomStarText": "在 GitHub 上加星",
     "bottomSeo": "免费公共代理列表：来自全球的 SOCKS5、SOCKS4、HTTP 与 HTTPS 代理服务器，由高速 Hydra 验证器持续检测。包含附带地理位置和 ASN 数据的住宅与数据中心代理。",
-    "seoText": "免费公共代理池：覆盖 239 个国家和地区的实时 SOCKS5、SOCKS4、HTTP 与 HTTPS 节点，每 60 秒由 Hydra 验证引擎校验一次。包含具备毫秒级 RTT 基准与 ASN 遥测数据的住宅与机房 IP。"
+    "seoText": "免费公共代理池：覆盖全球 230+ 国家/地区的实时 SOCKS5、SOCKS4、HTTP 和 HTTPS 节点，由 Hydra 验证引擎每 60 秒持续审计。包含具备毫秒级 RTT 基准测试与 ASN 遥测数据的住宅与数据中心 IP。"
   },
   "home": {
-    "title": "免费代理列表 — 实时 SOCKS5、HTTP 与 HTTPS 代理（每分钟更新）",
-    "description": "下载免费且持续验证的 SOCKS5、SOCKS4、HTTP 和 HTTPS 代理。由 Hydra 引擎每 60 秒审计一次，提供毫秒级延迟、在线率指标和原始 JSON 数据源。",
+    "title": "免费代理列表 (2026) | 严格验证的 SOCKS5、HTTP 与 HTTPS 代理",
+    "description": "下载 100% 免费且持续验证的 SOCKS5、HTTP、HTTPS 和 SOCKS4 代理。由 Hydra Rust 引擎每 60 秒审计一次，RTT 延迟低于 500ms，代理池可用率达 99.8%。",
     "heroPrefix": "全球",
     "heroHighlight": "代理网络",
     "heroSuffix": "基础设施",
-    "subtitle": "专为网页抓取、AI 智能体及网络测试打造的零认证公共代理网络。由 Hydra 每 60 秒全面审计，提供毫秒级 RTT 遥测数据。",
-    "heroBadgeHydra": "Hydra (Rust 引擎) 24/7 全天候审计 • 每分钟更新",
+    "subtitle": "专为网络爬虫、AI 智能体和网络测试打造的免认证公共代理基础设施。由 Hydra 每 60 秒审计一次，RTT 延迟低于 500ms，具备 99.8% 可用率 SLA。",
+    "heroBadgeHydra": "Hydra (Rust 引擎) 24/7 全天候审计 • 60 秒验证周期",
     "heroBadgeStarTitle": "在 GitHub 上为我们的项目加星",
     "heroBadgeStar": "在 GitHub 上加星",
     "verifiedProxies": "已验证代理",
@@ -52,11 +52,11 @@
     "proxyDirectory": "代理目录",
     "seoTitle": "专为爬虫、数据管道及 AI 智能体打造的免费高可用已验证代理池",
     "card1Title": "持续 60 秒审计 • 1 Gbps+ 带宽",
-    "card1Desc": "基于 Rust 的 Hydra 引擎每分钟重新测试套接字、延迟及 TLS 握手，保持 99.8% 的代理池可用性 SLA 和 1 Gbps+ 聚合带宽。响应迟钝的节点将被即刻淘汰。",
-    "card2Title": "灵活支持 SOCKS5 与 HTTP",
-    "card2Desc": "通过支持远程 DNS 解析的 SOCKS5 (socks5h://) 实现任意 TCP/UDP 流量路由，或利用 HTTPS CONNECT 隧道执行高速数据抓取。",
-    "card3Title": "即刻适配 AI 智能体与爬虫",
-    "card3Desc": "提供平面 JSON 遥测数据和纯文本 host:port 列表，开箱即用，无需 API Key 或速率限制，原生支持 Python、Node.js、Go 或 cURL 消费。",
+    "card1Desc": "Hydra Rust 引擎每分钟对 TCP 套接字、延迟和 TLS 握手进行循环重测，保障 99.8% 连接池可用率 SLA 和 1 Gbps+ 聚合带宽。失效节点即刻清除。",
+    "card2Title": "SOCKS5 与 HTTP 敏捷性 • DNS 防泄漏保护",
+    "card2Desc": "通过支持远程 DNS 解析的 SOCKS5 (socks5h://) 传输任意 TCP/UDP 流量以防止 DNS 泄漏，同时支持通过 HTTPS CONNECT 隧道进行高速网页抓取。",
+    "card3Title": "就绪于 AI 智能体与爬虫 • 零速率限制",
+    "card3Desc": "提供单层 JSON 遥测与纯文本 host:port 数据源，方便在 Python、Node.js、Go 或 cURL 中自动化读取，无需认证且无请求频率限制。",
     "integrationTitle": "极简单行代码集成 (cURL 与 Python)",
     "integrationDesc": "直接通过 HTTP CONNECT 或远程 DNS SOCKS5h 路由实时流量：",
     "matrixTitle": "协议架构对比分析矩阵",
@@ -73,8 +73,8 @@
     "starSuffix": "，帮助更多开发者发现此项目。",
     "quickAnswerAria": "快速摘要与要点",
     "quickAnswerBadge": "⚡ 快速解答 · TL;DR",
-    "quickAnswerUpdated": "更新时间：2026年11月",
-    "quickAnswerText": "免费、免认证的公共代理基础设施：提供来自 230 多个国家/地区且经严格验证的 SOCKS5、HTTP、HTTPS 和 SOCKS4 服务器。每个 IP 每 60 秒由多线程 Hydra Rust 引擎持续审计，具备亚秒级 RTT 延迟遥测与 99.8% 的连接池可用率 SLA。",
+    "quickAnswerUpdated": "更新于：2026 年 11 月",
+    "quickAnswerText": "stormsia/proxy-list 是一个免费、免认证的公共代理池，包含覆盖 230 多个国家/地区且持续验证的 SOCKS5、HTTP、HTTPS 和 SOCKS4 端点。多线程 Hydra Rust 引擎每 60 秒对每个节点进行审计，记录低于 500ms 的 RTT 基准测试并保持 99.8% 的连接池可用率 SLA。机器可读的 JSON 数据源支持网络爬虫与 AI 智能体直接接入。",
     "aboutAria": "关于 stormsia/proxy-list 基础设施",
     "breadcrumbHome": "首页",
     "liveStatsAria": "实时网络遥测与统计数据",
@@ -101,27 +101,35 @@
     "items": [
       {
         "question": "代理列表多长时间更新和测试一次？",
-        "answer": "代理池由多线程 Rust 编写的高性能验证引擎 Hydra 每 60 秒持续重新校验一次。未能通过 TCP 套接字握手、TLS 协商或超时响应超期的节点将立即进入冷却期或被彻底清除，确保活跃池内绝无僵尸失效端点。"
+        "answer": "代理池由多线程 Rust 验证引擎 Hydra 每 60 秒持续重新验证。未能通过 TCP 套接字握手、TLS 协商或超出响应超时的节点将被置入冷却期或立即清除。活动池仅保留实时在线端点。"
       },
       {
-        "question": "这些代理完全免费吗？是否需要 API 密钥？",
-        "answer": "所有端点（JSON 数据源、纯文本列表和 Web 目录）在 MIT / CC-BY 4.0 许可证下 100% 免费且开源。无需注册账号、无需订阅，也无需任何 API 密钥。您可以通过 GitHub 全球 CDN 直接调用原始数据源，没有任何调用频控限制。"
+        "question": "这些代理是否免费？是否需要 API 密钥？",
+        "answer": "所有端点（JSON 遥测数据源、纯文本 TXT 文件和网页目录）均 100% 免费，并在 MIT 和 CC-BY 4.0 许可证下开源。无需注册、订阅或 API 密钥。您可以通过 GitHub 的全球 CDN 直接调用原始数据源，零速率限制。"
       },
       {
-        "question": "在网络爬虫中，SOCKS5 与 HTTP 代理有什么区别？",
-        "answer": "HTTP 代理工作在应用层（OSI 第 7 层），通常通过 CONNECT 方法隧道传输 HTTP/HTTPS 请求。SOCKS5 工作在第 5 层（会话层），可在不修改任何请求头的情况下透明路由任意 TCP 和 UDP 数据包。对于 cURL、Python httpx 和 Puppeteer 等工具，带有远程 DNS 解析的 SOCKS5 (socks5h://) 可彻底防止本地 DNS 泄漏并大幅降低目标网站的自动化反爬识别率。"
+        "question": "在网络抓取中，SOCKS5 与 HTTP 代理有什么区别？",
+        "answer": "HTTP 代理工作在 OSI 第 7 层，通过 CONNECT 方法处理 HTTP/HTTPS 请求。SOCKS5 工作在 OSI 第 5 层，路由任意 TCP/UDP 数据包且不检查报头。在将 SOCKS5 与远程 DNS 解析 (socks5h://) 配合使用时，爬虫可以防止 DNS 泄漏并绕过域名级 SNI 过滤。"
       },
       {
-        "question": "如何界定代理的匿名级别（高匿 Elite、普匿 Anonymous、透明 Transparent）？",
-        "answer": "匿名性由 Hydra 在协议深度检查中判定：高匿 Elite（级别 1）不转发任何标识性代理头（如 Via、X-Forwarded-For），让请求看起来与直连完全一致；普匿 Anonymous（级别 2）会隐藏您的真实 IP，但会向目标表明使用了代理；透明 Transparent（级别 3）会在标头中透传您的客户端真实 IP。我们强烈建议使用高匿和普匿节点进行数据抓取。"
+        "question": "你们如何对代理匿名性进行分类（高匿 Elite、匿名 Anonymous、透明 Transparent）？",
+        "answer": "匿名度在 Hydra 协议检查期间确定：高匿（Elite，第 1 级）剥离所有识别报头（Via、X-Forwarded-For），使请求与客户端直接访问无异；匿名（Anonymous，第 2 级）隐藏真实 IP 但表明存在代理；透明（Transparent，第 3 级）在报头中暴露客户端 IP。我们推荐使用高匿 Elite 节点进行爬虫抓取。"
       },
       {
-        "question": "如何实现代理轮换并避免 IP 被目标封禁？",
-        "answer": "建议从我们的原始端点（data/proxies.json 或 working_proxies.txt）拉取本地候选池。按 RTT < 1000ms 和在线率 > 80% 筛选节点。每发送 10–25 次请求或在遭遇 HTTP 429 / 403 响应时立即轮换出口 IP。同时对请求间隔加入随机抖动（Jitter），并在轮换 IP 时同步轮换 User-Agent 请求头。"
+        "question": "如何处理代理轮换并防止 IP 被封禁？",
+        "answer": "接入我们的原始 JSON 数据源 (data/proxies.json)，并筛选 RTT < 1000ms 且可用率 > 80% 的节点。每 10–25 次请求或在遇到 HTTP 429（请求过多）或 403（禁止访问）时立即轮换出口 IP。将 IP 轮换与随机请求抖动及随机 User-Agent 请求头结合使用。"
       },
       {
         "question": "如何将此代理池集成到 Python、Node.js 或 cURL 中？",
-        "answer": "获取 https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json 读取丰富元数据，或获取 socks5.txt 获取 host:port 纯文本列表。在 cURL 中使用：'curl -x socks5h://host:port https://httpbin.org/ip'。在 Python 中可直接传入 requests 或 httpx.AsyncClient(proxy='socks5://host:port')。请访问我们的文档与 API 页面查看完整的可运行代码示例。"
+        "answer": "访问 https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json 获取丰富元数据，或获取 socks5.txt 获取纯文本 host:port 列表。在 cURL 中通过 'curl -x socks5h://host:port https://httpbin.org/ip' 路由。在 Python 中向 httpx.AsyncClient(proxy='socks5://host:port') 传入代理 URL。查看我们的文档与 API 页面获取可运行的代码示例。"
+      },
+      {
+        "question": "通过 SOCKS5 路由爬虫流量时，如何防止 DNS 泄漏？",
+        "answer": "为消除 DNS 泄漏，请在代理服务器上远程解析域名，而非在本地客户端操作系统上解析。在 cURL 和 Python httpx 中，将协议方案指定为 'socks5h://' 而非 'socks5://'。末尾的 'h' 将主机名解析委托给代理端点，从而防止本地 ISP 监控追踪。"
+      },
+      {
+        "question": "住宅代理与数据中心代理之间有何性能差异？",
+        "answer": "数据中心代理提供千兆上行高带宽与低于 300ms 的 RTT 延迟，非常适合目标服务器不检查 ASN 类型的批量数据采集与压力测试。住宅代理通过家庭宽带 ISP 自治系统路由，延迟较高 (500–1500ms)，但能绕过严格的反爬虫 WAF 和 CAPTCHA 人机验证。"
       }
     ]
   },
@@ -240,14 +248,14 @@
   "datacenter": {
     "badgeTitle": "免费",
     "badgeHighlight": "数据中心代理",
-    "subtitle": "{count} 个托管在云端基础设施上的高带宽数据中心代理节点。由 Hydra 每 60 秒校验一次。",
+    "subtitle": "云基础设施托管的 {count} 个已验证数据中心代理节点，由 Hydra 每 60 秒审计一次。",
     "seoHeading": "高吞吐量数据中心机房代理",
     "seoText": "数据中心代理通过全球顶级云骨干网提供极速的网络吞吐与超低延迟。源自企业级机房服务设施，专为高并发网络数据任务而设计。",
     "breadcrumbHome": "首页",
     "breadcrumbCurrent": "数据中心代理",
     "tableContextLabel": "数据中心",
-    "datasetName": "免费数据中心代理列表 — 高带宽云端节点",
-    "datasetDesc": "持续更新的免费数据中心代理服务器数据集，托管于高吞吐量云基础设施。由 Hydra 每 60 秒审计一次。",
+    "datasetName": "免费数据中心代理列表：高带宽云端节点",
+    "datasetDesc": "由高吞吐量云基础设施托管的免费数据中心代理服务器持续更新数据集，由 Hydra 每 60 秒审计一次。",
     "faqs": [
       {
         "question": "什么是数据中心代理？它们有哪些技术优势？",
@@ -266,14 +274,14 @@
   "residential": {
     "badgeTitle": "免费",
     "badgeHighlight": "住宅网络代理",
-    "subtitle": "{count} 个由真实运营商 (ISP) 分配的已验证住宅代理节点。由 Hydra 每 60 秒校验一次。",
+    "subtitle": "带有真实 ISP 分配 IP 的 {count} 个已验证住宅代理服务器，由 Hydra 每 60 秒审计一次。",
     "seoHeading": "真实运营商 ISP 住宅代理基础设施",
     "seoText": "住宅代理通过真实家庭宽带 ISP 的自治系统路由请求。非常适合在数据中心 IP 容易触发自动化安全验证码 (CAPTCHA) 或强力限流的高风控场景下使用。",
     "breadcrumbHome": "首页",
     "breadcrumbCurrent": "住宅代理",
     "tableContextLabel": "住宅网络",
-    "datasetName": "免费住宅代理列表 — 真实 ISP 已验证节点",
-    "datasetDesc": "持续更新的真实宽带家庭 ISP 住宅代理数据集。由 Hydra 每 60 秒审计一次，包含毫秒级延迟遥测数据。",
+    "datasetName": "免费住宅代理列表：已验证 ISP 节点",
+    "datasetDesc": "由家庭宽带 ISP 分配的免费住宅代理持续更新数据集，由 Hydra 每 60 秒审计一次，提供毫秒级延迟指标。",
     "faqs": [
       {
         "question": "什么是住宅代理？它与数据中心机房 IP 有何本质区别？",
@@ -292,7 +300,7 @@
   "protocol": {
     "titlePrefix": "免费",
     "titleSuffix": "代理列表",
-    "subtitle": "个经过验证的 {protocol} 代理服务器 — 每 60 秒由 Hydra 全面审计。",
+    "subtitle": "已验证的 {protocol} 代理服务器，由 Hydra 每 60 秒审计一次。",
     "subtitleEmpty": "持续验证的 {protocol} 代理服务器池，提供毫秒级网络延迟指标。",
     "aboutTitle": "什么是 {protocol} 代理？",
     "downloadTxt": "直接下载该协议的纯文本列表文件：",
@@ -300,7 +308,7 @@
     "viewAll": "查看全部代理",
     "breadcrumbHome": "首页",
     "breadcrumbCurrent": "{protocol} 代理",
-    "datasetName": "免费 {protocol} 代理列表 — 实时已验证端点",
+    "datasetName": "免费 {protocol} 代理列表：实时已验证端点",
     "datasetDesc": "持续更新的活跃 {protocol} 代理服务器数据集。由 Hydra Rust 引擎每 60 秒审计一次，提供毫秒级 RTT 基准数据。",
     "about": {
       "socks5": "SOCKS5 工作在 OSI 第 5 层（会话层），可在不检查或修改应用层有效载荷请求头的情况下透明路由任意 TCP 和 UDP 数据包。通过配置 socks5h:// 启用远程 DNS 解析，爬虫能够彻底杜绝本地 DNS 泄露痕迹并绕过域名级 SNI 审查过滤。SOCKS5 是 Python httpx、Puppeteer、Playwright 以及高并发数据采集任务的官方首选标准。",
@@ -319,7 +327,7 @@
   "country": {
     "titlePrefix": "免费",
     "titleSuffix": "代理列表",
-    "subtitle": "个位于 {country} 的已验证代理服务器。涵盖 SOCKS5、SOCKS4 和 HTTP — 每 60 秒由 Hydra 审计。",
+    "subtitle": "位于 {country} 的已验证代理服务器。SOCKS5、SOCKS4 和 HTTP 协议每 60 秒由 Hydra 审计一次。",
     "subtitleEmpty": "位于 {country} 的代理服务器。按协议过滤，支持导出为纯文本或 JSON 格式。",
     "proxiesLabel": "个代理",
     "aboutTitle": "关于 {country} 代理",
@@ -329,7 +337,7 @@
     "viewAll": "查看全部代理",
     "breadcrumbHome": "首页",
     "breadcrumbCurrent": "{country} 代理",
-    "datasetName": "免费 {country} 代理列表 — 实时已验证端点",
+    "datasetName": "免费 {country} 代理列表：实时已验证端点",
     "datasetDesc": "持续审计的 {country} 免费代理服务器列表。SOCKS5、SOCKS4 和 HTTP 协议由 Hydra Rust 引擎每 60 秒校验一次。",
     "faqQ1": "如何验证 {country} 服务器的地理定位真实性？",
     "faqA1": "在每一轮验证过程中，Hydra 引擎都会将代理出口 IP 与 MaxMind GeoIP 数据集及 BGP 自治系统路由表进行多重匹配验证。每个记录都包含标准的 ISO 3166-1 alpha-2 国家代码和 ASN 名称，以确保真实的地理出口路由。",
@@ -358,11 +366,11 @@
     "featureGeoDesc": "BGP 自治系统编号 (ASN) 匹配与 ISO 国家标准元数据丰富化。",
     "openSourceTitle": "开源精神与开发者社区",
     "openSourceP1": "所有应用程序代码均在 GitHub 上以 MIT 许可证发布。遥测数据集遵循知识共享署名 4.0 国际许可协议 (CC-BY 4.0)。在保留署名的前提下，您可以自由地将其应用于个人或商业项目中。",
-    "githubRepo": "GitHub 代码仓库",
+    "githubRepo": "GitHub 仓库",
     "reportIssue": "报告问题 / 提交反馈"
   },
   "privacy": {
-    "name": "隐私政策 — stormsia/proxy-list",
+    "name": "隐私政策 | stormsia/proxy-list",
     "description": "stormsia/proxy-list 隐私政策：零日志承诺、不收集个人数据以及公共代理安全最佳实践建议。",
     "title": "隐私政策",
     "subtitle": "透明度、零日志承诺以及公共代理使用安全须知。",
@@ -383,7 +391,7 @@
     "sec4Button": "GitHub Issues / Discussions 交流区"
   },
   "docs": {
-    "headline": "stormsia/proxy-list — 开发者文档与 Hydra API 参考手册",
+    "headline": "stormsia/proxy-list：开发者文档与 Hydra API 参考",
     "description": "程序化消费免费代理的开发者指南：原始纯文本接口、丰富 Hydra JSON 遥测规范，以及 Python、Node.js、Go 与 cURL 的开箱即用代码范例。",
     "breadcrumbHome": "首页",
     "breadcrumbDocs": "文档与 API",
@@ -446,12 +454,12 @@
   },
   "howTo": {
     "name": "如何通过 cURL 和 Python 连接免费代理 (2026)",
-    "description": "通过 cURL 和 Python httpx 经由已验证的免费 SOCKS5 和 HTTP 代理路由流量的逐步指南。",
+    "description": "使用 cURL 和 Python httpx 通过已验证的免费 SOCKS5 和 HTTP 代理路由流量的分步指南，包含 DNS 防泄漏配置。",
     "step1Name": "选择已验证的代理端点",
-    "step1Text": "从实时列表中挑选延迟在 500ms 以内且在线率高的有效 SOCKS5 或 HTTP 代理节点。",
-    "step2Name": "使用远程 DNS 解析执行 cURL",
-    "step2Text": "在终端中运行：curl -x socks5h://IP:PORT https://api.ipify.org?format=json 验证连接并防止 DNS 泄漏。",
+    "step1Text": "筛选实时目录或获取 data/proxies.json。选择经 Hydra 验证且 RTT 延迟低于 500ms、可用率高于 99% 的活跃 SOCKS5 或 HTTPS 代理。",
+    "step2Name": "使用 cURL 路由流量并防止 DNS 泄漏",
+    "step2Text": "在终端中运行：curl -x socks5h://IP:PORT https://api.ipify.org?format=json。socks5h 协议前缀强制在代理端进行远程 DNS 解析，防止 ISP 泄露。",
     "step3Name": "集成到 Python httpx 或 requests",
-    "step3Text": "在 Python 中向 httpx.AsyncClient(proxy='http://IP:PORT') 或 requests.get('https://example.com', proxies={'http': 'http://IP:PORT'}) 传入代理参数。"
+    "step3Text": "在 Python 中，通过 httpx.AsyncClient(proxy='socks5://IP:PORT') 初始化异步客户端，或运行 requests.get('https://example.com', proxies={'http': 'http://IP:PORT', 'https': 'http://IP:PORT'})。"
   }
 }

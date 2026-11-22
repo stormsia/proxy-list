@@ -32,16 +32,16 @@
     "bottomStarTitle": "Destacar no GitHub",
     "bottomStarText": "Destacar no GitHub",
     "bottomSeo": "Lista pública gratuita de proxies: servidores proxy SOCKS5, SOCKS4, HTTP e HTTPS coletados globalmente, verificados continuamente pelo validador de alta velocidade Hydra. Inclui proxies residenciais e de datacenter com geolocalização e dados de ASN.",
-    "seoText": "Pool público de proxies gratuitos: nós ativos SOCKS5, SOCKS4, HTTP e HTTPS em 239 países, auditados a cada 60 segundos pelo motor de validação Hydra. Inclui IPs residenciais e de datacenter com benchmarks de RTT em milissegundos e telemetria ASN."
+    "seoText": "Pool público de proxies gratuitos: nós ativos SOCKS5, SOCKS4, HTTP e HTTPS em mais de 230 países, verificados a cada 60 segundos pelo motor de validação Hydra. Inclui IPs residenciais e de datacenter com benchmarks de latência RTT em milissegundos e telemetria ASN."
   },
   "home": {
-    "title": "Lista de Proxies Gratuitos — Proxies SOCKS5, HTTP e HTTPS Ativos (Atualizados a Cada Minuto)",
-    "description": "Baixe proxies SOCKS5, SOCKS4, HTTP e HTTPS gratuitos e verificados continuamente. Auditados a cada 60 segundos pelo motor Hydra com latência em milissegundos, métricas de uptime e feeds JSON brutos.",
+    "title": "Lista de Proxies Gratuitos (2026) | Proxies SOCKS5, HTTP e HTTPS Verificados",
+    "description": "Baixe proxies SOCKS5, HTTP, HTTPS e SOCKS4 100% gratuitos e continuamente verificados. Auditados a cada 60 segundos pelo motor Hydra em Rust com latência RTT abaixo de 500ms e 99.8% de disponibilidade do pool.",
     "heroPrefix": "Rede",
     "heroHighlight": "Global de Proxies",
     "heroSuffix": "",
-    "subtitle": "Infraestrutura pública de proxies sem autenticação para web scraping, agentes de IA e testes de rede. Auditada a cada 60 segundos pelo Hydra com telemetria RTT em milissegundos.",
-    "heroBadgeHydra": "Auditado 24/7 pelo Hydra (Motor Rust) • Atualizado a Cada Minuto",
+    "subtitle": "Infraestrutura pública de proxies sem autenticação para web scraping, agentes de IA e testes de rede. Auditada a cada 60 segundos pelo Hydra com latência RTT sub-500ms e SLA de 99.8% de uptime.",
+    "heroBadgeHydra": "Auditado 24/7 pelo Hydra (Motor Rust) • Ciclo de Verificação de 60s",
     "heroBadgeStarTitle": "Dar uma estrela ao nosso repositório no GitHub",
     "heroBadgeStar": "Destacar no GitHub",
     "verifiedProxies": "Proxies Verificados",
@@ -51,12 +51,12 @@
     "networkTopology": "Topologia de Rede",
     "proxyDirectory": "Diretório de Proxies",
     "seoTitle": "Infraestrutura de Proxies Verificados Gratuitos para Scrapers, Pipelines de Dados e Agentes de IA",
-    "card1Title": "Auditorias Contínuas de 60s • 1 Gbps+",
-    "card1Desc": "O motor Hydra em Rust reavalia sockets, latência e handshakes TLS a cada minuto, mantendo um SLA de 99.8% de uptime do pool e mais de 1 Gbps de largura de banda agregada. Nós lentos são descartados instantaneamente.",
-    "card2Title": "Agilidade com SOCKS5 e HTTP",
-    "card2Desc": "Roteamento arbitrário TCP/UDP via SOCKS5 com resolução remota de DNS (socks5h://) ou raspagem de dados web de alta velocidade através de túneis HTTPS CONNECT.",
-    "card3Title": "Pronto para Agentes de IA e Scrapers",
-    "card3Desc": "Telemetria JSON simples e listas host:porta em texto puro prontas para ingestão direta em Python, Node.js, Go ou cURL sem chaves de API nem limites de taxa.",
+    "card1Title": "Auditorias Contínuas de 60s • Largura de Banda de 1 Gbps+",
+    "card1Desc": "O motor Hydra em Rust reavalia sockets TCP, latência e negociações TLS a cada minuto, garantindo SLA de disponibilidade de 99.8% e largura de banda agregada de 1 Gbps+. Nós inativos são expurgados instantaneamente.",
+    "card2Title": "Agilidade SOCKS5 e HTTP • Proteção Contra Vazamento de DNS",
+    "card2Desc": "Transporte TCP/UDP arbitrário via SOCKS5 com resolução remota de DNS (socks5h://) para evitar vazamentos de DNS, além de web scraping de alta velocidade via túneis HTTPS CONNECT.",
+    "card3Title": "Pronto para Agentes de IA e Scrapers • Zero Limites de Taxa",
+    "card3Desc": "Telemetria JSON direta e listas host:port em texto puro prontas para ingestão automatizada em Python, Node.js, Go ou cURL, sem chaves e sem limites de frequência.",
     "integrationTitle": "Integração Rápida em Uma Linha (cURL e Python)",
     "integrationDesc": "Roteie tráfego ativo diretamente via HTTP CONNECT ou SOCKS5h com DNS remoto:",
     "matrixTitle": "Matriz Comparativa de Arquitetura de Protocolos",
@@ -72,9 +72,9 @@
     "starLink": "dando uma estrela ao nosso repositório no GitHub",
     "starSuffix": ".",
     "quickAnswerAria": "Resumo de resposta rápida",
-    "quickAnswerBadge": "⚡ Resposta rápida · TL;DR",
-    "quickAnswerUpdated": "Atualizado: novembro de 2026",
-    "quickAnswerText": "Infraestrutura pública de proxies gratuitos sem autenticação: servidores verificados SOCKS5, HTTP, HTTPS e SOCKS4 em mais de 230 países. Cada IP é auditado continuamente a cada 60 segundos pelo motor Rust Hydra, com latência RTT abaixo de um segundo e 99.8% de uptime.",
+    "quickAnswerBadge": "⚡ Resposta Rápida · TL;DR",
+    "quickAnswerUpdated": "Atualizado: Novembro de 2026",
+    "quickAnswerText": "stormsia/proxy-list é um pool público de proxies gratuito e sem autenticação com endpoints SOCKS5, HTTP, HTTPS e SOCKS4 verificados continuamente em mais de 230 países. O motor multithread Hydra em Rust audita cada nó a cada 60 segundos, registrando métricas de RTT abaixo de 500ms e mantendo um SLA de 99.8% de uptime do pool. Feeds JSON legíveis por máquina suportam ingestão direta para scrapers e agentes de IA.",
     "aboutAria": "Sobre a infraestrutura stormsia/proxy-list",
     "breadcrumbHome": "Início",
     "liveStatsAria": "Telemetria e estatísticas de rede em tempo real",
@@ -101,27 +101,35 @@
     "items": [
       {
         "question": "Com que frequência a lista de proxies é atualizada e testada?",
-        "answer": "O pool de proxies é revalidado continuamente a cada 60 segundos pelo Hydra, um motor de validação multithread escrito em Rust. Nós que falham em handshakes de socket TCP, negociação TLS ou prazos de resposta são colocados em resfriamento ou expurgados imediatamente, garantindo zero endpoints inativos no pool ativo."
+        "answer": "O pool de proxies é revalidado continuamente a cada 60 segundos pelo Hydra, um motor de validação multithread em Rust. Nós que falham em handshakes TCP, negociação TLS ou prazos de resposta são colocados em espera ou expurgados imediatamente. O pool ativo mantém apenas endpoints operacionais."
       },
       {
         "question": "Esses proxies são gratuitos e exigem chaves de API?",
-        "answer": "Todos os endpoints (feed JSON, arquivos de texto puro e diretório web) são 100% gratuitos e de código aberto sob as licenças MIT / CC-BY 4.0. Não é necessário nenhum cadastro, assinatura ou chave de API. Você pode consumir os feeds brutos diretamente pela CDN global do GitHub sem limites de taxa."
+        "answer": "Todos os endpoints (feed de telemetria JSON, arquivos TXT em texto puro e diretório web) são 100% gratuitos e de código aberto sob licenças MIT e CC-BY 4.0. Não são necessários registros, assinaturas ou chaves de API. Você pode consumir os feeds brutos diretamente pela CDN global do GitHub sem limites de taxa."
       },
       {
         "question": "Qual é a diferença entre proxies SOCKS5 e HTTP para web scraping?",
-        "answer": "Os proxies HTTP operam na camada de aplicação e tunelam o tráfego HTTP/HTTPS por meio do método CONNECT. O SOCKS5 opera na camada 5 (camada de sessão), roteando tráfego TCP e UDP arbitrário sem alterar cabeçalhos de solicitação. Para ferramentas como curl, Python httpx e Puppeteer, o SOCKS5 com resolução remota de DNS (socks5h://) evita vazamentos de DNS e minimiza a detecção de bots no site de destino."
+        "answer": "Os proxies HTTP operam na camada 7 do modelo OSI, gerenciando requisições HTTP/HTTPS via método CONNECT. O SOCKS5 opera na camada 5 do OSI, roteando pacotes TCP/UDP arbitrários sem inspecionar cabeçalhos. Ao usar SOCKS5 com resolução remota de DNS (socks5h://), os scrapers evitam vazamentos de DNS e contornam filtros SNI em nível de domínio."
       },
       {
-        "question": "Como vocês classificam o anonimato do proxy (Elite vs Anônimo vs Transparente)?",
-        "answer": "O anonimato é determinado durante a inspeção de protocolo do Hydra: Elite (Nível 1) não encaminha cabeçalhos de identificação de proxy (Via, X-Forwarded-For), tornando as requisições indistinguíveis de acessos diretos; Anônimo (Nível 2) oculta seu IP real, mas declara a presença de um proxy; Transparente (Nível 3) transmite seu IP de cliente nos cabeçalhos. Recomendamos nós Elite e Anônimos para web scraping."
+        "question": "Como vocês classificam o anonimato do proxy (Elite vs Anonymous vs Transparent)?",
+        "answer": "O anonimato é determinado durante a inspeção de protocolo do Hydra: Elite (Nível 1) remove todos os cabeçalhos de identificação (Via, X-Forwarded-For), tornando as requisições indistinguíveis de acessos diretos; Anonymous (Nível 2) oculta o IP do cliente mas declara a existência do proxy; Transparent (Nível 3) expõe o IP do cliente nos cabeçalhos. Recomendamos nós Elite para scraping."
       },
       {
-        "question": "Como devo lidar com a rotação de proxies e prevenir banimentos de IP?",
-        "answer": "Obtenha um pool local de nossos endpoints brutos (data/proxies.json ou working_proxies.txt). Filtre os nós por RTT < 1000ms e uptime > 80%. Rotacione seu IP de saída a cada 10–25 requisições ou imediatamente após receber HTTP 429 (Too Many Requests) ou 403 (Forbidden). Aplique sempre jitter nos intervalos de requisição e rotacione cabeçalhos User-Agent junto com os IPs."
+        "question": "Como devo gerenciar a rotação de proxies e evitar bloqueios de IP?",
+        "answer": "Consuma nosso feed JSON bruto (data/proxies.json) e filtre nós por RTT < 1000ms e disponibilidade > 80%. Alterne seu IP de saída a cada 10–25 requisições ou imediatamente ao encontrar códigos HTTP 429 (Too Many Requests) ou 403 (Forbidden). Combine a rotação de IP com intervalos aleatórios (jitter) e alternância de cabeçalhos User-Agent."
       },
       {
         "question": "Como posso integrar este pool de proxies em Python, Node.js ou cURL?",
-        "answer": "Acesse https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json para metadados detalhados ou socks5.txt para pares host:porta simples. No cURL, roteie via 'curl -x socks5h://host:porta https://httpbin.org/ip'. No Python, passe a URL do proxy para requests ou httpx.AsyncClient(proxy='socks5://host:porta'). Confira nossa página de Documentação e API para exemplos de código completos e executáveis."
+        "answer": "Acesse https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json para metadados ricos ou socks5.txt para pares host:port em texto puro. No cURL, faça o roteamento com 'curl -x socks5h://host:port https://httpbin.org/ip'. No Python, passe a URL do proxy para httpx.AsyncClient(proxy='socks5://host:port'). Acesse nossa página de Docs & API para exemplos de código executáveis."
+      },
+      {
+        "question": "Como evito vazamentos de DNS ao rotear tráfego de scraper via SOCKS5?",
+        "answer": "Para eliminar vazamentos de DNS, resolva os nomes de domínio remotamente no servidor proxy, e não localmente no sistema operacional do cliente. No cURL e Python httpx, especifique o esquema do protocolo como 'socks5h://' em vez de 'socks5://'. A letra 'h' no final delega a resolução de nomes ao endpoint do proxy, impedindo o rastreamento pelo provedor local."
+      },
+      {
+        "question": "Quais são as diferenças de desempenho entre proxies residenciais e de datacenter?",
+        "answer": "Os proxies de datacenter oferecem uplinks Gigabit de alta largura de banda com latência RTT abaixo de 300ms, ideais para ingestão massiva de dados e testes de estresse em que os servidores de destino não inspecionam tipos de ASN. Os proxies residenciais roteiam através de sistemas autônomos de provedores residenciais, apresentando maior latência (500–1500ms), mas contornando WAFs e desafios CAPTCHA antibot rígidos."
       }
     ]
   },
@@ -240,14 +248,14 @@
   "datacenter": {
     "badgeTitle": "Grátis",
     "badgeHighlight": "Proxies de Datacenter",
-    "subtitle": "{count} nós de proxy de datacenter verificados hospedados em infraestrutura de nuvem. Auditados a cada 60 segundos pelo Hydra.",
+    "subtitle": "{count} nós proxy de datacenter verificados hospedados em infraestrutura de nuvem, auditados a cada 60 segundos pelo Hydra.",
     "seoHeading": "Proxies de Datacenter de Alta Largura de Banda",
     "seoText": "Os proxies de datacenter oferecem velocidade bruta de conexão e baixa latência através de backbones globais em nuvem. Obtidos de instalações de hospedagem corporativas, esses endpoints são otimizados para cargas de trabalho de rede com alta taxa de transferência.",
     "breadcrumbHome": "Início",
     "breadcrumbCurrent": "Proxies de Datacenter",
     "tableContextLabel": "Datacenter",
-    "datasetName": "Lista de Proxies de Datacenter Gratuitos — Endpoints em Nuvem de Alta Largura de Banda",
-    "datasetDesc": "Conjunto de dados continuamente atualizado de servidores proxy de datacenter gratuitos hospedados em infraestrutura de nuvem de alto rendimento. Auditados a cada 60 segundos pelo Hydra.",
+    "datasetName": "Lista de Proxies de Datacenter Gratuitos: Endpoints em Nuvem de Alta Largura de Banda",
+    "datasetDesc": "Conjunto de dados continuamente atualizado de servidores proxy de datacenter gratuitos hospedados em infraestrutura de nuvem de alto rendimento, auditados a cada 60 segundos pelo Hydra.",
     "faqs": [
       {
         "question": "O que são proxies de datacenter e quais são suas vantagens técnicas?",
@@ -266,14 +274,14 @@
   "residential": {
     "badgeTitle": "Grátis",
     "badgeHighlight": "Proxies Residenciais",
-    "subtitle": "{count} servidores proxy residenciais verificados com IPs reais atribuídos por provedores (ISPs). Auditados a cada 60 segundos pelo Hydra.",
+    "subtitle": "{count} servidores proxy residenciais verificados com IPs reais atribuídos por provedores (ISP), auditados a cada 60 segundos pelo Hydra.",
     "seoHeading": "Infraestrutura de Proxies Residenciais de Provedores (ISP)",
     "seoText": "Proxies residenciais roteiam requisições através de sistemas autônomos de provedores de internet residenciais legítimos. Ideais para tarefas em que faixas de IP de datacenter disparam verificações de segurança automatizadas ou limites de taxa.",
     "breadcrumbHome": "Início",
     "breadcrumbCurrent": "Proxies Residenciais",
     "tableContextLabel": "Residencial",
-    "datasetName": "Lista de Proxies Residenciais Gratuitos — Endpoints Verificados de ISP",
-    "datasetDesc": "Conjunto de dados continuamente atualizado de proxies residenciais gratuitos atribuídos por provedores de consumo. Auditados a cada 60 segundos pelo Hydra com métricas de latência em milissegundos.",
+    "datasetName": "Lista de Proxies Residenciais Gratuitos: Endpoints de Provedor (ISP) Verificados",
+    "datasetDesc": "Conjunto de dados continuamente atualizado de proxies residenciais gratuitos atribuídos por ISPs residenciais, auditados a cada 60 segundos pelo Hydra com métricas de latência em milissegundos.",
     "faqs": [
       {
         "question": "O que são proxies residenciais e como eles diferem dos IPs de datacenter?",
@@ -292,7 +300,7 @@
   "protocol": {
     "titlePrefix": "Lista de Proxies",
     "titleSuffix": "Gratuitos",
-    "subtitle": "servidores proxy {protocol} verificados — auditados a cada 60 segundos pelo Hydra.",
+    "subtitle": "servidores proxy {protocol} verificados, auditados a cada 60 segundos pelo Hydra.",
     "subtitleEmpty": "Pool continuamente validado de servidores proxy {protocol} com métricas de latência em milissegundos.",
     "aboutTitle": "O que é um Proxy {protocol}?",
     "downloadTxt": "Baixe esta lista diretamente como arquivo de texto puro:",
@@ -300,7 +308,7 @@
     "viewAll": "Ver Todos os Proxies",
     "breadcrumbHome": "Início",
     "breadcrumbCurrent": "Proxies {protocol}",
-    "datasetName": "Lista de Proxies {protocol} Gratuitos — Endpoints Ativos Verificados",
+    "datasetName": "Lista de Proxies {protocol} Gratuitos: Endpoints Ativos Verificados",
     "datasetDesc": "Conjunto de dados continuamente atualizado de servidores proxy {protocol} ativos. Auditados a cada 60 segundos pelo motor Hydra Rust com benchmarks RTT em milissegundos.",
     "about": {
       "socks5": "O SOCKS5 opera na Camada 5 do modelo OSI (Camada de Sessão), roteando pacotes TCP e UDP arbitrários sem inspecionar nem modificar cabeçalhos de carga útil da aplicação. Ao configurar a resolução remota de DNS via socks5h://, seu scraper evita rastros de vazamento de DNS local e contorna a filtragem SNI no nível do domínio. O SOCKS5 é o padrão recomendado para Python httpx, Puppeteer, Playwright e pipelines de extração de dados de alta concorrência.",
@@ -319,7 +327,7 @@
   "country": {
     "titlePrefix": "Lista de Proxies",
     "titleSuffix": "Gratuitos",
-    "subtitle": "servidores proxy verificados localizados em {country}. SOCKS5, SOCKS4 e HTTP — auditados a cada 60 segundos pelo Hydra.",
+    "subtitle": "servidores proxy verificados localizados em {country}. Protocolos SOCKS5, SOCKS4 e HTTP auditados a cada 60 segundos pelo Hydra.",
     "subtitleEmpty": "Servidores proxy localizados em {country}. Filtre por protocolo e baixe como texto puro ou JSON.",
     "proxiesLabel": "proxies",
     "aboutTitle": "Sobre os Proxies em {country}",
@@ -329,7 +337,7 @@
     "viewAll": "Ver Todos os Proxies",
     "breadcrumbHome": "Início",
     "breadcrumbCurrent": "Proxies em {country}",
-    "datasetName": "Lista de Proxies Gratuitos em {country} — Endpoints Ativos Verificados",
+    "datasetName": "Lista de Proxies em {country} Gratuitos: Endpoints Ativos Verificados",
     "datasetDesc": "Lista continuamente auditada de servidores proxy gratuitos localizados em {country}. Protocolos SOCKS5, SOCKS4 e HTTP verificados a cada 60 segundos pelo motor Hydra Rust.",
     "faqQ1": "Como a geolocalização do servidor em {country} é verificada?",
     "faqA1": "Durante cada ciclo de validação, o motor Hydra cruza os IPs de saída dos proxies com os conjuntos de dados MaxMind GeoIP e tabelas de sistemas autônomos BGP. Cada registro inclui o código de país ISO 3166-1 alpha-2 e o nome ASN para garantir roteamento geográfico autêntico.",
@@ -362,7 +370,7 @@
     "reportIssue": "Relatar Problema / Feedback"
   },
   "privacy": {
-    "name": "Política de Privacidade — stormsia/proxy-list",
+    "name": "Política de Privacidade | stormsia/proxy-list",
     "description": "Política de Privacidade para stormsia/proxy-list: compromisso de zero registro de logs, nenhuma coleta de dados pessoais e recomendações de segurança com proxies públicos.",
     "title": "Política de Privacidade",
     "subtitle": "Transparência, compromisso de zero registro de logs e avisos de segurança sobre proxies públicos.",
@@ -383,7 +391,7 @@
     "sec4Button": "GitHub Issues / Discussões"
   },
   "docs": {
-    "headline": "stormsia/proxy-list — Documentação para Desenvolvedores e Referência da API Hydra",
+    "headline": "stormsia/proxy-list: Documentação para Desenvolvedores e Referência da API Hydra",
     "description": "Guia do desenvolvedor para consumir proxies gratuitos programaticamente: endpoints brutos em texto puro, esquema de telemetria JSON avançado do Hydra e trechos de código prontos para executar em Python, Node.js, Go e cURL.",
     "breadcrumbHome": "Início",
     "breadcrumbDocs": "Documentação e API",
@@ -445,13 +453,13 @@
     "anonTransparentLabel": "🔍 Transparent (Nivel 3):"
   },
   "howTo": {
-    "name": "Como conectar a proxies gratuitos via cURL e Python (2026)",
-    "description": "Instruções passo a passo para rotear tráfego através de proxies SOCKS5 e HTTP verificados usando cURL e Python httpx.",
+    "name": "Como Conectar a Proxies Gratuitos via cURL e Python (2026)",
+    "description": "Instruções passo a passo para rotear tráfego através de proxies SOCKS5 e HTTP verificados e gratuitos usando cURL e Python httpx com proteção contra vazamento de DNS.",
     "step1Name": "Selecione um endpoint de proxy verificado",
-    "step1Text": "Escolha um proxy SOCKS5 ou HTTP ativo no diretório filtrado por latência < 500ms e alta disponibilidade.",
-    "step2Name": "Execute o cURL com resolução DNS remota",
-    "step2Text": "Execute no terminal: curl -x socks5h://IP:PORT https://api.ipify.org?format=json para verificar a conexão e evitar vazamentos de DNS.",
-    "step3Name": "Integrar no Python httpx ou requests",
-    "step3Text": "No Python, passe o parâmetro proxy para httpx.AsyncClient(proxy='http://IP:PORT') ou requests.get('https://example.com', proxies={'http': 'http://IP:PORT'})."
+    "step1Text": "Filtre o diretório em tempo real ou baixe data/proxies.json. Escolha um proxy SOCKS5 ou HTTPS ativo com latência RTT abaixo de 500ms e uptime acima de 99% verificado pelo Hydra.",
+    "step2Name": "Roteie tráfego com cURL prevenindo vazamentos de DNS",
+    "step2Text": "Execute no terminal: curl -x socks5h://IP:PORT https://api.ipify.org?format=json. O esquema socks5h força a resolução remota de DNS no proxy, evitando vazamentos pelo seu provedor.",
+    "step3Name": "Integre no Python httpx ou requests",
+    "step3Text": "No Python, inicialize um cliente assíncrono via httpx.AsyncClient(proxy='socks5://IP:PORT') ou execute requests.get('https://example.com', proxies={'http': 'http://IP:PORT', 'https': 'http://IP:PORT'})."
   }
 }

@@ -32,16 +32,16 @@
     "bottomStarTitle": "Bintang di GitHub",
     "bottomStarText": "Bintang di GitHub",
     "bottomSeo": "Daftar proxy publik gratis: server proxy SOCKS5, SOCKS4, HTTP, dan HTTPS yang bersumber secara global, diverifikasi terus-menerus oleh validator berkecepatan tinggi Hydra. Termasuk proxy residensial dan datacenter dengan geolokasi serta data ASN.",
-    "seoText": "Kumpulan proxy publik gratis: node langsung SOCKS5, SOCKS4, HTTP, dan HTTPS di 239 negara, diverifikasi setiap 60 detik oleh mesin validasi Hydra. Termasuk IP residensial dan pusat data dengan tolok ukur RTT milidetik dan telemetri ASN."
+    "seoText": "Pool proxy publik gratis: node SOCKS5, SOCKS4, HTTP, dan HTTPS aktif di 230+ negara, diverifikasi setiap 60 detik oleh mesin validasi Hydra. Mencakup IP residensial dan datacenter dengan tolok ukur latensi RTT milidetik dan telemetri ASN."
   },
   "home": {
-    "title": "Daftar Proxy Gratis — Proxy SOCKS5, HTTP & HTTPS Aktif (Diperbarui Setiap Menit)",
-    "description": "Unduh proxy SOCKS5, SOCKS4, HTTP, dan HTTPS gratis yang terus diverifikasi. Diaudit setiap 60 detik oleh mesin Hydra dengan latensi milidetik, metrik waktu aktif, dan umpan data mentah JSON.",
+    "title": "Daftar Proxy Gratis (2026) | Proxy SOCKS5, HTTP & HTTPS Terverifikasi",
+    "description": "Unduh proxy SOCKS5, HTTP, HTTPS, dan SOCKS4 100% gratis dan diverifikasi terus-menerus. Diaudit setiap 60 detik oleh mesin Hydra Rust dengan latensi RTT sub-500ms dan uptime pool 99.8%.",
     "heroPrefix": "Jaringan",
     "heroHighlight": "Proxy Global",
     "heroSuffix": "Andal",
-    "subtitle": "Infrastruktur proxy publik tanpa autentikasi untuk web scraping, agen AI, dan pengujian jaringan. Diaudit setiap 60 detik oleh Hydra dengan telemetri RTT milidetik.",
-    "heroBadgeHydra": "Diaudit 24/7 oleh Hydra (Mesin Rust) • Diperbarui Setiap Menit",
+    "subtitle": "Infrastruktur proxy publik tanpa autentikasi untuk web scraping, agen AI, dan pengujian jaringan. Diaudit setiap 60 detik oleh Hydra dengan latensi RTT sub-500ms dan SLA uptime 99.8%.",
+    "heroBadgeHydra": "Diaudit 24/7 oleh Hydra (Mesin Rust) • Siklus Verifikasi 60 Detik",
     "heroBadgeStarTitle": "Beri bintang repositori kami di GitHub",
     "heroBadgeStar": "Bintang di GitHub",
     "verifiedProxies": "Proxy Terverifikasi",
@@ -51,12 +51,12 @@
     "networkTopology": "Topologi Jaringan",
     "proxyDirectory": "Direktori Proxy",
     "seoTitle": "Infrastruktur Proxy Terverifikasi Gratis untuk Scraper, Saluran Pipa Data, dan Agen AI",
-    "card1Title": "Audit Berkelanjutan 60 Detik • 1 Gbps+",
-    "card1Desc": "Mesin Hydra Rust menguji ulang soket, latensi, dan jabat tangan TLS setiap menit, mempertahankan SLA waktu aktif 99.8% dan bandwidth agregat lebih dari 1 Gbps. Node yang lambat langsung dihapus.",
-    "card2Title": "Kelincahan SOCKS5 & HTTP",
-    "card2Desc": "Perutean TCP/UDP fleksibel melalui SOCKS5 dengan resolusi DNS jarak jauh (socks5h://) atau web scraping berkecepatan tinggi melalui terowongan HTTPS CONNECT.",
-    "card3Title": "Siap untuk Agen AI & Scraper",
-    "card3Desc": "Telemetri JSON sederhana dan umpan teks biasa host:port siap untuk konsumsi langsung di Python, Node.js, Go, atau cURL tanpa kunci API atau batas laju.",
+    "card1Title": "Audit Berkelanjutan 60s • Bandwidth 1 Gbps+",
+    "card1Desc": "Mesin Hydra Rust menguji ulang soket TCP, latensi, dan jabat tangan TLS setiap menit, menjamin SLA uptime pool 99.8% dan bandwidth gabungan 1 Gbps+. Node mati segera dihapus.",
+    "card2Title": "Kelincahan SOCKS5 & HTTP • Perlindungan Kebocoran DNS",
+    "card2Desc": "Transportasi TCP/UDP arbitrer melalui SOCKS5 dengan resolusi DNS jarak jauh (socks5h://) untuk mencegah kebocoran DNS, bersama web scraping berkecepatan tinggi via terowongan HTTPS CONNECT.",
+    "card3Title": "Siap untuk Agen AI & Scraper • Tanpa Batas Kecepatan",
+    "card3Desc": "Telemetri JSON terstruktur dan umpan host:port teks biasa siap untuk konsumsi otomatis di Python, Node.js, Go, atau cURL tanpa autentikasi dan tanpa batas rasio permintaan.",
     "integrationTitle": "Integrasi Satu Baris Cepat (cURL & Python)",
     "integrationDesc": "Rute lalu lintas langsung melalui HTTP CONNECT atau SOCKS5h dengan DNS jarak jauh:",
     "matrixTitle": "Matriks Perbandingan Arsitektur Protokol",
@@ -74,7 +74,7 @@
     "quickAnswerAria": "Ringkasan Jawaban Cepat",
     "quickAnswerBadge": "⚡ Jawaban Cepat · TL;DR",
     "quickAnswerUpdated": "Diperbarui: November 2026",
-    "quickAnswerText": "Infrastruktur proksi publik gratis tanpa autentikasi: menyediakan server SOCKS5, HTTP, HTTPS, dan SOCKS4 terverifikasi di lebih dari 230 negara. Setiap IP diaudit terus-menerus setiap 60 detik oleh mesin Hydra Rust dengan latensi RTT sub-detik dan uptime pool 99,8%.",
+    "quickAnswerText": "stormsia/proxy-list adalah pool proxy publik gratis tanpa autentikasi dengan endpoint SOCKS5, HTTP, HTTPS, dan SOCKS4 yang diverifikasi terus-menerus di 230+ negara. Mesin multithread Hydra Rust mengaudit setiap node setiap 60 detik, mencatat tolok ukur RTT di bawah 500ms dan mempertahankan SLA uptime pool 99.8%. Umpan JSON yang dapat dibaca mesin mendukung integrasi langsung untuk scraper dan agen AI.",
     "aboutAria": "Tentang infrastruktur stormsia/proxy-list",
     "breadcrumbHome": "Beranda",
     "liveStatsAria": "Telemetri dan statistik jaringan langsung",
@@ -101,27 +101,35 @@
     "items": [
       {
         "question": "Seberapa sering daftar proxy diperbarui dan diuji?",
-        "answer": "Kumpulan proxy divalidasi ulang terus-menerus setiap 60 detik oleh Hydra, mesin validasi multithread yang dibangun dengan Rust. Node yang gagal dalam jabat tangan soket TCP, negosiasi TLS, atau batas waktu respons langsung dimasukkan ke masa tenang atau dibersihkan seketika, memastikan nol endpoint kedaluwarsa di pool aktif."
+        "answer": "Pool proxy divalidasi ulang terus-menerus setiap 60 detik oleh Hydra, mesin validasi Rust multithread. Node yang gagal dalam jabat tangan soket TCP, negosiasi TLS, atau tenggat waktu respons akan dimasukkan ke masa jeda atau segera dihapus. Pool aktif hanya mempertahankan endpoint yang benar-benar aktif."
       },
       {
         "question": "Apakah proxy ini gratis, dan apakah memerlukan kunci API?",
-        "answer": "Semua endpoint (umpan JSON, file teks biasa, dan direktori web) 100% gratis dan bersumber terbuka di bawah lisensi MIT / CC-BY 4.0. Tidak diperlukan pendaftaran, langganan, atau kunci API. Anda dapat langsung mengonsumsi umpan mentah melalui CDN global GitHub tanpa batas laju (rate limits)."
+        "answer": "Semua endpoint (umpan telemetri JSON, file TXT teks biasa, dan direktori web) 100% gratis dan sumber terbuka di bawah lisensi MIT dan CC-BY 4.0. Tidak diperlukan pendaftaran, langganan, atau kunci API. Anda dapat langsung menggunakan umpan mentah melalui CDN global GitHub tanpa batas rasio."
       },
       {
         "question": "Apa perbedaan antara proxy SOCKS5 dan HTTP untuk web scraping?",
-        "answer": "Proxy HTTP beroperasi pada lapisan aplikasi dan menyalurkan lalu lintas HTTP/HTTPS melalui metode CONNECT. SOCKS5 beroperasi pada lapisan 5 (lapisan sesi), merutekan lalu lintas TCP dan UDP apa pun tanpa mengubah header permintaan. Untuk alat seperti curl, Python httpx, dan Puppeteer, SOCKS5 dengan resolusi DNS jarak jauh (socks5h://) mencegah kebocoran DNS lokal dan meminimalkan deteksi bot di situs target."
+        "answer": "Proxy HTTP beroperasi pada OSI Layer 7, menangani permintaan HTTP/HTTPS melalui metode CONNECT. SOCKS5 beroperasi pada OSI Layer 5, merutekan paket TCP/UDP arbitrer tanpa memeriksa header. Saat menggunakan SOCKS5 dengan resolusi DNS jarak jauh (socks5h://), scraper mencegah kebocoran DNS dan melewati pemfilteran SNI tingkat domain."
       },
       {
         "question": "Bagaimana Anda mengklasifikasikan anonimitas proxy (Elite vs Anonymous vs Transparent)?",
-        "answer": "Anonimitas ditentukan selama inspeksi protokol Hydra: Elite (Level 1) tidak meneruskan header pengidentifikasi proxy (Via, X-Forwarded-For), membuat permintaan tidak dapat dibedakan dari kunjungan langsung; Anonymous (Level 2) menyembunyikan IP asli Anda tetapi menyatakan keberadaan proxy; Transparent (Level 3) meneruskan IP klien Anda di header. Kami merekomendasikan node Elite dan Anonymous untuk scraping."
+        "answer": "Anonimitas ditentukan selama pemeriksaan protokol Hydra: Elite (Level 1) menghapus semua header pengidentifikasi (Via, X-Forwarded-For), membuat permintaan tidak dapat dibedakan dari kunjungan langsung; Anonymous (Level 2) menyembunyikan IP klien tetapi mengungkapkan keberadaan proxy; Transparent (Level 3) mengekspos IP klien di header. Kami merekomendasikan node Elite untuk scraping."
       },
       {
         "question": "Bagaimana cara menangani rotasi proxy dan mencegah pemblokiran IP?",
-        "answer": "Ambil kumpulan lokal dari endpoint mentah kami (data/proxies.json atau working_proxies.txt). Filter node berdasarkan RTT < 1000ms dan waktu aktif > 80%. Putar IP keluar Anda setiap 10–25 permintaan atau segera setelah menerima status HTTP 429 (Too Many Requests) atau 403 (Forbidden). Selalu terapkan variasi jeda acak (jitter) pada interval permintaan dan putar header User-Agent bersamaan dengan IP."
+        "answer": "Konsumsi umpan JSON mentah kami (data/proxies.json) dan filter node berdasarkan RTT < 1000ms dan uptime > 80%. Putar IP keluar Anda setiap 10–25 permintaan atau segera setelah menerima kode status HTTP 429 (Too Many Requests) atau 403 (Forbidden). Gabungkan rotasi IP dengan jitter permintaan acak dan header User-Agent acak."
       },
       {
-        "question": "Bagaimana cara mengintegrasikan kumpulan proxy ini ke dalam Python, Node.js, atau cURL?",
-        "answer": "Buka https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json untuk metadata lengkap atau socks5.txt untuk pasangan host:port sederhana. Di cURL, rutekan via 'curl -x socks5h://host:port https://httpbin.org/ip'. Di Python, berikan URL proxy ke requests atau httpx.AsyncClient(proxy='socks5://host:port'). Kunjungi halaman Dokumentasi & API kami untuk contoh kode lengkap yang siap dijalankan."
+        "question": "Bagaimana cara mengintegrasikan pool proxy ini ke dalam Python, Node.js, atau cURL?",
+        "answer": "Ambil https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json untuk metadata lengkap atau socks5.txt untuk pasangan host:port sederhana. Di cURL, rute via 'curl -x socks5h://host:port https://httpbin.org/ip'. Di Python, berikan URL proxy ke httpx.AsyncClient(proxy='socks5://host:port'). Buka halaman Dokumentasi & API kami untuk contoh kode yang siap dijalankan."
+      },
+      {
+        "question": "Bagaimana cara mencegah kebocoran DNS saat merutekan lalu lintas scraper melalui SOCKS5?",
+        "answer": "Untuk menghilangkan kebocoran DNS, selesaikan nama domain dari jarak jauh di server proxy daripada secara lokal melalui OS klien Anda. Di cURL dan Python httpx, tentukan skema protokol sebagai 'socks5h://' bukan 'socks5://'. Akhiran 'h' mendelegasikan resolusi nama host ke endpoint proxy, mencegah pelacakan ISP lokal Anda."
+      },
+      {
+        "question": "Apa perbedaan performa antara proxy residensial dan datacenter?",
+        "answer": "Proxy datacenter menawarkan uplink Gigabit bandwidth tinggi dengan latensi RTT di bawah 300ms, menjadikannya optimal untuk konsumsi data massal dan pengujian beban di mana server target tidak memeriksa tipe ASN. Proxy residensial merutekan melalui sistem otonom ISP konsumen, menunjukkan latensi lebih tinggi (500–1500ms) tetapi mampu melewati WAF antibot dan tantangan CAPTCHA yang ketat."
       }
     ]
   },
@@ -240,14 +248,14 @@
   "datacenter": {
     "badgeTitle": "Gratis",
     "badgeHighlight": "Proxy Datacenter",
-    "subtitle": "{count} node proxy datacenter terverifikasi yang dihosting di infrastruktur cloud. Diaudit setiap 60 detik oleh Hydra.",
+    "subtitle": "{count} node proxy datacenter terverifikasi yang dihosting di infrastruktur cloud, diaudit setiap 60 detik oleh Hydra.",
     "seoHeading": "Proxy Datacenter Bandwidth Tinggi",
     "seoText": "Proxy datacenter menawarkan kecepatan koneksi murni dan latensi rendah di seluruh jaringan tulang punggung cloud global. Bersumber dari fasilitas hosting perusahaan, endpoint ini dirancang untuk beban kerja jaringan berkapasitas tinggi.",
     "breadcrumbHome": "Beranda",
     "breadcrumbCurrent": "Proxy Datacenter",
     "tableContextLabel": "Datacenter",
-    "datasetName": "Daftar Proxy Datacenter Gratis — Endpoint Cloud Bandwidth Tinggi",
-    "datasetDesc": "Kumpulan data server proxy datacenter gratis yang diperbarui terus-menerus dan dihosting di infrastruktur cloud berkecepatan tinggi. Diaudit setiap 60 detik oleh Hydra.",
+    "datasetName": "Daftar Proxy Datacenter Gratis: Endpoint Cloud Bandwidth Tinggi",
+    "datasetDesc": "Kumpulan data yang terus diperbarui dari server proxy datacenter gratis yang dihosting di infrastruktur cloud throughput tinggi, diaudit setiap 60 detik oleh Hydra.",
     "faqs": [
       {
         "question": "Apa itu proxy datacenter dan apa keuntungan teknisnya?",
@@ -266,14 +274,14 @@
   "residential": {
     "badgeTitle": "Gratis",
     "badgeHighlight": "Proxy Residensial",
-    "subtitle": "{count} server proxy residensial terverifikasi dengan IP asli yang ditetapkan ISP. Diaudit setiap 60 detik oleh Hydra.",
+    "subtitle": "{count} server proxy residensial terverifikasi dengan IP asli yang ditetapkan ISP, diaudit setiap 60 detik oleh Hydra.",
     "seoHeading": "Infrastruktur Proxy Residensial ISP",
     "seoText": "Proxy residensial merutekan permintaan melalui sistem otonom ISP residensial asli. Sangat cocok untuk tugas di mana rentang IP pusat data memicu tantangan keamanan otomatis atau batas laju.",
     "breadcrumbHome": "Beranda",
     "breadcrumbCurrent": "Proxy Residensial",
     "tableContextLabel": "Residensial",
-    "datasetName": "Daftar Proxy Residensial Gratis — Endpoint ISP Terverifikasi",
-    "datasetDesc": "Kumpulan data proxy residensial gratis yang ditetapkan oleh ISP konsumen dan diperbarui terus-menerus. Diaudit setiap 60 detik oleh Hydra dengan metrik latensi milidetik.",
+    "datasetName": "Daftar Proxy Residensial Gratis: Endpoint ISP Terverifikasi",
+    "datasetDesc": "Kumpulan data yang terus diperbarui dari proxy residensial gratis yang ditetapkan oleh ISP konsumen, diaudit setiap 60 detik oleh Hydra dengan metrik latensi milidetik.",
     "faqs": [
       {
         "question": "Apa itu proxy residensial dan apa bedanya dengan IP datacenter?",
@@ -292,7 +300,7 @@
   "protocol": {
     "titlePrefix": "Daftar Proxy",
     "titleSuffix": "Gratis",
-    "subtitle": "server proxy {protocol} terverifikasi — diaudit setiap 60 detik oleh Hydra.",
+    "subtitle": "server proxy {protocol} terverifikasi, diaudit setiap 60 detik oleh Hydra.",
     "subtitleEmpty": "Kumpulan server proxy {protocol} yang terus divalidasi dengan metrik latensi milidetik.",
     "aboutTitle": "Apa itu Proxy {protocol}?",
     "downloadTxt": "Unduh daftar ini langsung sebagai file teks biasa:",
@@ -300,7 +308,7 @@
     "viewAll": "Lihat Semua Proxy",
     "breadcrumbHome": "Beranda",
     "breadcrumbCurrent": "Proxy {protocol}",
-    "datasetName": "Daftar Proxy {protocol} Gratis — Endpoint Aktif Terverifikasi",
+    "datasetName": "Daftar Proxy {protocol} Gratis: Endpoint Aktif Terverifikasi",
     "datasetDesc": "Kumpulan data server proxy {protocol} aktif yang terus diperbarui. Diaudit setiap 60 detik oleh mesin Hydra Rust dengan tolok ukur RTT milidetik.",
     "about": {
       "socks5": "SOCKS5 beroperasi pada Lapisan 5 model OSI (Lapisan Sesi), merutekan paket TCP dan UDP arbitrer tanpa memeriksa atau mengubah header muatan aplikasi. Dengan mengonfigurasi resolusi DNS jarak jauh melalui socks5h://, scraper Anda mencegah jejak kebocoran DNS lokal dan melewati pemfilteran SNI tingkat domain. SOCKS5 adalah standar yang direkomendasikan untuk Python httpx, Puppeteer, Playwright, dan saluran ekstraksi data konkurensi tinggi.",
@@ -319,7 +327,7 @@
   "country": {
     "titlePrefix": "Daftar Proxy",
     "titleSuffix": "Gratis",
-    "subtitle": "server proxy terverifikasi yang berlokasi di {country}. SOCKS5, SOCKS4, dan HTTP — diaudit setiap 60 detik oleh Hydra.",
+    "subtitle": "server proxy terverifikasi yang berlokasi di {country}. Protokol SOCKS5, SOCKS4, dan HTTP diaudit setiap 60 detik oleh Hydra.",
     "subtitleEmpty": "Server proxy yang berlokasi di {country}. Filter berdasarkan protokol, unduh sebagai teks biasa atau JSON.",
     "proxiesLabel": "proxy",
     "aboutTitle": "Tentang Proxy {country}",
@@ -329,7 +337,7 @@
     "viewAll": "Lihat Semua Proxy",
     "breadcrumbHome": "Beranda",
     "breadcrumbCurrent": "Proxy {country}",
-    "datasetName": "Daftar Proxy Gratis {country} — Endpoint Aktif Terverifikasi",
+    "datasetName": "Daftar Proxy di {country} Gratis: Endpoint Aktif Terverifikasi",
     "datasetDesc": "Daftar server proxy gratis yang berlokasi di {country} dan terus diaudit. Protokol SOCKS5, SOCKS4, dan HTTP diverifikasi setiap 60 detik oleh mesin Hydra Rust.",
     "faqQ1": "Bagaimana geolokasi server di {country} diverifikasi?",
     "faqA1": "Selama setiap putaran validasi, mesin Hydra mencocokkan IP keluar proxy dengan kumpulan data MaxMind GeoIP dan tabel sistem otonom BGP. Setiap entri menyertakan kode negara ISO 3166-1 alpha-2 dan nama ASN untuk menjamin perutean geografis autentik.",
@@ -362,7 +370,7 @@
     "reportIssue": "Laporkan Masalah / Masukan"
   },
   "privacy": {
-    "name": "Kebijakan Privasi — stormsia/proxy-list",
+    "name": "Kebijakan Privasi | stormsia/proxy-list",
     "description": "Kebijakan Privasi untuk stormsia/proxy-list: komitmen tanpa log, tanpa pengumpulan data pribadi, dan rekomendasi keamanan proxy publik.",
     "title": "Kebijakan Privasi",
     "subtitle": "Transparansi, komitmen tanpa pencatatan log (zero-log), dan pengungkapan keamanan proxy publik.",
@@ -383,7 +391,7 @@
     "sec4Button": "Masalah / Diskusi GitHub"
   },
   "docs": {
-    "headline": "stormsia/proxy-list — Dokumentasi Pengembang & Referensi API Hydra",
+    "headline": "stormsia/proxy-list: Dokumentasi Pengembang & Referensi API Hydra",
     "description": "Panduan pengembang untuk mengonsumsi proxy gratis secara terprogram: endpoint teks biasa mentah, skema telemetri JSON Hydra lengkap, dan cuplikan kode siap pakai di Python, Node.js, Go, dan cURL.",
     "breadcrumbHome": "Beranda",
     "breadcrumbDocs": "Dokumentasi & API",
@@ -445,13 +453,13 @@
     "anonTransparentLabel": "🔍 Transparent (Level 3):"
   },
   "howTo": {
-    "name": "Cara Menghubungkan ke Proksi Gratis via cURL dan Python (2026)",
-    "description": "Panduan langkah demi langkah untuk merutekan lalu lintas melalui proksi SOCKS5 dan HTTP gratis terverifikasi menggunakan cURL dan Python httpx.",
-    "step1Name": "Pilih endpoint proksi terverifikasi",
-    "step1Text": "Pilih proksi SOCKS5 atau HTTP aktif dari direktori langsung yang difilter dengan latensi < 500ms dan uptime tinggi.",
-    "step2Name": "Jalankan cURL dengan resolusi DNS jarak jauh",
-    "step2Text": "Jalankan di terminal Anda: curl -x socks5h://IP:PORT https://api.ipify.org?format=json untuk memverifikasi koneksi dan mencegah kebocoran DNS.",
-    "step3Name": "Integrasikan ke Python httpx atau requests",
-    "step3Text": "Di Python, teruskan parameter proxy ke httpx.AsyncClient(proxy='http://IP:PORT') atau requests.get('https://example.com', proxies={'http': 'http://IP:PORT'})."
+    "name": "Cara Menghubungkan ke Proxy Gratis via cURL dan Python (2026)",
+    "description": "Panduan langkah demi langkah untuk merutekan lalu lintas melalui proxy SOCKS5 dan HTTP gratis terverifikasi menggunakan cURL dan Python httpx dengan pencegahan kebocoran DNS.",
+    "step1Name": "Pilih endpoint proxy terverifikasi",
+    "step1Text": "Filter direktori langsung atau unduh data/proxies.json. Pilih proxy SOCKS5 atau HTTPS aktif dengan latensi RTT di bawah 500ms dan uptime 99%+ yang diverifikasi oleh Hydra.",
+    "step2Name": "Rute lalu lintas dengan cURL mencegah kebocoran DNS",
+    "step2Text": "Jalankan di terminal Anda: curl -x socks5h://IP:PORT https://api.ipify.org?format=json. Skema socks5h memaksa resolusi DNS jarak jauh melalui proxy, mencegah kebocoran ISP.",
+    "step3Name": "Integrasikan ke dalam Python httpx atau requests",
+    "step3Text": "Di Python, inisialisasi klien asinkron via httpx.AsyncClient(proxy='socks5://IP:PORT') atau jalankan requests.get('https://example.com', proxies={'http': 'http://IP:PORT', 'https': 'http://IP:PORT'})."
   }
 }

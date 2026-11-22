@@ -28,7 +28,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795371196,
-    "next_check_at": 1795371386
+    "next_check_at": 1795371706
   },
   {
     "id": "102.244.78.61:8088:Cameroon:",
@@ -81,7 +81,7 @@
     "rtt_handshake_ms": 2066,
     "rtt_total_ms": 29393,
     "uptime_pct": 85.59524,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1680,
     "checks_success": 1438,
@@ -90,7 +90,7 @@
     "remark": null,
     "first_seen_at": 1795225584,
     "last_checked_at": 1795371287,
-    "next_check_at": 1795371347
+    "next_check_at": 1795371669
   },
   {
     "id": "104.248.151.93:9090:Singapore:",
@@ -121,7 +121,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795371198,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371706
   },
   {
     "id": "108.137.124.195:8942:The Netherlands:",
@@ -143,7 +143,7 @@
     "rtt_handshake_ms": 1494,
     "rtt_total_ms": 4052,
     "uptime_pct": 51.19048,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 420,
     "checks_success": 215,
@@ -183,7 +183,7 @@
     "remark": null,
     "first_seen_at": 1795229035,
     "last_checked_at": 1795371192,
-    "next_check_at": 1795371372
+    "next_check_at": 1795371700
   },
   {
     "id": "128.199.254.13:9090:Singapore:",
@@ -214,7 +214,7 @@
     "remark": null,
     "first_seen_at": 1795225584,
     "last_checked_at": 1795371200,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371711
   },
   {
     "id": "14.225.240.23:8562:Vietnam:",
@@ -236,7 +236,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 30585,
     "uptime_pct": 32.826748,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 987,
     "checks_success": 324,
@@ -245,7 +245,7 @@
     "remark": null,
     "first_seen_at": 1795225584,
     "last_checked_at": 1795371287,
-    "next_check_at": 1795371347
+    "next_check_at": 1795371669
   },
   {
     "id": "147.161.246.34:80:Switzerland:",
@@ -267,7 +267,7 @@
     "rtt_handshake_ms": 1245,
     "rtt_total_ms": 41068,
     "uptime_pct": 93.28404,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1623,
     "checks_success": 1514,
@@ -276,7 +276,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795371266,
-    "next_check_at": 1795371326
+    "next_check_at": 1795371658
   },
   {
     "id": "147.161.246.34:10588:Switzerland:",
@@ -307,7 +307,7 @@
     "remark": null,
     "first_seen_at": 1795315221,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371459
+    "next_check_at": 1795371714
   },
   {
     "id": "147.161.246.34:10642:Switzerland:",
@@ -329,7 +329,7 @@
     "rtt_handshake_ms": 914,
     "rtt_total_ms": 5760,
     "uptime_pct": 96.94323,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 229,
     "checks_success": 222,
@@ -369,7 +369,7 @@
     "remark": null,
     "first_seen_at": 1795230179,
     "last_checked_at": 1795371084,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371711
   },
   {
     "id": "147.161.246.34:11153:Switzerland:",
@@ -400,7 +400,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795371155,
-    "next_check_at": 1795371335
+    "next_check_at": 1795371662
   },
   {
     "id": "147.161.246.34:11195:Switzerland:",
@@ -431,7 +431,7 @@
     "remark": null,
     "first_seen_at": 1795348053,
     "last_checked_at": 1795371155,
-    "next_check_at": 1795371335
+    "next_check_at": 1795371662
   },
   {
     "id": "147.161.246.34:11206:Switzerland:",
@@ -524,7 +524,7 @@
     "remark": null,
     "first_seen_at": 1795267010,
     "last_checked_at": 1795371204,
-    "next_check_at": 1795371459
+    "next_check_at": 1795371714
   },
   {
     "id": "147.161.246.34:12308:Switzerland:",
@@ -541,21 +541,21 @@
     "country": "CH",
     "asn": 62044,
     "asn_org": "Zscaler Switzerland GmbH",
-    "anon": "elite",
-    "rtt_tcp_ms": 85,
-    "rtt_handshake_ms": 1644,
-    "rtt_total_ms": 42314,
-    "uptime_pct": 97.05882,
-    "stability_pct": 0.0,
+    "anon": "anonymous",
+    "rtt_tcp_ms": 1459,
+    "rtt_handshake_ms": 1437,
+    "rtt_total_ms": 7268,
+    "uptime_pct": 97.06314,
+    "stability_pct": 100.0,
     "stability_window_min": 5,
-    "checks_total": 680,
-    "checks_success": 660,
+    "checks_total": 681,
+    "checks_success": 661,
     "dead_strikes": 0,
     "last_error": null,
     "remark": null,
     "first_seen_at": 1795308504,
-    "last_checked_at": 1795371053,
-    "next_check_at": 1795371353
+    "last_checked_at": 1795371599,
+    "next_check_at": 1795371659
   },
   {
     "id": "147.161.246.34:12544:Switzerland:",
@@ -586,7 +586,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795371132,
-    "next_check_at": 1795371312
+    "next_check_at": 1795371655
   },
   {
     "id": "147.161.246.34:12607:Switzerland:",
@@ -617,7 +617,7 @@
     "remark": null,
     "first_seen_at": 1795336263,
     "last_checked_at": 1795371199,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371709
   },
   {
     "id": "15.223.187.219:12751:The Netherlands:",
@@ -639,7 +639,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 1161,
     "uptime_pct": 53.58911,
-    "stability_pct": 75.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 808,
     "checks_success": 433,
@@ -648,7 +648,7 @@
     "remark": null,
     "first_seen_at": 1795291227,
     "last_checked_at": 1795371252,
-    "next_check_at": 1795371312
+    "next_check_at": 1795371656
   },
   {
     "id": "159.203.61.169:3128:3 secs ago:",
@@ -679,7 +679,7 @@
     "remark": null,
     "first_seen_at": 1795350842,
     "last_checked_at": 1795371198,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371706
   },
   {
     "id": "159.223.41.216:9090:Singapore:",
@@ -710,7 +710,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795371193,
-    "next_check_at": 1795371374
+    "next_check_at": 1795371702
   },
   {
     "id": "16.26.208.68:31329:France:",
@@ -732,7 +732,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 3568,
     "uptime_pct": 59.76676,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 343,
     "checks_success": 205,
@@ -794,7 +794,7 @@
     "rtt_handshake_ms": 349,
     "rtt_total_ms": 1462,
     "uptime_pct": 47.58953,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1452,
     "checks_success": 691,
@@ -804,6 +804,37 @@
     "first_seen_at": 1795224440,
     "last_checked_at": 1795371244,
     "next_check_at": 1795371638
+  },
+  {
+    "id": "172.233.25.197:80",
+    "ip": "172.233.25.197",
+    "port": 80,
+    "url": "http://172.233.25.197:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "172.233.25.197",
+    "country": "BR",
+    "asn": 63949,
+    "asn_org": "Akamai Connected Cloud",
+    "anon": "anonymous",
+    "rtt_tcp_ms": 3812,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 35362,
+    "uptime_pct": 46.98341,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 1326,
+    "checks_success": 623,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795371582,
+    "next_check_at": 1795371642
   },
   {
     "id": "193.233.138.240:1080:France:",
@@ -835,6 +866,37 @@
     "first_seen_at": 1795224441,
     "last_checked_at": 1795371231,
     "next_check_at": 1795371589
+  },
+  {
+    "id": "193.255.128.155:80",
+    "ip": "193.255.128.155",
+    "port": 80,
+    "url": "http://193.255.128.155:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "anonymous",
+    "rtt_tcp_ms": 100,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 7247,
+    "uptime_pct": 53.245903,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 1525,
+    "checks_success": 812,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795371602,
+    "next_check_at": 1795371662
   },
   {
     "id": "197.221.234.252:80:3 mins ago:",
@@ -887,7 +949,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 3222,
     "uptime_pct": 81.614075,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1648,
     "checks_success": 1345,
@@ -927,7 +989,7 @@
     "remark": null,
     "first_seen_at": 1795263131,
     "last_checked_at": 1795371193,
-    "next_check_at": 1795371374
+    "next_check_at": 1795371702
   },
   {
     "id": "197.221.240.182:80:1 min ago:",
@@ -958,7 +1020,38 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795371182,
-    "next_check_at": 1795371362
+    "next_check_at": 1795371687
+  },
+  {
+    "id": "197.221.240.246:80:3 mins ago:",
+    "ip": "197.221.240.246",
+    "port": 80,
+    "url": "http://3 mins ago@197.221.240.246:80",
+    "protocol": "http",
+    "has_auth": true,
+    "auth_user": "3 mins ago",
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "41.220.17.62",
+    "country": "ZW",
+    "asn": 37204,
+    "asn_org": "TELONE",
+    "anon": "anonymous",
+    "rtt_tcp_ms": 2571,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 9269,
+    "uptime_pct": 81.785065,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 1647,
+    "checks_success": 1347,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224920,
+    "last_checked_at": 1795371588,
+    "next_check_at": 1795371648
   },
   {
     "id": "197.221.240.247:80:1 min ago:",
@@ -989,7 +1082,7 @@
     "remark": null,
     "first_seen_at": 1795263131,
     "last_checked_at": 1795371143,
-    "next_check_at": 1795371323
+    "next_check_at": 1795371658
   },
   {
     "id": "197.221.249.197:80:2 mins ago:",
@@ -1020,7 +1113,7 @@
     "remark": null,
     "first_seen_at": 1795224920,
     "last_checked_at": 1795371190,
-    "next_check_at": 1795371370
+    "next_check_at": 1795371700
   },
   {
     "id": "216.125.18.67:3128:27 secs ago:",
@@ -1051,7 +1144,7 @@
     "remark": null,
     "first_seen_at": 1795263131,
     "last_checked_at": 1795371054,
-    "next_check_at": 1795371354
+    "next_check_at": 1795371673
   },
   {
     "id": "219.93.101.60:80:1 min ago:",
@@ -1113,7 +1206,7 @@
     "remark": null,
     "first_seen_at": 1795350842,
     "last_checked_at": 1795371192,
-    "next_check_at": 1795371372
+    "next_check_at": 1795371700
   },
   {
     "id": "34.43.46.91:80:US:",
@@ -1175,7 +1268,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795371202,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "41.220.16.211:80:2 mins ago:",
@@ -1197,7 +1290,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 14918,
     "uptime_pct": 83.67627,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 729,
     "checks_success": 610,
@@ -1237,7 +1330,7 @@
     "remark": null,
     "first_seen_at": 1795263131,
     "last_checked_at": 1795371203,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "41.220.16.215:80:2 mins ago:",
@@ -1268,7 +1361,7 @@
     "remark": null,
     "first_seen_at": 1795308582,
     "last_checked_at": 1795371177,
-    "next_check_at": 1795371357
+    "next_check_at": 1795371681
   },
   {
     "id": "5.161.50.82:8118:Hungary:",
@@ -1299,7 +1392,7 @@
     "remark": null,
     "first_seen_at": 1795358987,
     "last_checked_at": 1795371171,
-    "next_check_at": 1795371351
+    "next_check_at": 1795371671
   },
   {
     "id": "68.183.226.190:9090:Singapore:",
@@ -1361,7 +1454,7 @@
     "remark": null,
     "first_seen_at": 1795361594,
     "last_checked_at": 1795371173,
-    "next_check_at": 1795371353
+    "next_check_at": 1795371673
   },
   {
     "id": "8.212.12.98:80:#:197ms",
@@ -1423,7 +1516,7 @@
     "remark": null,
     "first_seen_at": 1795239187,
     "last_checked_at": 1795371324,
-    "next_check_at": 1795371384
+    "next_check_at": 1795371702
   },
   {
     "id": "8.219.97.248:80:SG:",
@@ -1454,7 +1547,7 @@
     "remark": null,
     "first_seen_at": 1795308607,
     "last_checked_at": 1795371324,
-    "next_check_at": 1795371384
+    "next_check_at": 1795371702
   },
   {
     "id": "84.200.33.119:8080:DE:",
@@ -1485,7 +1578,7 @@
     "remark": null,
     "first_seen_at": 1795319244,
     "last_checked_at": 1795371158,
-    "next_check_at": 1795371338
+    "next_check_at": 1795371664
   },
   {
     "id": "84.22.132.84:2080:2 mins ago:",
@@ -1547,7 +1640,7 @@
     "remark": null,
     "first_seen_at": 1795224920,
     "last_checked_at": 1795371203,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371714
   },
   {
     "id": "157.90.113.23:9052:Germany:",
@@ -1578,7 +1671,7 @@
     "remark": null,
     "first_seen_at": 1795239714,
     "last_checked_at": 1795371193,
-    "next_check_at": 1795371374
+    "next_check_at": 1795371702
   },
   {
     "id": "101.36.112.205:1081:HK:",
@@ -1609,7 +1702,7 @@
     "remark": null,
     "first_seen_at": 1795275726,
     "last_checked_at": 1795371054,
-    "next_check_at": 1795371354
+    "next_check_at": 1795371673
   },
   {
     "id": "101.53.238.37:1080:Pakistan:",
@@ -1640,7 +1733,7 @@
     "remark": null,
     "first_seen_at": 1795237045,
     "last_checked_at": 1795371196,
-    "next_check_at": 1795371386
+    "next_check_at": 1795371706
   },
   {
     "id": "102.36.127.231:1080:ZA:",
@@ -1662,7 +1755,7 @@
     "rtt_handshake_ms": 738,
     "rtt_total_ms": 7065,
     "uptime_pct": 18.4,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 375,
     "checks_success": 69,
@@ -1795,7 +1888,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795371173,
-    "next_check_at": 1795371353
+    "next_check_at": 1795371673
   },
   {
     "id": "103.136.107.70:1080:BD:",
@@ -1848,7 +1941,7 @@
     "rtt_handshake_ms": 790,
     "rtt_total_ms": 17826,
     "uptime_pct": 42.181236,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1247,
     "checks_success": 526,
@@ -1888,7 +1981,7 @@
     "remark": null,
     "first_seen_at": 1795264602,
     "last_checked_at": 1795371172,
-    "next_check_at": 1795371352
+    "next_check_at": 1795371671
   },
   {
     "id": "103.155.185.26:1088:Bangladesh:",
@@ -1910,7 +2003,7 @@
     "rtt_handshake_ms": 470,
     "rtt_total_ms": 2907,
     "uptime_pct": 26.108376,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 812,
     "checks_success": 212,
@@ -1950,7 +2043,7 @@
     "remark": null,
     "first_seen_at": 1795225622,
     "last_checked_at": 1795371198,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371706
   },
   {
     "id": "103.191.218.119:69:Indonesia:",
@@ -1981,7 +2074,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795371072,
-    "next_check_at": 1795371372
+    "next_check_at": 1795371700
   },
   {
     "id": "103.236.190.197:1080:ID:",
@@ -2012,7 +2105,7 @@
     "remark": null,
     "first_seen_at": 1795232742,
     "last_checked_at": 1795371164,
-    "next_check_at": 1795371344
+    "next_check_at": 1795371664
   },
   {
     "id": "103.28.115.66:1080:Indonesia:",
@@ -2136,7 +2229,7 @@
     "remark": null,
     "first_seen_at": 1795263142,
     "last_checked_at": 1795371185,
-    "next_check_at": 1795371365
+    "next_check_at": 1795371693
   },
   {
     "id": "103.96.233.10:1080:Afghanistan:",
@@ -2167,7 +2260,7 @@
     "remark": null,
     "first_seen_at": 1795238198,
     "last_checked_at": 1795371187,
-    "next_check_at": 1795371367
+    "next_check_at": 1795371697
   },
   {
     "id": "109.95.175.64:1080:Poland:",
@@ -2198,7 +2291,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795371201,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "109.95.175.64:1080:PL:",
@@ -2251,7 +2344,7 @@
     "rtt_handshake_ms": 604,
     "rtt_total_ms": 6467,
     "uptime_pct": 35.4251,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 988,
     "checks_success": 350,
@@ -2291,7 +2384,7 @@
     "remark": null,
     "first_seen_at": 1795263142,
     "last_checked_at": 1795371206,
-    "next_check_at": 1795371494
+    "next_check_at": 1795371719
   },
   {
     "id": "110.39.151.50:1080:PK:",
@@ -2322,7 +2415,7 @@
     "remark": null,
     "first_seen_at": 1795243488,
     "last_checked_at": 1795371053,
-    "next_check_at": 1795371353
+    "next_check_at": 1795371671
   },
   {
     "id": "110.39.151.50:1080:Pakistan:",
@@ -2353,7 +2446,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795371202,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "110.93.227.229:1080:PK:",
@@ -2437,7 +2530,7 @@
     "rtt_handshake_ms": 638,
     "rtt_total_ms": 18314,
     "uptime_pct": 36.830837,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 934,
     "checks_success": 344,
@@ -2477,7 +2570,7 @@
     "remark": null,
     "first_seen_at": 1795225622,
     "last_checked_at": 1795371181,
-    "next_check_at": 1795371361
+    "next_check_at": 1795371687
   },
   {
     "id": "124.248.191.83:1080:Cambodia:",
@@ -2508,7 +2601,7 @@
     "remark": null,
     "first_seen_at": 1795237045,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371459
+    "next_check_at": 1795371714
   },
   {
     "id": "132.243.168.30:9150:Hungary:",
@@ -2530,7 +2623,7 @@
     "rtt_handshake_ms": 376,
     "rtt_total_ms": 1341,
     "uptime_pct": 40.449436,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 356,
     "checks_success": 144,
@@ -2592,7 +2685,7 @@
     "rtt_handshake_ms": 1411,
     "rtt_total_ms": 4498,
     "uptime_pct": 23.076923,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 13,
     "checks_success": 3,
@@ -2663,7 +2756,7 @@
     "remark": null,
     "first_seen_at": 1795224594,
     "last_checked_at": 1795371159,
-    "next_check_at": 1795371339
+    "next_check_at": 1795371664
   },
   {
     "id": "150.136.58.221:1080:United States:",
@@ -2694,7 +2787,7 @@
     "remark": null,
     "first_seen_at": 1795255614,
     "last_checked_at": 1795371201,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "150.228.196.110:1080:SB:",
@@ -2725,7 +2818,7 @@
     "remark": null,
     "first_seen_at": 1795263142,
     "last_checked_at": 1795371197,
-    "next_check_at": 1795371396
+    "next_check_at": 1795371706
   },
   {
     "id": "155.138.221.32:1082:US:",
@@ -2756,7 +2849,7 @@
     "remark": null,
     "first_seen_at": 1795308550,
     "last_checked_at": 1795371176,
-    "next_check_at": 1795371356
+    "next_check_at": 1795371676
   },
   {
     "id": "155.138.221.32:1082:United States:",
@@ -2778,7 +2871,7 @@
     "rtt_handshake_ms": 1913,
     "rtt_total_ms": 4230,
     "uptime_pct": 34.843582,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 927,
     "checks_success": 323,
@@ -2849,7 +2942,7 @@
     "remark": null,
     "first_seen_at": 1795303295,
     "last_checked_at": 1795371197,
-    "next_check_at": 1795371396
+    "next_check_at": 1795371706
   },
   {
     "id": "162.4.172.157:5555:Singapore:",
@@ -2911,7 +3004,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795371156,
-    "next_check_at": 1795371336
+    "next_check_at": 1795371662
   },
   {
     "id": "163.61.54.10:1080:Indonesia:",
@@ -2973,7 +3066,7 @@
     "remark": null,
     "first_seen_at": 1795224594,
     "last_checked_at": 1795371171,
-    "next_check_at": 1795371351
+    "next_check_at": 1795371671
   },
   {
     "id": "165.154.20.187:10808:6 mins ago:",
@@ -3026,7 +3119,7 @@
     "rtt_handshake_ms": 926,
     "rtt_total_ms": 5948,
     "uptime_pct": 31.115881,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 932,
     "checks_success": 290,
@@ -3036,6 +3129,37 @@
     "first_seen_at": 1795225622,
     "last_checked_at": 1795371250,
     "next_check_at": 1795371652
+  },
+  {
+    "id": "171.25.158.95:1080:Sweden:",
+    "ip": "171.25.158.95",
+    "port": 1080,
+    "url": "socks5://Sweden@171.25.158.95:1080",
+    "protocol": "socks5",
+    "has_auth": true,
+    "auth_user": "Sweden",
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": true,
+    "out_ip": "171.25.158.95",
+    "country": "SE",
+    "asn": 35100,
+    "asn_org": "Patrik Lagerman",
+    "anon": "anonymous",
+    "rtt_tcp_ms": 1461,
+    "rtt_handshake_ms": 3773,
+    "rtt_total_ms": 10143,
+    "uptime_pct": 84.82368,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 1588,
+    "checks_success": 1347,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224468,
+    "last_checked_at": 1795371602,
+    "next_check_at": 1795371662
   },
   {
     "id": "172.105.192.212:9080:Japan:",
@@ -3066,7 +3190,7 @@
     "remark": null,
     "first_seen_at": 1795225622,
     "last_checked_at": 1795371163,
-    "next_check_at": 1795371343
+    "next_check_at": 1795371664
   },
   {
     "id": "176.62.237.51:1080:CZ:",
@@ -3119,7 +3243,7 @@
     "rtt_handshake_ms": 642,
     "rtt_total_ms": 1967,
     "uptime_pct": 32.077393,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 982,
     "checks_success": 315,
@@ -3150,7 +3274,7 @@
     "rtt_handshake_ms": 889,
     "rtt_total_ms": 6187,
     "uptime_pct": 34.049774,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 884,
     "checks_success": 301,
@@ -3190,7 +3314,7 @@
     "remark": null,
     "first_seen_at": 1795369593,
     "last_checked_at": 1795371196,
-    "next_check_at": 1795371386
+    "next_check_at": 1795371706
   },
   {
     "id": "185.9.73.44:1080:RU:",
@@ -3243,7 +3367,7 @@
     "rtt_handshake_ms": 4906,
     "rtt_total_ms": 9724,
     "uptime_pct": 39.23841,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1208,
     "checks_success": 474,
@@ -3283,7 +3407,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795371203,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "194.87.232.240:1080:Russia:",
@@ -3314,7 +3438,7 @@
     "remark": null,
     "first_seen_at": 1795344935,
     "last_checked_at": 1795371166,
-    "next_check_at": 1795371346
+    "next_check_at": 1795371669
   },
   {
     "id": "195.13.182.211:8080:Latvia:",
@@ -3407,7 +3531,7 @@
     "remark": null,
     "first_seen_at": 1795338687,
     "last_checked_at": 1795371195,
-    "next_check_at": 1795371386
+    "next_check_at": 1795371706
   },
   {
     "id": "195.239.90.115:1080:Russia:",
@@ -3438,7 +3562,7 @@
     "remark": null,
     "first_seen_at": 1795341234,
     "last_checked_at": 1795371195,
-    "next_check_at": 1795371386
+    "next_check_at": 1795371706
   },
   {
     "id": "202.10.36.36:1080:Indonesia:",
@@ -3469,7 +3593,7 @@
     "remark": null,
     "first_seen_at": 1795273272,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371459
+    "next_check_at": 1795371714
   },
   {
     "id": "202.62.42.167:1080:Cambodia:",
@@ -3486,21 +3610,21 @@
     "country": "KH",
     "asn": 23673,
     "asn_org": "Cogetel Online, Cambodia, ISP",
-    "anon": "elite",
-    "rtt_tcp_ms": 7479,
-    "rtt_handshake_ms": 2627,
-    "rtt_total_ms": 11320,
-    "uptime_pct": 40.237858,
-    "stability_pct": 0.0,
+    "anon": "anonymous",
+    "rtt_tcp_ms": 3630,
+    "rtt_handshake_ms": 4073,
+    "rtt_total_ms": 13083,
+    "uptime_pct": 40.297028,
+    "stability_pct": 100.0,
     "stability_window_min": 5,
-    "checks_total": 1009,
-    "checks_success": 406,
+    "checks_total": 1010,
+    "checks_success": 407,
     "dead_strikes": 0,
     "last_error": null,
     "remark": null,
     "first_seen_at": 1795241614,
-    "last_checked_at": 1795371172,
-    "next_check_at": 1795371352
+    "last_checked_at": 1795371580,
+    "next_check_at": 1795371640
   },
   {
     "id": "202.62.50.52:1080:KH:",
@@ -3553,7 +3677,7 @@
     "rtt_handshake_ms": 3571,
     "rtt_total_ms": 41037,
     "uptime_pct": 35.053383,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 562,
     "checks_success": 197,
@@ -3562,7 +3686,7 @@
     "remark": null,
     "first_seen_at": 1795297489,
     "last_checked_at": 1795371297,
-    "next_check_at": 1795371357
+    "next_check_at": 1795371681
   },
   {
     "id": "203.189.135.105:1080:Cambodia:",
@@ -3584,7 +3708,7 @@
     "rtt_handshake_ms": 1226,
     "rtt_total_ms": 8629,
     "uptime_pct": 35.588753,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1138,
     "checks_success": 405,
@@ -3624,7 +3748,7 @@
     "remark": null,
     "first_seen_at": 1795263142,
     "last_checked_at": 1795371176,
-    "next_check_at": 1795371356
+    "next_check_at": 1795371681
   },
   {
     "id": "203.83.43.120:1080:Indonesia:",
@@ -3646,7 +3770,7 @@
     "rtt_handshake_ms": 509,
     "rtt_total_ms": 7037,
     "uptime_pct": 43.203884,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1236,
     "checks_success": 534,
@@ -3717,7 +3841,7 @@
     "remark": null,
     "first_seen_at": 1795254538,
     "last_checked_at": 1795371155,
-    "next_check_at": 1795371335
+    "next_check_at": 1795371662
   },
   {
     "id": "216.234.216.76:1080:Malawi:",
@@ -3779,7 +3903,7 @@
     "remark": null,
     "first_seen_at": 1795225622,
     "last_checked_at": 1795371185,
-    "next_check_at": 1795371365
+    "next_check_at": 1795371693
   },
   {
     "id": "23.191.176.193:1080:US:",
@@ -3810,7 +3934,7 @@
     "remark": null,
     "first_seen_at": 1795243488,
     "last_checked_at": 1795371156,
-    "next_check_at": 1795371336
+    "next_check_at": 1795371662
   },
   {
     "id": "24.121.176.155:1080:United States:",
@@ -3841,7 +3965,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795371194,
-    "next_check_at": 1795371386
+    "next_check_at": 1795371706
   },
   {
     "id": "24.121.73.10:1080:US:",
@@ -3872,7 +3996,7 @@
     "remark": null,
     "first_seen_at": 1795264602,
     "last_checked_at": 1795371195,
-    "next_check_at": 1795371386
+    "next_check_at": 1795371706
   },
   {
     "id": "27.54.121.90:1080:PK:",
@@ -3934,7 +4058,7 @@
     "remark": null,
     "first_seen_at": 1795236067,
     "last_checked_at": 1795371189,
-    "next_check_at": 1795371369
+    "next_check_at": 1795371697
   },
   {
     "id": "36.93.226.203:1080:Indonesia:",
@@ -3956,7 +4080,7 @@
     "rtt_handshake_ms": 725,
     "rtt_total_ms": 2167,
     "uptime_pct": 28.526316,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 950,
     "checks_success": 271,
@@ -3996,7 +4120,7 @@
     "remark": null,
     "first_seen_at": 1795243470,
     "last_checked_at": 1795371197,
-    "next_check_at": 1795371396
+    "next_check_at": 1795371706
   },
   {
     "id": "37.18.73.60:5566:Norway:",
@@ -4027,7 +4151,7 @@
     "remark": null,
     "first_seen_at": 1795344926,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371459
+    "next_check_at": 1795371714
   },
   {
     "id": "37.18.73.60:5566:United Kingdom:",
@@ -4049,7 +4173,7 @@
     "rtt_handshake_ms": 665,
     "rtt_total_ms": 11004,
     "uptime_pct": 70.85715,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 525,
     "checks_success": 372,
@@ -4089,7 +4213,7 @@
     "remark": null,
     "first_seen_at": 1795255608,
     "last_checked_at": 1795371203,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "37.18.73.60:5566:United States:",
@@ -4102,25 +4226,25 @@
     "auth_pass": null,
     "state": "alive",
     "supports_https": true,
-    "out_ip": "192.42.116.144",
-    "country": "NL",
-    "asn": 1101,
-    "asn_org": "SURF B.V.",
-    "anon": "elite",
-    "rtt_tcp_ms": 167,
-    "rtt_handshake_ms": 1006,
-    "rtt_total_ms": 19333,
-    "uptime_pct": 72.84722,
-    "stability_pct": 0.0,
+    "out_ip": "91.208.75.153",
+    "country": "RO",
+    "asn": 6718,
+    "asn_org": "Nav Communications Srl",
+    "anon": "anonymous",
+    "rtt_tcp_ms": 1666,
+    "rtt_handshake_ms": 4001,
+    "rtt_total_ms": 15439,
+    "uptime_pct": 72.866066,
+    "stability_pct": 100.0,
     "stability_window_min": 5,
-    "checks_total": 1440,
-    "checks_success": 1049,
+    "checks_total": 1441,
+    "checks_success": 1050,
     "dead_strikes": 0,
     "last_error": null,
     "remark": null,
     "first_seen_at": 1795249848,
-    "last_checked_at": 1795371172,
-    "next_check_at": 1795371352
+    "last_checked_at": 1795371582,
+    "next_check_at": 1795371642
   },
   {
     "id": "37.193.125.198:1080:RU:",
@@ -4151,7 +4275,7 @@
     "remark": null,
     "first_seen_at": 1795340214,
     "last_checked_at": 1795371149,
-    "next_check_at": 1795371329
+    "next_check_at": 1795371658
   },
   {
     "id": "37.237.228.113:1080:Iraq:",
@@ -4182,7 +4306,7 @@
     "remark": null,
     "first_seen_at": 1795355917,
     "last_checked_at": 1795371183,
-    "next_check_at": 1795371363
+    "next_check_at": 1795371687
   },
   {
     "id": "41.75.123.101:1080:Malawi:",
@@ -4244,7 +4368,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795371199,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371709
   },
   {
     "id": "45.74.31.40:4021:Vietnam:",
@@ -4297,7 +4421,7 @@
     "rtt_handshake_ms": 2246,
     "rtt_total_ms": 3296,
     "uptime_pct": 43.90244,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 82,
     "checks_success": 36,
@@ -4328,7 +4452,7 @@
     "rtt_handshake_ms": 1163,
     "rtt_total_ms": 15429,
     "uptime_pct": 32.608696,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 46,
     "checks_success": 15,
@@ -4368,7 +4492,7 @@
     "remark": null,
     "first_seen_at": 1795260963,
     "last_checked_at": 1795371183,
-    "next_check_at": 1795371363
+    "next_check_at": 1795371687
   },
   {
     "id": "45.74.31.40:4039:United States:",
@@ -4399,7 +4523,7 @@
     "remark": null,
     "first_seen_at": 1795283057,
     "last_checked_at": 1795371196,
-    "next_check_at": 1795371396
+    "next_check_at": 1795371706
   },
   {
     "id": "45.74.31.40:4052:Vietnam:",
@@ -4421,7 +4545,7 @@
     "rtt_handshake_ms": 2266,
     "rtt_total_ms": 6545,
     "uptime_pct": 36.787563,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 579,
     "checks_success": 213,
@@ -4492,7 +4616,7 @@
     "remark": null,
     "first_seen_at": 1795264543,
     "last_checked_at": 1795371187,
-    "next_check_at": 1795371367
+    "next_check_at": 1795371697
   },
   {
     "id": "45.74.31.40:4090:France:",
@@ -4526,37 +4650,6 @@
     "next_check_at": 1795371589
   },
   {
-    "id": "45.74.31.40:4094:Vietnam:",
-    "ip": "45.74.31.40",
-    "port": 4094,
-    "url": "socks5://Vietnam@45.74.31.40:4094",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "Vietnam",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "14.248.80.79",
-    "country": "VN",
-    "asn": 45899,
-    "asn_org": "VNPT Corp",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 3188,
-    "rtt_handshake_ms": 1948,
-    "rtt_total_ms": 10307,
-    "uptime_pct": 33.254154,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 421,
-    "checks_success": 140,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795297474,
-    "last_checked_at": 1795371168,
-    "next_check_at": 1795371348
-  },
-  {
     "id": "45.74.31.40:4096:United States:",
     "ip": "45.74.31.40",
     "port": 4096,
@@ -4576,7 +4669,7 @@
     "rtt_handshake_ms": 2219,
     "rtt_total_ms": 23566,
     "uptime_pct": 38.62069,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 145,
     "checks_success": 56,
@@ -4678,7 +4771,7 @@
     "remark": null,
     "first_seen_at": 1795296389,
     "last_checked_at": 1795371173,
-    "next_check_at": 1795371353
+    "next_check_at": 1795371673
   },
   {
     "id": "45.74.31.40:4128:Vietnam:",
@@ -4700,7 +4793,7 @@
     "rtt_handshake_ms": 3282,
     "rtt_total_ms": 4634,
     "uptime_pct": 25.0646,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 387,
     "checks_success": 97,
@@ -4709,7 +4802,7 @@
     "remark": null,
     "first_seen_at": 1795297474,
     "last_checked_at": 1795371252,
-    "next_check_at": 1795371312
+    "next_check_at": 1795371656
   },
   {
     "id": "45.74.31.40:4130:US:",
@@ -4740,7 +4833,7 @@
     "remark": null,
     "first_seen_at": 1795232742,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371459
+    "next_check_at": 1795371719
   },
   {
     "id": "45.74.31.40:4181:United States:",
@@ -4771,7 +4864,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795371199,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371709
   },
   {
     "id": "45.74.31.40:4235",
@@ -4802,7 +4895,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795371155,
-    "next_check_at": 1795371335
+    "next_check_at": 1795371662
   },
   {
     "id": "45.74.31.40:4355:India:",
@@ -4833,7 +4926,7 @@
     "remark": null,
     "first_seen_at": 1795263078,
     "last_checked_at": 1795371073,
-    "next_check_at": 1795371374
+    "next_check_at": 1795371700
   },
   {
     "id": "45.74.31.40:4378:United States:",
@@ -4895,7 +4988,7 @@
     "remark": null,
     "first_seen_at": 1795291257,
     "last_checked_at": 1795371161,
-    "next_check_at": 1795371341
+    "next_check_at": 1795371664
   },
   {
     "id": "45.74.31.40:4406:United States:",
@@ -4926,7 +5019,7 @@
     "remark": null,
     "first_seen_at": 1795312053,
     "last_checked_at": 1795371182,
-    "next_check_at": 1795371362
+    "next_check_at": 1795371687
   },
   {
     "id": "45.74.31.40:4423:United States:",
@@ -5010,7 +5103,7 @@
     "rtt_handshake_ms": 1162,
     "rtt_total_ms": 5332,
     "uptime_pct": 35.01484,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 337,
     "checks_success": 118,
@@ -5050,7 +5143,7 @@
     "remark": null,
     "first_seen_at": 1795299780,
     "last_checked_at": 1795371202,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "45.74.31.40:4517:United States:",
@@ -5081,7 +5174,7 @@
     "remark": null,
     "first_seen_at": 1795344935,
     "last_checked_at": 1795371194,
-    "next_check_at": 1795371386
+    "next_check_at": 1795371706
   },
   {
     "id": "45.74.31.40:4716:United States:",
@@ -5143,7 +5236,7 @@
     "remark": null,
     "first_seen_at": 1795234893,
     "last_checked_at": 1795371182,
-    "next_check_at": 1795371362
+    "next_check_at": 1795371687
   },
   {
     "id": "45.74.31.40:18979:United States:",
@@ -5205,7 +5298,7 @@
     "remark": null,
     "first_seen_at": 1795225622,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371459
+    "next_check_at": 1795371714
   },
   {
     "id": "45.74.31.40:40505:Colombia:",
@@ -5267,7 +5360,7 @@
     "remark": null,
     "first_seen_at": 1795334274,
     "last_checked_at": 1795371187,
-    "next_check_at": 1795371367
+    "next_check_at": 1795371697
   },
   {
     "id": "45.74.31.41:4022:Vietnam:",
@@ -5298,7 +5391,7 @@
     "remark": null,
     "first_seen_at": 1795298519,
     "last_checked_at": 1795371198,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371709
   },
   {
     "id": "45.74.31.41:4069:Vietnam:",
@@ -5330,6 +5423,37 @@
     "first_seen_at": 1795293962,
     "last_checked_at": 1795371106,
     "next_check_at": 1795371564
+  },
+  {
+    "id": "45.74.31.41:4075:United States:",
+    "ip": "45.74.31.41",
+    "port": 4075,
+    "url": "socks5://United States@45.74.31.41:4075",
+    "protocol": "socks5",
+    "has_auth": true,
+    "auth_user": "United States",
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": true,
+    "out_ip": "162.215.175.52",
+    "country": "US",
+    "asn": 46606,
+    "asn_org": "UNIFIEDLAYER-AS-1",
+    "anon": "elite",
+    "rtt_tcp_ms": 1899,
+    "rtt_handshake_ms": 3537,
+    "rtt_total_ms": 10516,
+    "uptime_pct": 31.754387,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 570,
+    "checks_success": 181,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795247894,
+    "last_checked_at": 1795371549,
+    "next_check_at": 1795371609
   },
   {
     "id": "45.74.31.41:4085:United States:",
@@ -5382,7 +5506,7 @@
     "rtt_handshake_ms": 3170,
     "rtt_total_ms": 5023,
     "uptime_pct": 22.580645,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 62,
     "checks_success": 14,
@@ -5392,37 +5516,6 @@
     "first_seen_at": 1795335269,
     "last_checked_at": 1795371248,
     "next_check_at": 1795371652
-  },
-  {
-    "id": "45.74.31.41:4101:Vietnam:",
-    "ip": "45.74.31.41",
-    "port": 4101,
-    "url": "socks5://Vietnam@45.74.31.41:4101",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "Vietnam",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "14.248.80.79",
-    "country": "VN",
-    "asn": 45899,
-    "asn_org": "VNPT Corp",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 1118,
-    "rtt_handshake_ms": 3505,
-    "rtt_total_ms": 9244,
-    "uptime_pct": 29.940119,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 668,
-    "checks_success": 200,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795264543,
-    "last_checked_at": 1795371172,
-    "next_check_at": 1795371352
   },
   {
     "id": "45.74.31.41:4102:Vietnam:",
@@ -5453,7 +5546,7 @@
     "remark": null,
     "first_seen_at": 1795369593,
     "last_checked_at": 1795371200,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371711
   },
   {
     "id": "45.74.31.41:4107:Vietnam:",
@@ -5484,7 +5577,7 @@
     "remark": null,
     "first_seen_at": 1795330537,
     "last_checked_at": 1795371163,
-    "next_check_at": 1795371343
+    "next_check_at": 1795371664
   },
   {
     "id": "45.74.31.41:4111:United States:",
@@ -5546,7 +5639,7 @@
     "remark": null,
     "first_seen_at": 1795292654,
     "last_checked_at": 1795371141,
-    "next_check_at": 1795371321
+    "next_check_at": 1795371656
   },
   {
     "id": "45.74.31.41:4141:The Netherlands:",
@@ -5577,7 +5670,7 @@
     "remark": null,
     "first_seen_at": 1795280039,
     "last_checked_at": 1795371166,
-    "next_check_at": 1795371346
+    "next_check_at": 1795371669
   },
   {
     "id": "45.74.31.41:4143:Vietnam:",
@@ -5608,7 +5701,7 @@
     "remark": null,
     "first_seen_at": 1795308529,
     "last_checked_at": 1795371171,
-    "next_check_at": 1795371351
+    "next_check_at": 1795371671
   },
   {
     "id": "45.74.31.41:4146:Vietnam:",
@@ -5639,7 +5732,7 @@
     "remark": null,
     "first_seen_at": 1795280039,
     "last_checked_at": 1795371184,
-    "next_check_at": 1795371364
+    "next_check_at": 1795371690
   },
   {
     "id": "45.74.31.41:4152:United States:",
@@ -5661,7 +5754,7 @@
     "rtt_handshake_ms": 1485,
     "rtt_total_ms": 6669,
     "uptime_pct": 32.253883,
-    "stability_pct": 75.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 772,
     "checks_success": 249,
@@ -5670,7 +5763,38 @@
     "remark": null,
     "first_seen_at": 1795237045,
     "last_checked_at": 1795371251,
-    "next_check_at": 1795371311
+    "next_check_at": 1795371655
+  },
+  {
+    "id": "45.74.31.41:4152",
+    "ip": "45.74.31.41",
+    "port": 4152,
+    "url": "socks5://45.74.31.41:4152",
+    "protocol": "socks5",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": true,
+    "out_ip": "162.215.175.52",
+    "country": "US",
+    "asn": 46606,
+    "asn_org": "UNIFIEDLAYER-AS-1",
+    "anon": "elite",
+    "rtt_tcp_ms": 3792,
+    "rtt_handshake_ms": 3549,
+    "rtt_total_ms": 12423,
+    "uptime_pct": 31.774416,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 727,
+    "checks_success": 231,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224469,
+    "last_checked_at": 1795371549,
+    "next_check_at": 1795371609
   },
   {
     "id": "45.74.31.41:4159:Vietnam:",
@@ -5701,7 +5825,7 @@
     "remark": null,
     "first_seen_at": 1795316661,
     "last_checked_at": 1795371198,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371709
   },
   {
     "id": "45.74.31.41:4184:United States:",
@@ -5732,7 +5856,7 @@
     "remark": null,
     "first_seen_at": 1795260963,
     "last_checked_at": 1795371187,
-    "next_check_at": 1795371367
+    "next_check_at": 1795371697
   },
   {
     "id": "45.74.31.41:4188:Vietnam:",
@@ -5763,7 +5887,7 @@
     "remark": null,
     "first_seen_at": 1795284468,
     "last_checked_at": 1795371164,
-    "next_check_at": 1795371344
+    "next_check_at": 1795371669
   },
   {
     "id": "45.74.31.41:4194:Vietnam:",
@@ -5785,7 +5909,7 @@
     "rtt_handshake_ms": 583,
     "rtt_total_ms": 2107,
     "uptime_pct": 33.333336,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 210,
     "checks_success": 70,
@@ -5825,7 +5949,7 @@
     "remark": null,
     "first_seen_at": 1795292654,
     "last_checked_at": 1795371193,
-    "next_check_at": 1795371374
+    "next_check_at": 1795371702
   },
   {
     "id": "45.74.31.41:4209:United States:",
@@ -5856,7 +5980,7 @@
     "remark": null,
     "first_seen_at": 1795306649,
     "last_checked_at": 1795371193,
-    "next_check_at": 1795371374
+    "next_check_at": 1795371702
   },
   {
     "id": "45.74.31.41:4227:Vietnam:",
@@ -5887,7 +6011,7 @@
     "remark": null,
     "first_seen_at": 1795271277,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371459
+    "next_check_at": 1795371719
   },
   {
     "id": "45.74.31.41:4230:Vietnam:",
@@ -5918,7 +6042,7 @@
     "remark": null,
     "first_seen_at": 1795272286,
     "last_checked_at": 1795371181,
-    "next_check_at": 1795371361
+    "next_check_at": 1795371687
   },
   {
     "id": "45.74.31.41:4234:Vietnam:",
@@ -5949,7 +6073,7 @@
     "remark": null,
     "first_seen_at": 1795322300,
     "last_checked_at": 1795371201,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "45.74.31.41:4237:United States:",
@@ -5980,7 +6104,7 @@
     "remark": null,
     "first_seen_at": 1795289215,
     "last_checked_at": 1795371053,
-    "next_check_at": 1795371353
+    "next_check_at": 1795371673
   },
   {
     "id": "45.74.31.41:4242:United States:",
@@ -6042,7 +6166,7 @@
     "remark": null,
     "first_seen_at": 1795366094,
     "last_checked_at": 1795371060,
-    "next_check_at": 1795371360
+    "next_check_at": 1795371681
   },
   {
     "id": "45.74.31.41:4304:United States:",
@@ -6104,7 +6228,7 @@
     "remark": null,
     "first_seen_at": 1795318022,
     "last_checked_at": 1795371073,
-    "next_check_at": 1795371374
+    "next_check_at": 1795371700
   },
   {
     "id": "45.74.31.41:4311:United States:",
@@ -6126,7 +6250,7 @@
     "rtt_handshake_ms": 3362,
     "rtt_total_ms": 18302,
     "uptime_pct": 30.985916,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 71,
     "checks_success": 22,
@@ -6166,7 +6290,7 @@
     "remark": null,
     "first_seen_at": 1795330537,
     "last_checked_at": 1795371157,
-    "next_check_at": 1795371337
+    "next_check_at": 1795371664
   },
   {
     "id": "45.74.31.41:7113:United States:",
@@ -6197,7 +6321,7 @@
     "remark": null,
     "first_seen_at": 1795260963,
     "last_checked_at": 1795371198,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371709
   },
   {
     "id": "45.74.31.41:8057:United States:",
@@ -6228,7 +6352,7 @@
     "remark": null,
     "first_seen_at": 1795284468,
     "last_checked_at": 1795371184,
-    "next_check_at": 1795371364
+    "next_check_at": 1795371690
   },
   {
     "id": "45.74.31.41:8070:United States:",
@@ -6250,7 +6374,7 @@
     "rtt_handshake_ms": 2367,
     "rtt_total_ms": 5302,
     "uptime_pct": 30.754353,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 517,
     "checks_success": 159,
@@ -6321,7 +6445,7 @@
     "remark": null,
     "first_seen_at": 1795290202,
     "last_checked_at": 1795371198,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371709
   },
   {
     "id": "45.74.31.41:9589:United States:",
@@ -6352,7 +6476,7 @@
     "remark": null,
     "first_seen_at": 1795290202,
     "last_checked_at": 1795371174,
-    "next_check_at": 1795371354
+    "next_check_at": 1795371673
   },
   {
     "id": "45.74.31.41:10849:United States:",
@@ -6383,7 +6507,7 @@
     "remark": null,
     "first_seen_at": 1795314265,
     "last_checked_at": 1795371186,
-    "next_check_at": 1795371366
+    "next_check_at": 1795371693
   },
   {
     "id": "45.74.31.41:12714:Vietnam:",
@@ -6414,7 +6538,7 @@
     "remark": null,
     "first_seen_at": 1795230202,
     "last_checked_at": 1795371187,
-    "next_check_at": 1795371367
+    "next_check_at": 1795371697
   },
   {
     "id": "45.74.31.41:21458:Indonesia:",
@@ -6436,7 +6560,7 @@
     "rtt_handshake_ms": 2348,
     "rtt_total_ms": 27838,
     "uptime_pct": 45.93438,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 701,
     "checks_success": 322,
@@ -6445,7 +6569,7 @@
     "remark": null,
     "first_seen_at": 1795274648,
     "last_checked_at": 1795371266,
-    "next_check_at": 1795371326
+    "next_check_at": 1795371658
   },
   {
     "id": "45.74.31.41:22524:Indonesia:",
@@ -6476,7 +6600,7 @@
     "remark": null,
     "first_seen_at": 1795282055,
     "last_checked_at": 1795371073,
-    "next_check_at": 1795371374
+    "next_check_at": 1795371700
   },
   {
     "id": "45.74.31.41:26810:Colombia:",
@@ -6538,7 +6662,7 @@
     "remark": null,
     "first_seen_at": 1795322300,
     "last_checked_at": 1795371198,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371709
   },
   {
     "id": "45.74.31.41:38282:Colombia:",
@@ -6591,7 +6715,7 @@
     "rtt_handshake_ms": 2693,
     "rtt_total_ms": 6109,
     "uptime_pct": 27.707008,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 314,
     "checks_success": 87,
@@ -6662,7 +6786,7 @@
     "remark": null,
     "first_seen_at": 1795283057,
     "last_checked_at": 1795371163,
-    "next_check_at": 1795371343
+    "next_check_at": 1795371664
   },
   {
     "id": "45.74.31.42:4080:Vietnam:",
@@ -6693,7 +6817,7 @@
     "remark": null,
     "first_seen_at": 1795305634,
     "last_checked_at": 1795371053,
-    "next_check_at": 1795371353
+    "next_check_at": 1795371673
   },
   {
     "id": "45.74.31.42:4085:Vietnam:",
@@ -6724,7 +6848,7 @@
     "remark": null,
     "first_seen_at": 1795285874,
     "last_checked_at": 1795371175,
-    "next_check_at": 1795371355
+    "next_check_at": 1795371676
   },
   {
     "id": "45.74.31.42:4110:United States:",
@@ -6746,7 +6870,7 @@
     "rtt_handshake_ms": 4469,
     "rtt_total_ms": 7690,
     "uptime_pct": 17.993078,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 289,
     "checks_success": 52,
@@ -6755,7 +6879,7 @@
     "remark": null,
     "first_seen_at": 1795271277,
     "last_checked_at": 1795371251,
-    "next_check_at": 1795371311
+    "next_check_at": 1795371655
   },
   {
     "id": "45.74.31.42:4115:United States:",
@@ -6817,7 +6941,7 @@
     "remark": null,
     "first_seen_at": 1795224438,
     "last_checked_at": 1795371180,
-    "next_check_at": 1795371360
+    "next_check_at": 1795371684
   },
   {
     "id": "45.74.31.42:4131:United States:",
@@ -6848,7 +6972,7 @@
     "remark": null,
     "first_seen_at": 1795239716,
     "last_checked_at": 1795371172,
-    "next_check_at": 1795371352
+    "next_check_at": 1795371671
   },
   {
     "id": "45.74.31.42:4137",
@@ -6879,7 +7003,7 @@
     "remark": null,
     "first_seen_at": 1795287052,
     "last_checked_at": 1795371200,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371711
   },
   {
     "id": "45.74.31.42:4143:Vietnam:",
@@ -6910,7 +7034,7 @@
     "remark": null,
     "first_seen_at": 1795359018,
     "last_checked_at": 1795371189,
-    "next_check_at": 1795371369
+    "next_check_at": 1795371697
   },
   {
     "id": "45.74.31.42:4186:France:",
@@ -6932,7 +7056,7 @@
     "rtt_handshake_ms": 920,
     "rtt_total_ms": 23173,
     "uptime_pct": 29.36508,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 252,
     "checks_success": 74,
@@ -6941,7 +7065,7 @@
     "remark": null,
     "first_seen_at": 1795229074,
     "last_checked_at": 1795371266,
-    "next_check_at": 1795371326
+    "next_check_at": 1795371658
   },
   {
     "id": "45.74.31.42:4201:Vietnam:",
@@ -7003,7 +7127,7 @@
     "remark": null,
     "first_seen_at": 1795293962,
     "last_checked_at": 1795371175,
-    "next_check_at": 1795371355
+    "next_check_at": 1795371676
   },
   {
     "id": "45.74.31.42:4228:United States:",
@@ -7034,38 +7158,7 @@
     "remark": null,
     "first_seen_at": 1795303295,
     "last_checked_at": 1795371197,
-    "next_check_at": 1795371396
-  },
-  {
-    "id": "45.74.31.42:4247:United States:",
-    "ip": "45.74.31.42",
-    "port": 4247,
-    "url": "socks5://United States@45.74.31.42:4247",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "United States",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "162.215.175.52",
-    "country": "US",
-    "asn": 46606,
-    "asn_org": "UNIFIEDLAYER-AS-1",
-    "anon": "elite",
-    "rtt_tcp_ms": 4190,
-    "rtt_handshake_ms": 1908,
-    "rtt_total_ms": 6963,
-    "uptime_pct": 36.09756,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 205,
-    "checks_success": 74,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795340198,
-    "last_checked_at": 1795371170,
-    "next_check_at": 1795371350
+    "next_check_at": 1795371706
   },
   {
     "id": "45.74.31.42:4253:United States:",
@@ -7096,7 +7189,7 @@
     "remark": null,
     "first_seen_at": 1795314265,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371466
+    "next_check_at": 1795371719
   },
   {
     "id": "45.74.31.42:4489:India:",
@@ -7118,7 +7211,7 @@
     "rtt_handshake_ms": 2065,
     "rtt_total_ms": 4729,
     "uptime_pct": 30.537352,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 763,
     "checks_success": 233,
@@ -7158,7 +7251,7 @@
     "remark": null,
     "first_seen_at": 1795285874,
     "last_checked_at": 1795371166,
-    "next_check_at": 1795371346
+    "next_check_at": 1795371669
   },
   {
     "id": "45.74.31.42:21484:Indonesia:",
@@ -7273,7 +7366,7 @@
     "rtt_handshake_ms": 4162,
     "rtt_total_ms": 7100,
     "uptime_pct": 32.841824,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 746,
     "checks_success": 245,
@@ -7344,7 +7437,7 @@
     "remark": null,
     "first_seen_at": 1795302268,
     "last_checked_at": 1795371061,
-    "next_check_at": 1795371361
+    "next_check_at": 1795371684
   },
   {
     "id": "45.74.31.46:4011:United States:",
@@ -7375,7 +7468,7 @@
     "remark": null,
     "first_seen_at": 1795282055,
     "last_checked_at": 1795371154,
-    "next_check_at": 1795371334
+    "next_check_at": 1795371662
   },
   {
     "id": "45.74.31.46:4024:Colombia:",
@@ -7406,7 +7499,7 @@
     "remark": null,
     "first_seen_at": 1795270265,
     "last_checked_at": 1795371179,
-    "next_check_at": 1795371359
+    "next_check_at": 1795371681
   },
   {
     "id": "45.74.31.46:4043:Vietnam:",
@@ -7437,7 +7530,7 @@
     "remark": null,
     "first_seen_at": 1795272286,
     "last_checked_at": 1795371180,
-    "next_check_at": 1795371360
+    "next_check_at": 1795371684
   },
   {
     "id": "45.74.31.46:4048:United States:",
@@ -7592,7 +7685,7 @@
     "remark": null,
     "first_seen_at": 1795315251,
     "last_checked_at": 1795371190,
-    "next_check_at": 1795371370
+    "next_check_at": 1795371700
   },
   {
     "id": "45.74.31.46:4069:United States:",
@@ -7623,7 +7716,7 @@
     "remark": null,
     "first_seen_at": 1795288172,
     "last_checked_at": 1795371170,
-    "next_check_at": 1795371350
+    "next_check_at": 1795371669
   },
   {
     "id": "45.74.31.46:4076:Colombia:",
@@ -7654,7 +7747,7 @@
     "remark": null,
     "first_seen_at": 1795368552,
     "last_checked_at": 1795371186,
-    "next_check_at": 1795371366
+    "next_check_at": 1795371693
   },
   {
     "id": "45.74.31.46:4076:United States:",
@@ -7685,7 +7778,7 @@
     "remark": null,
     "first_seen_at": 1795282055,
     "last_checked_at": 1795371060,
-    "next_check_at": 1795371360
+    "next_check_at": 1795371684
   },
   {
     "id": "45.74.31.46:4079:United States:",
@@ -7716,7 +7809,7 @@
     "remark": null,
     "first_seen_at": 1795282055,
     "last_checked_at": 1795371203,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "45.74.31.46:4086:Colombia:",
@@ -7747,7 +7840,7 @@
     "remark": null,
     "first_seen_at": 1795282055,
     "last_checked_at": 1795371161,
-    "next_check_at": 1795371341
+    "next_check_at": 1795371664
   },
   {
     "id": "45.74.31.46:4086:United States:",
@@ -7778,7 +7871,7 @@
     "remark": null,
     "first_seen_at": 1795249858,
     "last_checked_at": 1795371161,
-    "next_check_at": 1795371341
+    "next_check_at": 1795371664
   },
   {
     "id": "45.74.31.46:4107:United States:",
@@ -7809,7 +7902,7 @@
     "remark": null,
     "first_seen_at": 1795343842,
     "last_checked_at": 1795371186,
-    "next_check_at": 1795371366
+    "next_check_at": 1795371693
   },
   {
     "id": "45.74.31.46:4121:Colombia:",
@@ -7840,7 +7933,7 @@
     "remark": null,
     "first_seen_at": 1795276790,
     "last_checked_at": 1795371200,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371711
   },
   {
     "id": "45.74.31.46:4132:Colombia:",
@@ -7871,7 +7964,7 @@
     "remark": null,
     "first_seen_at": 1795282055,
     "last_checked_at": 1795371162,
-    "next_check_at": 1795371342
+    "next_check_at": 1795371664
   },
   {
     "id": "45.74.31.46:4133:Vietnam:",
@@ -7933,7 +8026,7 @@
     "remark": null,
     "first_seen_at": 1795263078,
     "last_checked_at": 1795371203,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "45.74.31.46:4134",
@@ -7986,7 +8079,7 @@
     "rtt_handshake_ms": 3597,
     "rtt_total_ms": 7791,
     "uptime_pct": 30.372492,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 349,
     "checks_success": 106,
@@ -8017,7 +8110,7 @@
     "rtt_handshake_ms": 1314,
     "rtt_total_ms": 5644,
     "uptime_pct": 29.657797,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 263,
     "checks_success": 78,
@@ -8026,7 +8119,7 @@
     "remark": null,
     "first_seen_at": 1795319229,
     "last_checked_at": 1795371250,
-    "next_check_at": 1795371310
+    "next_check_at": 1795371655
   },
   {
     "id": "45.74.31.46:4188:Colombia:",
@@ -8110,7 +8203,7 @@
     "rtt_handshake_ms": 2885,
     "rtt_total_ms": 9949,
     "uptime_pct": 27.868853,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 183,
     "checks_success": 51,
@@ -8119,7 +8212,7 @@
     "remark": null,
     "first_seen_at": 1795335269,
     "last_checked_at": 1795371251,
-    "next_check_at": 1795371311
+    "next_check_at": 1795371655
   },
   {
     "id": "45.74.31.46:4228:United States:",
@@ -8141,7 +8234,7 @@
     "rtt_handshake_ms": 351,
     "rtt_total_ms": 5430,
     "uptime_pct": 32.55814,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 129,
     "checks_success": 42,
@@ -8181,38 +8274,7 @@
     "remark": null,
     "first_seen_at": 1795300827,
     "last_checked_at": 1795371174,
-    "next_check_at": 1795371354
-  },
-  {
-    "id": "45.74.31.46:4230:United States:",
-    "ip": "45.74.31.46",
-    "port": 4230,
-    "url": "socks5://United States@45.74.31.46:4230",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "United States",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "162.215.175.52",
-    "country": "US",
-    "asn": 46606,
-    "asn_org": "UNIFIEDLAYER-AS-1",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 1185,
-    "rtt_handshake_ms": 721,
-    "rtt_total_ms": 15416,
-    "uptime_pct": 40.117992,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 339,
-    "checks_success": 136,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795300827,
-    "last_checked_at": 1795371158,
-    "next_check_at": 1795371338
+    "next_check_at": 1795371673
   },
   {
     "id": "45.74.31.46:4243:Vietnam:",
@@ -8274,7 +8336,7 @@
     "remark": null,
     "first_seen_at": 1795329471,
     "last_checked_at": 1795371150,
-    "next_check_at": 1795371330
+    "next_check_at": 1795371662
   },
   {
     "id": "45.74.31.46:4256:Colombia:",
@@ -8305,7 +8367,7 @@
     "remark": null,
     "first_seen_at": 1795343842,
     "last_checked_at": 1795371178,
-    "next_check_at": 1795371358
+    "next_check_at": 1795371681
   },
   {
     "id": "45.74.31.46:4436:United States:",
@@ -8327,7 +8389,7 @@
     "rtt_handshake_ms": 1439,
     "rtt_total_ms": 9546,
     "uptime_pct": 37.23077,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 650,
     "checks_success": 242,
@@ -8358,7 +8420,7 @@
     "rtt_handshake_ms": 2148,
     "rtt_total_ms": 3222,
     "uptime_pct": 28.462997,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 527,
     "checks_success": 150,
@@ -8398,7 +8460,7 @@
     "remark": null,
     "first_seen_at": 1795305634,
     "last_checked_at": 1795371199,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371709
   },
   {
     "id": "45.74.31.46:16464:Indonesia:",
@@ -8460,7 +8522,7 @@
     "remark": null,
     "first_seen_at": 1795241614,
     "last_checked_at": 1795371184,
-    "next_check_at": 1795371364
+    "next_check_at": 1795371690
   },
   {
     "id": "45.74.31.46:17574:Indonesia:",
@@ -8522,7 +8584,7 @@
     "remark": null,
     "first_seen_at": 1795276790,
     "last_checked_at": 1795371163,
-    "next_check_at": 1795371343
+    "next_check_at": 1795371664
   },
   {
     "id": "45.74.31.46:21715:United States:",
@@ -8544,7 +8606,7 @@
     "rtt_handshake_ms": 729,
     "rtt_total_ms": 11762,
     "uptime_pct": 41.384865,
-    "stability_pct": 75.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 621,
     "checks_success": 257,
@@ -8553,7 +8615,7 @@
     "remark": null,
     "first_seen_at": 1795284468,
     "last_checked_at": 1795371254,
-    "next_check_at": 1795371314
+    "next_check_at": 1795371656
   },
   {
     "id": "45.74.31.47:4011:Colombia:",
@@ -8606,7 +8668,7 @@
     "rtt_handshake_ms": 2481,
     "rtt_total_ms": 6626,
     "uptime_pct": 23.52,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 625,
     "checks_success": 147,
@@ -8616,37 +8678,6 @@
     "first_seen_at": 1795238198,
     "last_checked_at": 1795371235,
     "next_check_at": 1795371594
-  },
-  {
-    "id": "45.74.31.47:4040:Vietnam:",
-    "ip": "45.74.31.47",
-    "port": 4040,
-    "url": "socks5://Vietnam@45.74.31.47:4040",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "Vietnam",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "14.248.80.79",
-    "country": "VN",
-    "asn": 45899,
-    "asn_org": "VNPT Corp",
-    "anon": "elite",
-    "rtt_tcp_ms": 1219,
-    "rtt_handshake_ms": 2176,
-    "rtt_total_ms": 4711,
-    "uptime_pct": 43.333332,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 30,
-    "checks_success": 13,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795343842,
-    "last_checked_at": 1795371168,
-    "next_check_at": 1795371348
   },
   {
     "id": "45.74.31.47:4052:United States:",
@@ -8708,7 +8739,7 @@
     "remark": null,
     "first_seen_at": 1795234893,
     "last_checked_at": 1795371170,
-    "next_check_at": 1795371350
+    "next_check_at": 1795371669
   },
   {
     "id": "45.74.31.47:4069:Colombia:",
@@ -8730,7 +8761,7 @@
     "rtt_handshake_ms": 3217,
     "rtt_total_ms": 11415,
     "uptime_pct": 34.421368,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 674,
     "checks_success": 232,
@@ -8770,7 +8801,7 @@
     "remark": null,
     "first_seen_at": 1795253438,
     "last_checked_at": 1795371154,
-    "next_check_at": 1795371334
+    "next_check_at": 1795371662
   },
   {
     "id": "45.74.31.47:4077:Colombia:",
@@ -8792,7 +8823,7 @@
     "rtt_handshake_ms": 4342,
     "rtt_total_ms": 9650,
     "uptime_pct": 33.163265,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 588,
     "checks_success": 195,
@@ -8823,7 +8854,7 @@
     "rtt_handshake_ms": 2413,
     "rtt_total_ms": 33037,
     "uptime_pct": 32.033424,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 718,
     "checks_success": 230,
@@ -8832,7 +8863,7 @@
     "remark": null,
     "first_seen_at": 1795270265,
     "last_checked_at": 1795371287,
-    "next_check_at": 1795371347
+    "next_check_at": 1795371669
   },
   {
     "id": "45.74.31.47:4085:Colombia:",
@@ -8854,7 +8885,7 @@
     "rtt_handshake_ms": 722,
     "rtt_total_ms": 6552,
     "uptime_pct": 24.173027,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 393,
     "checks_success": 95,
@@ -8894,7 +8925,7 @@
     "remark": null,
     "first_seen_at": 1795305634,
     "last_checked_at": 1795371198,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371709
   },
   {
     "id": "45.74.31.47:4086:Colombia:",
@@ -8916,7 +8947,7 @@
     "rtt_handshake_ms": 770,
     "rtt_total_ms": 5967,
     "uptime_pct": 24.086021,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 465,
     "checks_success": 112,
@@ -9021,6 +9052,37 @@
     "next_check_at": 1795371567
   },
   {
+    "id": "45.74.31.47:4107",
+    "ip": "45.74.31.47",
+    "port": 4107,
+    "url": "socks5://45.74.31.47:4107",
+    "protocol": "socks5",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": true,
+    "out_ip": "190.6.176.90",
+    "country": "CO",
+    "asn": 27845,
+    "asn_org": "Empresa de Recursos Tecnologicos S.A E.S.P",
+    "anon": "elite",
+    "rtt_tcp_ms": 1898,
+    "rtt_handshake_ms": 3055,
+    "rtt_total_ms": 25865,
+    "uptime_pct": 25.17321,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 433,
+    "checks_success": 109,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224557,
+    "last_checked_at": 1795371595,
+    "next_check_at": 1795371655
+  },
+  {
     "id": "45.74.31.47:4109:Colombia:",
     "ip": "45.74.31.47",
     "port": 4109,
@@ -9049,7 +9111,7 @@
     "remark": null,
     "first_seen_at": 1795238198,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371466
+    "next_check_at": 1795371719
   },
   {
     "id": "45.74.31.47:4119:United States:",
@@ -9080,7 +9142,7 @@
     "remark": null,
     "first_seen_at": 1795273272,
     "last_checked_at": 1795371193,
-    "next_check_at": 1795371386
+    "next_check_at": 1795371702
   },
   {
     "id": "45.74.31.47:4125:Colombia:",
@@ -9164,7 +9226,7 @@
     "rtt_handshake_ms": 646,
     "rtt_total_ms": 5844,
     "uptime_pct": 45.454548,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 44,
     "checks_success": 20,
@@ -9226,7 +9288,7 @@
     "rtt_handshake_ms": 4824,
     "rtt_total_ms": 6719,
     "uptime_pct": 31.68,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 625,
     "checks_success": 198,
@@ -9257,7 +9319,7 @@
     "rtt_handshake_ms": 392,
     "rtt_total_ms": 19034,
     "uptime_pct": 29.396326,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 762,
     "checks_success": 224,
@@ -9331,37 +9393,6 @@
     "next_check_at": 1795371589
   },
   {
-    "id": "45.74.31.47:4172:Vietnam:",
-    "ip": "45.74.31.47",
-    "port": 4172,
-    "url": "socks5://Vietnam@45.74.31.47:4172",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "Vietnam",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "14.248.80.79",
-    "country": "VN",
-    "asn": 45899,
-    "asn_org": "VNPT Corp",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 2199,
-    "rtt_handshake_ms": 1173,
-    "rtt_total_ms": 7658,
-    "uptime_pct": 29.025845,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 503,
-    "checks_success": 146,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795284468,
-    "last_checked_at": 1795371168,
-    "next_check_at": 1795371348
-  },
-  {
     "id": "45.74.31.47:4173:Vietnam:",
     "ip": "45.74.31.47",
     "port": 4173,
@@ -9421,7 +9452,7 @@
     "remark": null,
     "first_seen_at": 1795239716,
     "last_checked_at": 1795371186,
-    "next_check_at": 1795371366
+    "next_check_at": 1795371693
   },
   {
     "id": "45.74.31.47:4177:France:",
@@ -9452,7 +9483,7 @@
     "remark": null,
     "first_seen_at": 1795241614,
     "last_checked_at": 1795371144,
-    "next_check_at": 1795371324
+    "next_check_at": 1795371658
   },
   {
     "id": "45.74.31.47:4184:Colombia:",
@@ -9505,7 +9536,7 @@
     "rtt_handshake_ms": 2252,
     "rtt_total_ms": 3672,
     "uptime_pct": 31.25,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 656,
     "checks_success": 205,
@@ -9514,7 +9545,7 @@
     "remark": null,
     "first_seen_at": 1795267032,
     "last_checked_at": 1795371251,
-    "next_check_at": 1795371311
+    "next_check_at": 1795371655
   },
   {
     "id": "45.74.31.47:4220:Vietnam:",
@@ -9576,7 +9607,7 @@
     "remark": null,
     "first_seen_at": 1795281028,
     "last_checked_at": 1795371196,
-    "next_check_at": 1795371396
+    "next_check_at": 1795371706
   },
   {
     "id": "45.74.31.47:4230:Vietnam:",
@@ -9607,7 +9638,7 @@
     "remark": null,
     "first_seen_at": 1795344935,
     "last_checked_at": 1795371184,
-    "next_check_at": 1795371364
+    "next_check_at": 1795371690
   },
   {
     "id": "45.74.31.47:4232:Colombia:",
@@ -9629,7 +9660,7 @@
     "rtt_handshake_ms": 3327,
     "rtt_total_ms": 9228,
     "uptime_pct": 32.642487,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 386,
     "checks_success": 126,
@@ -9691,7 +9722,7 @@
     "rtt_handshake_ms": 1797,
     "rtt_total_ms": 7603,
     "uptime_pct": 27.089336,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 694,
     "checks_success": 188,
@@ -9731,7 +9762,7 @@
     "remark": null,
     "first_seen_at": 1795287098,
     "last_checked_at": 1795371189,
-    "next_check_at": 1795371369
+    "next_check_at": 1795371700
   },
   {
     "id": "45.74.31.47:4275:Vietnam:",
@@ -9762,7 +9793,7 @@
     "remark": null,
     "first_seen_at": 1795330537,
     "last_checked_at": 1795371150,
-    "next_check_at": 1795371330
+    "next_check_at": 1795371662
   },
   {
     "id": "45.74.31.47:4277:Colombia:",
@@ -9784,7 +9815,7 @@
     "rtt_handshake_ms": 1384,
     "rtt_total_ms": 2677,
     "uptime_pct": 38.46154,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 286,
     "checks_success": 110,
@@ -9824,7 +9855,7 @@
     "remark": null,
     "first_seen_at": 1795240664,
     "last_checked_at": 1795371162,
-    "next_check_at": 1795371342
+    "next_check_at": 1795371664
   },
   {
     "id": "45.74.31.47:4320",
@@ -9908,7 +9939,7 @@
     "rtt_handshake_ms": 2346,
     "rtt_total_ms": 3240,
     "uptime_pct": 23.684212,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 38,
     "checks_success": 9,
@@ -9979,7 +10010,7 @@
     "remark": null,
     "first_seen_at": 1795341234,
     "last_checked_at": 1795371060,
-    "next_check_at": 1795371360
+    "next_check_at": 1795371684
   },
   {
     "id": "45.74.31.47:4337:France:",
@@ -10032,7 +10063,7 @@
     "rtt_handshake_ms": 2573,
     "rtt_total_ms": 6021,
     "uptime_pct": 38.0,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 450,
     "checks_success": 171,
@@ -10072,7 +10103,7 @@
     "remark": null,
     "first_seen_at": 1795224438,
     "last_checked_at": 1795371170,
-    "next_check_at": 1795371350
+    "next_check_at": 1795371669
   },
   {
     "id": "45.74.31.47:4372:United States:",
@@ -10134,7 +10165,7 @@
     "remark": null,
     "first_seen_at": 1795330537,
     "last_checked_at": 1795371184,
-    "next_check_at": 1795371364
+    "next_check_at": 1795371690
   },
   {
     "id": "45.74.31.47:4429:United States:",
@@ -10227,7 +10258,7 @@
     "remark": null,
     "first_seen_at": 1795293962,
     "last_checked_at": 1795371161,
-    "next_check_at": 1795371341
+    "next_check_at": 1795371664
   },
   {
     "id": "45.74.31.47:4456:United States:",
@@ -10258,7 +10289,7 @@
     "remark": null,
     "first_seen_at": 1795287098,
     "last_checked_at": 1795371194,
-    "next_check_at": 1795371386
+    "next_check_at": 1795371706
   },
   {
     "id": "45.74.31.47:4462:United States:",
@@ -10311,7 +10342,7 @@
     "rtt_handshake_ms": 4345,
     "rtt_total_ms": 21091,
     "uptime_pct": 27.868853,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 183,
     "checks_success": 51,
@@ -10382,7 +10413,7 @@
     "remark": null,
     "first_seen_at": 1795284468,
     "last_checked_at": 1795371161,
-    "next_check_at": 1795371341
+    "next_check_at": 1795371664
   },
   {
     "id": "45.74.31.47:5153:United States:",
@@ -10444,7 +10475,38 @@
     "remark": null,
     "first_seen_at": 1795241614,
     "last_checked_at": 1795371186,
-    "next_check_at": 1795371366
+    "next_check_at": 1795371693
+  },
+  {
+    "id": "45.74.31.47:6450:Vietnam:",
+    "ip": "45.74.31.47",
+    "port": 6450,
+    "url": "socks5://Vietnam@45.74.31.47:6450",
+    "protocol": "socks5",
+    "has_auth": true,
+    "auth_user": "Vietnam",
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": true,
+    "out_ip": "150.95.108.134",
+    "country": "VN",
+    "asn": 131392,
+    "asn_org": "GMO-Z.com Runsystem Joint Stock Company",
+    "anon": "elite",
+    "rtt_tcp_ms": 1833,
+    "rtt_handshake_ms": 1969,
+    "rtt_total_ms": 9813,
+    "uptime_pct": 29.537369,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 562,
+    "checks_success": 166,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795240664,
+    "last_checked_at": 1795371544,
+    "next_check_at": 1795371604
   },
   {
     "id": "45.74.31.47:7648:United States:",
@@ -10475,7 +10537,7 @@
     "remark": null,
     "first_seen_at": 1795294976,
     "last_checked_at": 1795371186,
-    "next_check_at": 1795371366
+    "next_check_at": 1795371695
   },
   {
     "id": "45.74.31.47:8216:United States:",
@@ -10506,7 +10568,7 @@
     "remark": null,
     "first_seen_at": 1795311008,
     "last_checked_at": 1795371181,
-    "next_check_at": 1795371361
+    "next_check_at": 1795371687
   },
   {
     "id": "45.74.31.47:8458:United States:",
@@ -10590,7 +10652,7 @@
     "rtt_handshake_ms": 4363,
     "rtt_total_ms": 7855,
     "uptime_pct": 31.30016,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 623,
     "checks_success": 195,
@@ -10621,7 +10683,7 @@
     "rtt_handshake_ms": 641,
     "rtt_total_ms": 4095,
     "uptime_pct": 49.259,
-    "stability_pct": 75.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1417,
     "checks_success": 698,
@@ -10661,7 +10723,7 @@
     "remark": null,
     "first_seen_at": 1795225622,
     "last_checked_at": 1795371200,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371711
   },
   {
     "id": "46.232.249.209:40001:DE:",
@@ -10692,7 +10754,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795371180,
-    "next_check_at": 1795371360
+    "next_check_at": 1795371684
   },
   {
     "id": "46.232.249.209:40001:Germany:",
@@ -10723,7 +10785,7 @@
     "remark": null,
     "first_seen_at": 1795229035,
     "last_checked_at": 1795371204,
-    "next_check_at": 1795371459
+    "next_check_at": 1795371714
   },
   {
     "id": "46.62.212.153:1080:Finland:",
@@ -10754,7 +10816,7 @@
     "remark": null,
     "first_seen_at": 1795225622,
     "last_checked_at": 1795371149,
-    "next_check_at": 1795371329
+    "next_check_at": 1795371658
   },
   {
     "id": "47.251.166.203:1080:United States:",
@@ -10816,7 +10878,7 @@
     "remark": null,
     "first_seen_at": 1795251837,
     "last_checked_at": 1795371204,
-    "next_check_at": 1795371459
+    "next_check_at": 1795371714
   },
   {
     "id": "49.13.22.249:10807:The Netherlands:",
@@ -10847,7 +10909,7 @@
     "remark": null,
     "first_seen_at": 1795299780,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371466
+    "next_check_at": 1795371719
   },
   {
     "id": "49.13.22.249:10807:United Kingdom:",
@@ -10878,7 +10940,7 @@
     "remark": null,
     "first_seen_at": 1795340198,
     "last_checked_at": 1795371164,
-    "next_check_at": 1795371344
+    "next_check_at": 1795371669
   },
   {
     "id": "49.13.22.249:10807:Türkiye:",
@@ -10909,7 +10971,7 @@
     "remark": null,
     "first_seen_at": 1795261965,
     "last_checked_at": 1795371146,
-    "next_check_at": 1795371326
+    "next_check_at": 1795371658
   },
   {
     "id": "49.13.22.249:10807:Spain:",
@@ -10927,20 +10989,20 @@
     "asn": 62240,
     "asn_org": "Clouvider Limited",
     "anon": "elite",
-    "rtt_tcp_ms": 133,
-    "rtt_handshake_ms": 3568,
-    "rtt_total_ms": 8737,
-    "uptime_pct": 45.9854,
-    "stability_pct": 0.0,
+    "rtt_tcp_ms": 178,
+    "rtt_handshake_ms": 4347,
+    "rtt_total_ms": 10032,
+    "uptime_pct": 46.376812,
+    "stability_pct": 100.0,
     "stability_window_min": 5,
-    "checks_total": 137,
-    "checks_success": 63,
+    "checks_total": 138,
+    "checks_success": 64,
     "dead_strikes": 0,
     "last_error": null,
     "remark": null,
     "first_seen_at": 1795272286,
-    "last_checked_at": 1795371170,
-    "next_check_at": 1795371350
+    "last_checked_at": 1795371542,
+    "next_check_at": 1795371602
   },
   {
     "id": "49.13.22.249:10807:Iceland:",
@@ -11002,7 +11064,7 @@
     "remark": null,
     "first_seen_at": 1795303295,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371466
+    "next_check_at": 1795371719
   },
   {
     "id": "49.13.22.249:10808:United States:",
@@ -11033,7 +11095,7 @@
     "remark": null,
     "first_seen_at": 1795233890,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371466
+    "next_check_at": 1795371719
   },
   {
     "id": "49.13.22.249:10808:Sweden:",
@@ -11086,7 +11148,7 @@
     "rtt_handshake_ms": 472,
     "rtt_total_ms": 4400,
     "uptime_pct": 57.957245,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 842,
     "checks_success": 488,
@@ -11126,7 +11188,7 @@
     "remark": null,
     "first_seen_at": 1795319229,
     "last_checked_at": 1795371180,
-    "next_check_at": 1795371360
+    "next_check_at": 1795371684
   },
   {
     "id": "49.13.22.249:10808:Hungary:",
@@ -11157,7 +11219,7 @@
     "remark": null,
     "first_seen_at": 1795348079,
     "last_checked_at": 1795371160,
-    "next_check_at": 1795371340
+    "next_check_at": 1795371664
   },
   {
     "id": "49.13.22.249:10808:Ireland:",
@@ -11188,7 +11250,7 @@
     "remark": null,
     "first_seen_at": 1795327982,
     "last_checked_at": 1795371191,
-    "next_check_at": 1795371371
+    "next_check_at": 1795371700
   },
   {
     "id": "49.13.22.249:10808:Serbia:",
@@ -11241,7 +11303,7 @@
     "rtt_handshake_ms": 765,
     "rtt_total_ms": 7853,
     "uptime_pct": 33.8,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 500,
     "checks_success": 169,
@@ -11272,7 +11334,7 @@
     "rtt_handshake_ms": 2309,
     "rtt_total_ms": 20280,
     "uptime_pct": 37.540455,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 309,
     "checks_success": 116,
@@ -11281,7 +11343,7 @@
     "remark": null,
     "first_seen_at": 1795319229,
     "last_checked_at": 1795371287,
-    "next_check_at": 1795371347
+    "next_check_at": 1795371669
   },
   {
     "id": "49.13.22.249:10811:Hong Kong:",
@@ -11343,7 +11405,7 @@
     "remark": null,
     "first_seen_at": 1795364972,
     "last_checked_at": 1795371203,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "5.255.103.55:1080:The Netherlands:",
@@ -11365,7 +11427,7 @@
     "rtt_handshake_ms": 747,
     "rtt_total_ms": 2093,
     "uptime_pct": 66.1794,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1505,
     "checks_success": 996,
@@ -11375,37 +11437,6 @@
     "first_seen_at": 1795224448,
     "last_checked_at": 1795371249,
     "next_check_at": 1795371652
-  },
-  {
-    "id": "5.255.123.162:1080:NL:",
-    "ip": "5.255.123.162",
-    "port": 1080,
-    "url": "socks5://NL@5.255.123.162:1080",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "NL",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "5.255.123.162",
-    "country": "NL",
-    "asn": 60404,
-    "asn_org": "The Infrastructure Group B.V.",
-    "anon": "elite",
-    "rtt_tcp_ms": 360,
-    "rtt_handshake_ms": 1634,
-    "rtt_total_ms": 6774,
-    "uptime_pct": 36.924686,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 956,
-    "checks_success": 353,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224941,
-    "last_checked_at": 1795371168,
-    "next_check_at": 1795371348
   },
   {
     "id": "5.75.133.113:10805:Canada:",
@@ -11489,7 +11520,7 @@
     "rtt_handshake_ms": 1824,
     "rtt_total_ms": 3558,
     "uptime_pct": 64.36363,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 825,
     "checks_success": 531,
@@ -11529,7 +11560,7 @@
     "remark": null,
     "first_seen_at": 1795245851,
     "last_checked_at": 1795371196,
-    "next_check_at": 1795371396
+    "next_check_at": 1795371706
   },
   {
     "id": "5.75.133.113:10813:Hong Kong:",
@@ -11560,7 +11591,7 @@
     "remark": null,
     "first_seen_at": 1795276790,
     "last_checked_at": 1795371138,
-    "next_check_at": 1795371318
+    "next_check_at": 1795371656
   },
   {
     "id": "5.75.133.113:10813:Indonesia:",
@@ -11622,7 +11653,7 @@
     "remark": null,
     "first_seen_at": 1795248859,
     "last_checked_at": 1795371188,
-    "next_check_at": 1795371368
+    "next_check_at": 1795371697
   },
   {
     "id": "5.78.181.0:9052:US:",
@@ -11768,7 +11799,7 @@
     "rtt_handshake_ms": 974,
     "rtt_total_ms": 3646,
     "uptime_pct": 31.818182,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 880,
     "checks_success": 280,
@@ -11839,7 +11870,7 @@
     "remark": null,
     "first_seen_at": 1795340214,
     "last_checked_at": 1795371162,
-    "next_check_at": 1795371342
+    "next_check_at": 1795371664
   },
   {
     "id": "62.152.37.189:1080:Russia:",
@@ -11901,7 +11932,7 @@
     "remark": null,
     "first_seen_at": 1795276790,
     "last_checked_at": 1795371200,
-    "next_check_at": 1795371444
+    "next_check_at": 1795371712
   },
   {
     "id": "65.21.252.66:10811:Myanmar:",
@@ -11932,7 +11963,7 @@
     "remark": null,
     "first_seen_at": 1795236067,
     "last_checked_at": 1795371205,
-    "next_check_at": 1795371466
+    "next_check_at": 1795371719
   },
   {
     "id": "65.21.252.66:10811:Australia:",
@@ -11994,7 +12025,7 @@
     "remark": null,
     "first_seen_at": 1795244478,
     "last_checked_at": 1795371183,
-    "next_check_at": 1795371363
+    "next_check_at": 1795371690
   },
   {
     "id": "65.21.252.66:10811:Singapore:",
@@ -12025,7 +12056,7 @@
     "remark": null,
     "first_seen_at": 1795230202,
     "last_checked_at": 1795371184,
-    "next_check_at": 1795371364
+    "next_check_at": 1795371693
   },
   {
     "id": "65.21.252.66:10811:Poland:",
@@ -12056,7 +12087,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795371175,
-    "next_check_at": 1795371355
+    "next_check_at": 1795371676
   },
   {
     "id": "65.21.252.66:10811:Slovenia:",
@@ -12109,7 +12140,7 @@
     "rtt_handshake_ms": 687,
     "rtt_total_ms": 10027,
     "uptime_pct": 45.901638,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 610,
     "checks_success": 280,
@@ -12118,7 +12149,7 @@
     "remark": null,
     "first_seen_at": 1795258984,
     "last_checked_at": 1795371254,
-    "next_check_at": 1795371314
+    "next_check_at": 1795371656
   },
   {
     "id": "65.21.252.66:10811:Thailand:",
@@ -12140,7 +12171,7 @@
     "rtt_handshake_ms": 705,
     "rtt_total_ms": 23757,
     "uptime_pct": 44.074074,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 540,
     "checks_success": 238,
@@ -12149,7 +12180,7 @@
     "remark": null,
     "first_seen_at": 1795264543,
     "last_checked_at": 1795371287,
-    "next_check_at": 1795371347
+    "next_check_at": 1795371669
   },
   {
     "id": "65.21.252.66:10814:Australia:",
@@ -12202,7 +12233,7 @@
     "rtt_handshake_ms": 2060,
     "rtt_total_ms": 36410,
     "uptime_pct": 30.909092,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 55,
     "checks_success": 17,
@@ -12211,7 +12242,7 @@
     "remark": null,
     "first_seen_at": 1795363671,
     "last_checked_at": 1795371297,
-    "next_check_at": 1795371357
+    "next_check_at": 1795371681
   },
   {
     "id": "66.94.112.133:1088:US:",
@@ -12304,7 +12335,7 @@
     "remark": null,
     "first_seen_at": 1795315251,
     "last_checked_at": 1795371199,
-    "next_check_at": 1795371417
+    "next_check_at": 1795371709
   },
   {
     "id": "8.40.19.133:1080:United States:",
@@ -12357,7 +12388,7 @@
     "rtt_handshake_ms": 662,
     "rtt_total_ms": 2224,
     "uptime_pct": 32.77311,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 238,
     "checks_success": 78,
@@ -12388,7 +12419,7 @@
     "rtt_handshake_ms": 741,
     "rtt_total_ms": 2626,
     "uptime_pct": 30.689653,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 870,
     "checks_success": 267,
@@ -12397,7 +12428,7 @@
     "remark": null,
     "first_seen_at": 1795237022,
     "last_checked_at": 1795371250,
-    "next_check_at": 1795371310
+    "next_check_at": 1795371655
   },
   {
     "id": "80.65.211.149:8888:Seychelles:",
@@ -12419,7 +12450,7 @@
     "rtt_handshake_ms": 580,
     "rtt_total_ms": 2772,
     "uptime_pct": 30.67376,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 564,
     "checks_success": 173,
@@ -12481,7 +12512,7 @@
     "rtt_handshake_ms": 2009,
     "rtt_total_ms": 4764,
     "uptime_pct": 27.567568,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 185,
     "checks_success": 51,
@@ -12512,7 +12543,7 @@
     "rtt_handshake_ms": 460,
     "rtt_total_ms": 4919,
     "uptime_pct": 29.446936,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 669,
     "checks_success": 197,
@@ -12543,7 +12574,7 @@
     "rtt_handshake_ms": 1049,
     "rtt_total_ms": 7863,
     "uptime_pct": 33.077766,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 913,
     "checks_success": 302,
@@ -12574,7 +12605,7 @@
     "rtt_handshake_ms": 1158,
     "rtt_total_ms": 7986,
     "uptime_pct": 30.801687,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 237,
     "checks_success": 73,
@@ -12605,7 +12636,7 @@
     "rtt_handshake_ms": 1054,
     "rtt_total_ms": 8346,
     "uptime_pct": 32.291664,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 672,
     "checks_success": 217,
@@ -12636,7 +12667,7 @@
     "rtt_handshake_ms": 1693,
     "rtt_total_ms": 10921,
     "uptime_pct": 33.987732,
-    "stability_pct": 33.333336,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 815,
     "checks_success": 277,
@@ -12676,7 +12707,7 @@
     "remark": null,
     "first_seen_at": 1795239183,
     "last_checked_at": 1795371061,
-    "next_check_at": 1795371361
+    "next_check_at": 1795371687
   },
   {
     "id": "87.117.2.201:1080:RU:",
@@ -12698,7 +12729,7 @@
     "rtt_handshake_ms": 444,
     "rtt_total_ms": 4389,
     "uptime_pct": 27.99097,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 886,
     "checks_success": 248,
@@ -12800,7 +12831,7 @@
     "remark": null,
     "first_seen_at": 1795263142,
     "last_checked_at": 1795371190,
-    "next_check_at": 1795371370
+    "next_check_at": 1795371700
   },
   {
     "id": "89.46.131.79:10000:3 secs ago:",
@@ -12817,21 +12848,21 @@
     "country": "NL",
     "asn": 216154,
     "asn_org": "Clodo Cloud Service Co. L.L.C",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 1490,
-    "rtt_handshake_ms": 592,
-    "rtt_total_ms": 9193,
-    "uptime_pct": 76.237625,
-    "stability_pct": 0.0,
+    "anon": "elite",
+    "rtt_tcp_ms": 2512,
+    "rtt_handshake_ms": 2010,
+    "rtt_total_ms": 6611,
+    "uptime_pct": 76.35468,
+    "stability_pct": 100.0,
     "stability_window_min": 5,
-    "checks_total": 202,
-    "checks_success": 154,
+    "checks_total": 203,
+    "checks_success": 155,
     "dead_strikes": 0,
     "last_error": null,
     "remark": null,
     "first_seen_at": 1795350842,
-    "last_checked_at": 1795371170,
-    "next_check_at": 1795371350
+    "last_checked_at": 1795371542,
+    "next_check_at": 1795371602
   },
   {
     "id": "89.46.131.79:10000:The Netherlands:",
@@ -12862,7 +12893,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795371196,
-    "next_check_at": 1795371396
+    "next_check_at": 1795371706
   },
   {
     "id": "9.154.253.201:1080:ID:",
@@ -12884,7 +12915,7 @@
     "rtt_handshake_ms": 630,
     "rtt_total_ms": 55065,
     "uptime_pct": 32.457985,
-    "stability_pct": 66.66667,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 952,
     "checks_success": 309,
@@ -12893,7 +12924,7 @@
     "remark": null,
     "first_seen_at": 1795224594,
     "last_checked_at": 1795371297,
-    "next_check_at": 1795371357
+    "next_check_at": 1795371681
   },
   {
     "id": "90.154.61.187:1080:RU:",
@@ -12946,7 +12977,7 @@
     "rtt_handshake_ms": 357,
     "rtt_total_ms": 6535,
     "uptime_pct": 77.08894,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1113,
     "checks_success": 858,
@@ -12955,7 +12986,7 @@
     "remark": null,
     "first_seen_at": 1795275726,
     "last_checked_at": 1795371251,
-    "next_check_at": 1795371311
+    "next_check_at": 1795371655
   },
   {
     "id": "91.122.216.160:10888:RU:",
@@ -13017,7 +13048,7 @@
     "remark": null,
     "first_seen_at": 1795340214,
     "last_checked_at": 1795371179,
-    "next_check_at": 1795371359
+    "next_check_at": 1795371681
   },
   {
     "id": "93.153.222.83:1080:RU:",
@@ -13079,7 +13110,7 @@
     "remark": null,
     "first_seen_at": 1795282055,
     "last_checked_at": 1795371164,
-    "next_check_at": 1795371344
+    "next_check_at": 1795371669
   },
   {
     "id": "95.31.52.151:1080:RU:",
@@ -13110,7 +13141,7 @@
     "remark": null,
     "first_seen_at": 1795254538,
     "last_checked_at": 1795371073,
-    "next_check_at": 1795371374
+    "next_check_at": 1795371702
   },
   {
     "id": "95.80.120.246:1080:Russia:",

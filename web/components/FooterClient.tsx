@@ -8,8 +8,7 @@ import type { ProxyStats } from "@/lib/types";
 import { useDictionary } from "./I18nProvider";
 
 export default function FooterClient({ stats }: { stats: ProxyStats }) {
-  const { dict, locale } = useDictionary();
-  const prefix = locale === "ru" ? "/ru" : "";
+  const { dict, locale, getPath } = useDictionary();
 
   // Protocols sorted by count descending
   const sortedProtocols = Object.entries(stats.protocolCounts).sort(
@@ -82,7 +81,7 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
             <ul className={styles.list}>
               {sortedProtocols.map(([proto, count]) => (
                 <li key={proto}>
-                  <Link href={`${prefix}/${proto}`}>
+                  <Link href={getPath(`/${proto}`)}>
                     {dict.footer.protocolLink.replace("{protocol}", proto.toUpperCase())} ({count})
                   </Link>
                 </li>
@@ -95,7 +94,7 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
             <ul className={styles.locationsList}>
               {sortedCountries.slice(0, 20).map(({ code, count, name }) => (
                 <li key={code}>
-                  <Link href={`${prefix}/country/${code}`} suppressHydrationWarning>
+                  <Link href={getPath(`/country/${code}`)} suppressHydrationWarning>
                     {name} ({count})
                   </Link>
                 </li>
@@ -107,27 +106,27 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
             <h4 className={styles.heading}>{dict.footer.proxyTypes}</h4>
             <ul className={styles.list}>
               <li>
-                <Link href={`${prefix}/residential`}>
+                <Link href={getPath("/residential")}>
                   {dict.footer.residential} ({stats.residentialCount})
                 </Link>
               </li>
               <li>
-                <Link href={`${prefix}/datacenter`}>
+                <Link href={getPath("/datacenter")}>
                   {dict.footer.datacenter} ({stats.datacenterCount})
                 </Link>
               </li>
               <li>
-                <Link href={`${prefix}/docs`}>
+                <Link href={getPath("/docs")}>
                   {dict.footer.docs}
                 </Link>
               </li>
               <li>
-                <Link href={`${prefix}/about`}>
+                <Link href={getPath("/about")}>
                   {dict.footer.about}
                 </Link>
               </li>
               <li>
-                <Link href={`${prefix}/privacy`}>
+                <Link href={getPath("/privacy")}>
                   {dict.footer.privacy}
                 </Link>
               </li>

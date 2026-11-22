@@ -3,12 +3,16 @@ import styles from "@/app/docs/page.module.css";
 import CodeSnippet from "@/components/CodeSnippet";
 import GitHubStarCard from "@/components/GitHubStarCard";
 import Link from "next/link";
-import { getDictionary, Locale } from "@/lib/i18n";
+import { getDictionary, Locale, getCanonicalUrl, SITE_URL } from "@/lib/i18n";
 
-const SITE_URL = "https://stormsia.github.io/proxy-list";
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
 const GITHUB_REPO = "https://github.com/stormsia/proxy-list";
 const HYDRA_URL = "https://github.com/stormsia/hydra";
+
+const README_URLS: Record<Locale, string> = {
+  en: `${GITHUB_REPO}#readme`,
+  ru: `${GITHUB_REPO}/blob/main/README.ru.md`,
+};
 
 function GitHubIcon({ size = 15 }: { size?: number }) {
   return (
@@ -30,14 +34,11 @@ function GitHubIcon({ size = 15 }: { size?: number }) {
 
 export default async function DocsView({ lang }: { lang: Locale }) {
   const dict = await getDictionary(lang);
-  const isRuLocale = lang === "ru";
 
-  const pageUrl = isRuLocale ? `${SITE_URL}/ru/docs` : `${SITE_URL}/docs`;
-  const homeUrl = isRuLocale ? `${SITE_URL}/ru` : SITE_URL;
+  const pageUrl = getCanonicalUrl("/docs", lang);
+  const homeUrl = getCanonicalUrl("/", lang);
 
-  const readmeBaseUrl = isRuLocale
-    ? `${GITHUB_REPO}/blob/main/README.ru.md`
-    : `${GITHUB_REPO}#readme`;
+  const readmeBaseUrl = README_URLS[lang] ?? README_URLS.en;
 
   const schemaMarkup = {
     "@context": "https://schema.org/",

@@ -3,12 +3,10 @@ import styles from "@/app/page.module.css";
 import { MapPin } from "lucide-react";
 import FAQ from "@/components/FAQ";
 import GitHubStarCard from "@/components/GitHubStarCard";
-import { getDictionary, Locale } from "@/lib/i18n";
+import { getDictionary, Locale, getLocalizedPath, getCanonicalUrl, SITE_URL } from "@/lib/i18n";
 import { getProxies, getProxiesByCountry } from "@/lib/proxies";
 import { COUNTRY_META, getCountryDisplayName } from "@/lib/countries";
 import { getFaqSchema } from "@/lib/seo";
-
-const SITE_URL = "https://stormsia.github.io/proxy-list";
 
 export { COUNTRY_META };
 
@@ -20,7 +18,6 @@ export default async function CountryView({
   code: string;
 }) {
   const dict = await getDictionary(lang);
-  const isRuLocale = lang === "ru";
   const normalizedCode = code.toLowerCase();
 
   const allProxies = await getProxies();
@@ -34,10 +31,8 @@ export default async function CountryView({
     lang
   );
 
-  const pageUrl = isRuLocale
-    ? `${SITE_URL}/ru/country/${normalizedCode}`
-    : `${SITE_URL}/country/${normalizedCode}`;
-  const homeUrl = isRuLocale ? `${SITE_URL}/ru` : SITE_URL;
+  const pageUrl = getCanonicalUrl(`/country/${normalizedCode}`, lang);
+  const homeUrl = getCanonicalUrl("/", lang);
 
   const schemaMarkup = {
     "@context": "https://schema.org/",
@@ -163,7 +158,7 @@ export default async function CountryView({
           proxies={allProxies}
           dict={dict.table}
           initialCountry={normalizedCode}
-          viewAllHref={isRuLocale ? "/ru" : "/"}
+          viewAllHref={getLocalizedPath("/", lang)}
           pageContext={{
             type: "country",
             value: normalizedCode,

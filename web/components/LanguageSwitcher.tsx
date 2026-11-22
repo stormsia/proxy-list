@@ -2,36 +2,26 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Locale } from "@/lib/i18n";
+import { Locale, switchLocalePath, LOCALES, DEFAULT_LOCALE } from "@/lib/i18n";
 import { useDictionary } from "./I18nProvider";
 
+const LANGUAGE_LABELS: Record<Locale, string> = {
+  en: "🇬🇧 English",
+  ru: "🇷🇺 Русский",
+};
+
 export default function LanguageSwitcher({ currentLang }: { currentLang?: Locale }) {
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
   const { locale } = useDictionary();
   const lang = currentLang || locale;
 
-  // Simple path toggler:
-  // If we are at /ru/docs, en -> /docs
-  // If we are at /docs, ru -> /ru/docs
-  const togglePath = () => {
-    if (!pathname) return "/";
-    if (lang === "ru") {
-      // Remove /ru prefix
-      if (pathname === "/ru") return "/";
-      return pathname.replace(/^\/ru\//, "/") || "/";
-    } else {
-      // Add /ru prefix
-      if (pathname === "/") return "/ru";
-      return `/ru${pathname}`;
-    }
-  };
-
-  const targetLang = lang === "en" ? "ru" : "en";
-  const label = lang === "en" ? "🇷🇺 Русский" : "🇬🇧 English";
+  const targetLang: Locale = LOCALES.find((l) => l !== lang) || DEFAULT_LOCALE;
+  const label = LANGUAGE_LABELS[targetLang];
+  const targetHref = switchLocalePath(pathname, targetLang);
 
   return (
     <Link
-      href={togglePath()}
+      href={targetHref}
       style={{
         display: "flex",
         alignItems: "center",
@@ -45,7 +35,7 @@ export default function LanguageSwitcher({ currentLang }: { currentLang?: Locale
         border: "1px solid rgba(139, 92, 246, 0.3)",
         marginLeft: "1rem",
         boxShadow: "0 2px 10px rgba(139, 92, 246, 0.1)",
-        transition: "all 0.2s ease"
+        transition: "all 0.2s ease",
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.background = "rgba(139, 92, 246, 0.2)";

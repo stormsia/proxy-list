@@ -3,11 +3,10 @@ import styles from "@/app/page.module.css";
 import { Globe } from "lucide-react";
 import FAQ from "@/components/FAQ";
 import GitHubStarCard from "@/components/GitHubStarCard";
-import { getDictionary, Locale } from "@/lib/i18n";
+import { getDictionary, Locale, getLocalizedPath, getCanonicalUrl } from "@/lib/i18n";
 import { getProxies, getProxiesByProtocol } from "@/lib/proxies";
 import { getFaqSchema } from "@/lib/seo";
 
-const SITE_URL = "https://stormsia.github.io/proxy-list";
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
 
 export const PROTOCOL_META: Record<string, { color: string; file: string }> = {
@@ -25,7 +24,6 @@ export default async function ProtocolView({
   protocol: string;
 }) {
   const dict = await getDictionary(lang);
-  const isRuLocale = lang === "ru";
   const normalizedProtocol = protocol.toLowerCase();
   const upper = normalizedProtocol.toUpperCase();
 
@@ -37,10 +35,8 @@ export default async function ProtocolView({
   const txtFile = meta?.file ?? `${normalizedProtocol}.txt`;
 
   const about = dict.protocol.about[normalizedProtocol as keyof typeof dict.protocol.about];
-  const pageUrl = isRuLocale
-    ? `${SITE_URL}/ru/${normalizedProtocol}`
-    : `${SITE_URL}/${normalizedProtocol}`;
-  const homeUrl = isRuLocale ? `${SITE_URL}/ru` : SITE_URL;
+  const pageUrl = getCanonicalUrl(`/${normalizedProtocol}`, lang);
+  const homeUrl = getCanonicalUrl("/", lang);
 
   const schemaMarkup = {
     "@context": "https://schema.org/",
@@ -187,7 +183,7 @@ export default async function ProtocolView({
           proxies={allProxies}
           dict={dict.table}
           initialProtocol={normalizedProtocol}
-          viewAllHref={isRuLocale ? "/ru" : "/"}
+          viewAllHref={getLocalizedPath("/", lang)}
           pageContext={{
             type: "protocol",
             value: normalizedProtocol,

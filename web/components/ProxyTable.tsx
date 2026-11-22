@@ -70,9 +70,8 @@ function ProxyTableView({
   pageContext,
   liveState,
 }: ProxyTableProps & { liveState: LiveProxiesState }) {
-  const { dict: globalDict, locale } = useDictionary();
+  const { dict: globalDict, locale, getPath } = useDictionary();
   const dict = passedDict || globalDict.table;
-  const prefix = locale === "ru" ? "/ru" : "";
 
   // Live real-time proxy sync
   const {
@@ -852,7 +851,7 @@ function ProxyTableView({
                     <td>
                       {countryCode ? (
                         <Link
-                          href={`${prefix}/country/${countryCode}`}
+                          href={getPath(`/country/${countryCode}`)}
                           className={styles.countryCell}
                           title={dict.countryTitle.replace("{country}", countryName)}
                           style={{ textDecoration: "none", color: "inherit" }}
@@ -957,7 +956,7 @@ function ProxyTableView({
                   <div className={styles.cardCountry}>
                     {countryCode ? (
                       <Link
-                        href={`${prefix}/country/${countryCode}`}
+                        href={getPath(`/country/${countryCode}`)}
                         style={{
                           display: "inline-flex",
                           alignItems: "center",

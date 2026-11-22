@@ -1,15 +1,32 @@
 import { Metadata } from "next";
+import {
+  SITE_URL,
+  Locale,
+  LOCALES,
+  DEFAULT_LOCALE,
+  getCanonicalUrl,
+} from "./i18n";
 
-export const SITE_URL = "https://stormsia.github.io/proxy-list";
+export { SITE_URL };
 
 export interface PageMetadataOptions {
   title: string;
   description: string;
   /** Relative path without leading locale, e.g. "" or "/socks5" or "/country/us" */
   subpath?: string;
-  lang: "en" | "ru";
+  lang: Locale;
   keywords?: string[];
 }
+
+const OG_LOCALES: Record<Locale, string> = {
+  en: "en_US",
+  ru: "ru_RU",
+};
+
+const OG_ALTERNATE_LOCALES: Record<Locale, string> = {
+  en: "ru_RU",
+  ru: "en_US",
+};
 
 /**
  * Standardized Metadata generator ensuring strict canonical, bidirectional hreflang (en/ru/x-default),
@@ -22,10 +39,13 @@ export function buildPageMetadata({
   lang,
   keywords,
 }: PageMetadataOptions): Metadata {
-  const cleanSubpath = subpath ? (subpath.startsWith("/") ? subpath : `/${subpath}`) : "";
-  const enUrl = `${SITE_URL}${cleanSubpath}`;
-  const ruUrl = `${SITE_URL}/ru${cleanSubpath}`;
-  const canonicalUrl = lang === "ru" ? ruUrl : enUrl;
+  const canonicalUrl = getCanonicalUrl(subpath, lang);
+
+  const languages: Record<string, string> = {};
+  LOCALES.forEach((l) => {
+    languages[l] = getCanonicalUrl(subpath, l);
+  });
+  languages["x-default"] = getCanonicalUrl(subpath, DEFAULT_LOCALE);
 
   const defaultKeywords = [
     "free proxy list",
@@ -46,19 +66,15 @@ export function buildPageMetadata({
     keywords: keywords || defaultKeywords,
     alternates: {
       canonical: canonicalUrl,
-      languages: {
-        en: enUrl,
-        ru: ruUrl,
-        "x-default": enUrl,
-      },
+      languages,
     },
     openGraph: {
       title,
       description,
       url: canonicalUrl,
       siteName: "stormsia/proxy-list",
-      locale: lang === "ru" ? "ru_RU" : "en_US",
-      alternateLocale: lang === "ru" ? "en_US" : "ru_RU",
+      locale: OG_LOCALES[lang] || "en_US",
+      alternateLocale: OG_ALTERNATE_LOCALES[lang] || "ru_RU",
       type: "website",
     },
     twitter: {

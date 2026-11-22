@@ -1,11 +1,10 @@
 import { ShieldCheck, Lock, EyeOff, AlertTriangle, ExternalLink } from "lucide-react";
 import styles from "./LegalView.module.css";
-import { getDictionary, Locale } from "@/lib/i18n";
+import { getDictionary, Locale, getCanonicalUrl } from "@/lib/i18n";
 
 export default async function PrivacyView({ lang }: { lang: Locale }) {
   const dict = await getDictionary(lang);
-  const SITE_URL = "https://stormsia.github.io/proxy-list";
-  const pageUrl = lang === "ru" ? `${SITE_URL}/ru/privacy` : `${SITE_URL}/privacy`;
+  const pageUrl = getCanonicalUrl("/privacy", lang);
 
   const privacySchema = {
     "@context": "https://schema.org",

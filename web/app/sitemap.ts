@@ -1,9 +1,8 @@
 import { MetadataRoute } from "next";
 import { getStaticCountryParams } from "@/lib/proxies";
+import { LOCALES, DEFAULT_LOCALE, getCanonicalUrl, SITE_URL } from "@/lib/i18n";
 
 export const dynamic = "force-static";
-
-const SITE_URL = "https://stormsia.github.io/proxy-list";
 
 const PRIORITY_COUNTRIES = [
   "us", "de", "gb", "nl", "fr", "ca", "ru", "ua",
@@ -36,59 +35,41 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const entries: MetadataRoute.Sitemap = [];
 
-  // Helper to generate paired en/ru entries with bidirectional hreflang alternates
-  const addLocalizedPair = (
-    enPath: string,
-    ruPath: string,
+  // Helper to generate localized entries with bidirectional hreflang alternates
+  const addLocalizedEntries = (
+    basePath: string,
     priority: number,
     changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never"
   ) => {
-    const enUrl = `${SITE_URL}${enPath}`;
-    const ruUrl = `${SITE_URL}${ruPath}`;
-
-    const languages = {
-      en: enUrl,
-      ru: ruUrl,
-      "x-default": enUrl,
-    };
-
-    // English entry
-    entries.push({
-      url: enUrl,
-      lastModified: now,
-      changeFrequency,
-      priority,
-      alternates: {
-        languages,
-      },
+    const languages: Record<string, string> = {};
+    LOCALES.forEach((locale) => {
+      languages[locale] = getCanonicalUrl(basePath, locale);
     });
+    languages["x-default"] = getCanonicalUrl(basePath, DEFAULT_LOCALE);
 
-    // Russian entry
-    entries.push({
-      url: ruUrl,
-      lastModified: now,
-      changeFrequency,
-      priority,
-      alternates: {
-        languages,
-      },
+    LOCALES.forEach((locale) => {
+      entries.push({
+        url: getCanonicalUrl(basePath, locale),
+        lastModified: now,
+        changeFrequency,
+        priority,
+        alternates: {
+          languages,
+        },
+      });
     });
   };
 
   // Add static core pages
   for (const route of coreRoutes) {
-    const enPath = route.path;
-    const ruPath = `/ru${route.path}`;
-    addLocalizedPair(enPath, ruPath, route.priority, route.changeFrequency);
+    addLocalizedEntries(route.path, route.priority, route.changeFrequency);
   }
 
   // Add dynamic country pages (100% parity with static generation)
   for (const { code } of countryParams) {
     const isPriority = PRIORITY_COUNTRIES.includes(code.toLowerCase());
     const priority = isPriority ? 0.7 : 0.6;
-    const enPath = `/country/${code.toLowerCase()}`;
-    const ruPath = `/ru/country/${code.toLowerCase()}`;
-    addLocalizedPair(enPath, ruPath, priority, "daily");
+    addLocalizedEntries(`/country/${code.toLowerCase()}`, priority, "daily");
   }
 
   // Machine-readable AI Agent discovery manifests

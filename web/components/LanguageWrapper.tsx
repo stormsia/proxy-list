@@ -1,6 +1,7 @@
 "use client";
 
 import { useDictionary } from "./I18nProvider";
+import { Locale } from "@/lib/i18n";
 
 export default function LanguageWrapper({
   en,
@@ -10,5 +11,6 @@ export default function LanguageWrapper({
   ru: React.ReactNode;
 }) {
   const { locale } = useDictionary();
-  return <>{locale === "ru" ? ru : en}</>;
+  const content: Record<Locale, React.ReactNode> = { en, ru };
+  return <>{content[locale] ?? en}</>;
 }

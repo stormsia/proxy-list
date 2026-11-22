@@ -2,11 +2,19 @@
 
 import React, { createContext, useContext, useMemo } from "react";
 import { usePathname } from "next/navigation";
-import { dictionaries, Dictionary, Locale } from "@/lib/i18n";
+import {
+  dictionaries,
+  Dictionary,
+  Locale,
+  LOCALES,
+  DEFAULT_LOCALE,
+  getLocalizedPath,
+} from "@/lib/i18n";
 
 export interface I18nContextValue {
   locale: Locale;
   dict: Dictionary;
+  getPath: (pathname: string) => string;
 }
 
 const I18nContext = createContext<I18nContextValue | null>(null);
@@ -21,14 +29,27 @@ export function I18nProvider({
   children: React.ReactNode;
 }) {
   const pathname = usePathname() || "";
-  const derivedLocale: Locale =
-    pathname.startsWith("/ru") || pathname.startsWith("/proxy-list/ru")
-      ? "ru"
-      : "en";
+  const cleanPath = pathname.startsWith("/proxy-list")
+    ? pathname.slice("/proxy-list".length)
+    : pathname;
+  const segments = cleanPath.split("/").filter(Boolean);
+  const matchedLocale = LOCALES.find(
+    (l) => l !== DEFAULT_LOCALE && segments[0] === l
+  );
+  const derivedLocale: Locale = matchedLocale || DEFAULT_LOCALE;
   const locale = forcedLocale || derivedLocale;
   const dict = forcedDict || dictionaries[locale];
 
-  const value = useMemo(() => ({ locale, dict }), [locale, dict]);
+  const getPath = useMemo(
+    () => (pathnameToLocalize: string) =>
+      getLocalizedPath(pathnameToLocalize, locale),
+    [locale]
+  );
+
+  const value = useMemo(
+    () => ({ locale, dict, getPath }),
+    [locale, dict, getPath]
+  );
 
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }
@@ -38,5 +59,9 @@ export function useDictionary(): I18nContextValue {
   if (ctx) {
     return ctx;
   }
-  return { locale: "en", dict: dictionaries.en };
+  return {
+    locale: DEFAULT_LOCALE,
+    dict: dictionaries[DEFAULT_LOCALE],
+    getPath: (pathname: string) => getLocalizedPath(pathname, DEFAULT_LOCALE),
+  };
 }

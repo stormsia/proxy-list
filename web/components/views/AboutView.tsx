@@ -1,11 +1,10 @@
 import { Shield, Cpu, Globe, CheckCircle2, Terminal, ExternalLink } from "lucide-react";
 import styles from "./LegalView.module.css";
-import { getDictionary, Locale } from "@/lib/i18n";
+import { getDictionary, Locale, getCanonicalUrl, SITE_URL } from "@/lib/i18n";
 
 export default async function AboutView({ lang }: { lang: Locale }) {
   const dict = await getDictionary(lang);
-  const SITE_URL = "https://stormsia.github.io/proxy-list";
-  const pageUrl = lang === "ru" ? `${SITE_URL}/ru/about` : `${SITE_URL}/about`;
+  const pageUrl = getCanonicalUrl("/about", lang);
 
   const aboutSchema = {
     "@context": "https://schema.org",

@@ -18,7 +18,7 @@ import {
 import type { ProxyRecord } from "@/lib/types";
 import { getCountryCoordinates, getCountryDisplayName } from "@/lib/countries";
 import { WORLD_LAND_PATH } from "@/lib/worldLandmass";
-import { Locale } from "@/lib/i18n";
+import { Locale, getLocalizedPath } from "@/lib/i18n";
 import { useDictionary } from "./I18nProvider";
 import styles from "./VectorWorldMap.module.css";
 
@@ -82,7 +82,10 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
   const { dict: globalDict, locale: ctxLocale } = useDictionary();
   const currentLocale = lang || ctxLocale;
   const dict = globalDict.map;
-  const prefix = currentLocale === "ru" ? "/ru" : "";
+  const getCountryPath = useCallback(
+    (code: string) => getLocalizedPath(`/country/${code.toLowerCase()}`, currentLocale),
+    [currentLocale]
+  );
 
   const [activeProtocol, setActiveProtocol] = useState<string>("all");
   const [showRoutes, setShowRoutes] = useState<boolean>(true);
@@ -307,7 +310,7 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
       if (isTouch) {
         if (selectedCluster?.code === cluster.code) {
           // Second tap on already selected country -> navigate to catalog
-          router.push(`${prefix}/country/${cluster.code.toLowerCase()}`);
+          router.push(getCountryPath(cluster.code));
         } else {
           // First tap -> select and display in Docked HUD
           setSelectedCluster(cluster);
@@ -315,20 +318,20 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
         }
       } else {
         // Desktop mouse click -> navigate directly
-        router.push(`${prefix}/country/${cluster.code.toLowerCase()}`);
+        router.push(getCountryPath(cluster.code));
       }
     },
-    [isTouchDevice, selectedCluster, prefix, router]
+    [isTouchDevice, selectedCluster, getCountryPath, router]
   );
 
   const handleNodeKeyDown = useCallback(
     (cluster: CountryCluster, e: React.KeyboardEvent) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        router.push(`${prefix}/country/${cluster.code.toLowerCase()}`);
+        router.push(getCountryPath(cluster.code));
       }
     },
-    [prefix, router]
+    [getCountryPath, router]
   );
 
   // Clicking empty SVG space deselects on mobile
@@ -725,7 +728,7 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
               {selectedCluster ? (
                 <>
                   <Link
-                    href={`${prefix}/country/${activeCluster.code.toLowerCase()}`}
+                    href={getCountryPath(activeCluster.code)}
                     className={styles.hudCtaBtn}
                     title={`${dict.inspectCountry} ${activeCluster.name}`}
                   >

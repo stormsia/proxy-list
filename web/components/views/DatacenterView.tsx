@@ -3,22 +3,20 @@ import styles from "@/app/page.module.css";
 import { Server } from "lucide-react";
 import FAQ from "@/components/FAQ";
 import GitHubStarCard from "@/components/GitHubStarCard";
-import { getDictionary, Locale } from "@/lib/i18n";
+import { getDictionary, Locale, getLocalizedPath, getCanonicalUrl } from "@/lib/i18n";
 import { getProxies, getDatacenterProxies } from "@/lib/proxies";
 import { getBreadcrumbSchema, getFaqSchema } from "@/lib/seo";
 
-const SITE_URL = "https://stormsia.github.io/proxy-list";
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
 
 export default async function DatacenterView({ lang }: { lang: Locale }) {
   const dict = await getDictionary(lang);
-  const isRuLocale = lang === "ru";
 
   const allProxies = await getProxies();
   const dcProxies = getDatacenterProxies(allProxies);
 
-  const homeUrl = isRuLocale ? `${SITE_URL}/ru` : SITE_URL;
-  const pageUrl = `${SITE_URL}${isRuLocale ? "/ru" : ""}/datacenter`;
+  const homeUrl = getCanonicalUrl("/", lang);
+  const pageUrl = getCanonicalUrl("/datacenter", lang);
 
   const schemaMarkup = {
     "@context": "https://schema.org/",
@@ -119,7 +117,7 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
           proxies={allProxies}
           dict={dict.table}
           initialType="datacenter"
-          viewAllHref={isRuLocale ? "/ru" : "/"}
+          viewAllHref={getLocalizedPath("/", lang)}
           pageContext={{
             type: "category",
             value: "datacenter",

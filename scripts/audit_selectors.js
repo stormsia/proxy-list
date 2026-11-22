@@ -215,7 +215,7 @@ sourceFiles.forEach(f => {
   const content = fs.readFileSync(f, 'utf8');
   const lines = content.split('\n');
   lines.forEach((line, idx) => {
-    if (/\bisRu\b|\bis_ru\b/i.test(line)) {
+    if (/\bisRu|\bis_ru/i.test(line)) {
       legacyMatches.push({ file: path.relative(rootDir, f), line: idx + 1, snippet: line.trim() });
     }
   });

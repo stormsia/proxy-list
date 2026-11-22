@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Globe, Map, Terminal, Menu, X, Languages, Star } from "lucide-react";
 import styles from "./Navbar.module.css";
+import { switchLocalePath, LOCALES, DEFAULT_LOCALE } from "@/lib/i18n";
 import { useDictionary } from "./I18nProvider";
 
 function GitHubIcon({ size = 16 }: { size?: number }) {
@@ -28,22 +29,12 @@ function GitHubIcon({ size = 16 }: { size?: number }) {
 export default function Navbar() {
   const pathname = usePathname() || "";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { dict, locale } = useDictionary();
+  const { dict, locale, getPath } = useDictionary();
 
-  const isRuLocale = locale === "ru";
-  const baseHome = isRuLocale ? "/ru" : "/";
-  const baseDocs = isRuLocale ? "/ru/docs" : "/docs";
-
-  // Toggle path for language switcher
-  const getAltLangPath = () => {
-    if (isRuLocale) {
-      if (pathname === "/ru") return "/";
-      return pathname.replace(/^\/ru/, "") || "/";
-    } else {
-      if (pathname === "/") return "/ru";
-      return `/ru${pathname}`;
-    }
-  };
+  const baseHome = getPath("/");
+  const baseDocs = getPath("/docs");
+  const targetLocale = LOCALES.find((l) => l !== locale) || DEFAULT_LOCALE;
+  const altLangPath = switchLocalePath(pathname, targetLocale);
 
   // Close mobile menu on route change
   const [prevPathname, setPrevPathname] = useState(pathname);
@@ -52,7 +43,7 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }
 
-  const isHomeActive = isRuLocale ? pathname === "/ru" : pathname === "/";
+  const isHomeActive = pathname === baseHome || pathname === `${baseHome}/`;
   const isDocsActive = pathname.includes("/docs");
 
   return (
@@ -100,7 +91,7 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href={getAltLangPath()}
+            href={altLangPath}
             className={styles.langBtn}
             aria-label={dict.nav.langSwitchAria}
           >
@@ -154,7 +145,7 @@ export default function Navbar() {
               <span>{dict.nav.docs}</span>
             </Link>
 
-            <Link href={getAltLangPath()} className={styles.mobileLink}>
+            <Link href={altLangPath} className={styles.mobileLink}>
               <Languages size={18} />
               <span>{dict.nav.langSwitchMobile}</span>
             </Link>

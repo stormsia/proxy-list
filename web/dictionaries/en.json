@@ -52,7 +52,7 @@
     "proxyDirectory": "Proxy Directory",
     "seoTitle": "Free Verified Proxy Infrastructure for Scrapers, Data Pipelines & AI Agents",
     "card1Title": "Continuous 60s Audits • 1 Gbps+ Bandwidth",
-    "card1Desc": "The Hydra Rust engine re-tests TCP sockets, latency, and TLS handshakes every minute, guaranteeing 99.8% pool uptime SLA and 1 Gbps+ aggregate bandwidth. Dead nodes are purged instantly.",
+    "card1Desc": "The Hydra Rust engine re-tests TCP sockets, latency, and TLS handshakes every minute. This maintains a 99.8% pool uptime SLA and 1 Gbps+ aggregate bandwidth with instant pruning of dead nodes.",
     "card2Title": "SOCKS5 & HTTP Agility • DNS Leak Protection",
     "card2Desc": "Arbitrary TCP/UDP transport via SOCKS5 with remote DNS resolution (socks5h://) to prevent DNS leaks, alongside high-speed web scraping via HTTPS CONNECT tunnels.",
     "card3Title": "AI Agent & Scraper Ready • Zero Rate Limits",
@@ -353,7 +353,7 @@
     "subtitle": "Zero-auth, continuously audited public proxy infrastructure powered by the high-speed Hydra validation engine.",
     "missionTitle": "Our Mission & Philosophy",
     "missionP1": "Traditional free proxy lists suffer from extreme data staleness: 80% to 95% of listed IPs are offline, unresponsive, or blacklisted. The mission of stormsia/proxy-list is to provide developers, data scientists, and autonomous AI agents with an auditable, high-availability public proxy pool filtered every 60 seconds.",
-    "missionP2": "We believe in an open web. Our infrastructure operates with zero authentication, no paywalls, no tracking redirects, and no collection of private user credentials.",
+    "missionP2": "We believe in an open web. Our infrastructure is completely unauthenticated and public: all endpoints are free, requests pass directly to targets without tracking redirects, and user credential collection is excluded.",
     "hydraTitle": "The Hydra Validation Engine",
     "hydraIntro": "The backbone of our dataset reliability is Hydra, an open-source Rust engine built on asynchronous Tokio non-blocking sockets. Hydra inspects tens of thousands of candidate endpoints simultaneously:",
     "featureTcpLabel": "TCP Handshake:",
@@ -458,7 +458,7 @@
     "step1Name": "Select a verified proxy endpoint",
     "step1Text": "Filter the live directory or fetch data/proxies.json. Select an active SOCKS5 or HTTPS proxy with sub-500ms RTT latency and 99%+ uptime verified by Hydra.",
     "step2Name": "Route traffic with cURL preventing DNS leaks",
-    "step2Text": "Run in your terminal: curl -x socks5h://IP:PORT https://api.ipify.org?format=json. The socks5h scheme forces remote DNS resolution through the proxy, preventing ISP leaks.",
+    "step2Text": "Run in your terminal: curl -x socks5h://IP:PORT https://api.ipify.org?format=json. The socks5h scheme forces remote DNS resolution through the proxy to eliminate ISP leaks.",
     "step3Name": "Integrate into Python httpx or requests",
     "step3Text": "In Python, initialize an async client via httpx.AsyncClient(proxy='socks5://IP:PORT') or run requests.get('https://example.com', proxies={'http': 'http://IP:PORT', 'https': 'http://IP:PORT'})."
   }

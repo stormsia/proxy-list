@@ -5,7 +5,7 @@ import FAQ, { FAQItem } from "@/components/FAQ";
 import GitHubStarCard from "@/components/GitHubStarCard";
 import { getDictionary, Locale } from "@/lib/i18n";
 import { getProxies, getProxyStats } from "@/lib/proxies";
-import { getDatasetSchema, getBreadcrumbSchema, getFaqSchema, getHowToSchema, SITE_URL } from "@/lib/seo";
+import { getDatasetSchema, getHowToSchema } from "@/lib/seo";
 
 export default async function HomeView({ lang }: { lang: Locale }) {
   const dict = await getDictionary(lang);
@@ -15,10 +15,6 @@ export default async function HomeView({ lang }: { lang: Locale }) {
   const schemaMarkup = getDatasetSchema();
   const faqData = dict.faq as unknown as { items?: FAQItem[] };
   const homeFaq: FAQItem[] = faqData?.items || [];
-  const faqSchema = getFaqSchema(homeFaq);
-  const breadcrumbSchema = getBreadcrumbSchema([
-    { name: dict.home.breadcrumbHome || "Home", url: SITE_URL },
-  ]);
   const howToSchema = getHowToSchema(dict.howTo);
 
   return (
@@ -26,14 +22,6 @@ export default async function HomeView({ lang }: { lang: Locale }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"

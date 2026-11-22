@@ -5,7 +5,7 @@ import FAQ from "@/components/FAQ";
 import GitHubStarCard from "@/components/GitHubStarCard";
 import { getDictionary, Locale, getLocalizedPath, getCanonicalUrl } from "@/lib/i18n";
 import { getProxies, getProxiesByProtocol } from "@/lib/proxies";
-import { getFaqSchema } from "@/lib/seo";
+
 
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
 
@@ -105,8 +105,6 @@ export default async function ProtocolView({
     },
   ];
 
-  const faqSchema = getFaqSchema(faqItems);
-
   return (
     <div className="container">
       <script
@@ -116,10 +114,6 @@ export default async function ProtocolView({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <header className={styles.header}>
         <div

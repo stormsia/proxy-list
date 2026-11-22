@@ -5,7 +5,7 @@ import FAQ from "@/components/FAQ";
 import GitHubStarCard from "@/components/GitHubStarCard";
 import { getDictionary, Locale, getLocalizedPath, getCanonicalUrl } from "@/lib/i18n";
 import { getProxies, getDatacenterProxies } from "@/lib/proxies";
-import { getBreadcrumbSchema, getFaqSchema } from "@/lib/seo";
+import { getBreadcrumbSchema } from "@/lib/seo";
 
 const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
 
@@ -54,7 +54,6 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
   ]);
 
   const faqItems = dict.datacenter.faqs;
-  const faqSchema = getFaqSchema(faqItems);
 
   return (
     <div className="container">
@@ -65,10 +64,6 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <header className={styles.header}>
         <div

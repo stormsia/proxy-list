@@ -6,7 +6,7 @@ import GitHubStarCard from "@/components/GitHubStarCard";
 import { getDictionary, Locale, getLocalizedPath, getCanonicalUrl, SITE_URL } from "@/lib/i18n";
 import { getProxies, getProxiesByCountry } from "@/lib/proxies";
 import { COUNTRY_META, getCountryDisplayName } from "@/lib/countries";
-import { getFaqSchema } from "@/lib/seo";
+
 
 export { COUNTRY_META };
 
@@ -92,8 +92,6 @@ export default async function CountryView({
     },
   ];
 
-  const faqSchema = getFaqSchema(faqItems);
-
   return (
     <div className="container">
       <script
@@ -103,10 +101,6 @@ export default async function CountryView({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <header className={styles.header}>
         <div

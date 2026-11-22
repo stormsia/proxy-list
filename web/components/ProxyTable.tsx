@@ -1,90 +1,89 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
+  Search,
+  RotateCcw,
+  SlidersHorizontal,
+  ChevronDown,
+  Download,
+  AlertCircle,
   Copy,
   Check,
-  Search,
-  X,
-  Download,
-  ChevronDown,
-  SlidersHorizontal,
-  ArrowUpDown,
+  Zap,
+  Server,
+  Globe,
   ShieldCheck,
   Lock,
-  Zap,
-  RotateCcw,
-  Globe,
-  MapPin,
-  Server,
-  AlertCircle,
+  ArrowUpDown,
   ExternalLink,
+  MapPin,
 } from "lucide-react";
-import type { ProxyRecord } from "@/lib/types";
+import styles from "./ProxyTable.module.css";
 import { getCountryDisplayName } from "@/lib/countries";
 import { isDatacenter, isResidential } from "@/lib/proxy-utils";
-import { useLiveProxies } from "@/lib/useLiveProxies";
-import LiveSyncIndicator from "@/components/LiveSyncIndicator";
-import styles from "./ProxyTable.module.css";
-
-export type Proxy = ProxyRecord;
-
-export type TableDict = {
-  protocol?: string;
-  ip?: string;
-  port?: string;
-  country?: string;
-  speed?: string;
-  anonymity?: string;
-  uptime?: string;
-  action?: string;
-  copy?: string;
-  copied?: string;
-  allProtocols?: string;
-  showing?: string;
-  proxiesCount?: string;
-  previous?: string;
-  next?: string;
-  page?: string;
-  of?: string;
-  unknown?: string;
-  searchPlaceholder?: string;
-  export?: string;
-  [key: string]: string | undefined;
-};
+import type { ProxyRecord } from "@/lib/types";
+import LiveSyncIndicator from "./LiveSyncIndicator";
+import { useLiveProxies, type LiveProxiesState } from "@/lib/useLiveProxies";
+import { useLiveProxiesContext } from "@/lib/LiveProxiesContext";
+import { useDictionary } from "./I18nProvider";
 
 export interface ProxyTableProps {
   proxies: ProxyRecord[];
-  dict?: TableDict;
+  dict?: any;
   initialProtocol?: string;
-  initialType?: "all" | "datacenter" | "residential";
-  initialCountry?: string;
+  initialType?: string; // "all", "residential", "datacenter"
+  initialCountry?: string; // ISO 2-letter country code
   viewAllHref?: string;
   pageContext?: {
-    type: "protocol" | "category" | "country";
+    type: "protocol" | "country" | "category";
     value: string;
     label: string;
   };
+  liveState?: LiveProxiesState;
 }
 
-export default function ProxyTable({
-  proxies: initialProxies,
-  dict,
+export default function ProxyTable(props: ProxyTableProps) {
+  const contextLiveState = useLiveProxiesContext();
+  const activeLiveState = props.liveState || contextLiveState;
+
+  if (activeLiveState) {
+    return <ProxyTableView {...props} liveState={activeLiveState} />;
+  }
+
+  return <ProxyTableSelfContained {...props} />;
+}
+
+function ProxyTableSelfContained(props: ProxyTableProps) {
+  const liveState = useLiveProxies(props.proxies);
+  return <ProxyTableView {...props} liveState={liveState} />;
+}
+
+function ProxyTableView({
+  proxies: passedProxies,
+  dict: passedDict,
   initialProtocol = "all",
   initialType = "all",
   initialCountry = "all",
   viewAllHref,
   pageContext,
-}: ProxyTableProps) {
+  liveState,
+}: ProxyTableProps & { liveState: LiveProxiesState }) {
+  const { dict: globalDict, locale } = useDictionary();
+  const dict = passedDict || globalDict.table;
+  const prefix = locale === "ru" ? "/ru" : "";
+
+  // Live real-time proxy sync
   const {
-    proxies,
+    proxies: liveProxies,
     secondsLeft,
     isSyncing,
     isUpdatedFlash,
     syncNow,
-  } = useLiveProxies(initialProxies);
+  } = liveState;
+
+  const proxies = liveProxies || passedProxies;
 
   const [filterProtocol, setFilterProtocol] = useState<string>(initialProtocol.toLowerCase());
   const [filterType, setFilterType] = useState<string>(initialType.toLowerCase());
@@ -99,7 +98,6 @@ export default function ProxyTable({
   const exportRef = useRef<HTMLDivElement>(null);
 
   const PAGE_SIZE = 50;
-  const isRu = dict?.country === "Страна" || dict?.copy === "Копировать";
 
   // Check if any filter is actively applied
   const hasActiveFilter =
@@ -150,58 +148,65 @@ export default function ProxyTable({
     return counts;
   }, [proxies, filterType, filterCountry]);
 
-  // Close export dropdown on click outside
+  // Close export dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (exportRef.current && !exportRef.current.contains(event.target as Node)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (exportRef.current && !exportRef.current.contains(e.target as Node)) {
         setExportOpen(false);
       }
     };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    if (exportOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [exportOpen]);
 
-  // Filtered & Sorted proxies
+  // Main filter + sort pipeline
   const filteredProxies = useMemo(() => {
     const normalizedQuery = searchQuery.trim().toLowerCase();
 
     return proxies
       .filter((p) => {
-        // IP Type filter
-        if (filterType === "datacenter" && !isDatacenter(p.asn_org)) return false;
-        if (filterType === "residential" && !isResidential(p.asn_org)) return false;
+        // Protocol filter
+        if (filterProtocol !== "all") {
+          if (filterProtocol === "https") {
+            if (!p.supports_https) return false;
+          } else if (p.protocol?.toLowerCase() !== filterProtocol) {
+            return false;
+          }
+        }
+
+        // IP Type filter (Residential vs Datacenter)
+        if (filterType === "datacenter" && !isDatacenter(p.asn_org)) {
+          return false;
+        }
+        if (filterType === "residential" && !isResidential(p.asn_org)) {
+          return false;
+        }
 
         // Country filter
         if (filterCountry !== "all" && (p.country || "").toLowerCase() !== filterCountry) {
           return false;
         }
 
-        // Protocol filter
-        if (filterProtocol !== "all") {
-          if (filterProtocol === "https") {
-            if (!p.supports_https && p.protocol?.toLowerCase() !== "https") return false;
-          } else if (p.protocol?.toLowerCase() !== filterProtocol) {
+        // Anonymity filter
+        if (anonymityFilter !== "all") {
+          const proxyAnon = (p.anon || "").toLowerCase();
+          if (proxyAnon !== anonymityFilter) {
             return false;
           }
         }
 
-        // Anonymity filter
-        if (anonymityFilter !== "all") {
-          const anon = p.anon?.toLowerCase();
-          if (anon !== anonymityFilter) return false;
+        // Latency filter
+        if (latencyFilter !== "all") {
+          const rtt = p.rtt_total_ms;
+          if (typeof rtt !== "number" || rtt <= 0) return false;
+          if (latencyFilter === "fast" && rtt >= 500) return false;
+          if (latencyFilter === "medium" && (rtt < 500 || rtt > 2000)) return false;
+          if (latencyFilter === "slow" && rtt <= 2000) return false;
         }
-
-        // Latency in ms (Hydra rtt_total_ms or legacy timeout * 1000)
-        const rtt =
-          typeof p.rtt_total_ms === "number" && p.rtt_total_ms > 0
-            ? p.rtt_total_ms
-            : typeof p.timeout === "number"
-            ? p.timeout * 1000
-            : 99999;
-
-        if (latencyFilter === "fast" && rtt >= 500) return false;
-        if (latencyFilter === "medium" && (rtt < 500 || rtt > 2000)) return false;
-        if (latencyFilter === "slow" && rtt <= 2000) return false;
 
         // Search query filter
         if (normalizedQuery) {
@@ -211,7 +216,7 @@ export default function ProxyTable({
           const countryName = getCountryDisplayName(
             countryCode,
             countryCode.toUpperCase(),
-            isRu ? "ru" : "en"
+            locale
           ).toLowerCase();
           const asnOrg = (p.asn_org || "").toLowerCase();
           const anonVal = (p.anon || "").toLowerCase();
@@ -252,7 +257,7 @@ export default function ProxyTable({
     latencyFilter,
     searchQuery,
     sortBy,
-    isRu,
+    locale,
   ]);
 
   // Reset page on filter changes without cascading effect renders
@@ -265,77 +270,99 @@ export default function ProxyTable({
 
   const totalPages = Math.max(1, Math.ceil(filteredProxies.length / PAGE_SIZE));
   const paginatedProxies = useMemo(() => {
-    return filteredProxies.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+    const start = (currentPage - 1) * PAGE_SIZE;
+    return filteredProxies.slice(start, start + PAGE_SIZE);
   }, [filteredProxies, currentPage]);
 
-  const handleCopy = (proxy: ProxyRecord, withProtocol = false) => {
-    const ip = proxy.ip || proxy.host || "";
-    const port = proxy.port;
-    const textToCopy = withProtocol
-      ? proxy.url || `${proxy.protocol}://${ip}:${port}`
-      : `${ip}:${port}`;
-
-    navigator.clipboard.writeText(textToCopy);
-    const id = proxy.id || `${proxy.protocol}-${ip}:${port}`;
+  // Copy handler
+  const handleCopy = (proxy: ProxyRecord) => {
+    const ip = proxy.ip || proxy.host;
+    const text = `${ip}:${proxy.port}`;
+    navigator.clipboard.writeText(text);
+    const id = proxy.id || `${proxy.protocol}-${ip}:${proxy.port}`;
     setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 2000);
+    setTimeout(() => {
+      setCopiedId((curr) => (curr === id ? null : curr));
+    }, 2000);
   };
 
   // Export handlers
-  const downloadFile = (content: string, filename: string, mime: string) => {
-    const blob = new Blob([content], { type: mime });
+  const exportTxt = (withScheme = false) => {
+    const lines = filteredProxies.map((p) => {
+      const ip = p.ip || p.host;
+      return withScheme ? `${p.protocol}://${ip}:${p.port}` : `${ip}:${p.port}`;
+    });
+    const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `proxies_${filterProtocol}_${Date.now()}.txt`;
+    link.click();
     URL.revokeObjectURL(url);
     setExportOpen(false);
   };
 
-  const exportTxt = (withProtocol: boolean) => {
-    const lines = filteredProxies.map((p) => {
-      const ip = p.ip || p.host || "";
-      return withProtocol ? p.url || `${p.protocol}://${ip}:${p.port}` : `${ip}:${p.port}`;
-    });
-    const filename = withProtocol ? "proxies-url.txt" : "proxies-ip-port.txt";
-    downloadFile(lines.join("\n"), filename, "text/plain;charset=utf-8");
-  };
-
   const exportJson = () => {
-    const jsonStr = JSON.stringify(filteredProxies, null, 2);
-    downloadFile(jsonStr, "proxies.json", "application/json;charset=utf-8");
+    const blob = new Blob([JSON.stringify(filteredProxies, null, 2)], {
+      type: "application/json;charset=utf-8",
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `proxies_${Date.now()}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+    setExportOpen(false);
   };
 
   const exportCsv = () => {
-    const headers = [
+    const header = [
       "protocol",
       "ip",
       "port",
       "country",
       "asn",
       "asn_org",
-      "anon",
-      "rtt_ms",
+      "latency_ms",
       "uptime_pct",
-      "supports_https",
+      "anon",
     ];
     const rows = filteredProxies.map((p) => [
       p.protocol,
-      p.ip || p.host || "",
+      p.ip || p.host,
       p.port,
       p.country || "",
-      p.asn ?? "",
+      p.asn || "",
       `"${(p.asn_org || "").replace(/"/g, '""')}"`,
+      p.rtt_total_ms || "",
+      p.uptime_pct !== undefined ? p.uptime_pct : "",
       p.anon || "",
-      p.rtt_total_ms ?? "",
-      p.uptime_pct !== null && p.uptime_pct !== undefined ? p.uptime_pct.toFixed(1) : "",
-      p.supports_https ? "true" : "false",
     ]);
-    const csvContent = [headers.join(","), ...rows.map((r) => r.join(","))].join("\n");
-    downloadFile(csvContent, "proxies.csv", "text/csv;charset=utf-8");
+    const csvContent = [header.join(","), ...rows.map((r) => r.join(","))].join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `proxies_${Date.now()}.csv`;
+    link.click();
+    URL.revokeObjectURL(url);
+    setExportOpen(false);
+  };
+
+  // Badge helpers
+  const getProtocolBadgeClass = (proto: string) => {
+    switch (proto.toLowerCase()) {
+      case "socks5":
+        return styles.badgeSocks5;
+      case "socks4":
+        return styles.badgeSocks4;
+      case "http":
+        return styles.badgeHttp;
+      case "https":
+        return styles.badgeHttps;
+      default:
+        return "";
+    }
   };
 
   const renderLatencyBadge = (proxy: ProxyRecord) => {
@@ -397,36 +424,16 @@ export default function ProxyTable({
     }
   };
 
-  const getProtocolBadgeClass = (proto: string) => {
-    switch (proto?.toLowerCase()) {
-      case "socks5":
-        return styles.badgeSocks5;
-      case "socks4":
-        return styles.badgeSocks4;
-      case "https":
-        return styles.badgeHttps;
-      case "http":
-      default:
-        return styles.badgeHttp;
-    }
-  };
-
   return (
-    <div className={styles.container}>
-      {/* Search & Controls */}
-      <div className={styles.controlsBar}>
-        {/* Search */}
-        <div className={styles.searchWrapper}>
+    <div className={styles.wrapper}>
+      {/* Search and Secondary Filter Bar */}
+      <div className={styles.searchBar}>
+        <div className={styles.searchField}>
           <Search className={styles.searchIcon} size={17} />
           <input
             type="text"
             className={styles.searchInput}
-            placeholder={
-              dict?.searchPlaceholder ||
-              (isRu
-                ? "Поиск по IP, порту, стране, ASN, анонимности..."
-                : "Search by IP, port, country, ASN, anonymity...")
-            }
+            placeholder={dict.searchPlaceholder}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             aria-label="Filter proxies"
@@ -436,15 +443,14 @@ export default function ProxyTable({
               type="button"
               className={styles.clearSearchBtn}
               onClick={() => setSearchQuery("")}
-              aria-label="Clear search"
+              aria-label="Clear search input"
             >
-              <X size={15} />
+              ×
             </button>
           )}
         </div>
 
-        {/* Filter Dropdowns & Export */}
-        <div className={styles.filterActions}>
+        <div className={styles.filterGroup}>
           {/* IP Type Filter */}
           <div className={styles.selectGroup}>
             <Server size={14} className={styles.selectIcon} />
@@ -454,9 +460,9 @@ export default function ProxyTable({
               onChange={(e) => setFilterType(e.target.value)}
               aria-label="Filter by IP type"
             >
-              <option value="all">{isRu ? "Тип: Все" : "Type: All"}</option>
-              <option value="datacenter">{isRu ? "Датацентр" : "Datacenter"}</option>
-              <option value="residential">{isRu ? "Резидентные" : "Residential"}</option>
+              <option value="all">{dict.typeAll}</option>
+              <option value="datacenter">{dict.datacenter}</option>
+              <option value="residential">{dict.residential}</option>
             </select>
           </div>
 
@@ -469,7 +475,7 @@ export default function ProxyTable({
               onChange={(e) => setAnonymityFilter(e.target.value)}
               aria-label="Filter by anonymity level"
             >
-              <option value="all">{isRu ? "Анонимность: Все" : "Anon: All"}</option>
+              <option value="all">{dict.anonAll}</option>
               <option value="elite">Elite</option>
               <option value="anonymous">Anonymous</option>
               <option value="transparent">Transparent</option>
@@ -485,10 +491,10 @@ export default function ProxyTable({
               onChange={(e) => setLatencyFilter(e.target.value)}
               aria-label="Filter by response time"
             >
-              <option value="all">{isRu ? "Скорость: Любая" : "Speed: All"}</option>
-              <option value="fast">{isRu ? "< 500ms (Быстрые)" : "< 500ms (Fast)"}</option>
-              <option value="medium">{isRu ? "500 - 2000ms" : "500 - 2000ms"}</option>
-              <option value="slow">{isRu ? "> 2000ms (Медленные)" : "> 2000ms (Slow)"}</option>
+              <option value="all">{dict.speedAll}</option>
+              <option value="fast">{dict.speedFast}</option>
+              <option value="medium">{dict.speedMedium}</option>
+              <option value="slow">{dict.speedSlow}</option>
             </select>
           </div>
 
@@ -501,11 +507,11 @@ export default function ProxyTable({
               onChange={(e) => setSortBy(e.target.value)}
               aria-label="Sort proxies"
             >
-              <option value="default">{isRu ? "По умолчанию" : "Sort: Default"}</option>
-              <option value="speed-asc">{isRu ? "Сначала быстрые" : "Fastest first"}</option>
-              <option value="speed-desc">{isRu ? "Сначала медленные" : "Slowest first"}</option>
-              <option value="uptime-desc">{isRu ? "Лучший аптайм" : "Highest uptime"}</option>
-              <option value="ip-asc">{isRu ? "По IP адресу" : "By IP Address"}</option>
+              <option value="default">{dict.sortDefault}</option>
+              <option value="speed-asc">{dict.sortSpeedAsc}</option>
+              <option value="speed-desc">{dict.sortSpeedDesc}</option>
+              <option value="uptime-desc">{dict.sortUptimeDesc}</option>
+              <option value="ip-asc">{dict.sortIpAsc}</option>
             </select>
           </div>
 
@@ -519,7 +525,7 @@ export default function ProxyTable({
               aria-haspopup="true"
             >
               <Download size={15} />
-              <span>{dict?.export || (isRu ? "Экспорт" : "Export")}</span>
+              <span>{dict.export}</span>
               <ChevronDown size={14} />
             </button>
 
@@ -550,7 +556,7 @@ export default function ProxyTable({
                   role="menuitem"
                 >
                   <span className={styles.exportFormatTag}>JSON</span>
-                  <span>{isRu ? "Полный JSON массив" : "Full JSON Array"}</span>
+                  <span>{dict.fullJson}</span>
                 </button>
                 <button
                   type="button"
@@ -559,19 +565,18 @@ export default function ProxyTable({
                   role="menuitem"
                 >
                   <span className={styles.exportFormatTag}>CSV</span>
-                  <span>{isRu ? "Таблица CSV" : "Spreadsheet CSV"}</span>
+                  <span>{dict.csvSpreadsheet}</span>
                 </button>
               </div>
             )}
           </div>
 
-          {/* Minimalist Live Sync Countdown Indicator */}
+          {/* Live Sync Status Pill */}
           <LiveSyncIndicator
             secondsLeft={secondsLeft}
             isSyncing={isSyncing}
             isUpdatedFlash={isUpdatedFlash}
             onSyncNow={syncNow}
-            isRu={isRu}
           />
 
           {/* Hydra Link */}
@@ -580,11 +585,7 @@ export default function ProxyTable({
             target="_blank"
             rel="noopener noreferrer"
             className={styles.hydraPill}
-            title={
-              isRu
-                ? "Проверено движком Hydra Rust каждую минуту"
-                : "Audited 24/7 by Hydra Rust Engine"
-            }
+            title={dict.hydraTitle}
           >
             <Zap size={13} style={{ color: "var(--accent)" }} />
             <span>Hydra</span>
@@ -597,7 +598,7 @@ export default function ProxyTable({
         <div className={styles.activeFilterBar}>
           <div className={styles.activeFilterTags}>
             <span className={styles.activeFilterLabel}>
-              {isRu ? "Активный фильтр:" : "Active filter:"}
+              {dict.activeFilter}
             </span>
 
             {filterType !== "all" && (
@@ -605,12 +606,8 @@ export default function ProxyTable({
                 <Server size={12} />
                 <span>
                   {filterType === "datacenter"
-                    ? isRu
-                      ? "Датацентр"
-                      : "Datacenter"
-                    : isRu
-                    ? "Резидентные"
-                    : "Residential"}
+                    ? dict.datacenter
+                    : dict.residential}
                 </span>
                 <button
                   type="button"
@@ -643,7 +640,7 @@ export default function ProxyTable({
                   {getCountryDisplayName(
                     filterCountry,
                     filterCountry.toUpperCase(),
-                    isRu ? "ru" : "en"
+                    locale
                   )}
                 </span>
                 <button
@@ -710,28 +707,20 @@ export default function ProxyTable({
               type="button"
               className={styles.resetFilterBtn}
               onClick={resetAllFilters}
-              title={
-                isRu
-                  ? "Сбросить фильтры и показать весь пул прокси"
-                  : "Reset filters and show all proxies"
-              }
+              title={dict.resetFiltersTitle}
             >
               <RotateCcw size={13} />
               <span>
-                {isRu ? "Сбросить / Показать все" : "Reset / Show all"} ({proxies.length})
+                {dict.resetFilters} ({proxies.length})
               </span>
             </button>
             {viewAllHref && (
               <Link
                 href={viewAllHref}
                 className={styles.catalogLink}
-                title={
-                  isRu
-                    ? "Перейти на главную страницу каталога"
-                    : "Go to main proxy catalog"
-                }
+                title={dict.catalogTitle}
               >
-                <span>{isRu ? "Общий каталог" : "Catalog"}</span>
+                <span>{dict.catalog}</span>
                 <ExternalLink size={12} />
               </Link>
             )}
@@ -743,7 +732,7 @@ export default function ProxyTable({
       <div className={styles.pillToolbar}>
         <div className={styles.pillsList} role="tablist" aria-label="Filter by protocol">
           {[
-            { id: "all", label: dict?.allProtocols || (isRu ? "Все" : "All") },
+            { id: "all", label: dict.allProtocols },
             { id: "socks5", label: "SOCKS5" },
             { id: "socks4", label: "SOCKS4" },
             { id: "http", label: "HTTP" },
@@ -767,26 +756,26 @@ export default function ProxyTable({
         </div>
 
         <div className={styles.resultsCount}>
-          {dict?.showing || (isRu ? "Показано" : "Showing")}{" "}
+          {dict.showing}{" "}
           <strong className="tabular-nums">{filteredProxies.length}</strong>{" "}
-          {dict?.proxiesCount || (isRu ? "прокси" : "proxies")}
+          {dict.proxiesCount}
         </div>
       </div>
 
       {/* Desktop Table View */}
       <div className={styles.tableWrapper}>
-        <table className={styles.table} aria-label={dict?.tableCaption || "Proxy List"}>
+        <table className={styles.table} aria-label={dict.tableCaption || "Proxy List"}>
           <thead>
             <tr>
-              <th scope="col">{dict?.protocol || (isRu ? "Протокол" : "Protocol")}</th>
-              <th scope="col">{dict?.ip || (isRu ? "IP Адрес" : "IP Address")}</th>
-              <th scope="col">{dict?.port || (isRu ? "Порт" : "Port")}</th>
-              <th scope="col">{dict?.country || (isRu ? "Страна" : "Country")}</th>
-              <th scope="col">{dict?.anonymity || (isRu ? "Анонимность" : "Anonymity")}</th>
-              <th scope="col">{dict?.speed || (isRu ? "Пинг" : "Latency")}</th>
-              <th scope="col">{dict?.uptime || (isRu ? "Аптайм" : "Uptime")}</th>
+              <th scope="col">{dict.protocol}</th>
+              <th scope="col">{dict.ip}</th>
+              <th scope="col">{dict.port}</th>
+              <th scope="col">{dict.country}</th>
+              <th scope="col">{dict.anonymity}</th>
+              <th scope="col">{dict.speed}</th>
+              <th scope="col">{dict.uptime}</th>
               <th scope="col" className={styles.alignRight}>
-                {dict?.action || (isRu ? "Действие" : "Action")}
+                {dict.action}
               </th>
             </tr>
           </thead>
@@ -799,14 +788,10 @@ export default function ProxyTable({
                       <AlertCircle size={28} style={{ color: "var(--accent)" }} />
                     </div>
                     <h4 className={styles.emptyTitle}>
-                      {isRu
-                        ? "По выбранным критериям прокси не найдены"
-                        : "No proxies match the selected filters"}
+                      {dict.emptyTitle}
                     </h4>
                     <p className={styles.emptySubtitle}>
-                      {isRu
-                        ? `Валидатор Hydra проверяет сокеты каждую минуту. В пуле доступно ${proxies.length} проверенных прокси.`
-                        : `The Hydra engine audits sockets every 60 seconds. There are ${proxies.length} verified proxies in the global pool.`}
+                      {dict.emptySubtitle.replace("{count}", String(proxies.length))}
                     </p>
                     <div className={styles.emptyButtonGroup}>
                       <button
@@ -816,13 +801,12 @@ export default function ProxyTable({
                       >
                         <RotateCcw size={14} />
                         <span>
-                          {isRu ? "Показать весь пул прокси" : "Show all proxies in pool"} (
-                          {proxies.length})
+                          {dict.showAllInPool} ({proxies.length})
                         </span>
                       </button>
                       {viewAllHref && (
                         <Link href={viewAllHref} className={styles.secondaryActionButton}>
-                          {isRu ? "Перейти в общий каталог" : "Browse global catalog"} →
+                          {dict.browseCatalog} →
                         </Link>
                       )}
                     </div>
@@ -839,7 +823,7 @@ export default function ProxyTable({
                 const countryName = getCountryDisplayName(
                   countryCode,
                   countryCode.toUpperCase(),
-                  isRu ? "ru" : "en"
+                  locale
                 );
 
                 return (
@@ -868,13 +852,9 @@ export default function ProxyTable({
                     <td>
                       {countryCode ? (
                         <Link
-                          href={`${isRu ? "/ru" : ""}/country/${countryCode}`}
+                          href={`${prefix}/country/${countryCode}`}
                           className={styles.countryCell}
-                          title={
-                            isRu
-                              ? `Прокси в регионе ${countryName}`
-                              : `Proxies in ${countryName}`
-                          }
+                          title={dict.countryTitle.replace("{country}", countryName)}
                           style={{ textDecoration: "none", color: "inherit" }}
                         >
                           <img
@@ -914,9 +894,7 @@ export default function ProxyTable({
                           <Copy size={14} />
                         )}
                         <span>
-                          {isCopied
-                            ? dict?.copied || (isRu ? "Скопировано" : "Copied")
-                            : dict?.copy || (isRu ? "Копировать" : "Copy")}
+                          {isCopied ? dict.copied : dict.copy}
                         </span>
                       </button>
                     </td>
@@ -936,14 +914,10 @@ export default function ProxyTable({
               <AlertCircle size={28} style={{ color: "var(--accent)" }} />
             </div>
             <h4 className={styles.emptyTitle}>
-              {isRu
-                ? "По выбранным критериям прокси не найдены"
-                : "No proxies match the selected filters"}
+              {dict.emptyTitle}
             </h4>
             <p className={styles.emptySubtitle}>
-              {isRu
-                ? `Валидатор Hydra проверяет сокеты каждую минуту. В пуле доступно ${proxies.length} проверенных прокси.`
-                : `The Hydra engine audits sockets every 60 seconds. There are ${proxies.length} verified proxies in the global pool.`}
+              {dict.emptySubtitle.replace("{count}", String(proxies.length))}
             </p>
             <div className={styles.emptyButtonGroup}>
               <button
@@ -953,12 +927,12 @@ export default function ProxyTable({
               >
                 <RotateCcw size={14} />
                 <span>
-                  {isRu ? "Показать весь пул прокси" : "Show all proxies in pool"} ({proxies.length})
+                  {dict.showAllInPool} ({proxies.length})
                 </span>
               </button>
               {viewAllHref && (
                 <Link href={viewAllHref} className={styles.secondaryActionButton}>
-                  {isRu ? "Перейти в общий каталог" : "Browse global catalog"} →
+                  {dict.browseCatalog} →
                 </Link>
               )}
             </div>
@@ -973,7 +947,7 @@ export default function ProxyTable({
             const countryName = getCountryDisplayName(
               countryCode,
               countryCode.toUpperCase(),
-              isRu ? "ru" : "en"
+              locale
             );
             const asnOrg = proxy.asn_org;
 
@@ -983,7 +957,7 @@ export default function ProxyTable({
                   <div className={styles.cardCountry}>
                     {countryCode ? (
                       <Link
-                        href={`${isRu ? "/ru" : ""}/country/${countryCode}`}
+                        href={`${prefix}/country/${countryCode}`}
                         style={{
                           display: "inline-flex",
                           alignItems: "center",
@@ -1034,12 +1008,12 @@ export default function ProxyTable({
 
                 <div className={styles.cardStatsRow}>
                   <div className={styles.cardStatItem}>
-                    <span className={styles.statLabel}>{isRu ? "Пинг" : "Latency"}</span>
+                    <span className={styles.statLabel}>{dict.latency}</span>
                     {renderLatencyBadge(proxy)}
                   </div>
                   {proxy.uptime_pct !== null && proxy.uptime_pct !== undefined && (
                     <div className={styles.cardStatItem}>
-                      <span className={styles.statLabel}>{isRu ? "Аптайм" : "Uptime"}</span>
+                      <span className={styles.statLabel}>{dict.uptime}</span>
                       {renderUptimeBadge(proxy.uptime_pct)}
                     </div>
                   )}
@@ -1057,9 +1031,7 @@ export default function ProxyTable({
                     <Copy size={16} />
                   )}
                   <span>
-                    {isCopied
-                      ? dict?.copied || (isRu ? "Скопировано!" : "Copied!")
-                      : dict?.copy || (isRu ? "Копировать IP:Port" : "Copy IP:Port")}
+                    {isCopied ? dict.copied : dict.copy}
                   </span>
                 </button>
               </div>
@@ -1078,13 +1050,13 @@ export default function ProxyTable({
             onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
             aria-label="Previous page"
           >
-            {dict?.previous || (isRu ? "Назад" : "Previous")}
+            {dict.previous}
           </button>
 
           <span className={styles.pageInfo}>
-            {dict?.page || (isRu ? "Страница" : "Page")}{" "}
+            {dict.page}{" "}
             <strong className="tabular-nums">{currentPage}</strong>{" "}
-            {dict?.of || (isRu ? "из" : "of")}{" "}
+            {dict.of}{" "}
             <strong className="tabular-nums">{totalPages}</strong>
           </span>
 
@@ -1095,7 +1067,7 @@ export default function ProxyTable({
             onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
             aria-label="Next page"
           >
-            {dict?.next || (isRu ? "Вперед" : "Next")}
+            {dict.next}
           </button>
         </div>
       )}

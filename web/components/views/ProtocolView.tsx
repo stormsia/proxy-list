@@ -1,7 +1,6 @@
 import ProxyTable from "@/components/ProxyTable";
 import styles from "@/app/page.module.css";
 import { Globe } from "lucide-react";
-import Link from "next/link";
 import FAQ from "@/components/FAQ";
 import GitHubStarCard from "@/components/GitHubStarCard";
 import { getDictionary, Locale } from "@/lib/i18n";
@@ -26,7 +25,7 @@ export default async function ProtocolView({
   protocol: string;
 }) {
   const dict = await getDictionary(lang);
-  const isRu = lang === "ru";
+  const isRuLocale = lang === "ru";
   const normalizedProtocol = protocol.toLowerCase();
   const upper = normalizedProtocol.toUpperCase();
 
@@ -37,45 +36,19 @@ export default async function ProtocolView({
   const color = meta?.color ?? "var(--primary)";
   const txtFile = meta?.file ?? `${normalizedProtocol}.txt`;
 
-  const aboutEn: Record<string, string> = {
-    socks5:
-      "SOCKS5 operates at OSI Layer 5 (Session Layer), routing arbitrary TCP and UDP packets without inspecting or modifying application payload headers. By configuring remote DNS resolution via socks5h://, your scraper prevents local DNS leak traces and bypasses domain-level SNI filtering. SOCKS5 is the recommended standard for Python httpx, Puppeteer, Playwright, and high-concurrency data scraping pipelines.",
-    socks4:
-      "SOCKS4 is an established stream-oriented proxy protocol designed strictly for TCP connections (IPv4 only, no UDP support and no native user authentication). It introduces minimal transport overhead, making it useful for legacy automation tools, socket wrappers, and network testing where basic IP relaying is sufficient.",
-    http:
-      "HTTP proxies operate at OSI Layer 7 (Application Layer), handling direct HTTP GET/POST requests and relaying them to destination web servers. When evaluated as Elite or Anonymous, they strip identifying headers. They integrate natively with standard command-line tools like cURL, Wget, and default HTTP clients across Node.js, Go, and Python.",
-    https:
-      "HTTPS proxies support the HTTP CONNECT tunneling method (RFC 2817), establishing an opaque end-to-end TCP tunnel between your client and the target server. Because TLS encryption is negotiated directly between your client and the destination, the proxy server only sees raw encrypted ciphertext and destination hostnames, ensuring end-to-end confidentiality.",
-  };
-
-  const aboutRu: Record<string, string> = {
-    socks5:
-      "SOCKS5 функционирует на 5 (сессионном) уровне модели OSI, маршрутизируя произвольные TCP и UDP пакеты без изменения заголовков прикладного уровня. При использовании удаленного DNS-резолвинга (схема socks5h://) исключаются утечки DNS-запросов и обходятся блокировки на уровне SNI. Протокол SOCKS5 оптимален для Python httpx, Puppeteer, Playwright и многопоточных скрейперов.",
-    socks4:
-      "SOCKS4 — потоковый протокол передачи данных для протокола TCP (только IPv4, без поддержки UDP и встроенной аутентификации). Обладает минимальным накладным расходом на обработку пакетов, что удобно для интеграции в legacy-библиотеки, системные утилиты и сетевые скрипты тестирования.",
-    http:
-      "HTTP-прокси работают на 7 (прикладном) уровне OSI, принимая HTTP-запросы и перенаправляя их на целевые серверы. При уровне анонимности Elite или Anonymous они удаляют клиентские идентификаторы. Протокол поддерживается из коробки всеми библиотеками: cURL, Wget, Axios, Requests и стандартными сетевыми пакетами.",
-    https:
-      "HTTPS-прокси поддерживают метод туннелирования HTTP CONNECT (RFC 2817), создавая сквозной TCP-туннель к целевому серверу. Поскольку TLS-рукопожатие происходит напрямую между клиентом и сайтом, промежуточный прокси видит только зашифрованный трафик, гарантируя конфиденциальность сессии.",
-  };
-
-  const about = isRu ? aboutRu[normalizedProtocol] : aboutEn[normalizedProtocol];
-  const pageUrl = isRu
+  const about = dict.protocol.about[normalizedProtocol as keyof typeof dict.protocol.about];
+  const pageUrl = isRuLocale
     ? `${SITE_URL}/ru/${normalizedProtocol}`
     : `${SITE_URL}/${normalizedProtocol}`;
-  const homeUrl = isRu ? `${SITE_URL}/ru` : SITE_URL;
+  const homeUrl = isRuLocale ? `${SITE_URL}/ru` : SITE_URL;
 
   const schemaMarkup = {
     "@context": "https://schema.org/",
     "@type": "Dataset",
-    name: isRu
-      ? `Бесплатные ${upper} Прокси — Рабочий Список`
-      : `Free ${upper} Proxy List — Live Verified Endpoints`,
-    description: isRu
-      ? `Автообновляемый список проверенных ${upper} прокси-серверов. Непрерывный аудит каждые 60 секунд движком Hydra с замером задержки RTT и аптайма.`
-      : `Continuously updated dataset of active ${upper} proxy servers. Audited every 60 seconds by the Hydra Rust engine with millisecond RTT benchmarks.`,
+    name: dict.protocol.datasetName.replace("{protocol}", upper),
+    description: dict.protocol.datasetDesc.replace("{protocol}", upper),
     url: pageUrl,
-    inLanguage: isRu ? "ru" : "en",
+    inLanguage: lang,
     license: "https://creativecommons.org/licenses/by/4.0/",
     isAccessibleForFree: true,
     creator: {
@@ -106,53 +79,35 @@ export default async function ProtocolView({
       {
         "@type": "ListItem",
         position: 1,
-        name: isRu ? "Главная" : "Home",
+        name: dict.protocol.breadcrumbHome,
         item: homeUrl,
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: isRu ? `${upper} Прокси` : `${upper} Proxies`,
+        name: dict.protocol.breadcrumbCurrent.replace("{protocol}", upper),
         item: pageUrl,
       },
     ],
   };
 
-  const faqItems = isRu
-    ? [
-        {
-          question: `Как подключить ${upper} прокси в cURL и Python?`,
-          answer:
-            normalizedProtocol === "socks5"
-              ? "В cURL используйте: `curl -x socks5h://host:port https://httpbin.org/ip`. Схема socks5h передает DNS-запрос на сторону прокси. В Python (httpx): `httpx.AsyncClient(proxy='socks5://host:port')` с установленным пакетом socksio."
-              : `В cURL выполните: \`curl -x ${normalizedProtocol}://host:port https://httpbin.org/ip\`. В Python (requests): \`requests.get('https://example.com', proxies={'http': '${normalizedProtocol}://host:port', 'https': '${normalizedProtocol}://host:port'})\`.`,
-        },
-        {
-          question: `Как часто обновляется пул ${upper} прокси?`,
-          answer: `Валидация выполняется непрерывно каждые 60 секунд движком Hydra на Rust. Прокси, переставшие отвечать на TCP-рукопожатие или превысившие таймаут задержки, исключаются из рабочего списка без задержек.`,
-        },
-        {
-          question: `Подходят ли эти ${upper} прокси для парсинга и скрейпинга?`,
-          answer: `Да. Пул активно используется дата-инженерами и разработчиками ботов. Для предотвращения блокировок рекомендуем ротировать IP каждые 10–25 запросов, фильтровать ноды с RTT < 1000 мс и отслеживать HTTP-статусы 429 и 403.`,
-        },
-      ]
-    : [
-        {
-          question: `How do I connect to a ${upper} proxy using cURL or Python?`,
-          answer:
-            normalizedProtocol === "socks5"
-              ? "In cURL, run: `curl -x socks5h://host:port https://httpbin.org/ip`. The socks5h protocol ensures DNS resolution occurs on the proxy server. In Python, install `httpx socksio` and initialize: `client = httpx.AsyncClient(proxy='socks5://host:port')`."
-              : `In cURL, pass the proxy flag: \`curl -x ${normalizedProtocol}://host:port https://httpbin.org/ip\`. In Python requests: \`requests.get('https://example.com', proxies={'http': '${normalizedProtocol}://host:port', 'https': '${normalizedProtocol}://host:port'})\`.`,
-        },
-        {
-          question: `How frequently are ${upper} proxies tested?`,
-          answer: `Every node in the ${upper} pool is audited every 60 seconds by our multi-threaded Hydra Rust validator. Dead nodes, high packet-loss servers, and unresponsive sockets are culled immediately.`,
-        },
-        {
-          question: `Can I use these ${upper} proxies for high-volume web scraping?`,
-          answer: `Yes. For best results, pool multiple nodes from data/proxies.json, filter for latency under 1000ms and uptime above 80%, and rotate exit nodes on each request cycle or upon hitting HTTP 429/403 status codes.`,
-        },
-      ];
+  const faqItems = [
+    {
+      question: dict.protocol.faqQ1.replace("{protocol}", upper),
+      answer:
+        normalizedProtocol === "socks5"
+          ? dict.protocol.faqA1Socks5
+          : dict.protocol.faqA1Other.replace(/\{protocol\}/g, normalizedProtocol),
+    },
+    {
+      question: dict.protocol.faqQ2.replace("{protocol}", upper),
+      answer: dict.protocol.faqA2.replace("{protocol}", upper),
+    },
+    {
+      question: dict.protocol.faqQ3.replace("{protocol}", upper),
+      answer: dict.protocol.faqA3.replace("{protocol}", upper),
+    },
+  ];
 
   const faqSchema = getFaqSchema(faqItems);
 
@@ -232,7 +187,7 @@ export default async function ProtocolView({
           proxies={allProxies}
           dict={dict.table}
           initialProtocol={normalizedProtocol}
-          viewAllHref={isRu ? "/ru" : "/"}
+          viewAllHref={isRuLocale ? "/ru" : "/"}
           pageContext={{
             type: "protocol",
             value: normalizedProtocol,

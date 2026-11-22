@@ -3,16 +3,19 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Locale } from "@/lib/i18n";
+import { useDictionary } from "./I18nProvider";
 
-export default function LanguageSwitcher({ currentLang }: { currentLang: Locale }) {
+export default function LanguageSwitcher({ currentLang }: { currentLang?: Locale }) {
   const pathname = usePathname();
+  const { locale } = useDictionary();
+  const lang = currentLang || locale;
 
   // Simple path toggler:
   // If we are at /ru/docs, en -> /docs
   // If we are at /docs, ru -> /ru/docs
   const togglePath = () => {
     if (!pathname) return "/";
-    if (currentLang === "ru") {
+    if (lang === "ru") {
       // Remove /ru prefix
       if (pathname === "/ru") return "/";
       return pathname.replace(/^\/ru\//, "/") || "/";
@@ -23,8 +26,8 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: Locale 
     }
   };
 
-  const targetLang = currentLang === "en" ? "ru" : "en";
-  const label = currentLang === "en" ? "🇷🇺 Русский" : "🇬🇧 English";
+  const targetLang = lang === "en" ? "ru" : "en";
+  const label = lang === "en" ? "🇷🇺 Русский" : "🇬🇧 English";
 
   return (
     <Link

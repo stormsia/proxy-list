@@ -9,36 +9,12 @@ interface GitHubStarCardProps {
 
 export default async function GitHubStarCard({ lang, className }: GitHubStarCardProps) {
   const dict = await getDictionary(lang);
-  const isRu = lang === "ru";
-
-  const starCard = (dict as Record<string, unknown>).starCard as
-    | {
-        badge?: string;
-        title?: string;
-        description?: string;
-        button?: string;
-      }
-    | undefined;
-
-  const badgeText =
-    starCard?.badge || (isRu ? "Open-Source Сообщество" : "Open-Source Community");
-  const titleText =
-    starCard?.title ||
-    (isRu
-      ? "Помогите другим разработчикам найти проект"
-      : "Help Other Developers Discover This Project");
-  const descText =
-    starCard?.description ||
-    (isRu
-      ? "Ваша звезда на GitHub поднимает репозиторий в поиске и рекомендациях, помогая другим разработчикам, авторам парсеров и AI-агентов быстрее найти надежный бесплатный пул прокси."
-      : "Starring stormsia/proxy-list on GitHub boosts our visibility, making it easier for scrapers, AI agent builders, and developers worldwide to discover a reliable, live-tested proxy pool.");
-  const buttonText =
-    starCard?.button || (isRu ? "Поставить звезду на GitHub" : "Star on GitHub");
+  const starCard = dict.starCard;
 
   return (
     <aside
       className={`${styles.starCard} ${className || ""}`}
-      aria-label={isRu ? "Поддержать проект на GitHub" : "Support on GitHub"}
+      aria-label={starCard.ariaLabel}
     >
       <div className={styles.ambientGlow} aria-hidden="true" />
       <div className={styles.content}>
@@ -57,11 +33,11 @@ export default async function GitHubStarCard({ lang, className }: GitHubStarCard
           <div className={styles.badgeRow}>
             <span className={styles.badge}>
               <Star size={11} fill="#eab308" color="#eab308" />
-              {badgeText}
+              {starCard.badge}
             </span>
           </div>
-          <h3 className={styles.title}>{titleText}</h3>
-          <p className={styles.description}>{descText}</p>
+          <h3 className={styles.title}>{starCard.title}</h3>
+          <p className={styles.description}>{starCard.description}</p>
         </div>
 
         <div className={styles.actionCol}>
@@ -72,7 +48,7 @@ export default async function GitHubStarCard({ lang, className }: GitHubStarCard
             className={styles.starButton}
           >
             <Star size={16} fill="#eab308" color="#eab308" />
-            <span>{buttonText}</span>
+            <span>{starCard.button}</span>
             <ExternalLink size={14} />
           </a>
         </div>

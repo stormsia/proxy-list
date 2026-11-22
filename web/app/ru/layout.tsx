@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { I18nProvider } from "@/components/I18nProvider";
 
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 
@@ -19,7 +20,9 @@ export const metadata: Metadata = {
 export default function RuLayout({ children }: { children: React.ReactNode }) {
   return (
     <div lang="ru">
-      {children}
+      <I18nProvider locale="ru">
+        {children}
+      </I18nProvider>
     </div>
   );
 }

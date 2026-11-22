@@ -452,6 +452,22 @@
   font-weight: 500;
 }
 
+.microHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: #38bdf8;
+  font-weight: 500;
+  margin-left: 0.25rem;
+  padding-left: 0.35rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.microArrow {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
 /* =========================================================================
    Docked HUD Telemetry Bar (Zero-Occlusion Control Panel)
    ========================================================================= */
@@ -721,6 +737,29 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.hudDesktopHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.hudHintText {
+  font-weight: 500;
+}
+
+.hudHintArrow {
+  opacity: 0.8;
+  color: #38bdf8;
 }
 
 .hudCtaBtn {

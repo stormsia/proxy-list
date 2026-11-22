@@ -1,16 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Star } from "lucide-react";
 import styles from "./Footer.module.css";
 import { getCountryDisplayName } from "@/lib/countries";
 import type { ProxyStats } from "@/lib/types";
+import { useDictionary } from "./I18nProvider";
 
 export default function FooterClient({ stats }: { stats: ProxyStats }) {
-  const pathname = usePathname() || "";
-  const isRu = pathname.startsWith("/ru");
-  const prefix = isRu ? "/ru" : "";
+  const { dict, locale } = useDictionary();
+  const prefix = locale === "ru" ? "/ru" : "";
 
   // Protocols sorted by count descending
   const sortedProtocols = Object.entries(stats.protocolCounts).sort(
@@ -23,7 +22,7 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
     .map(([code, count]) => ({
       code,
       count,
-      name: getCountryDisplayName(code, code.toUpperCase(), isRu ? "ru" : "en"),
+      name: getCountryDisplayName(code, code.toUpperCase(), locale),
     }));
 
   return (
@@ -42,9 +41,7 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
               </a>
             </h3>
             <p className={styles.description}>
-              {isRu
-                ? "Бесплатный открытый список прокси SOCKS5, SOCKS4, HTTP и HTTPS, непрерывно проверяемый валидатором Hydra каждую минуту."
-                : "Open-source, auto-updated free proxy list. SOCKS5, SOCKS4, HTTP and HTTPS proxies verified continuously every minute by the Hydra engine."}
+              {dict.footer.desc}
             </p>
             <div style={{ marginTop: "0.85rem", display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
               <a
@@ -65,28 +62,28 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
                   transition: "all 0.2s ease",
                 }}
               >
-                ⚡ {isRu ? "Проверено движком Hydra" : "Verified with Hydra Engine"} ↗
+                ⚡ {dict.footer.hydraBadge} ↗
               </a>
               <a
                 href="https://github.com/stormsia/proxy-list"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.footerStarBadge}
-                title={isRu ? "Поставить звезду stormsia/proxy-list на GitHub" : "Star stormsia/proxy-list on GitHub"}
+                title={dict.footer.starBadgeTitle}
               >
                 <Star size={13} fill="#eab308" color="#eab308" />
-                <span>{isRu ? "Поставить звезду" : "Star on GitHub"}</span>
+                <span>{dict.footer.starBadgeText}</span>
               </a>
             </div>
           </div>
 
           <div className={styles.column}>
-            <h4 className={styles.heading}>{isRu ? "Протоколы" : "Proxy Protocols"}</h4>
+            <h4 className={styles.heading}>{dict.footer.proxyProtocols}</h4>
             <ul className={styles.list}>
               {sortedProtocols.map(([proto, count]) => (
                 <li key={proto}>
                   <Link href={`${prefix}/${proto}`}>
-                    {isRu ? `Прокси ${proto.toUpperCase()}` : `Free ${proto.toUpperCase()} Proxies`} ({count})
+                    {dict.footer.protocolLink.replace("{protocol}", proto.toUpperCase())} ({count})
                   </Link>
                 </li>
               ))}
@@ -94,7 +91,7 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
           </div>
 
           <div className={styles.column}>
-            <h4 className={styles.heading}>{isRu ? "Локации" : "Locations"}</h4>
+            <h4 className={styles.heading}>{dict.footer.locations}</h4>
             <ul className={styles.locationsList}>
               {sortedCountries.slice(0, 20).map(({ code, count, name }) => (
                 <li key={code}>
@@ -107,31 +104,31 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
           </div>
 
           <div className={styles.column}>
-            <h4 className={styles.heading}>{isRu ? "Типы Прокси" : "Proxy Types"}</h4>
+            <h4 className={styles.heading}>{dict.footer.proxyTypes}</h4>
             <ul className={styles.list}>
               <li>
                 <Link href={`${prefix}/residential`}>
-                  {isRu ? "Резидентные прокси" : "Residential Proxies"} ({stats.residentialCount})
+                  {dict.footer.residential} ({stats.residentialCount})
                 </Link>
               </li>
               <li>
                 <Link href={`${prefix}/datacenter`}>
-                  {isRu ? "Серверные прокси" : "Datacenter Proxies"} ({stats.datacenterCount})
+                  {dict.footer.datacenter} ({stats.datacenterCount})
                 </Link>
               </li>
               <li>
                 <Link href={`${prefix}/docs`}>
-                  {isRu ? "Документация и API" : "Developer API & Docs"}
+                  {dict.footer.docs}
                 </Link>
               </li>
               <li>
                 <Link href={`${prefix}/about`}>
-                  {isRu ? "О проекте" : "About Project"}
+                  {dict.footer.about}
                 </Link>
               </li>
               <li>
                 <Link href={`${prefix}/privacy`}>
-                  {isRu ? "Конфиденциальность" : "Privacy Policy"}
+                  {dict.footer.privacy}
                 </Link>
               </li>
               <li>
@@ -191,7 +188,7 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
                   rel="noopener noreferrer"
                   style={{ color: "var(--accent)" }}
                 >
-                  {isRu ? "Движок валидации Hydra" : "Hydra Validation Engine"} ↗
+                  {dict.footer.hydraEngine} ↗
                 </a>
               </li>
             </ul>
@@ -209,22 +206,20 @@ export default function FooterClient({ stats }: { stats: ProxyStats }) {
             >
               stormsia/proxy-list
             </a>
-            . {isRu ? "Открытый исходный код. Полностью бесплатно." : "Open-source. Free to use."}{" "}
+            . {dict.footer.openSource}{" "}
             <a
               href="https://github.com/stormsia/proxy-list"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.bottomStarPill}
-              title={isRu ? "Поставить звезду на GitHub" : "Star on GitHub"}
+              title={dict.footer.bottomStarTitle}
             >
               <Star size={11} fill="#eab308" color="#eab308" />
-              <span>{isRu ? "Поставить звезду" : "Star on GitHub"}</span>
+              <span>{dict.footer.bottomStarText}</span>
             </a>
           </p>
           <div className={styles.seoText}>
-            {isRu
-              ? "Бесплатные публичные прокси: SOCKS5, SOCKS4, HTTP и HTTPS серверы со всего мира, непрерывно проверяемые высокоскоростным валидатором Hydra. Включает резидентные и серверные прокси с данными геолокации и ASN."
-              : "Free public proxy list: SOCKS5, SOCKS4, HTTP and HTTPS proxy servers sourced globally, verified continuously by the high-speed Hydra validator. Includes residential and datacenter proxies with geolocation and ASN data."}
+            {dict.footer.bottomSeo}
           </div>
         </div>
       </div>

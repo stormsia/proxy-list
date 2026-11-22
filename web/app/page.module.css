@@ -91,6 +91,12 @@
   padding: 1.5rem;
 }
 
+.statCardFlash {
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.22) !important;
+  transition: all 0.35s ease-in-out;
+}
+
 .statIcon {
   width: 48px;
   height: 48px;

@@ -1,19 +1,17 @@
 import { ShieldCheck, Lock, EyeOff, AlertTriangle, ExternalLink } from "lucide-react";
 import styles from "./LegalView.module.css";
-import { Locale } from "@/lib/i18n";
+import { getDictionary, Locale } from "@/lib/i18n";
 
-export default function PrivacyView({ lang }: { lang: Locale }) {
-  const isRu = lang === "ru";
+export default async function PrivacyView({ lang }: { lang: Locale }) {
+  const dict = await getDictionary(lang);
   const SITE_URL = "https://stormsia.github.io/proxy-list";
-  const pageUrl = isRu ? `${SITE_URL}/ru/privacy` : `${SITE_URL}/privacy`;
+  const pageUrl = lang === "ru" ? `${SITE_URL}/ru/privacy` : `${SITE_URL}/privacy`;
 
   const privacySchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: isRu ? "Политика конфиденциальности — stormsia/proxy-list" : "Privacy Policy — stormsia/proxy-list",
-    description: isRu
-      ? "Политика конфиденциальности stormsia/proxy-list: политика нулевого логирования, отсутствие сбора персональных данных и правила безопасности публичных прокси."
-      : "Privacy Policy for stormsia/proxy-list: zero-log commitments, no personal data collection, and public proxy security recommendations.",
+    name: dict.privacy.name,
+    description: dict.privacy.description,
     url: pageUrl,
   };
 
@@ -29,74 +27,58 @@ export default function PrivacyView({ lang }: { lang: Locale }) {
             <ShieldCheck size={32} style={{ color: "var(--primary)" }} />
           </div>
           <h1 className={styles.title}>
-            {isRu ? "Политика конфиденциальности" : "Privacy Policy"}
+            {dict.privacy.title}
           </h1>
           <p className={styles.subtitle}>
-            {isRu
-              ? "Прозрачность, политика нулевого логирования и безопасность данных."
-              : "Transparency, zero-log commitments, and public proxy security disclosures."}
+            {dict.privacy.subtitle}
           </p>
         </header>
 
         <section className={styles.card}>
           <div className={styles.sectionHeader}>
             <EyeOff size={20} style={{ color: "var(--primary)" }} />
-            <h2>{isRu ? "1. Нулевой сбор персональных данных (Zero-Log)" : "1. Zero Personal Data Collection (Zero-Log)"}</h2>
+            <h2>{dict.privacy.sec1Title}</h2>
           </div>
           <p>
-            {isRu
-              ? "Сервис stormsia/proxy-list спроектирован по принципу минимизации данных. Мы не требуем регистрации учетной записи, не используем формы ввода личных данных, не выпускаем и не требуем API-ключей, а также не собираем ваши платежные реквизиты."
-              : "stormsia/proxy-list is built with a zero-collection architecture. We do not require account registration, do not request email addresses or personal identities, do not issue mandatory API keys, and never collect billing details."}
+            {dict.privacy.sec1P1}
           </p>
           <p>
-            {isRu
-              ? "На нашем сайте отсутствуют сторонние рекламные пиксели, трекеры ретаргетинга и аналитические профилирующие скрипты. Все статические ресурсы отдаются напрямую через распределенный CDN GitHub / Fastly."
-              : "We do not deploy third-party advertising pixels, behavioral trackers, or retargeting beacons. All web pages and data assets are distributed via GitHub and Fastly CDN edges."}
+            {dict.privacy.sec1P2}
           </p>
         </section>
 
         <section className={styles.card}>
           <div className={styles.sectionHeader}>
             <Lock size={20} style={{ color: "var(--accent)" }} />
-            <h2>{isRu ? "2. Происхождение данных и телеметрия" : "2. Dataset Origin & Public Telemetry"}</h2>
+            <h2>{dict.privacy.sec2Title}</h2>
           </div>
           <p>
-            {isRu
-              ? "Все опубликованные в proxies.json и текстовых файлах IP-адреса и порты являются открытыми публичными узлами, обнаруженными валидатором Hydra в общедоступных сетевых источниках. stormsia/proxy-list не является владельцем, хостером или оператором этих прокси-серверов."
-              : "All proxy endpoints published in proxies.json and plain text feeds are publicly reachable nodes aggregated from open upstream sources and verified by Hydra. stormsia/proxy-list does not own, operate, or host these proxy servers."}
+            {dict.privacy.sec2P1}
           </p>
           <p>
-            {isRu
-              ? "Телеметрия Hydra включает только технические параметры сетевой доступности: задержку TCP/TLS (rtt_total_ms), код страны ISO 3166-1, номер автономной системы (ASN) и уровень анонимности заголовков. Никакой пользовательский трафик через наши сервера не маршрутизируется."
-              : "Hydra telemetry contains strictly technical operational metrics: TCP/TLS handshake latency, ISO country codes, Autonomous System Numbers (ASN), and header anonymity flags. No client traffic is ever routed through our infrastructure."}
+            {dict.privacy.sec2P2}
           </p>
         </section>
 
         <section className={styles.card}>
           <div className={styles.sectionHeader}>
             <AlertTriangle size={20} style={{ color: "#eab308" }} />
-            <h2>{isRu ? "3. Безопасность при работе с публичными прокси" : "3. Public Proxy Security Considerations"}</h2>
+            <h2>{dict.privacy.sec3Title}</h2>
           </div>
           <p>
-            {isRu
-              ? "Публичные прокси-серверы управляются независимыми третьими сторонами по всему миру. По этой причине:"
-              : "Public proxies are operated by independent third parties across various networks. Therefore:"}
+            {dict.privacy.sec3P1}
           </p>
           <ul className={styles.featureList}>
             <li>
               <span>
-                <strong>{isRu ? "Шифрование данных:" : "End-to-End Encryption:"}</strong>{" "}
-                {isRu
-                  ? "Никогда не передавайте незашифрованные логины, пароли или токены через прозрачные HTTP-прокси. Всегда используйте протокол HTTPS или SOCKS5."
-                  : "Never transmit unencrypted credentials or sensitive payloads over plain HTTP proxies. Always enforce HTTPS or authenticated TLS."}
+                <strong>{dict.privacy.sec3EncLabel}</strong>{" "}
+                {dict.privacy.sec3EncDesc}
               </span>
             </li>
             <li>
               <span>
-                <strong>{isRu ? "Защита от DNS-утечек:" : "DNS Leak Prevention:"}</strong>{" "}
-                {isRu
-                  ? "Для предотвращения утечки DNS-запросов вашему провайдеру используйте удаленный DNS-резолвинг (формат socks5h://)."
-                  : "Use remote DNS resolution (socks5h://) to ensure domain queries are resolved at the proxy node rather than leaking through your local ISP."}
+                <strong>{dict.privacy.sec3DnsLabel}</strong>{" "}
+                {dict.privacy.sec3DnsDesc}
               </span>
             </li>
           </ul>
@@ -105,12 +87,10 @@ export default function PrivacyView({ lang }: { lang: Locale }) {
         <section className={styles.card}>
           <div className={styles.sectionHeader}>
             <ShieldCheck size={20} style={{ color: "#38bdf8" }} />
-            <h2>{isRu ? "4. Вопросы и контакты" : "4. Contact & Inquiries"}</h2>
+            <h2>{dict.privacy.sec4Title}</h2>
           </div>
           <p>
-            {isRu
-              ? "Если у вас возникли вопросы касательно политики конфиденциальности или открытого датасета, вы можете связаться с мейнтейнерами проекта через публичный репозиторий GitHub:"
-              : "If you have questions regarding this Privacy Policy or the open dataset, please reach out via our official GitHub repository:"}
+            {dict.privacy.sec4P1}
           </p>
           <div style={{ marginTop: "1rem" }}>
             <a
@@ -119,7 +99,7 @@ export default function PrivacyView({ lang }: { lang: Locale }) {
               rel="noopener noreferrer"
               className={styles.buttonPrimary}
             >
-              <span>GitHub Issues / Discussions</span>
+              <span>{dict.privacy.sec4Button}</span>
               <ExternalLink size={14} />
             </a>
           </div>

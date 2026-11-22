@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 import { RefreshCw, Check } from "lucide-react";
 import styles from "./LiveSyncIndicator.module.css";
+import { useDictionary } from "./I18nProvider";
 
 export interface LiveSyncIndicatorProps {
   secondsLeft: number;
   isSyncing: boolean;
   isUpdatedFlash: boolean;
   onSyncNow: () => void;
-  isRu?: boolean;
 }
 
 export default function LiveSyncIndicator({
@@ -17,21 +17,18 @@ export default function LiveSyncIndicator({
   isSyncing,
   isUpdatedFlash,
   onSyncNow,
-  isRu = false,
 }: LiveSyncIndicatorProps) {
   const [mounted, setMounted] = useState(false);
+  const { dict } = useDictionary();
+  const t = dict.liveSync;
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const tooltipText = isRu
-    ? isSyncing
-      ? "Синхронизация с базой проверенных прокси Hydra..."
-      : `Автообновление пула через ${secondsLeft}с. Нажмите для мгновенной синхронизации.`
-    : isSyncing
-    ? "Syncing with Hydra verified proxy pool..."
-    : `Auto-updating pool in ${secondsLeft}s. Click for immediate sync.`;
+  const tooltipText = isSyncing
+    ? t.tooltipSyncing
+    : t.tooltipCountdown.replace("{seconds}", String(secondsLeft));
 
   let pillClass = styles.liveSyncPill;
   if (isSyncing) {
@@ -63,13 +60,13 @@ export default function LiveSyncIndicator({
 
       <span className={styles.timerText}>
         {isSyncing ? (
-          isRu ? "Синхронизация..." : "Syncing..."
+          t.syncing
         ) : isUpdatedFlash ? (
-          isRu ? "Обновлено!" : "Updated!"
+          t.updated
         ) : !mounted ? (
-          isRu ? "Live · 60с" : "Live · 60s"
+          t.liveDefault
         ) : (
-          `${isRu ? "Live ·" : "Live ·"} ${secondsLeft}${isRu ? "с" : "s"}`
+          `${t.livePrefix} ${secondsLeft}${t.secSuffix}`
         )}
       </span>
     </button>

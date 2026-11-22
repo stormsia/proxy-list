@@ -1,7 +1,6 @@
 import ProxyTable from "@/components/ProxyTable";
 import styles from "@/app/page.module.css";
 import { Home } from "lucide-react";
-import Link from "next/link";
 import FAQ from "@/components/FAQ";
 import GitHubStarCard from "@/components/GitHubStarCard";
 import { getDictionary, Locale } from "@/lib/i18n";
@@ -13,25 +12,21 @@ const REPO_RAW = "https://raw.githubusercontent.com/stormsia/proxy-list/main";
 
 export default async function ResidentialView({ lang }: { lang: Locale }) {
   const dict = await getDictionary(lang);
-  const isRu = lang === "ru";
+  const isRuLocale = lang === "ru";
 
   const allProxies = await getProxies();
   const residentialProxies = getResidentialProxies(allProxies);
 
-  const homeUrl = isRu ? `${SITE_URL}/ru` : SITE_URL;
-  const pageUrl = `${SITE_URL}${isRu ? "/ru" : ""}/residential`;
+  const homeUrl = isRuLocale ? `${SITE_URL}/ru` : SITE_URL;
+  const pageUrl = `${SITE_URL}${isRuLocale ? "/ru" : ""}/residential`;
 
   const schemaMarkup = {
     "@context": "https://schema.org/",
     "@type": "Dataset",
-    name: isRu
-      ? "Бесплатные Резидентные Прокси — Рабочий Список"
-      : "Free Residential Proxy List — Verified ISP Endpoints",
-    description: isRu
-      ? "Список проверенных резидентных прокси-узлов с IP-адресами от домашних интернет-провайдеров (ISP). Аудит каждые 60 секунд движком Hydra."
-      : "Continuously updated dataset of free residential proxies assigned by consumer ISPs. Audited every 60 seconds by Hydra with millisecond latency metrics.",
+    name: dict.residential.datasetName,
+    description: dict.residential.datasetDesc,
     url: pageUrl,
-    inLanguage: isRu ? "ru" : "en",
+    inLanguage: lang,
     license: "https://creativecommons.org/licenses/by/4.0/",
     isAccessibleForFree: true,
     creator: {
@@ -56,46 +51,11 @@ export default async function ResidentialView({ lang }: { lang: Locale }) {
   };
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: isRu ? "Главная" : "Home", url: homeUrl },
-    { name: isRu ? "Резидентные Прокси" : "Residential Proxies", url: pageUrl },
+    { name: dict.residential.breadcrumbHome, url: homeUrl },
+    { name: dict.residential.breadcrumbCurrent, url: pageUrl },
   ]);
 
-  const faqItems = isRu
-    ? [
-        {
-          question: "Что такое резидентные прокси и чем они отличаются от серверных?",
-          answer:
-            "Резидентные прокси используют IP-адреса, выделенные интернет-провайдерами (ISP) для домашних широкополосных подключений (Comcast, AT&T, Vodafone, Ростелеком). В отличие от серверных IP, они обладают высоким рейтингом доверия и не вызывают мгновенных подозрений у WAF (Cloudflare, Akamai, DataDome).",
-        },
-        {
-          question: "Почему в открытом доступе резидентных прокси меньше, чем серверных?",
-          answer:
-            "Домашние интернет-подключения имеют динамические IP и зависят от статуса пользовательского оборудования. Публичные резидентные ноды появляются и исчезают быстрее серверных. Движок Hydra проверяет их каждую минуту, сохраняя в выдаче только действительно активные адреса.",
-        },
-        {
-          question: "Как эффективно использовать резидентные прокси для сбора данных?",
-          answer:
-            "Используйте короткие таймауты подключения (5–8 секунд), настройте автоматический переход на следующий адрес при ошибке сокета и объединяйте резидентные ноды в ротируемый пул с User-Agent ротацией.",
-        },
-      ]
-    : [
-        {
-          question: "What are residential proxies and how do they differ from datacenter IPs?",
-          answer:
-            "Residential proxies route traffic through IP addresses assigned by consumer Internet Service Providers (such as Comcast, AT&T, Vodafone, or Deutsche Telekom) to residential households. Because target websites see organic residential ASN ranges, these requests encounter significantly lower CAPTCHA rates and WAF blocks compared to datacenter IPs.",
-        },
-        {
-          question: "Why is the pool of free residential proxies smaller than datacenter lists?",
-          answer:
-            "Consumer broadband connections are dynamic and subject to frequent disconnects and IP reassignments. As a result, public residential nodes have higher churn. Hydra audits these nodes every 60 seconds to prune offline endpoints immediately.",
-        },
-        {
-          question: "How should I structure scrapers using public residential proxies?",
-          answer:
-            "Implement conservative request timeouts (5–8 seconds), handle connection retries with exponential backoff, and combine residential IPs with header randomization to preserve session hygiene.",
-        },
-      ];
-
+  const faqItems = dict.residential.faqs;
   const faqSchema = getFaqSchema(faqItems);
 
   return (
@@ -125,15 +85,16 @@ export default async function ResidentialView({ lang }: { lang: Locale }) {
           <Home size={32} style={{ color: "var(--primary)" }} />
         </div>
         <h1 className={styles.title}>
-          {isRu ? "Бесплатные" : "Free"}{" "}
+          {dict.residential.badgeTitle}{" "}
           <span className="text-gradient">
-            {isRu ? "Резидентные Прокси" : "Residential Proxies"}
+            {dict.residential.badgeHighlight}
           </span>
         </h1>
         <p className={styles.subtitle}>
-          {isRu
-            ? `${residentialProxies.length.toLocaleString("en-US")} проверенных прокси с реальными IP интернет-провайдеров (ISP). Аудит каждые 60 секунд движком Hydra.`
-            : `${residentialProxies.length.toLocaleString("en-US")} verified residential proxy servers with real ISP-assigned IPs. Audited every 60 seconds by Hydra.`}
+          {dict.residential.subtitle.replace(
+            "{count}",
+            residentialProxies.length.toLocaleString("en-US")
+          )}
         </p>
       </header>
 
@@ -142,14 +103,10 @@ export default async function ResidentialView({ lang }: { lang: Locale }) {
         aria-label="About residential proxies"
       >
         <h2>
-          {isRu
-            ? "Резидентные Прокси Домашних Провайдеров"
-            : "ISP Residential Proxy Infrastructure"}
+          {dict.residential.seoHeading}
         </h2>
         <p>
-          {isRu
-            ? "Резидентные прокси маршрутизируют соединения через реальные пулы домашних интернет-провайдеров. Они незаменимы при анализе сайтов со строгими антибот-системами, требующих органического профиля сетевого трафика."
-            : "Residential proxies route requests through genuine residential ISP autonomous systems. Ideal for tasks where datacenter IP ranges trigger automated security challenges or rate limiting."}
+          {dict.residential.seoText}
         </p>
         <GitHubStarCard lang={lang} />
       </section>
@@ -162,11 +119,11 @@ export default async function ResidentialView({ lang }: { lang: Locale }) {
           proxies={allProxies}
           dict={dict.table}
           initialType="residential"
-          viewAllHref={isRu ? "/ru" : "/"}
+          viewAllHref={isRuLocale ? "/ru" : "/"}
           pageContext={{
             type: "category",
             value: "residential",
-            label: isRu ? "Резидентные" : "Residential",
+            label: dict.residential.tableContextLabel,
           }}
         />
       </section>

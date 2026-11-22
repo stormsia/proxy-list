@@ -107,6 +107,7 @@ export const metadata: Metadata = {
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { I18nProvider } from "@/components/I18nProvider";
 
 export default function RootLayout({
   children,
@@ -225,11 +226,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <div className="main-layout">
-          <Navbar />
-          <main className="main-content">{children}</main>
-          <Footer />
-        </div>
+        <I18nProvider>
+          <div className="main-layout">
+            <Navbar />
+            <main className="main-content">{children}</main>
+            <Footer />
+          </div>
+        </I18nProvider>
       </body>
     </html>
   );

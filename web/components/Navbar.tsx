@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Globe, Map, Terminal, Menu, X, Languages, Star } from "lucide-react";
 import styles from "./Navbar.module.css";
+import { useDictionary } from "./I18nProvider";
 
 function GitHubIcon({ size = 16 }: { size?: number }) {
   return (
@@ -27,14 +28,15 @@ function GitHubIcon({ size = 16 }: { size?: number }) {
 export default function Navbar() {
   const pathname = usePathname() || "";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { dict, locale } = useDictionary();
 
-  const isRu = pathname.startsWith("/ru");
-  const baseHome = isRu ? "/ru" : "/";
-  const baseDocs = isRu ? "/ru/docs" : "/docs";
+  const isRuLocale = locale === "ru";
+  const baseHome = isRuLocale ? "/ru" : "/";
+  const baseDocs = isRuLocale ? "/ru/docs" : "/docs";
 
   // Toggle path for language switcher
   const getAltLangPath = () => {
-    if (isRu) {
+    if (isRuLocale) {
       if (pathname === "/ru") return "/";
       return pathname.replace(/^\/ru/, "") || "/";
     } else {
@@ -50,7 +52,7 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }
 
-  const isHomeActive = isRu ? pathname === "/ru" : pathname === "/";
+  const isHomeActive = isRuLocale ? pathname === "/ru" : pathname === "/";
   const isDocsActive = pathname.includes("/docs");
 
   return (
@@ -72,7 +74,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.hydraBadge}
-            title={isRu ? "Проверено движком Hydra Rust (каждую минуту)" : "Verified by Hydra Rust Engine (every minute)"}
+            title={dict.nav.hydraTitle}
           >
             <span>⚡ Hydra</span>
           </a>
@@ -85,7 +87,7 @@ export default function Navbar() {
             aria-current={isHomeActive ? "page" : undefined}
           >
             <Map className={styles.icon} size={16} />
-            <span>{isRu ? "Дашборд" : "Dashboard"}</span>
+            <span>{dict.nav.dashboard}</span>
           </Link>
 
           <Link
@@ -94,16 +96,16 @@ export default function Navbar() {
             aria-current={isDocsActive ? "page" : undefined}
           >
             <Terminal className={styles.icon} size={16} />
-            <span>{isRu ? "Документация и API" : "Docs & API"}</span>
+            <span>{dict.nav.docs}</span>
           </Link>
 
           <Link
             href={getAltLangPath()}
             className={styles.langBtn}
-            aria-label={isRu ? "Switch to English" : "Переключить на русский"}
+            aria-label={dict.nav.langSwitchAria}
           >
             <Languages size={15} />
-            <span>{isRu ? "EN" : "RU"}</span>
+            <span>{dict.nav.langSwitchText}</span>
           </Link>
 
           <a
@@ -111,12 +113,12 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.gitHubBtn}
-            aria-label={isRu ? "Поставить звезду stormsia/proxy-list на GitHub" : "Star stormsia/proxy-list on GitHub"}
-            title={isRu ? "Поставить звезду нашему репозиторию на GitHub" : "Star our repository on GitHub"}
+            aria-label={dict.nav.starAria}
+            title={dict.nav.starTitle}
           >
             <GitHubIcon size={15} />
             <Star size={13} className={styles.starNavIcon} fill="#eab308" color="#eab308" />
-            <span className={styles.gitHubText}>{isRu ? "Поставить звезду" : "Star on GitHub"}</span>
+            <span className={styles.gitHubText}>{dict.nav.starText}</span>
           </a>
         </nav>
 
@@ -141,7 +143,7 @@ export default function Navbar() {
               className={`${styles.mobileLink} ${isHomeActive ? styles.activeLink : ""}`}
             >
               <Map size={18} />
-              <span>{isRu ? "Дашборд" : "Dashboard"}</span>
+              <span>{dict.nav.dashboard}</span>
             </Link>
 
             <Link
@@ -149,12 +151,12 @@ export default function Navbar() {
               className={`${styles.mobileLink} ${isDocsActive ? styles.activeLink : ""}`}
             >
               <Terminal size={18} />
-              <span>{isRu ? "Документация и API" : "Docs & API"}</span>
+              <span>{dict.nav.docs}</span>
             </Link>
 
             <Link href={getAltLangPath()} className={styles.mobileLink}>
               <Languages size={18} />
-              <span>{isRu ? "English (EN)" : "Русский (RU)"}</span>
+              <span>{dict.nav.langSwitchMobile}</span>
             </Link>
 
             <a
@@ -164,7 +166,7 @@ export default function Navbar() {
               className={`${styles.mobileLink} ${styles.mobileStarLink}`}
             >
               <Star size={18} className={styles.starNavIcon} fill="#eab308" color="#eab308" />
-              <span>{isRu ? "Поставить звезду на GitHub" : "Star on GitHub"}</span>
+              <span>{dict.nav.mobileStar}</span>
             </a>
           </div>
         </div>

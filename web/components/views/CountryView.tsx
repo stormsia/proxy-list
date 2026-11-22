@@ -1,7 +1,6 @@
 import ProxyTable from "@/components/ProxyTable";
 import styles from "@/app/page.module.css";
 import { MapPin } from "lucide-react";
-import Link from "next/link";
 import FAQ from "@/components/FAQ";
 import GitHubStarCard from "@/components/GitHubStarCard";
 import { getDictionary, Locale } from "@/lib/i18n";
@@ -21,7 +20,7 @@ export default async function CountryView({
   code: string;
 }) {
   const dict = await getDictionary(lang);
-  const isRu = lang === "ru";
+  const isRuLocale = lang === "ru";
   const normalizedCode = code.toLowerCase();
 
   const allProxies = await getProxies();
@@ -32,25 +31,21 @@ export default async function CountryView({
   const countryName = getCountryDisplayName(
     normalizedCode,
     fallbackName,
-    isRu ? "ru" : "en"
+    lang
   );
 
-  const pageUrl = isRu
+  const pageUrl = isRuLocale
     ? `${SITE_URL}/ru/country/${normalizedCode}`
     : `${SITE_URL}/country/${normalizedCode}`;
-  const homeUrl = isRu ? `${SITE_URL}/ru` : SITE_URL;
+  const homeUrl = isRuLocale ? `${SITE_URL}/ru` : SITE_URL;
 
   const schemaMarkup = {
     "@context": "https://schema.org/",
     "@type": "Dataset",
-    name: isRu
-      ? `Бесплатные Прокси в ${countryName} — Рабочие Серверы`
-      : `Free ${countryName} Proxy List — Verified Live Endpoints`,
-    description: isRu
-      ? `Актуальный список проверенных прокси-серверов в ${countryName} (SOCKS5, SOCKS4, HTTP). Непрерывный аудит каждые 60 секунд движком Hydra с замером RTT и ASN.`
-      : `Continuously audited list of free proxy servers located in ${countryName}. SOCKS5, SOCKS4, and HTTP protocols verified every 60 seconds by the Hydra Rust engine.`,
+    name: dict.country.datasetName.replace("{country}", countryName),
+    description: dict.country.datasetDesc.replace("{country}", countryName),
     url: pageUrl,
-    inLanguage: isRu ? "ru" : "en",
+    inLanguage: lang,
     license: "https://creativecommons.org/licenses/by/4.0/",
     isAccessibleForFree: true,
     creator: {
@@ -75,47 +70,32 @@ export default async function CountryView({
       {
         "@type": "ListItem",
         position: 1,
-        name: isRu ? "Главная" : "Home",
+        name: dict.country.breadcrumbHome,
         item: homeUrl,
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: isRu ? `Прокси в ${countryName}` : `${countryName} Proxies`,
+        name: dict.country.breadcrumbCurrent.replace("{country}", countryName),
         item: pageUrl,
       },
     ],
   };
 
-  const faqItems = isRu
-    ? [
-        {
-          question: `Как подтверждается геолокация серверов в ${countryName}?`,
-          answer: `При каждой валидации движок Hydra сверяет IP-адрес с базами MaxMind GeoIP и BGP routing tables. Мы сохраняем двухбуквенный ISO-код страны и номер автономной системы (ASN), чтобы вы могли быть уверены в реальном географическом выходе трафика.`,
-        },
-        {
-          question: `Как часто обновляется список прокси для ${countryName}?`,
-          answer: `Валидация выполняется непрерывно каждые 60 секунд. Серверы, переставшие отвечать на TCP-запросы или показавшие нестабильное соединение, автоматически помечаются как неактивные.`,
-        },
-        {
-          question: `Подходят ли эти прокси для парсинга локализованных данных в ${countryName}?`,
-          answer: `Да. Выходной IP-адрес в ${countryName} позволяет получать региональные поисковые выдачи, ценообразование и контент без срабатывания географических перенаправлений.`,
-        },
-      ]
-    : [
-        {
-          question: `How is server geolocation in ${countryName} verified?`,
-          answer: `During every validation pass, the Hydra engine matches proxy egress IPs against MaxMind GeoIP datasets and BGP autonomous system tables. Each entry includes the ISO 3166-1 alpha-2 country code and ASN name to guarantee authentic geographic routing.`,
-        },
-        {
-          question: `How often is the ${countryName} proxy list audited?`,
-          answer: `Audits run continuously every 60 seconds. Dead sockets, lagging endpoints, and timed-out connections are purged automatically without human intervention.`,
-        },
-        {
-          question: `Can I use ${countryName} proxies for localized web scraping and testing?`,
-          answer: `Yes. Routing requests through localized IPs in ${countryName} ensures access to geo-specific search results, localized pricing, currency formats, and regional content restrictions.`,
-        },
-      ];
+  const faqItems = [
+    {
+      question: dict.country.faqQ1.replace("{country}", countryName),
+      answer: dict.country.faqA1.replace("{country}", countryName),
+    },
+    {
+      question: dict.country.faqQ2.replace("{country}", countryName),
+      answer: dict.country.faqA2.replace("{country}", countryName),
+    },
+    {
+      question: dict.country.faqQ3.replace("{country}", countryName),
+      answer: dict.country.faqA3.replace("{country}", countryName),
+    },
+  ];
 
   const faqSchema = getFaqSchema(faqItems);
 
@@ -183,7 +163,7 @@ export default async function CountryView({
           proxies={allProxies}
           dict={dict.table}
           initialCountry={normalizedCode}
-          viewAllHref={isRu ? "/ru" : "/"}
+          viewAllHref={isRuLocale ? "/ru" : "/"}
           pageContext={{
             type: "country",
             value: normalizedCode,

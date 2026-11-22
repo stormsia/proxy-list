@@ -729,7 +729,7 @@ function ProxyTableView({
 
       {/* Protocol Pills & Live Count */}
       <div className={styles.pillToolbar}>
-        <div className={styles.pillsList} role="tablist" aria-label="Filter by protocol">
+        <div className={styles.pillsList} role="group" aria-label="Filter by protocol">
           {[
             { id: "all", label: dict.allProtocols },
             { id: "socks5", label: "SOCKS5" },
@@ -742,8 +742,7 @@ function ProxyTableView({
               <button
                 key={item.id}
                 type="button"
-                role="tab"
-                aria-selected={isActive}
+                aria-pressed={isActive}
                 className={`${styles.pillBtn} ${isActive ? styles.pillBtnActive : ""}`}
                 onClick={() => setFilterProtocol(item.id)}
               >

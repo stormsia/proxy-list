@@ -45,17 +45,16 @@ export default function LiveSyncIndicator({
       disabled={isSyncing}
       title={tooltipText}
       aria-label={tooltipText}
-      role="status"
     >
       {isSyncing ? (
         <RefreshCw size={12} className={styles.spin} />
       ) : isUpdatedFlash ? (
         <Check size={12} className={styles.iconUpdated} />
       ) : (
-        <div className={styles.dotWrapper} aria-hidden="true">
-          <div className={styles.pulseRing} />
-          <div className={styles.pulseDot} />
-        </div>
+        <span className={styles.dotWrapper} aria-hidden="true">
+          <span className={styles.pulseRing} />
+          <span className={styles.pulseDot} />
+        </span>
       )}
 
       <span className={styles.timerText}>

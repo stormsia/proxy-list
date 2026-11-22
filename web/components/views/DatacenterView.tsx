@@ -91,14 +91,14 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
         <p className={styles.subtitle}>
           {dict.datacenter.subtitle.replace(
             "{count}",
-            dcProxies.length.toLocaleString("en-US")
+            dcProxies.length.toLocaleString(lang)
           )}
         </p>
       </header>
 
       <section
         className={styles.seoArticle}
-        aria-label="About datacenter proxies"
+        aria-label={dict.datacenter.seoHeading}
       >
         <h2>
           {dict.datacenter.seoHeading}
@@ -111,10 +111,10 @@ export default async function DatacenterView({ lang }: { lang: Locale }) {
 
       <section
         className={styles.tableSection}
-        aria-label="Datacenter proxy table"
+        aria-label={`${dict.datacenter.tableContextLabel} - ${dict.table.tableCaption || "Proxy List"}`}
       >
         <ProxyTable
-          proxies={allProxies}
+          proxies={dcProxies.slice(0, 50)}
           dict={dict.table}
           initialType="datacenter"
           viewAllHref={getLocalizedPath("/", lang)}

@@ -17,9 +17,9 @@ export default async function HomeView({ lang }: { lang: Locale }) {
   const homeFaq: FAQItem[] = faqData?.items || [];
   const faqSchema = getFaqSchema(homeFaq);
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: "Home", url: SITE_URL },
+    { name: dict.home.breadcrumbHome || "Home", url: SITE_URL },
   ]);
-  const howToSchema = getHowToSchema();
+  const howToSchema = getHowToSchema(dict.howTo);
 
   return (
     <div className="container">
@@ -75,27 +75,25 @@ export default async function HomeView({ lang }: { lang: Locale }) {
         <p className={styles.subtitle}>{dict.home.subtitle}</p>
 
         {/* Quick Answer / TL;DR Box for AI Engines (Perplexity, ChatGPT, Google AI Overviews) */}
-        <aside className={styles.quickAnswerBox} aria-label="Quick Answer Summary">
+        <aside className={styles.quickAnswerBox} aria-label={dict.home.quickAnswerAria}>
           <div className={styles.quickAnswerHeader}>
-            <span className={styles.quickAnswerBadge}>⚡ Quick Answer · TL;DR</span>
-            <span className={styles.quickAnswerUpdated}>Updated: November 2026</span>
+            <span className={styles.quickAnswerBadge}>{dict.home.quickAnswerBadge}</span>
+            <span className={styles.quickAnswerUpdated}>{dict.home.quickAnswerUpdated}</span>
           </div>
           <p className={styles.quickAnswerText}>
-            {lang === "ru"
-              ? "Бесплатная инфраструктура публичных прокси без авторизации: проверенные SOCKS5, HTTP, HTTPS и SOCKS4 серверы из 230+ стран. Каждый IP проверяется каждые 60 секунд многопоточным Rust-валидатором Hydra с точными замерами задержки RTT и аптаймом пула 99.8%."
-              : "Free, zero-auth public proxy infrastructure providing verified SOCKS5, HTTP, HTTPS, and SOCKS4 servers across 230+ countries. Every IP is audited continuously every 60 seconds by the multi-threaded Hydra Rust engine with sub-second RTT latency metrics and 99.8% pool uptime SLA."}
+            {dict.home.quickAnswerText}
           </p>
         </aside>
       </header>
 
       <LiveHomeDashboard
-        initialProxies={proxies}
+        initialProxies={proxies.slice(0, 50)}
         initialStats={stats}
         lang={lang}
         dict={dict}
       />
 
-      <section className={styles.seoArticle} aria-label="About stormsia/proxy-list infrastructure">
+      <section className={styles.seoArticle} aria-label={dict.home.aboutAria}>
         <h2>{dict.home.seoTitle}</h2>
         <p>{dict.footer.seoText}</p>
 
@@ -159,23 +157,23 @@ export default async function HomeView({ lang }: { lang: Locale }) {
               <tbody>
                 <tr>
                   <td style={{ fontWeight: 600, color: "var(--primary)" }}>SOCKS5</td>
-                  <td>Layer 5 (Session)</td>
-                  <td>TCP + UDP / Remote (socks5h)</td>
-                  <td>Elite (No headers added)</td>
+                  <td>{dict.home.matrixSocks5Layer}</td>
+                  <td>{dict.home.matrixSocks5Udp}</td>
+                  <td>{dict.home.matrixSocks5Anon}</td>
                   <td>{dict.home.matrixSocks5Best}</td>
                 </tr>
                 <tr>
                   <td style={{ fontWeight: 600, color: "var(--accent)" }}>HTTP / HTTPS</td>
-                  <td>Layer 7 (Application)</td>
-                  <td>TCP only / Local DNS</td>
-                  <td>Elite / Anonymous / Transparent</td>
+                  <td>{dict.home.matrixHttpLayer}</td>
+                  <td>{dict.home.matrixHttpUdp}</td>
+                  <td>{dict.home.matrixHttpAnon}</td>
                   <td>{dict.home.matrixHttpBest}</td>
                 </tr>
                 <tr>
                   <td style={{ fontWeight: 600, color: "#9ca3af" }}>SOCKS4</td>
-                  <td>Layer 5 (Session)</td>
-                  <td>TCP only / IPv4 only</td>
-                  <td>No authentication</td>
+                  <td>{dict.home.matrixSocks4Layer}</td>
+                  <td>{dict.home.matrixSocks4Udp}</td>
+                  <td>{dict.home.matrixSocks4Anon}</td>
                   <td>{dict.home.matrixSocks4Best}</td>
                 </tr>
               </tbody>

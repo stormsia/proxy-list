@@ -91,14 +91,14 @@ export default async function ResidentialView({ lang }: { lang: Locale }) {
         <p className={styles.subtitle}>
           {dict.residential.subtitle.replace(
             "{count}",
-            residentialProxies.length.toLocaleString("en-US")
+            residentialProxies.length.toLocaleString(lang)
           )}
         </p>
       </header>
 
       <section
         className={styles.seoArticle}
-        aria-label="About residential proxies"
+        aria-label={dict.residential.seoHeading}
       >
         <h2>
           {dict.residential.seoHeading}
@@ -111,10 +111,10 @@ export default async function ResidentialView({ lang }: { lang: Locale }) {
 
       <section
         className={styles.tableSection}
-        aria-label="Residential proxy table"
+        aria-label={`${dict.residential.tableContextLabel} - ${dict.table.tableCaption || "Proxy List"}`}
       >
         <ProxyTable
-          proxies={allProxies}
+          proxies={residentialProxies.slice(0, 50)}
           dict={dict.table}
           initialType="residential"
           viewAllHref={getLocalizedPath("/", lang)}

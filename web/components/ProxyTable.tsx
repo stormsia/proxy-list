@@ -435,14 +435,14 @@ function ProxyTableView({
             placeholder={dict.searchPlaceholder}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            aria-label="Filter proxies"
+            aria-label={dict.filterProxiesAria || "Filter proxies"}
           />
           {searchQuery && (
             <button
               type="button"
               className={styles.clearSearchBtn}
               onClick={() => setSearchQuery("")}
-              aria-label="Clear search input"
+              aria-label={dict.clearSearchAria || "Clear search input"}
             >
               ×
             </button>
@@ -457,7 +457,7 @@ function ProxyTableView({
               className={styles.select}
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              aria-label="Filter by IP type"
+              aria-label={dict.filterTypeAria || "Filter by IP type"}
             >
               <option value="all">{dict.typeAll}</option>
               <option value="datacenter">{dict.datacenter}</option>
@@ -472,7 +472,7 @@ function ProxyTableView({
               className={styles.select}
               value={anonymityFilter}
               onChange={(e) => setAnonymityFilter(e.target.value)}
-              aria-label="Filter by anonymity level"
+              aria-label={dict.filterAnonAria || "Filter by anonymity level"}
             >
               <option value="all">{dict.anonAll}</option>
               <option value="elite">Elite</option>
@@ -488,7 +488,7 @@ function ProxyTableView({
               className={styles.select}
               value={latencyFilter}
               onChange={(e) => setLatencyFilter(e.target.value)}
-              aria-label="Filter by response time"
+              aria-label={dict.filterLatencyAria || "Filter by response time"}
             >
               <option value="all">{dict.speedAll}</option>
               <option value="fast">{dict.speedFast}</option>
@@ -504,7 +504,7 @@ function ProxyTableView({
               className={styles.select}
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              aria-label="Sort proxies"
+              aria-label={dict.sortProxiesAria || "Sort proxies"}
             >
               <option value="default">{dict.sortDefault}</option>
               <option value="speed-asc">{dict.sortSpeedAsc}</option>
@@ -611,7 +611,7 @@ function ProxyTableView({
                 <button
                   type="button"
                   onClick={() => setFilterType("all")}
-                  aria-label="Clear type filter"
+                  aria-label={dict.clearTypeFilterAria || "Clear type filter"}
                 >
                   ×
                 </button>
@@ -625,7 +625,7 @@ function ProxyTableView({
                 <button
                   type="button"
                   onClick={() => setFilterProtocol("all")}
-                  aria-label="Clear protocol filter"
+                  aria-label={dict.clearProtocolFilterAria || "Clear protocol filter"}
                 >
                   ×
                 </button>
@@ -645,7 +645,7 @@ function ProxyTableView({
                 <button
                   type="button"
                   onClick={() => setFilterCountry("all")}
-                  aria-label="Clear country filter"
+                  aria-label={dict.clearCountryFilterAria || "Clear country filter"}
                 >
                   ×
                 </button>
@@ -659,7 +659,7 @@ function ProxyTableView({
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
-                  aria-label="Clear search"
+                  aria-label={dict.clearSearchFilterAria || "Clear search"}
                 >
                   ×
                 </button>
@@ -673,7 +673,7 @@ function ProxyTableView({
                 <button
                   type="button"
                   onClick={() => setAnonymityFilter("all")}
-                  aria-label="Clear anonymity filter"
+                  aria-label={dict.clearAnonFilterAria || "Clear anonymity filter"}
                 >
                   ×
                 </button>
@@ -693,7 +693,7 @@ function ProxyTableView({
                 <button
                   type="button"
                   onClick={() => setLatencyFilter("all")}
-                  aria-label="Clear latency filter"
+                  aria-label={dict.clearLatencyFilterAria || "Clear latency filter"}
                 >
                   ×
                 </button>
@@ -729,7 +729,7 @@ function ProxyTableView({
 
       {/* Protocol Pills & Live Count */}
       <div className={styles.pillToolbar}>
-        <div className={styles.pillsList} role="group" aria-label="Filter by protocol">
+        <div className={styles.pillsList} role="group" aria-label={dict.filterProtocolGroupAria || "Filter by protocol"}>
           {[
             { id: "all", label: dict.allProtocols },
             { id: "socks5", label: "SOCKS5" },
@@ -886,8 +886,14 @@ function ProxyTableView({
                         type="button"
                         onClick={() => handleCopy(proxy)}
                         className={`${styles.copyBtn} ${isCopied ? styles.copyBtnSuccess : ""}`}
-                        aria-label={isCopied ? "Copied IP and port" : `Copy ${ip}:${port}`}
-                        title={isCopied ? "Copied to clipboard" : "Click to copy IP:Port"}
+                        aria-label={
+                          isCopied
+                            ? (dict.copiedIpPortAria || "Copied IP and port")
+                            : (dict.copyIpPortAria
+                                ? dict.copyIpPortAria.replace("{ip}", ip).replace("{port}", String(port))
+                                : `Copy ${ip}:${port}`)
+                        }
+                        title={isCopied ? dict.copiedExclamation : dict.copyIpPort}
                       >
                         {isCopied ? (
                           <Check size={14} className={styles.iconSuccess} />
@@ -1027,7 +1033,13 @@ function ProxyTableView({
                   type="button"
                   onClick={() => handleCopy(proxy)}
                   className={`${styles.cardCopyBtn} ${isCopied ? styles.copyBtnSuccess : ""}`}
-                  aria-label={isCopied ? "Copied" : `Copy ${ip}:${port}`}
+                  aria-label={
+                    isCopied
+                      ? (dict.copiedIpPortAria || "Copied IP and port")
+                      : (dict.copyIpPortAria
+                          ? dict.copyIpPortAria.replace("{ip}", ip).replace("{port}", String(port))
+                          : `Copy ${ip}:${port}`)
+                  }
                 >
                   {isCopied ? (
                     <Check size={16} className={styles.iconSuccess} />
@@ -1052,7 +1064,7 @@ function ProxyTableView({
             className={styles.pageBtn}
             disabled={currentPage === 1}
             onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-            aria-label="Previous page"
+            aria-label={dict.prevPageAria || "Previous page"}
           >
             {dict.previous}
           </button>
@@ -1069,7 +1081,7 @@ function ProxyTableView({
             className={styles.pageBtn}
             disabled={currentPage === totalPages}
             onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-            aria-label="Next page"
+            aria-label={dict.nextPageAria || "Next page"}
           >
             {dict.next}
           </button>

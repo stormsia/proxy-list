@@ -140,7 +140,7 @@ export default async function ProtocolView({
         </h1>
         <p className={styles.subtitle}>
           {filteredProxies.length > 0
-            ? `${filteredProxies.length.toLocaleString("en-US")} ${dict.protocol.subtitle.replace(
+            ? `${filteredProxies.length.toLocaleString(lang)} ${dict.protocol.subtitle.replace(
                 "{protocol}",
                 upper
               )}`
@@ -152,7 +152,7 @@ export default async function ProtocolView({
       </header>
 
       {about && (
-        <section className={styles.seoArticle}>
+        <section className={styles.seoArticle} aria-label={dict.protocol.aboutTitle.replace("{protocol}", upper)}>
           <h2>
             {dict.protocol.aboutTitle.replace(
               "{protocol}",
@@ -177,10 +177,10 @@ export default async function ProtocolView({
 
       <section
         className={styles.tableSection}
-        aria-label={`${upper} proxy table`}
+        aria-label={`${upper} - ${dict.table.tableCaption || "Proxy List"}`}
       >
         <ProxyTable
-          proxies={allProxies}
+          proxies={filteredProxies.slice(0, 50)}
           dict={dict.table}
           initialProtocol={normalizedProtocol}
           viewAllHref={getLocalizedPath("/", lang)}

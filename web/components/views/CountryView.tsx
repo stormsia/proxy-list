@@ -127,7 +127,7 @@ export default async function CountryView({
         </h1>
         <p className={styles.subtitle}>
           {filteredProxies.length > 0
-            ? `${filteredProxies.length.toLocaleString("en-US")} ${dict.country.subtitle.replace(
+            ? `${filteredProxies.length.toLocaleString(lang)} ${dict.country.subtitle.replace(
                 "{country}",
                 countryName
               )}`
@@ -137,7 +137,7 @@ export default async function CountryView({
 
       <section
         className={styles.seoArticle}
-        aria-label={`About proxies in ${countryName}`}
+        aria-label={dict.country.aboutTitle.replace("{country}", countryName)}
       >
         <h2>
           {dict.country.aboutTitle.replace("{country}", countryName)}
@@ -152,10 +152,10 @@ export default async function CountryView({
 
       <section
         className={styles.tableSection}
-        aria-label={`${countryName} proxy table`}
+        aria-label={`${countryName} - ${dict.table.tableCaption || "Proxy List"}`}
       >
         <ProxyTable
-          proxies={allProxies}
+          proxies={filteredProxies.slice(0, 50)}
           dict={dict.table}
           initialCountry={normalizedCode}
           viewAllHref={getLocalizedPath("/", lang)}

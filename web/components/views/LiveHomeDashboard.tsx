@@ -37,7 +37,7 @@ export default function LiveHomeDashboard({
 
   return (
     <LiveProxiesProvider value={liveState}>
-      <section className={styles.statsSection} aria-label="Live statistics">
+      <section className={styles.statsSection} aria-label={dict.home.liveStatsAria}>
         <div className={`glass-panel${flashClass}`}>
           <div className={styles.statCard}>
             <Activity
@@ -46,7 +46,7 @@ export default function LiveHomeDashboard({
             />
             <div className={styles.statInfo}>
               <div className={styles.statValue}>
-                {stats.totalCount.toLocaleString("en-US")}
+                {stats.totalCount.toLocaleString(lang)}
               </div>
               <div className={styles.statLabel}>{dict.home.verifiedProxies}</div>
             </div>
@@ -93,12 +93,12 @@ export default function LiveHomeDashboard({
         </div>
       </section>
 
-      <section className={styles.mapSection} aria-label="Network topology map">
+      <section className={styles.mapSection} aria-label={dict.home.topologyMapAria}>
         <h2 className={styles.sectionTitle}>{dict.home.networkTopology}</h2>
         <VectorWorldMap proxies={proxies} lang={lang} />
       </section>
 
-      <section className={styles.tableSection} aria-label="Proxy directory">
+      <section className={styles.tableSection} aria-label={dict.home.proxyDirectory}>
         <h2 className={styles.sectionTitle}>{dict.home.proxyDirectory}</h2>
         <ProxyTable proxies={proxies} dict={dict.table} liveState={liveState} />
       </section>

@@ -277,36 +277,65 @@ export function getFaqSchema(faqs: { question: string; answer: string }[]) {
   };
 }
 
+export interface HowToSchemaDict {
+  name: string;
+  description: string;
+  step1Name: string;
+  step1Text: string;
+  step2Name: string;
+  step2Text: string;
+  step3Name: string;
+  step3Text: string;
+}
+
 /**
  * HowTo Schema for terminal and code integration snippets (Google Rich Results & AEO)
  */
-export function getHowToSchema() {
+export function getHowToSchema(howToDict?: HowToSchemaDict) {
+  const name = howToDict?.name || "How to Connect to Free Proxies via cURL and Python (2026)";
+  const description =
+    howToDict?.description ||
+    "Step-by-step instructions to route traffic through free verified SOCKS5 and HTTP proxies using cURL and Python httpx.";
+  const step1Name = howToDict?.step1Name || "Select a verified proxy endpoint";
+  const step1Text =
+    howToDict?.step1Text ||
+    "Pick an active SOCKS5 or HTTP proxy from the live directory filtered by sub-500ms latency and high uptime.";
+  const step2Name =
+    howToDict?.step2Name || "Execute cURL with remote DNS resolution";
+  const step2Text =
+    howToDict?.step2Text ||
+    "Run in your terminal: curl -x socks5h://IP:PORT https://api.ipify.org?format=json to verify connection and prevent DNS leaks.";
+  const step3Name =
+    howToDict?.step3Name || "Integrate into Python httpx or requests";
+  const step3Text =
+    howToDict?.step3Text ||
+    "In Python, pass proxy parameter to httpx.AsyncClient(proxy='http://IP:PORT') or requests.get('https://example.com', proxies={'http': 'http://IP:PORT'}).";
+
   return {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "How to Connect to Free Proxies via cURL and Python (2026)",
-    description:
-      "Step-by-step instructions to route traffic through free verified SOCKS5 and HTTP proxies using cURL and Python httpx.",
+    name,
+    description,
     totalTime: "PT1M",
     step: [
       {
         "@type": "HowToStep",
         position: 1,
-        name: "Select a verified proxy endpoint",
-        text: "Pick an active SOCKS5 or HTTP proxy from the live directory filtered by sub-500ms latency and high uptime.",
+        name: step1Name,
+        text: step1Text,
         url: `${SITE_URL}/#proxies`,
       },
       {
         "@type": "HowToStep",
         position: 2,
-        name: "Execute cURL with remote DNS resolution",
-        text: "Run in your terminal: curl -x socks5h://IP:PORT https://api.ipify.org?format=json to verify connection and prevent DNS leaks.",
+        name: step2Name,
+        text: step2Text,
       },
       {
         "@type": "HowToStep",
         position: 3,
-        name: "Integrate into Python httpx or requests",
-        text: "In Python, pass proxy parameter to httpx.AsyncClient(proxy='http://IP:PORT') or requests.get('https://example.com', proxies={'http': 'http://IP:PORT'}).",
+        name: step3Name,
+        text: step3Text,
       },
     ],
   };

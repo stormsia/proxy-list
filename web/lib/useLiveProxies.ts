@@ -16,70 +16,96 @@ export interface LiveProxiesState {
   syncNow: () => void;
 }
 
+// Module-level cache so once loaded in the session, all views immediately share the full dataset
+let globalLiveProxies: ProxyRecord[] | null = null;
+let lastFetchTimestamp: number = 0;
+let inflightPromise: Promise<ProxyRecord[] | null> | null = null;
+
+async function fetchProxiesDataset(): Promise<ProxyRecord[] | null> {
+  let res: Response | null = null;
+
+  // 1. Fetch fresh JSON from raw github (updated by Hydra Rust engine every ~60s)
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
+    res = await fetch(`${RAW_URL}?_t=${Date.now()}`, {
+      signal: controller.signal,
+      headers: { Accept: "application/json" },
+    });
+    clearTimeout(timeoutId);
+  } catch {
+    // Network/CORS fallback
+  }
+
+  // 2. Fallback to same-origin proxies.json if raw was unreachable
+  if (!res || !res.ok) {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 8000);
+      res = await fetch(`${FALLBACK_URL}?_t=${Date.now()}`, {
+        signal: controller.signal,
+        headers: { Accept: "application/json" },
+      });
+      clearTimeout(timeoutId);
+    } catch {
+      // Both failed
+    }
+  }
+
+  if (res && res.ok) {
+    const json = await res.json();
+    if (Array.isArray(json) && json.length > 0) {
+      return json.map((item: any) => ({
+        ...item,
+        host: item.ip || item.host || "",
+        timeout:
+          typeof item.rtt_total_ms === "number"
+            ? item.rtt_total_ms / 1000
+            : typeof item.timeout === "number"
+            ? item.timeout
+            : 0,
+      })) as ProxyRecord[];
+    }
+  }
+
+  return null;
+}
+
 export function useLiveProxies(initialProxies: ProxyRecord[]): LiveProxiesState {
-  const [proxies, setProxies] = useState<ProxyRecord[]>(initialProxies);
-  const [secondsLeft, setSecondsLeft] = useState<number>(REFRESH_INTERVAL_SECONDS);
+  const [proxies, setProxies] = useState<ProxyRecord[]>(() => globalLiveProxies || initialProxies);
+  const [secondsLeft, setSecondsLeft] = useState<number>(() => {
+    if (lastFetchTimestamp > 0) {
+      const elapsed = Math.floor((Date.now() - lastFetchTimestamp) / 1000);
+      return Math.max(1, REFRESH_INTERVAL_SECONDS - elapsed);
+    }
+    return REFRESH_INTERVAL_SECONDS;
+  });
   const [isSyncing, setIsSyncing] = useState<boolean>(false);
   const [isUpdatedFlash, setIsUpdatedFlash] = useState<boolean>(false);
   const [lastUpdated, setLastUpdated] = useState<Date>(() => new Date());
 
-  const lastFetchTimeRef = useRef<number>(Date.now());
-  const isFetchingRef = useRef<boolean>(false);
   const flashTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const fetchFreshProxies = useCallback(async () => {
-    if (isFetchingRef.current) return;
-    isFetchingRef.current = true;
-    setIsSyncing(true);
+  const fetchFreshProxies = useCallback(async (isSilent = false) => {
+    if (!isSilent) {
+      setIsSyncing(true);
+    }
 
     try {
-      let res: Response | null = null;
-
-      // 1. Fetch fresh JSON from raw github (updated by Hydra Rust engine every ~60s)
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 8000);
-        res = await fetch(`${RAW_URL}?_t=${Date.now()}`, {
-          signal: controller.signal,
-          headers: { Accept: "application/json" },
+      if (!inflightPromise) {
+        inflightPromise = fetchProxiesDataset().finally(() => {
+          inflightPromise = null;
         });
-        clearTimeout(timeoutId);
-      } catch {
-        // Network/CORS fallback
       }
 
-      // 2. Fallback to same-origin proxies.json if raw was unreachable
-      if (!res || !res.ok) {
-        try {
-          const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 8000);
-          res = await fetch(`${FALLBACK_URL}?_t=${Date.now()}`, {
-            signal: controller.signal,
-            headers: { Accept: "application/json" },
-          });
-          clearTimeout(timeoutId);
-        } catch {
-          // Both failed
-        }
-      }
+      const normalized = await inflightPromise;
+      if (normalized && normalized.length > 0) {
+        globalLiveProxies = normalized;
+        lastFetchTimestamp = Date.now();
+        setProxies(normalized);
+        setLastUpdated(new Date());
 
-      if (res && res.ok) {
-        const json = await res.json();
-        if (Array.isArray(json) && json.length > 0) {
-          const normalized = json.map((item: any) => ({
-            ...item,
-            host: item.ip || item.host || "",
-            timeout:
-              typeof item.rtt_total_ms === "number"
-                ? item.rtt_total_ms / 1000
-                : typeof item.timeout === "number"
-                ? item.timeout
-                : 0,
-          })) as ProxyRecord[];
-
-          setProxies(normalized);
-          setLastUpdated(new Date());
-
+        if (!isSilent) {
           if (flashTimerRef.current) {
             clearTimeout(flashTimerRef.current);
           }
@@ -93,17 +119,23 @@ export function useLiveProxies(initialProxies: ProxyRecord[]): LiveProxiesState 
       console.warn("Live proxy sync error:", err);
     } finally {
       setIsSyncing(false);
-      isFetchingRef.current = false;
       setSecondsLeft(REFRESH_INTERVAL_SECONDS);
-      lastFetchTimeRef.current = Date.now();
     }
   }, []);
 
   const syncNow = useCallback(() => {
-    fetchFreshProxies();
+    fetchFreshProxies(false);
   }, [fetchFreshProxies]);
 
   useEffect(() => {
+    const now = Date.now();
+    // On mount: fetch immediately if we haven't loaded the full dataset or if it is stale (> 60s)
+    if (!globalLiveProxies || now - lastFetchTimestamp >= REFRESH_INTERVAL_SECONDS * 1000) {
+      fetchFreshProxies(true);
+    } else if (globalLiveProxies && proxies !== globalLiveProxies) {
+      setProxies(globalLiveProxies);
+    }
+
     const timer = setInterval(() => {
       // Don't tick down if tab is in background (save power & bandwidth)
       if (typeof document !== "undefined" && document.hidden) {
@@ -112,7 +144,7 @@ export function useLiveProxies(initialProxies: ProxyRecord[]): LiveProxiesState 
 
       setSecondsLeft((prev) => {
         if (prev <= 1) {
-          fetchFreshProxies();
+          fetchFreshProxies(false);
           return REFRESH_INTERVAL_SECONDS;
         }
         return prev - 1;
@@ -121,9 +153,9 @@ export function useLiveProxies(initialProxies: ProxyRecord[]): LiveProxiesState 
 
     const handleVisibilityChange = () => {
       if (document.visibilityState === "visible") {
-        const elapsed = (Date.now() - lastFetchTimeRef.current) / 1000;
+        const elapsed = (Date.now() - lastFetchTimestamp) / 1000;
         if (elapsed >= REFRESH_INTERVAL_SECONDS) {
-          fetchFreshProxies();
+          fetchFreshProxies(false);
         } else {
           setSecondsLeft(Math.max(1, Math.round(REFRESH_INTERVAL_SECONDS - elapsed)));
         }
@@ -139,7 +171,7 @@ export function useLiveProxies(initialProxies: ProxyRecord[]): LiveProxiesState 
         clearTimeout(flashTimerRef.current);
       }
     };
-  }, [fetchFreshProxies]);
+  }, [fetchFreshProxies, proxies]);
 
   return {
     proxies,

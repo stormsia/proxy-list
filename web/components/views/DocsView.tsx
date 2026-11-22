@@ -167,7 +167,7 @@ export default async function DocsView({ lang }: { lang: Locale }) {
               <div className={styles.endpointDesc}>
                 {dict.docs.rawDatasetDesc}
               </div>
-              <a href={`${REPO_RAW}/data/proxies.json`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open Raw JSON →</a>
+              <a href={`${REPO_RAW}/data/proxies.json`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>{dict.docs.openRawJson}</a>
             </div>
 
             <div className={styles.endpointCard}>
@@ -176,7 +176,7 @@ export default async function DocsView({ lang }: { lang: Locale }) {
               <div className={styles.endpointDesc}>
                 {dict.docs.rawWorkingDesc}
               </div>
-              <a href={`${REPO_RAW}/working_proxies.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open Raw TXT →</a>
+              <a href={`${REPO_RAW}/working_proxies.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>{dict.docs.openRawTxt}</a>
             </div>
 
             <div className={styles.endpointCard}>
@@ -185,7 +185,7 @@ export default async function DocsView({ lang }: { lang: Locale }) {
               <div className={styles.endpointDesc}>
                 {dict.docs.rawSocks5Desc}
               </div>
-              <a href={`${REPO_RAW}/socks5.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open Raw SOCKS5 →</a>
+              <a href={`${REPO_RAW}/socks5.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>{dict.docs.openRawSocks5}</a>
             </div>
 
             <div className={styles.endpointCard}>
@@ -194,7 +194,7 @@ export default async function DocsView({ lang }: { lang: Locale }) {
               <div className={styles.endpointDesc}>
                 {dict.docs.rawHttpDesc}
               </div>
-              <a href={`${REPO_RAW}/http.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open Raw HTTP →</a>
+              <a href={`${REPO_RAW}/http.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>{dict.docs.openRawHttp}</a>
             </div>
           </div>
         </section>
@@ -220,7 +220,7 @@ export default async function DocsView({ lang }: { lang: Locale }) {
               <div className={styles.endpointDesc}>
                 {dict.docs.aiLlmsTxtDesc}
               </div>
-              <a href={`${SITE_URL}/llms.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open llms.txt →</a>
+              <a href={`${SITE_URL}/llms.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>{dict.docs.openLlmsTxt}</a>
             </div>
 
             <div className={styles.endpointCard}>
@@ -229,7 +229,7 @@ export default async function DocsView({ lang }: { lang: Locale }) {
               <div className={styles.endpointDesc}>
                 {dict.docs.aiLlmsFullDesc}
               </div>
-              <a href={`${SITE_URL}/llms-full.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open llms-full.txt →</a>
+              <a href={`${SITE_URL}/llms-full.txt`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>{dict.docs.openLlmsFull}</a>
             </div>
 
             <div className={styles.endpointCard}>
@@ -238,7 +238,7 @@ export default async function DocsView({ lang }: { lang: Locale }) {
               <div className={styles.endpointDesc}>
                 {dict.docs.aiCatalogDesc}
               </div>
-              <a href={`${SITE_URL}/.well-known/ai-catalog.json`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open ai-catalog.json →</a>
+              <a href={`${SITE_URL}/.well-known/ai-catalog.json`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>{dict.docs.openAiCatalog}</a>
             </div>
 
             <div className={styles.endpointCard}>
@@ -247,7 +247,7 @@ export default async function DocsView({ lang }: { lang: Locale }) {
               <div className={styles.endpointDesc}>
                 {dict.docs.aiPricingDesc}
               </div>
-              <a href={`${SITE_URL}/pricing.md`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>Open pricing.md →</a>
+              <a href={`${SITE_URL}/pricing.md`} target="_blank" rel="noopener noreferrer" className={styles.endpointLink}>{dict.docs.openPricing}</a>
             </div>
           </div>
         </section>
@@ -496,19 +496,19 @@ fetchHighSlaProxies().then((proxies) => {
           </div>
           <div style={{ display: "grid", gap: "1rem", marginTop: "1rem" }}>
             <div style={{ padding: "1rem", background: "rgba(139, 92, 246, 0.08)", borderRadius: "8px", border: "1px solid rgba(139, 92, 246, 0.2)" }}>
-              <strong style={{ color: "#c4b5fd" }}>🛡️ Elite (Level 1):</strong>
+              <strong style={{ color: "#c4b5fd" }}>{dict.docs.anonEliteLabel}</strong>
               <p style={{ margin: "0.25rem 0 0", color: "var(--text-secondary)", fontSize: "0.9rem" }}>
                 {dict.docs.anonEliteDesc}
               </p>
             </div>
             <div style={{ padding: "1rem", background: "rgba(56, 189, 248, 0.08)", borderRadius: "8px", border: "1px solid rgba(56, 189, 248, 0.2)" }}>
-              <strong style={{ color: "#7dd3fc" }}>🌐 Anonymous (Level 2):</strong>
+              <strong style={{ color: "#7dd3fc" }}>{dict.docs.anonAnonymousLabel}</strong>
               <p style={{ margin: "0.25rem 0 0", color: "var(--text-secondary)", fontSize: "0.9rem" }}>
                 {dict.docs.anonAnonymousDesc}
               </p>
             </div>
             <div style={{ padding: "1rem", background: "rgba(161, 161, 170, 0.08)", borderRadius: "8px", border: "1px solid rgba(161, 161, 170, 0.2)" }}>
-              <strong style={{ color: "#e4e4e7" }}>🔍 Transparent (Level 3):</strong>
+              <strong style={{ color: "#e4e4e7" }}>{dict.docs.anonTransparentLabel}</strong>
               <p style={{ margin: "0.25rem 0 0", color: "var(--text-secondary)", fontSize: "0.9rem" }}>
                 {dict.docs.anonTransparentDesc}
               </p>

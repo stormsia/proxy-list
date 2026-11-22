@@ -32,9 +32,18 @@ export const getProxies = cache(async (): Promise<ProxyRecord[]> => {
     const parsed = JSON.parse(fileContents);
 
     if (Array.isArray(parsed)) {
-      // Normalize backwards compatibility fields (host, timeout) if needed
-      return (parsed as ProxyRecord[]).map((item) => ({
-        ...item,
+      // Return lean proxy objects optimized for fast SSR, low HTML payload, and responsive hydration
+      return (parsed as any[]).map((item) => ({
+        id: item.id || `${item.ip}:${item.port}`,
+        ip: item.ip || item.host || "",
+        port: item.port,
+        protocol: item.protocol,
+        anon: item.anon || "anonymous",
+        country: item.country || "",
+        rtt_total_ms: typeof item.rtt_total_ms === "number" ? item.rtt_total_ms : 0,
+        uptime_pct: typeof item.uptime_pct === "number" ? Math.round(item.uptime_pct * 10) / 10 : 0,
+        asn_org: item.asn_org || "",
+        supports_https: Boolean(item.supports_https),
         host: item.ip || item.host || "",
         timeout:
           typeof item.rtt_total_ms === "number"

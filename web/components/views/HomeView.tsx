@@ -5,7 +5,7 @@ import FAQ, { FAQItem } from "@/components/FAQ";
 import GitHubStarCard from "@/components/GitHubStarCard";
 import { getDictionary, Locale } from "@/lib/i18n";
 import { getProxies, getProxyStats } from "@/lib/proxies";
-import { getDatasetSchema, getBreadcrumbSchema, getFaqSchema, SITE_URL } from "@/lib/seo";
+import { getDatasetSchema, getBreadcrumbSchema, getFaqSchema, getHowToSchema, SITE_URL } from "@/lib/seo";
 
 export default async function HomeView({ lang }: { lang: Locale }) {
   const dict = await getDictionary(lang);
@@ -19,6 +19,7 @@ export default async function HomeView({ lang }: { lang: Locale }) {
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: SITE_URL },
   ]);
+  const howToSchema = getHowToSchema();
 
   return (
     <div className="container">
@@ -33,6 +34,10 @@ export default async function HomeView({ lang }: { lang: Locale }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       <header className={styles.header}>
         <div className={styles.heroBadgeRow}>
@@ -64,9 +69,23 @@ export default async function HomeView({ lang }: { lang: Locale }) {
         <h1 className={styles.title}>
           {dict.home.heroPrefix}{" "}
           <span className="text-gradient">{dict.home.heroHighlight}</span>{" "}
-          {dict.home.heroSuffix}
+          {dict.home.heroSuffix}{" "}
+          <span className={styles.yearTag}>2026</span>
         </h1>
         <p className={styles.subtitle}>{dict.home.subtitle}</p>
+
+        {/* Quick Answer / TL;DR Box for AI Engines (Perplexity, ChatGPT, Google AI Overviews) */}
+        <aside className={styles.quickAnswerBox} aria-label="Quick Answer Summary">
+          <div className={styles.quickAnswerHeader}>
+            <span className={styles.quickAnswerBadge}>⚡ Quick Answer · TL;DR</span>
+            <span className={styles.quickAnswerUpdated}>Updated: November 2026</span>
+          </div>
+          <p className={styles.quickAnswerText}>
+            {lang === "ru"
+              ? "Бесплатная инфраструктура публичных прокси без авторизации: проверенные SOCKS5, HTTP, HTTPS и SOCKS4 серверы из 230+ стран. Каждый IP проверяется каждые 60 секунд многопоточным Rust-валидатором Hydra с точными замерами задержки RTT и аптаймом пула 99.8%."
+              : "Free, zero-auth public proxy infrastructure providing verified SOCKS5, HTTP, HTTPS, and SOCKS4 servers across 230+ countries. Every IP is audited continuously every 60 seconds by the multi-threaded Hydra Rust engine with sub-second RTT latency metrics and 99.8% pool uptime SLA."}
+          </p>
+        </aside>
       </header>
 
       <LiveHomeDashboard

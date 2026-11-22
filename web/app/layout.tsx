@@ -19,7 +19,7 @@ const SITE_URL = "https://stormsia.github.io/proxy-list";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Free Proxy List | stormsia/proxy-list",
+    default: "Free Proxy List (2026) | stormsia/proxy-list",
     template: "%s | stormsia/proxy-list",
   },
   description:

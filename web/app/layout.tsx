@@ -104,12 +104,16 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/proxy-list/icon.svg", type: "image/svg+xml" },
-      { url: "/proxy-list/favicon.ico" },
+      { url: `${SITE_URL}/favicon.ico`, sizes: "any" },
+      { url: `${SITE_URL}/icon.svg`, type: "image/svg+xml" },
+      { url: `${SITE_URL}/favicon-48x48.png`, sizes: "48x48", type: "image/png" },
+      { url: `${SITE_URL}/favicon-32x32.png`, sizes: "32x32", type: "image/png" },
+      { url: `${SITE_URL}/favicon-16x16.png`, sizes: "16x16", type: "image/png" },
     ],
     apple: [
-      { url: "/proxy-list/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: `${SITE_URL}/apple-touch-icon.png`, sizes: "180x180", type: "image/png" },
     ],
+    shortcut: [`${SITE_URL}/favicon.ico`],
   },
   manifest: "/proxy-list/manifest.json",
 };
@@ -247,8 +251,12 @@ export default function RootLayout({
         />
 
         <meta name="theme-color" content="#0d1117" />
-        <link rel="manifest" href="/proxy-list/manifest.json" />
+        <link rel="manifest" href={`${SITE_URL}/manifest.json`} />
+        <link rel="icon" href={`${SITE_URL}/favicon.ico`} sizes="any" />
         <link rel="icon" type="image/svg+xml" href={`${SITE_URL}/icon.svg`} />
+        <link rel="icon" type="image/png" sizes="48x48" href={`${SITE_URL}/favicon-48x48.png`} />
+        <link rel="icon" type="image/png" sizes="32x32" href={`${SITE_URL}/favicon-32x32.png`} />
+        <link rel="icon" type="image/png" sizes="16x16" href={`${SITE_URL}/favicon-16x16.png`} />
         <link rel="apple-touch-icon" sizes="180x180" href={`${SITE_URL}/apple-touch-icon.png`} />
         <link rel="sitemap" type="application/xml" title="Sitemap" href={`${SITE_URL}/sitemap.xml`} />
         <link rel="security" href={`${SITE_URL}/.well-known/security.txt`} />

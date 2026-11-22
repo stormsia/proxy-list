@@ -260,17 +260,22 @@ export const COUNTRY_META: Record<string, CountryMetadata> = {
 
 const REGION_DISPLAY_NAMES: Record<Locale, Intl.DisplayNames> = {
   en: new Intl.DisplayNames(["en"], { type: "region" }),
-  ru: new Intl.DisplayNames(["ru"], { type: "region" }),
+  ru: new Intl.DisplayNames(["ru", "en"], { type: "region" }),
+  es: new Intl.DisplayNames(["es", "en"], { type: "region" }),
+  zh: new Intl.DisplayNames(["zh-CN", "zh", "en"], { type: "region" }),
+  hi: new Intl.DisplayNames(["hi", "en"], { type: "region" }),
+  ar: new Intl.DisplayNames(["ar", "en"], { type: "region" }),
+  pt: new Intl.DisplayNames(["pt", "en"], { type: "region" }),
+  fr: new Intl.DisplayNames(["fr", "en"], { type: "region" }),
+  bn: new Intl.DisplayNames(["bn", "en"], { type: "region" }),
+  id: new Intl.DisplayNames(["id", "en"], { type: "region" }),
 };
 
-const COUNTRY_NAME_GETTERS: Record<Locale, (meta: CountryMetadata) => string> = {
-  en: (meta) => meta.name,
-  ru: (meta) => meta.nameRu,
-};
-
-const COUNTRY_META_GETTERS: Record<
-  Locale,
-  (meta: CountryMetadata) => { title: string; description: string; keywords: string[] }
+const COUNTRY_META_GETTERS: Partial<
+  Record<
+    Locale,
+    (meta: CountryMetadata) => { title: string; description: string; keywords: string[] }
+  >
 > = {
   en: (meta) => ({
     title: meta.titleEn,
@@ -298,6 +303,46 @@ const FALLBACK_META_GENERATORS: Record<
     description: `Бесплатный список прокси-серверов в ${name}. SOCKS5, HTTP и HTTPS прокси, непрерывно проверяемые движком Hydra.`,
     keywords: [`прокси ${name.toLowerCase()}`, `${norm} proxy`, `socks5 ${name.toLowerCase()}`, `бесплатные прокси ${name.toLowerCase()}`],
   }),
+  es: (name, code, norm) => ({
+    title: `Lista de Proxies Gratis de ${name} (${code.toUpperCase()}) | SOCKS5 y HTTP`,
+    description: `Lista gratuita de proxies para ${name}. Servidores SOCKS5, HTTP y HTTPS verificados continuamente por el motor Hydra.`,
+    keywords: [`proxies ${name.toLowerCase()}`, `proxy ${norm}`, `socks5 ${norm}`, `proxies gratis ${name.toLowerCase()}`],
+  }),
+  zh: (name, code, norm) => ({
+    title: `免费 ${name} (${code.toUpperCase()}) 代理列表 | SOCKS5 与 HTTP`,
+    description: `${name} 免费代理列表。由 Hydra 引擎持续验证的 SOCKS5、HTTP 和 HTTPS 代理服务器。`,
+    keywords: [`${name} 代理`, `${norm} 代理服务器`, `免费 ${name} 代理`, `socks5 ${norm}`],
+  }),
+  hi: (name, code, norm) => ({
+    title: `मुफ्त ${name} (${code.toUpperCase()}) प्रॉक्सी सूची | SOCKS5 और HTTP`,
+    description: `${name} के लिए मुफ्त प्रॉक्सी सूची। हाइड्रा इंजन द्वारा लगातार सत्यापित SOCKS5, HTTP और HTTPS प्रॉक्सी।`,
+    keywords: [`${name} प्रॉक्सी`, `${norm} प्रॉक्सी सर्वर`, `मुफ्त ${name} प्रॉक्सी`, `socks5 ${norm}`],
+  }),
+  ar: (name, code, norm) => ({
+    title: `قائمة بروكسي مجانية ${name} (${code.toUpperCase()}) | SOCKS5 و HTTP`,
+    description: `قائمة بروكسي مجانية لـ ${name}. خوادم SOCKS5 و HTTP و HTTPS تم فحصها باستمرار بواسطة محرك Hydra.`,
+    keywords: [`بروكسي ${name}`, `خادم بروكسي ${norm}`, `بروكسي مجاني ${name}`, `socks5 ${norm}`],
+  }),
+  pt: (name, code, norm) => ({
+    title: `Lista de Proxies Grátis de ${name} (${code.toUpperCase()}) | SOCKS5 e HTTP`,
+    description: `Lista de proxies gratuitos para ${name}. Proxies SOCKS5, HTTP e HTTPS verificados continuamente pelo motor Hydra.`,
+    keywords: [`proxies ${name.toLowerCase()}`, `proxy ${norm}`, `socks5 ${norm}`, `proxies gratis ${name.toLowerCase()}`],
+  }),
+  fr: (name, code, norm) => ({
+    title: `Liste de Proxies Gratuits ${name} (${code.toUpperCase()}) | SOCKS5 & HTTP`,
+    description: `Liste de proxies gratuits pour ${name}. Proxies SOCKS5, HTTP et HTTPS vérifiés en continu par le moteur Hydra.`,
+    keywords: [`proxies ${name.toLowerCase()}`, `proxy ${norm}`, `socks5 ${norm}`, `proxies gratuits ${name.toLowerCase()}`],
+  }),
+  bn: (name, code, norm) => ({
+    title: `বিনামূল্যে ${name} (${code.toUpperCase()}) প্রক্সি তালিকা | SOCKS5 এবং HTTP`,
+    description: `${name} এর জন্য বিনামূল্যের প্রক্সি তালিকা। হাইড্রা ইঞ্জিন দ্বারা ক্রমাগত যাচাইকৃত SOCKS5, HTTP এবং HTTPS প্রক্সি।`,
+    keywords: [`${name} প্রক্সি`, `${norm} প্রক্সি সার্ভার`, `বিনামূল্যে ${name} প্রক্সি`, `socks5 ${norm}`],
+  }),
+  id: (name, code, norm) => ({
+    title: `Daftar Proxy Gratis ${name} (${code.toUpperCase()}) | SOCKS5 & HTTP`,
+    description: `Daftar proxy gratis untuk ${name}. Proxy SOCKS5, HTTP, dan HTTPS yang diverifikasi terus-menerus oleh engine Hydra.`,
+    keywords: [`proxy ${name.toLowerCase()}`, `proxy ${norm}`, `socks5 ${norm}`, `proxy gratis ${name.toLowerCase()}`],
+  }),
 };
 
 export function getCountryDisplayName(
@@ -305,12 +350,6 @@ export function getCountryDisplayName(
   fallbackName?: string,
   lang: Locale = DEFAULT_LOCALE
 ): string {
-  const normalized = code.toLowerCase();
-  const meta = COUNTRY_META[normalized];
-  if (meta) {
-    const getName = COUNTRY_NAME_GETTERS[lang] ?? COUNTRY_NAME_GETTERS[DEFAULT_LOCALE];
-    return getName(meta);
-  }
   try {
     const upper = code.toUpperCase();
     const displayNames = REGION_DISPLAY_NAMES[lang] ?? REGION_DISPLAY_NAMES[DEFAULT_LOCALE];
@@ -319,6 +358,12 @@ export function getCountryDisplayName(
       return localized.replace(/\s+SAR(\s+China)?/i, "").trim();
     }
   } catch {}
+  const normalized = code.toLowerCase();
+  const meta = COUNTRY_META[normalized];
+  if (meta) {
+    if (lang === "ru" && meta.nameRu) return meta.nameRu;
+    return meta.name;
+  }
   return fallbackName || code.toUpperCase();
 }
 
@@ -334,9 +379,9 @@ export function getCountryMetadata(
   const meta = COUNTRY_META[norm];
   const name = getCountryDisplayName(norm, norm.toUpperCase(), lang);
 
-  if (meta) {
-    const getMeta = COUNTRY_META_GETTERS[lang] ?? COUNTRY_META_GETTERS[DEFAULT_LOCALE];
-    return getMeta(meta);
+  const getter = COUNTRY_META_GETTERS[lang];
+  if (meta && getter) {
+    return getter(meta);
   }
 
   const generator = FALLBACK_META_GENERATORS[lang] ?? FALLBACK_META_GENERATORS[DEFAULT_LOCALE];

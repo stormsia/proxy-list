@@ -114,41 +114,62 @@ if (missingSelectors.length > 0) {
 }
 
 // ----------------------------------------------------
-// 2. Dictionary Key Structure Parity
+// 2. Dictionary Key Structure Parity (All 10 Locales)
 // ----------------------------------------------------
-console.log('>>> [2/4] AUDITING I18N DICTIONARY STRUCTURE (en.json vs ru.json)...');
-const enDict = JSON.parse(fs.readFileSync(path.join(webDir, 'dictionaries', 'en.json'), 'utf8'));
-const ruDict = JSON.parse(fs.readFileSync(path.join(webDir, 'dictionaries', 'ru.json'), 'utf8'));
+const ALL_LOCALES = ['en', 'ru', 'es', 'zh', 'hi', 'ar', 'pt', 'fr', 'bn', 'id'];
+console.log(`>>> [2/4] AUDITING I18N DICTIONARY STRUCTURE (${ALL_LOCALES.length} LOCALES)...`);
 
+const allDicts = {};
+ALL_LOCALES.forEach(loc => {
+  allDicts[loc] = JSON.parse(fs.readFileSync(path.join(webDir, 'dictionaries', `${loc}.json`), 'utf8'));
+});
+const enDict = allDicts['en'];
 const enSections = Object.keys(enDict);
-const ruSections = Object.keys(ruDict);
+
 let dictKeyMismatches = [];
 
-enSections.forEach(section => {
-  if (typeof enDict[section] === 'object' && enDict[section] !== null && ruDict[section]) {
-    const enKeys = Object.keys(enDict[section]);
-    const ruKeys = Object.keys(ruDict[section]);
-    enKeys.forEach(k => {
-      if (!ruKeys.includes(k)) dictKeyMismatches.push({ section, key: k, missingIn: 'ru.json' });
-    });
-    ruKeys.forEach(k => {
-      if (!enKeys.includes(k)) dictKeyMismatches.push({ section, key: k, missingIn: 'en.json' });
-    });
-  }
+ALL_LOCALES.forEach(loc => {
+  if (loc === 'en') return;
+  const targetDict = allDicts[loc];
+  const targetSections = Object.keys(targetDict);
+
+  enSections.forEach(section => {
+    if (!targetDict[section]) {
+      dictKeyMismatches.push({ section, key: '*', missingIn: `${loc}.json` });
+      return;
+    }
+    if (typeof enDict[section] === 'object' && enDict[section] !== null) {
+      const enKeys = Object.keys(enDict[section]);
+      const targetKeys = Object.keys(targetDict[section]);
+      enKeys.forEach(k => {
+        if (!targetKeys.includes(k)) dictKeyMismatches.push({ section, key: k, missingIn: `${loc}.json` });
+      });
+      targetKeys.forEach(k => {
+        if (!enKeys.includes(k)) dictKeyMismatches.push({ section, key: k, missingIn: 'en.json' });
+      });
+    }
+  });
+
+  targetSections.forEach(section => {
+    if (!enDict[section]) {
+      dictKeyMismatches.push({ section, key: '*', missingIn: 'en.json' });
+    }
+  });
 });
 
-console.log(`  • Sections: en (${enSections.length}) | ru (${ruSections.length})`);
-console.log(`  • Key mismatches: ${dictKeyMismatches.length}`);
+console.log(`  • Locales checked: ${ALL_LOCALES.join(', ')} (${ALL_LOCALES.length} total)`);
+console.log(`  • Reference en.json sections: ${enSections.length}`);
+console.log(`  • Key mismatches across all 10 dictionaries: ${dictKeyMismatches.length}`);
 if (dictKeyMismatches.length > 0) {
   console.table(dictKeyMismatches);
 } else {
-  console.log('  ✓ PASS: en.json and ru.json have 100% identical sections and keys!\n');
+  console.log('  ✓ PASS: All 10 dictionaries have 100% identical sections and keys!\n');
 }
 
 // ----------------------------------------------------
 // 3. In-Code Dictionary Reference Verification
 // ----------------------------------------------------
-console.log('>>> [3/4] AUDITING IN-CODE DICTIONARY USAGES...');
+console.log('>>> [3/4] AUDITING IN-CODE DICTIONARY USAGES ACROSS ALL 10 DICTIONARIES...');
 const brokenDictUsages = [];
 let totalDictUsages = 0;
 
@@ -173,25 +194,29 @@ sourceFiles.forEach(f => {
 
     totalDictUsages++;
     if (second) {
-      const enVal = enDict[first] ? enDict[first][second] : undefined;
-      const ruVal = ruDict[first] ? ruDict[first][second] : undefined;
-      if (enVal === undefined || ruVal === undefined) {
-        brokenDictUsages.push({
-          file: path.relative(rootDir, f),
-          ref: `dict.${first}.${second}`,
-          missingIn: !enVal ? 'en' : 'ru',
-        });
+      for (const loc of ALL_LOCALES) {
+        const d = allDicts[loc];
+        const val = d[first] ? d[first][second] : undefined;
+        if (val === undefined) {
+          brokenDictUsages.push({
+            file: path.relative(rootDir, f),
+            ref: `dict.${first}.${second}`,
+            missingIn: loc,
+          });
+        }
       }
     } else if (subSection) {
       if (['replace', 'toString', 'toLowerCase', 'toUpperCase', 'trim'].includes(first)) continue;
-      const enVal = enDict[subSection] ? enDict[subSection][first] : undefined;
-      const ruVal = ruDict[subSection] ? ruDict[subSection][first] : undefined;
-      if (enVal === undefined || ruVal === undefined) {
-        brokenDictUsages.push({
-          file: path.relative(rootDir, f),
-          ref: `dict.${first} [${subSection}]`,
-          missingIn: !enVal ? 'en' : 'ru',
-        });
+      for (const loc of ALL_LOCALES) {
+        const d = allDicts[loc];
+        const val = d[subSection] ? d[subSection][first] : undefined;
+        if (val === undefined) {
+          brokenDictUsages.push({
+            file: path.relative(rootDir, f),
+            ref: `dict.${first} [${subSection}]`,
+            missingIn: loc,
+          });
+        }
       }
     }
   }
@@ -202,7 +227,7 @@ console.log(`  • Broken dictionary references:   ${brokenDictUsages.length}`);
 if (brokenDictUsages.length > 0) {
   console.table(brokenDictUsages);
 } else {
-  console.log('  ✓ PASS: All in-code dictionary references exist in en.json and ru.json!\n');
+  console.log('  ✓ PASS: All in-code dictionary references exist across all 10 dictionaries!\n');
 }
 
 // ----------------------------------------------------

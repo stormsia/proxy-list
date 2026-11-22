@@ -45,6 +45,14 @@ export const metadata: Metadata = {
     languages: {
       en: SITE_URL,
       ru: `${SITE_URL}/ru`,
+      es: `${SITE_URL}/es`,
+      zh: `${SITE_URL}/zh`,
+      hi: `${SITE_URL}/hi`,
+      ar: `${SITE_URL}/ar`,
+      pt: `${SITE_URL}/pt`,
+      fr: `${SITE_URL}/fr`,
+      bn: `${SITE_URL}/bn`,
+      id: `${SITE_URL}/id`,
       "x-default": SITE_URL,
     },
     types: {
@@ -108,6 +116,7 @@ export const metadata: Metadata = {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { I18nProvider } from "@/components/I18nProvider";
+import LocaleMismatchBanner from "@/components/LocaleMismatchBanner";
 
 export default function RootLayout({
   children,
@@ -135,7 +144,18 @@ export default function RootLayout({
       "@type": "ContactPoint",
       contactType: "technical support",
       url: "https://github.com/stormsia/proxy-list/issues",
-      availableLanguage: ["English", "Russian"],
+      availableLanguage: [
+        "English",
+        "Russian",
+        "Spanish",
+        "Chinese",
+        "Hindi",
+        "Arabic",
+        "Portuguese",
+        "French",
+        "Bengali",
+        "Indonesian",
+      ],
     },
   };
 
@@ -232,6 +252,7 @@ export default function RootLayout({
             <main className="main-content">{children}</main>
             <Footer />
           </div>
+          <LocaleMismatchBanner />
         </I18nProvider>
       </body>
     </html>

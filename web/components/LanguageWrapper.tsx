@@ -11,6 +11,6 @@ export default function LanguageWrapper({
   ru: React.ReactNode;
 }) {
   const { locale } = useDictionary();
-  const content: Record<Locale, React.ReactNode> = { en, ru };
+  const content: Partial<Record<Locale, React.ReactNode>> = { en, ru };
   return <>{content[locale] ?? en}</>;
 }

@@ -7,6 +7,7 @@ import { Globe, Map, Terminal, Menu, X, Languages, Star } from "lucide-react";
 import styles from "./Navbar.module.css";
 import { switchLocalePath, LOCALES, DEFAULT_LOCALE } from "@/lib/i18n";
 import { useDictionary } from "./I18nProvider";
+import LanguagePicker from "./LanguagePicker";
 
 function GitHubIcon({ size = 16 }: { size?: number }) {
   return (
@@ -33,8 +34,6 @@ export default function Navbar() {
 
   const baseHome = getPath("/");
   const baseDocs = getPath("/docs");
-  const targetLocale = LOCALES.find((l) => l !== locale) || DEFAULT_LOCALE;
-  const altLangPath = switchLocalePath(pathname, targetLocale);
 
   // Close mobile menu on route change
   const [prevPathname, setPrevPathname] = useState(pathname);
@@ -90,14 +89,7 @@ export default function Navbar() {
             <span>{dict.nav.docs}</span>
           </Link>
 
-          <Link
-            href={altLangPath}
-            className={styles.langBtn}
-            aria-label={dict.nav.langSwitchAria}
-          >
-            <Languages size={15} />
-            <span>{dict.nav.langSwitchText}</span>
-          </Link>
+          <LanguagePicker className={styles.langBtn} />
 
           <a
             href="https://github.com/stormsia/proxy-list"
@@ -145,10 +137,7 @@ export default function Navbar() {
               <span>{dict.nav.docs}</span>
             </Link>
 
-            <Link href={altLangPath} className={styles.mobileLink}>
-              <Languages size={18} />
-              <span>{dict.nav.langSwitchMobile}</span>
-            </Link>
+            <LanguagePicker className={styles.mobileLink} variant="menuItem" />
 
             <a
               href="https://github.com/stormsia/proxy-list"

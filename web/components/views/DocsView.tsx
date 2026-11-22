@@ -12,6 +12,14 @@ const HYDRA_URL = "https://github.com/stormsia/hydra";
 const README_URLS: Record<Locale, string> = {
   en: `${GITHUB_REPO}#readme`,
   ru: `${GITHUB_REPO}/blob/main/README.ru.md`,
+  zh: `${GITHUB_REPO}/blob/main/README.zh.md`,
+  es: `${GITHUB_REPO}#readme`,
+  hi: `${GITHUB_REPO}#readme`,
+  ar: `${GITHUB_REPO}#readme`,
+  pt: `${GITHUB_REPO}#readme`,
+  fr: `${GITHUB_REPO}#readme`,
+  bn: `${GITHUB_REPO}#readme`,
+  id: `${GITHUB_REPO}#readme`,
 };
 
 function GitHubIcon({ size = 15 }: { size?: number }) {

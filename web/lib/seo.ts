@@ -21,11 +21,27 @@ export interface PageMetadataOptions {
 const OG_LOCALES: Record<Locale, string> = {
   en: "en_US",
   ru: "ru_RU",
+  es: "es_ES",
+  zh: "zh_CN",
+  hi: "hi_IN",
+  ar: "ar_SA",
+  pt: "pt_PT",
+  fr: "fr_FR",
+  bn: "bn_BD",
+  id: "id_ID",
 };
 
 const OG_ALTERNATE_LOCALES: Record<Locale, string> = {
   en: "ru_RU",
   ru: "en_US",
+  es: "en_US",
+  zh: "en_US",
+  hi: "en_US",
+  ar: "en_US",
+  pt: "en_US",
+  fr: "en_US",
+  bn: "en_US",
+  id: "en_US",
 };
 
 /**

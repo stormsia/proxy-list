@@ -1,36 +1,5 @@
 [
   {
-    "id": "102.244.78.61:8081:Cameroon:",
-    "ip": "102.244.78.61",
-    "port": 8081,
-    "url": "http://Cameroon@102.244.78.61:8081",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "Cameroon",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "102.244.78.57",
-    "country": "CM",
-    "asn": 36912,
-    "asn_org": "ORANGE",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 328,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 50428,
-    "uptime_pct": 83.84231,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 1801,
-    "checks_success": 1510,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224441,
-    "last_checked_at": 1795384407,
-    "next_check_at": 1795389655
-  },
-  {
     "id": "102.244.78.61:8090:Cameroon:",
     "ip": "102.244.78.61",
     "port": 8090,
@@ -59,7 +28,7 @@
     "remark": null,
     "first_seen_at": 1795225584,
     "last_checked_at": 1795383523,
-    "next_check_at": 1795389570
+    "next_check_at": 1795389701
   },
   {
     "id": "103.18.45.10:8080:Indonesia:",
@@ -90,7 +59,7 @@
     "remark": null,
     "first_seen_at": 1795282029,
     "last_checked_at": 1795384538,
-    "next_check_at": 1795389570
+    "next_check_at": 1795389701
   },
   {
     "id": "103.82.20.76:8080:Vietnam:",
@@ -121,7 +90,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795384536,
-    "next_check_at": 1795389570
+    "next_check_at": 1795389701
   },
   {
     "id": "134.209.29.120:3128:GB:",
@@ -183,7 +152,7 @@
     "remark": null,
     "first_seen_at": 1795371259,
     "last_checked_at": 1795384536,
-    "next_check_at": 1795389570
+    "next_check_at": 1795389701
   },
   {
     "id": "147.161.246.34:10825:Switzerland:",
@@ -245,7 +214,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795384407,
-    "next_check_at": 1795389552
+    "next_check_at": 1795389685
   },
   {
     "id": "147.161.246.34:11172:Switzerland:",
@@ -279,37 +248,6 @@
     "next_check_at": 1795389612
   },
   {
-    "id": "147.161.246.34:11286:Switzerland:",
-    "ip": "147.161.246.34",
-    "port": 11286,
-    "url": "http://Switzerland@147.161.246.34:11286",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "Switzerland",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "147.161.246.254",
-    "country": "CH",
-    "asn": 62044,
-    "asn_org": "Zscaler Switzerland GmbH",
-    "anon": "transparent",
-    "rtt_tcp_ms": 6164,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 674282,
-    "uptime_pct": 97.560974,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 328,
-    "checks_success": 320,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795350754,
-    "last_checked_at": 1795384530,
-    "next_check_at": 1795389552
-  },
-  {
     "id": "147.161.246.34:11516:Switzerland:",
     "ip": "147.161.246.34",
     "port": 11516,
@@ -341,37 +279,6 @@
     "next_check_at": 1795389612
   },
   {
-    "id": "147.161.246.34:11676:Switzerland:",
-    "ip": "147.161.246.34",
-    "port": 11676,
-    "url": "http://Switzerland@147.161.246.34:11676",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "Switzerland",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "147.161.246.254",
-    "country": "CH",
-    "asn": 62044,
-    "asn_org": "Zscaler Switzerland GmbH",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 172,
-    "rtt_handshake_ms": 1268,
-    "rtt_total_ms": 14482,
-    "uptime_pct": 91.358025,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 729,
-    "checks_success": 666,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795260940,
-    "last_checked_at": 1795384458,
-    "next_check_at": 1795389627
-  },
-  {
     "id": "147.161.246.34:12020:Switzerland:",
     "ip": "147.161.246.34",
     "port": 12020,
@@ -400,7 +307,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795384538,
-    "next_check_at": 1795389570
+    "next_check_at": 1795389701
   },
   {
     "id": "147.161.246.34:12130:Switzerland:",
@@ -431,7 +338,7 @@
     "remark": null,
     "first_seen_at": 1795267010,
     "last_checked_at": 1795384530,
-    "next_check_at": 1795389570
+    "next_check_at": 1795389701
   },
   {
     "id": "147.161.246.34:12308:Switzerland:",
@@ -525,37 +432,6 @@
     "first_seen_at": 1795312022,
     "last_checked_at": 1795384401,
     "next_check_at": 1795389655
-  },
-  {
-    "id": "147.161.246.34:12607:Switzerland:",
-    "ip": "147.161.246.34",
-    "port": 12607,
-    "url": "http://Switzerland@147.161.246.34:12607",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "Switzerland",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "147.161.246.254",
-    "country": "CH",
-    "asn": 62044,
-    "asn_org": "Zscaler Switzerland GmbH",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 2294,
-    "rtt_handshake_ms": 2375,
-    "rtt_total_ms": 10393,
-    "uptime_pct": 97.84017,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 463,
-    "checks_success": 453,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795336263,
-    "last_checked_at": 1795384555,
-    "next_check_at": 1795389587
   },
   {
     "id": "147.161.246.34:12845:Switzerland:",
@@ -679,7 +555,7 @@
     "remark": null,
     "first_seen_at": 1795363642,
     "last_checked_at": 1795384431,
-    "next_check_at": 1795389570
+    "next_check_at": 1795389701
   },
   {
     "id": "197.221.234.253:80:3 mins ago:",
@@ -744,37 +620,6 @@
     "next_check_at": 1795389655
   },
   {
-    "id": "197.221.240.247:80:1 min ago:",
-    "ip": "197.221.240.247",
-    "port": 80,
-    "url": "http://1 min ago@197.221.240.247:80",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "1 min ago",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "41.220.17.62",
-    "country": "ZW",
-    "asn": 37204,
-    "asn_org": "TELONE",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 8379,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 29210,
-    "uptime_pct": 82.46753,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 1386,
-    "checks_success": 1143,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795263131,
-    "last_checked_at": 1795384188,
-    "next_check_at": 1795389612
-  },
-  {
     "id": "219.93.101.62:80:2 mins ago:",
     "ip": "219.93.101.62",
     "port": 80,
@@ -803,38 +648,7 @@
     "remark": null,
     "first_seen_at": 1795350842,
     "last_checked_at": 1795384536,
-    "next_check_at": 1795389570
-  },
-  {
-    "id": "34.140.137.151:80:20 secs ago:",
-    "ip": "34.140.137.151",
-    "port": 80,
-    "url": "http://20 secs ago@34.140.137.151:80",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "20 secs ago",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "34.140.137.151",
-    "country": "BE",
-    "asn": 396982,
-    "asn_org": "GOOGLE-CLOUD-PLATFORM",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 5305,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 21015,
-    "uptime_pct": 64.60432,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 695,
-    "checks_success": 449,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795308582,
-    "last_checked_at": 1795384395,
-    "next_check_at": 1795389655
+    "next_check_at": 1795389701
   },
   {
     "id": "34.43.46.91:80:United States:",
@@ -896,38 +710,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795383994,
-    "next_check_at": 1795389570
-  },
-  {
-    "id": "39.109.113.97:4090:25 secs ago:",
-    "ip": "39.109.113.97",
-    "port": 4090,
-    "url": "http://25 secs ago@39.109.113.97:4090",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "25 secs ago",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "39.109.113.97",
-    "country": "HK",
-    "asn": 142403,
-    "asn_org": "YISU CLOUD LTD",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 3200,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 706021,
-    "uptime_pct": 81.893005,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 729,
-    "checks_success": 597,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795308582,
-    "last_checked_at": 1795384530,
-    "next_check_at": 1795389570
+    "next_check_at": 1795389701
   },
   {
     "id": "41.220.16.211:80:1 min ago:",
@@ -961,37 +744,6 @@
     "next_check_at": 1795389655
   },
   {
-    "id": "41.220.16.211:80:2 mins ago:",
-    "ip": "41.220.16.211",
-    "port": 80,
-    "url": "http://2 mins ago@41.220.16.211:80",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "2 mins ago",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "41.220.17.62",
-    "country": "ZW",
-    "asn": 37204,
-    "asn_org": "TELONE",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 2281,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 9073,
-    "uptime_pct": 84.18605,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 860,
-    "checks_success": 724,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795308582,
-    "last_checked_at": 1795384549,
-    "next_check_at": 1795389570
-  },
-  {
     "id": "41.220.16.215:80:2 mins ago:",
     "ip": "41.220.16.215",
     "port": 80,
@@ -1020,37 +772,6 @@
     "remark": null,
     "first_seen_at": 1795308582,
     "last_checked_at": 1795383962,
-    "next_check_at": 1795389655
-  },
-  {
-    "id": "8.219.97.248:80:SG:",
-    "ip": "8.219.97.248",
-    "port": 80,
-    "url": "http://SG@8.219.97.248:80",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "SG",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "8.219.64.236",
-    "country": "SG",
-    "asn": 45102,
-    "asn_org": "Alibaba US Technology Co., Ltd.",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 2184,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 18126,
-    "uptime_pct": 76.48456,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 842,
-    "checks_success": 644,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795308607,
-    "last_checked_at": 1795388878,
     "next_check_at": 1795389655
   },
   {
@@ -1144,7 +865,7 @@
     "remark": null,
     "first_seen_at": 1795224594,
     "last_checked_at": 1795384551,
-    "next_check_at": 1795389570
+    "next_check_at": 1795389701
   },
   {
     "id": "103.36.11.18:8199:ID:",
@@ -1361,7 +1082,7 @@
     "remark": null,
     "first_seen_at": 1795299780,
     "last_checked_at": 1795384549,
-    "next_check_at": 1795389570
+    "next_check_at": 1795389701
   },
   {
     "id": "69.55.49.177:38182:United States:",

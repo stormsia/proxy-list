@@ -60,21 +60,23 @@ export default function FAQ({ items, title = "Frequently Asked Questions" }: FAQ
 
           return (
             <div key={index} className={`${styles.item} ${isOpen ? styles.itemOpen : ""}`}>
-              <button
-                type="button"
-                id={buttonId}
-                aria-expanded={isOpen}
-                aria-controls={contentId}
-                className={styles.questionButton}
-                onClick={() => toggleItem(index)}
-              >
-                <span className={styles.questionText}>{item.question}</span>
-                <ChevronDown
-                  className={`${styles.chevron} ${isOpen ? styles.chevronRotated : ""}`}
-                  size={18}
-                  aria-hidden="true"
-                />
-              </button>
+              <h3 className={styles.questionHeading}>
+                <button
+                  type="button"
+                  id={buttonId}
+                  aria-expanded={isOpen}
+                  aria-controls={contentId}
+                  className={styles.questionButton}
+                  onClick={() => toggleItem(index)}
+                >
+                  <span className={styles.questionText}>{item.question}</span>
+                  <ChevronDown
+                    className={`${styles.chevron} ${isOpen ? styles.chevronRotated : ""}`}
+                    size={18}
+                    aria-hidden="true"
+                  />
+                </button>
+              </h3>
               <div
                 id={contentId}
                 role="region"

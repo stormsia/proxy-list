@@ -1,0 +1,5 @@
+Contact: https://github.com/stormsia/proxy-list/issues
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, ru
+Canonical: https://stormsia.github.io/proxy-list/.well-known/security.txt
+Policy: https://github.com/stormsia/proxy-list/blob/main/README.md#security

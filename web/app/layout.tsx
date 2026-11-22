@@ -111,6 +111,7 @@ export const metadata: Metadata = {
       { url: "/proxy-list/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
+  manifest: "/proxy-list/manifest.json",
 };
 
 import Navbar from "@/components/Navbar";
@@ -126,6 +127,7 @@ export default function RootLayout({
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
     name: "stormsia/proxy-list",
     url: SITE_URL,
     logo: `${SITE_URL}/logo.svg`,
@@ -138,6 +140,32 @@ export default function RootLayout({
       `${SITE_URL}/pricing.md`,
       `${SITE_URL}/AGENTS.md`,
     ],
+    knowsAbout: [
+      "Proxy Servers",
+      "SOCKS5 Protocol",
+      "HTTP & HTTPS Proxies",
+      "SOCKS4 Protocol",
+      "Network Latency Auditing",
+      "Web Scraping Infrastructure",
+      "Autonomous Agent Discovery",
+      "Zero-Auth APIs",
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Public Proxy Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Free SOCKS5 & HTTP Proxy Feed",
+            description: "Continuously validated free proxy endpoints with sub-second latency auditing.",
+          },
+          price: "0",
+          priceCurrency: "USD",
+        },
+      ],
+    },
     description:
       "Open-source proxy infrastructure network that collects, validates, and publishes free proxy lists using the high-concurrency Hydra Rust engine.",
     contactPoint: {
@@ -218,8 +246,12 @@ export default function RootLayout({
           }}
         />
 
+        <meta name="theme-color" content="#0d1117" />
+        <link rel="manifest" href="/proxy-list/manifest.json" />
         <link rel="icon" type="image/svg+xml" href={`${SITE_URL}/icon.svg`} />
         <link rel="apple-touch-icon" sizes="180x180" href={`${SITE_URL}/apple-touch-icon.png`} />
+        <link rel="sitemap" type="application/xml" title="Sitemap" href={`${SITE_URL}/sitemap.xml`} />
+        <link rel="security" href={`${SITE_URL}/.well-known/security.txt`} />
         <link rel="alternate" type="text/markdown" href={`${SITE_URL}/llms.txt`} title="LLM Context (llms.txt)" />
         <link rel="alternate" type="text/plain" href={`${SITE_URL}/llms.txt`} title="LLM Context (llms.txt)" />
         <link rel="help" type="text/markdown" href={`${SITE_URL}/llms.txt`} title="Agent Guidance (llms.txt)" />

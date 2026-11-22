@@ -92,12 +92,21 @@ export function buildPageMetadata({
       locale: OG_LOCALES[lang] || "en_US",
       alternateLocale: OG_ALTERNATE_LOCALES[lang] || "ru_RU",
       type: "website",
+      images: [
+        {
+          url: `${SITE_URL}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: "stormsia/proxy-list - Free SOCKS5, HTTP & SOCKS4 Proxies",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
       creator: "@stormsia",
+      images: [`${SITE_URL}/og-image.png`],
     },
   };
 }

@@ -855,15 +855,18 @@ function ProxyTableView({
                           title={dict.countryTitle.replace("{country}", countryName)}
                           style={{ textDecoration: "none", color: "inherit" }}
                         >
-                          <img
-                            src={`https://flagcdn.com/24x18/${countryCode}.png`}
-                            alt={countryName}
-                            className={styles.flag}
-                            width={20}
-                            height={15}
-                            loading="lazy"
-                            decoding="async"
-                          />
+                          <picture className={styles.flagPicture}>
+                            <source srcSet={`https://flagcdn.com/24x18/${countryCode}.webp`} type="image/webp" />
+                            <img
+                              src={`https://flagcdn.com/24x18/${countryCode}.png`}
+                              alt={countryName}
+                              className={styles.flag}
+                              width={20}
+                              height={15}
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </picture>
                           <span className={styles.countryName}>{countryName}</span>
                         </Link>
                       ) : (
@@ -964,15 +967,18 @@ function ProxyTableView({
                           color: "inherit",
                         }}
                       >
-                        <img
-                          src={`https://flagcdn.com/24x18/${countryCode}.png`}
-                          alt={countryName}
-                          className={styles.flag}
-                          width={20}
-                          height={15}
-                          loading="lazy"
-                          decoding="async"
-                        />
+                        <picture className={styles.flagPicture}>
+                          <source srcSet={`https://flagcdn.com/24x18/${countryCode}.webp`} type="image/webp" />
+                          <img
+                            src={`https://flagcdn.com/24x18/${countryCode}.png`}
+                            alt={countryName}
+                            className={styles.flag}
+                            width={20}
+                            height={15}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </picture>
                         <span className={styles.countryName}>{countryName}</span>
                       </Link>
                     ) : (

@@ -350,6 +350,14 @@ export function getCountryDisplayName(
   fallbackName?: string,
   lang: Locale = DEFAULT_LOCALE
 ): string {
+  const normalized = code.toLowerCase();
+  const meta = COUNTRY_META[normalized];
+  if (lang === "en" && meta?.name) {
+    return meta.name;
+  }
+  if (lang === "ru" && meta?.nameRu) {
+    return meta.nameRu;
+  }
   try {
     const upper = code.toUpperCase();
     const displayNames = REGION_DISPLAY_NAMES[lang] ?? REGION_DISPLAY_NAMES[DEFAULT_LOCALE];
@@ -358,8 +366,6 @@ export function getCountryDisplayName(
       return localized.replace(/\s+SAR(\s+China)?/i, "").trim();
     }
   } catch {}
-  const normalized = code.toLowerCase();
-  const meta = COUNTRY_META[normalized];
   if (meta) {
     if (lang === "ru" && meta.nameRu) return meta.nameRu;
     return meta.name;

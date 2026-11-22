@@ -425,10 +425,10 @@ function ProxyTableView({
   };
 
   return (
-    <div className={styles.wrapper}>
-      {/* Search and Secondary Filter Bar */}
-      <div className={styles.searchBar}>
-        <div className={styles.searchField}>
+    <div className={styles.container}>
+      {/* Search & Controls */}
+      <div className={styles.controlsBar}>
+        <div className={styles.searchWrapper}>
           <Search className={styles.searchIcon} size={17} />
           <input
             type="text"
@@ -450,7 +450,7 @@ function ProxyTableView({
           )}
         </div>
 
-        <div className={styles.filterGroup}>
+        <div className={styles.filterActions}>
           {/* IP Type Filter */}
           <div className={styles.selectGroup}>
             <Server size={14} className={styles.selectIcon} />

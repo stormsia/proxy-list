@@ -344,6 +344,10 @@
 }
 
 /* Interactive Country Cluster Nodes (Zero-Jitter Guarantee) */
+.nodesGroup {
+  /* SVG group container for cluster nodes */
+}
+
 .nodeGroup {
   cursor: pointer;
   outline: none;
@@ -599,6 +603,11 @@
   padding: 0.08rem 0.35rem;
   border-radius: 3px;
   line-height: 1;
+}
+
+.hudRankRow {
+  display: flex;
+  align-items: center;
 }
 
 .hudRankPill {

@@ -1,25 +1,26 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState, useMemo, useRef, useEffect, MouseEvent } from "react";
+import { useMemo, useState, useRef, useCallback, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 import {
   Globe,
-  Radio,
   Zap,
+  ExternalLink,
   Activity,
-  ArrowRight,
-  X,
+  Radio,
   Share2,
   ShieldCheck,
-  ExternalLink,
+  ArrowRight,
+  X,
 } from "lucide-react";
-import styles from "./VectorWorldMap.module.css";
-import { WORLD_LAND_PATH } from "@/lib/worldLandmass";
-import { getCountryDisplayName, getCountryCoordinates } from "@/lib/countries";
 import type { ProxyRecord } from "@/lib/types";
+import { getCountryCoordinates, getCountryDisplayName } from "@/lib/countries";
+import { WORLD_LAND_PATH } from "@/lib/worldLandmass";
 import { Locale } from "@/lib/i18n";
 import { useDictionary } from "./I18nProvider";
+import styles from "./VectorWorldMap.module.css";
 
 interface VectorWorldMapProps {
   proxies: ProxyRecord[];
@@ -34,38 +35,46 @@ interface CountryCluster {
   count: number;
   protocols: Record<string, number>;
   avgLatency: number;
-  sampleProxy: string;
+  sampleProxy?: string;
   sharePercent: number;
   rank: number;
 }
 
-// Equirectangular projection mapping WGS84 lat/long to a 1000x500 canvas
+interface TransitRoute {
+  id: string;
+  sourceCode: string;
+  targetCode: string;
+  sourceX: number;
+  sourceY: number;
+  targetX: number;
+  targetY: number;
+  path: string;
+  distance: number;
+}
+
+// Equirectangular projection for 1000x500 viewBox
 function projectCoords(lat: number, lon: number): [number, number] {
-  const x = ((lon + 180) * 1000) / 360;
-  const y = ((90 - lat) * 500) / 180;
+  const x = ((lon + 180) / 360) * 1000;
+  const y = ((90 - lat) / 180) * 500;
   return [Math.round(x * 10) / 10, Math.round(y * 10) / 10];
 }
 
-// Curvature offsets for elegant arched great-circle transit lines
-function getArcPath(
-  x1: number,
-  y1: number,
-  x2: number,
-  y2: number,
-  curvature = 0.16
-): string {
+// Generate quadratic Bezier arc curving gracefully upward towards the poles
+function createCurvedArc(x1: number, y1: number, x2: number, y2: number): string {
   const dx = x2 - x1;
   const dy = y2 - y1;
-  const dist = Math.sqrt(dx * dx + dy * dy);
-  if (dist === 0) return "";
+  const dist = Math.hypot(dx, dy);
 
-  // Midpoint with upward arch
+  // Midpoint
   const mx = (x1 + x2) / 2;
   const my = (y1 + y2) / 2;
-  const cx = mx - dy * curvature;
-  const cy = my + dx * curvature * 0.45;
 
-  return `M ${x1} ${y1} Q ${cx} ${cy} ${x2} ${y2}`;
+  // Arc height arches upward
+  const arcHeight = Math.min(65, Math.max(18, dist * 0.16));
+  const cx = mx;
+  const cy = my - arcHeight;
+
+  return `M ${x1.toFixed(1)} ${y1.toFixed(1)} Q ${cx.toFixed(1)} ${cy.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
 }
 
 export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
@@ -104,8 +113,8 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
     return proxies.filter((item) => (item.protocol || "").toLowerCase() === p);
   }, [proxies, activeProtocol]);
 
-  // 2. Aggregate clusters per country with ISO code coordinates
-  const clusters = useMemo(() => {
+  // 2. Aggregate country clusters
+  const clusters = useMemo<CountryCluster[]>(() => {
     const map = new Map<
       string,
       {
@@ -113,13 +122,13 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
         protocols: Record<string, number>;
         totalLatency: number;
         latencyCount: number;
-        sample: string;
+        sample?: string;
       }
     >();
 
     for (const p of filteredProxies) {
       const code = (p.country || "").toLowerCase();
-      if (!code || code === "--") continue;
+      if (!code) continue;
 
       const existing = map.get(code) || {
         count: 0,
@@ -178,119 +187,171 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
     return list;
   }, [filteredProxies, currentLocale]);
 
-  // Total telemetry aggregates
-  const totalMappedNodes = useMemo(
-    () => clusters.reduce((acc, c) => acc + c.count, 0),
-    [clusters]
-  );
-  const totalCountries = clusters.length;
-  const topCluster = clusters[0] || null;
+  // Active cluster: either hovered on desktop or tapped/selected on mobile
+  const activeCluster = hoveredCluster || selectedCluster;
 
-  const overallAvgLatency = useMemo(() => {
-    const latencies = clusters.filter((c) => c.avgLatency > 0);
-    if (latencies.length === 0) return 0;
-    const sum = latencies.reduce((acc, c) => acc + c.avgLatency, 0);
-    return Math.round(sum / latencies.length);
-  }, [clusters]);
-
-  // Dynamic backbone transit routes interconnecting key regional hubs
-  const backboneRoutes = useMemo(() => {
+  // 3. Compute dynamic planetary backbone transit routes
+  const transitRoutes = useMemo<TransitRoute[]>(() => {
     if (!showRoutes || clusters.length < 2) return [];
 
-    // Focus backbone transit on top 14 hubs
-    const topHubs = clusters.slice(0, 14);
-    const routes: { id: string; d: string; latencyClass: string }[] = [];
+    // Focus on top 8 hubs for meaningful backbone connectivity
+    const hubs = clusters.slice(0, 8);
+    const routes: TransitRoute[] = [];
+    const connectedPairs = new Set<string>();
 
-    // Star connections from #1 hub to other top hubs
-    const primary = topHubs[0];
-    for (let i = 1; i < Math.min(topHubs.length, 9); i++) {
-      const target = topHubs[i];
-      const d = getArcPath(primary.x, primary.y, target.x, target.y, 0.14);
-      if (d) {
-        routes.push({
-          id: `primary-${primary.code}-${target.code}`,
-          d,
-          latencyClass: target.avgLatency < 120 ? styles.routeFast : styles.routeNormal,
-        });
-      }
-    }
+    for (let i = 0; i < hubs.length; i++) {
+      for (let j = i + 1; j < hubs.length; j++) {
+        const h1 = hubs[i];
+        const h2 = hubs[j];
 
-    // Inter-regional transatlantic/transpacific bridge lines
-    for (let i = 1; i < Math.min(topHubs.length, 6); i++) {
-      const next = topHubs[i + 1] || topHubs[1];
-      const d = getArcPath(topHubs[i].x, topHubs[i].y, next.x, next.y, -0.12);
-      if (d) {
+        // Avoid long Pacific wraps for now to keep equirectangular lines clean
+        const dx = Math.abs(h2.x - h1.x);
+        if (dx > 540) continue;
+
+        const pairKey = [h1.code, h2.code].sort().join("::");
+        if (connectedPairs.has(pairKey)) continue;
+
+        const distance = Math.hypot(h2.x - h1.x, h2.y - h1.y);
+        // Skip excessively distant or tiny routes
+        if (distance < 35 || distance > 580) continue;
+
+        connectedPairs.add(pairKey);
         routes.push({
-          id: `inter-${topHubs[i].code}-${next.code}`,
-          d,
-          latencyClass: styles.routeSecondary,
+          id: pairKey,
+          sourceCode: h1.code,
+          targetCode: h2.code,
+          sourceX: h1.x,
+          sourceY: h1.y,
+          targetX: h2.x,
+          targetY: h2.y,
+          path: createCurvedArc(h1.x, h1.y, h2.x, h2.y),
+          distance,
         });
+
+        // Limit to maximum 12 backbone routes for ultra-clean aesthetics
+        if (routes.length >= 12) break;
       }
+      if (routes.length >= 12) break;
     }
 
     return routes;
   }, [clusters, showRoutes]);
 
-  // Determine active cluster for docked HUD: hovered first, then selected, else top hub
-  const activeCluster = hoveredCluster || selectedCluster;
-
-  // Interaction handlers
-  const handleMouseEnter = (cluster: CountryCluster, e: MouseEvent<SVGGElement>) => {
-    if (isTouchDevice) return;
-    setHoveredCluster(cluster);
-
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      const clientX = e.clientX - rect.left;
-      const clientY = e.clientY - rect.top;
-      setTooltipPos({ x: clientX, y: clientY });
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (!isTouchDevice) {
-      setHoveredCluster(null);
-      setTooltipPos(null);
-    }
-  };
-
-  const handleNodeClick = (cluster: CountryCluster, e: MouseEvent) => {
-    e.stopPropagation();
-    if (isTouchDevice) {
-      setSelectedCluster((prev) => (prev?.code === cluster.code ? null : cluster));
-    } else {
-      router.push(`${prefix}/country/${cluster.code.toLowerCase()}`);
-    }
-  };
-
-  const handleSvgClick = () => {
-    if (selectedCluster) {
-      setSelectedCluster(null);
-    }
-  };
-
-  const handleNodeKeyDown = (cluster: CountryCluster, e: React.KeyboardEvent) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      if (isTouchDevice) {
-        setSelectedCluster((prev) => (prev?.code === cluster.code ? null : cluster));
+  // Order clusters in SVG so that the active node is drawn last (on top in SVG z-order)
+  const orderedClusters = useMemo(() => {
+    const activeCode = activeCluster?.code;
+    if (!activeCode) return clusters;
+    const regular: CountryCluster[] = [];
+    let topNode: CountryCluster | null = null;
+    for (const c of clusters) {
+      if (c.code === activeCode) {
+        topNode = c;
       } else {
-        router.push(`${prefix}/country/${cluster.code.toLowerCase()}`);
+        regular.push(c);
       }
     }
-  };
+    return topNode ? [...regular, topNode] : clusters;
+  }, [clusters, activeCluster]);
+
+  // Metrics summary
+  const totalCountries = clusters.length;
+  const totalMappedNodes = filteredProxies.length;
+  const topCluster = clusters[0];
+
+  const overallAvgLatency = useMemo(() => {
+    const latencies = clusters.filter((c) => c.avgLatency > 0);
+    if (!latencies.length) return 0;
+    const sum = latencies.reduce((acc, c) => acc + c.avgLatency, 0);
+    return Math.round(sum / latencies.length);
+  }, [clusters]);
+
+  const updateTooltipPos = useCallback((e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(70, Math.min(rect.width - 70, e.clientX - rect.left));
+    const y = e.clientY - rect.top;
+    setTooltipPos({ x, y });
+  }, []);
+
+  const handleMouseEnter = useCallback(
+    (cluster: CountryCluster, e: React.MouseEvent) => {
+      // Ignore hover if pointer is touch
+      if ((e.nativeEvent as PointerEvent)?.pointerType === "touch") return;
+      setHoveredCluster(cluster);
+      updateTooltipPos(e);
+    },
+    [updateTooltipPos]
+  );
+
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent) => {
+      if (hoveredCluster) {
+        updateTooltipPos(e);
+      }
+    },
+    [hoveredCluster, updateTooltipPos]
+  );
+
+  const handleMouseLeave = useCallback(() => {
+    setHoveredCluster(null);
+    setTooltipPos(null);
+  }, []);
+
+  // Node interaction: tap-to-select on touch, navigate on second tap or desktop click
+  const handleNodeClick = useCallback(
+    (cluster: CountryCluster, e: React.MouseEvent) => {
+      e.stopPropagation();
+      const isTouch =
+        (e.nativeEvent as PointerEvent)?.pointerType === "touch" || isTouchDevice;
+
+      if (isTouch) {
+        if (selectedCluster?.code === cluster.code) {
+          // Second tap on already selected country -> navigate to catalog
+          router.push(`${prefix}/country/${cluster.code.toLowerCase()}`);
+        } else {
+          // First tap -> select and display in Docked HUD
+          setSelectedCluster(cluster);
+          setHoveredCluster(null);
+        }
+      } else {
+        // Desktop mouse click -> navigate directly
+        router.push(`${prefix}/country/${cluster.code.toLowerCase()}`);
+      }
+    },
+    [isTouchDevice, selectedCluster, prefix, router]
+  );
+
+  const handleNodeKeyDown = useCallback(
+    (cluster: CountryCluster, e: React.KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        router.push(`${prefix}/country/${cluster.code.toLowerCase()}`);
+      }
+    },
+    [prefix, router]
+  );
+
+  // Clicking empty SVG space deselects on mobile
+  const handleSvgClick = useCallback((e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (
+      target.tagName === "svg" ||
+      target.tagName === "rect" ||
+      target.classList?.contains(styles.landmassBase)
+    ) {
+      setSelectedCluster(null);
+    }
+  }, []);
 
   return (
-    <div className={styles.mapContainer} ref={containerRef}>
-      {/* Map Header Toolbar */}
+    <div className={styles.mapContainer} ref={containerRef} onMouseMove={handleMouseMove}>
+      {/* Top HUD Control Bar */}
       <div className={styles.mapHeader}>
         <div className={styles.headerLeft}>
           <div className={styles.mapTitle}>
             <span className={styles.beaconDot} aria-hidden="true" />
             <Globe size={17} className={styles.titleIcon} />
-            <span className={styles.titleText}>
-              {dict.title}
-            </span>
+            <span className={styles.titleText}>{dict.title}</span>
           </div>
 
           <div className={styles.headerPills}>
@@ -359,95 +420,142 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
       <div className={styles.svgWrapper} onMouseLeave={handleMouseLeave} onClick={handleSvgClick}>
         <svg
           viewBox="0 0 1000 500"
-          className={styles.mapSvg}
+          className={styles.worldSvg}
+          preserveAspectRatio="xMidYMid meet"
           role="img"
           aria-label={dict.title}
         >
           <defs>
-            {/* Subtle matrix grid pattern */}
-            <pattern id="worldGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+            {/* Background Cyber Coordinate Grid */}
+            <pattern id="cyber-grid" width="40" height="40" patternUnits="userSpaceOnUse">
               <path
                 d="M 40 0 L 0 0 0 40"
                 fill="none"
-                stroke="rgba(255, 255, 255, 0.025)"
-                strokeWidth="0.75"
+                stroke="rgba(255, 255, 255, 0.02)"
+                strokeWidth="0.5"
               />
+              <circle cx="0" cy="0" r="0.75" fill="rgba(56, 189, 248, 0.15)" />
             </pattern>
 
-            {/* Neon radial glow gradients for hubs */}
-            <radialGradient id="hubGlowEmerald" cx="50%" cy="50%" r="50%">
+            {/* Landmass Matrix Micro-Dot Grid */}
+            <pattern id="cyber-dots" width="9" height="9" patternUnits="userSpaceOnUse">
+              <circle cx="4.5" cy="4.5" r="0.85" fill="#38bdf8" fillOpacity="0.16" />
+            </pattern>
+
+            {/* Node Radial Glow Halos */}
+            <radialGradient id="glowEmerald" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#10b981" stopOpacity="0.85" />
-              <stop offset="60%" stopColor="#10b981" stopOpacity="0.25" />
+              <stop offset="45%" stopColor="#10b981" stopOpacity="0.3" />
               <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
             </radialGradient>
-            <radialGradient id="hubGlowCyan" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.8" />
-              <stop offset="60%" stopColor="#06b6d4" stopOpacity="0.2" />
+
+            <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.85" />
+              <stop offset="45%" stopColor="#06b6d4" stopOpacity="0.3" />
               <stop offset="100%" stopColor="#06b6d4" stopOpacity="0" />
             </radialGradient>
-            <radialGradient id="hubGlowViolet" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#a855f7" stopOpacity="0.8" />
-              <stop offset="60%" stopColor="#a855f7" stopOpacity="0.18" />
+
+            <radialGradient id="glowViolet" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#a855f7" stopOpacity="0.85" />
+              <stop offset="45%" stopColor="#a855f7" stopOpacity="0.3" />
               <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
             </radialGradient>
+
+            {/* Linear Radar Sweep Gradient */}
+            <linearGradient id="radarSweepGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#06b6d4" stopOpacity="0" />
+              <stop offset="70%" stopColor="#06b6d4" stopOpacity="0.04" />
+              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.12" />
+            </linearGradient>
+
+            {/* Backbone route gradient */}
+            <linearGradient id="routeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#10b981" stopOpacity="0.25" />
+              <stop offset="50%" stopColor="#06b6d4" stopOpacity="0.65" />
+              <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.25" />
+            </linearGradient>
           </defs>
 
-          {/* Deep cyber dark ocean background */}
-          <rect width="1000" height="500" className={styles.oceanBg} />
-          <rect width="1000" height="500" fill="url(#worldGrid)" />
+          {/* Layer 1: Background & Graticule */}
+          <rect width="1000" height="500" fill="#08090d" />
+          <rect width="1000" height="500" fill="url(#cyber-grid)" />
 
-          {/* Graticule meridians / parallels */}
-          <g className={styles.graticules}>
-            <line x1="0" y1="250" x2="1000" y2="250" className={styles.equatorLine} />
-            <line x1="500" y1="0" x2="500" y2="500" className={styles.meridianLine} />
-            <line x1="0" y1="125" x2="1000" y2="125" className={styles.parallelLine} />
-            <line x1="0" y1="375" x2="1000" y2="375" className={styles.parallelLine} />
-          </g>
+          {/* Latitude Parallels */}
+          <line x1="0" y1="250" x2="1000" y2="250" className={styles.equatorLine} />
+          <line x1="0" y1="185" x2="1000" y2="185" className={styles.tropicLine} />
+          <line x1="0" y1="315" x2="1000" y2="315" className={styles.tropicLine} />
 
-          {/* Continental landmasses */}
+          {/* Longitude Meridians */}
+          <line x1="500" y1="0" x2="500" y2="500" className={styles.meridianPrime} />
+          <line x1="250" y1="0" x2="250" y2="500" className={styles.meridianLine} />
+          <line x1="750" y1="0" x2="750" y2="500" className={styles.meridianLine} />
+
+          {/* Coordinate Watermarks */}
+          <text x="14" y="246" className={styles.geoLabel}>
+            0° EQUATOR
+          </text>
+          <text x="506" y="16" className={styles.geoLabel}>
+            0° UTC
+          </text>
+          <text x="14" y="181" className={styles.geoLabel}>
+            +23.5° TROPIC
+          </text>
+          <text x="14" y="329" className={styles.geoLabel}>
+            -23.5° TROPIC
+          </text>
+
+          {/* Layer 2: Geographic Landmass Topology */}
           <g className={styles.landmassGroup}>
-            <path
-              d={WORLD_LAND_PATH}
-              className={styles.landmass}
-            />
+            <path d={WORLD_LAND_PATH} className={styles.landmassBase} />
+            <path d={WORLD_LAND_PATH} fill="url(#cyber-dots)" className={styles.landmassDots} />
+            <path d={WORLD_LAND_PATH} className={styles.landmassRim} fill="none" />
           </g>
 
-          {/* Great-circle backbone transit paths */}
+          {/* Layer 3: Radar Scan Beam */}
+          <g className={styles.radarGroup}>
+            <rect x="0" y="0" width="80" height="500" fill="url(#radarSweepGrad)" className={styles.radarSweep} />
+          </g>
+
+          {/* Layer 4: Backbone Telemetry Transit Routes */}
           {showRoutes && (
-            <g className={styles.routesGroup}>
-              {backboneRoutes.map((route) => (
-                <path
-                  key={route.id}
-                  d={route.d}
-                  fill="none"
-                  className={`${styles.routePath} ${route.latencyClass}`}
-                />
-              ))}
+            <g className={styles.transitGroup}>
+              {transitRoutes.map((route) => {
+                const isHoverConnected =
+                  activeCluster &&
+                  (activeCluster.code === route.sourceCode || activeCluster.code === route.targetCode);
+                const isDimmed = activeCluster && !isHoverConnected;
+
+                return (
+                  <g
+                    key={route.id}
+                    className={`${styles.routeItem} ${isHoverConnected ? styles.routeActive : ""} ${
+                      isDimmed ? styles.routeDimmed : ""
+                    }`}
+                  >
+                    <path d={route.path} className={styles.routeBase} />
+                    <path d={route.path} className={styles.routePulse} />
+                    <circle r="2.2" className={styles.routePacket}>
+                      <animateMotion
+                        dur={`${Math.max(3.2, Math.min(8.5, route.distance / 45))}s`}
+                        repeatCount="indefinite"
+                        path={route.path}
+                      />
+                    </circle>
+                  </g>
+                );
+              })}
             </g>
           )}
 
-          {/* Active country cluster nodes */}
+          {/* Layer 5: Interactive Country Cluster Nodes */}
           <g className={styles.nodesGroup}>
-            {clusters.map((cluster) => {
+            {orderedClusters.map((cluster) => {
+              const radius = Math.min(16, Math.max(5, 4.5 + Math.log2(cluster.count) * 1.8));
+              const isLarge = cluster.count >= 50;
+              const isMedium = cluster.count >= 15;
+              const coreColor = isLarge ? "#10b981" : isMedium ? "#06b6d4" : "#a855f7";
+              const glowGradient = isLarge ? "url(#glowEmerald)" : isMedium ? "url(#glowCyan)" : "url(#glowViolet)";
               const isSelected = activeCluster?.code === cluster.code;
-
-              // Size: Stable logarithmic scale clamped between 4.5px and 12px
-              const radius = Math.min(
-                12,
-                Math.max(4.5, 4.5 + Math.log2(cluster.count + 1) * 1.35)
-              );
-
-              // Distinct neon hierarchy: Core Hubs (50+) -> Regional (15-50) -> Peripheral (<15)
-              let coreColor = "#a855f7"; // Violet: Peripheral nodes
-              let glowGradient = "url(#hubGlowViolet)";
-
-              if (cluster.count >= 50) {
-                coreColor = "#10b981"; // Emerald: Core global transit hub
-                glowGradient = "url(#hubGlowEmerald)";
-              } else if (cluster.count >= 15) {
-                coreColor = "#06b6d4"; // Cyan: Regional backbone hub
-                glowGradient = "url(#hubGlowCyan)";
-              }
 
               return (
                 <g
@@ -504,7 +612,7 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
           </g>
         </svg>
 
-        {/* Lightweight Desktop Micro-Marker (Non-blocking, zero occlusion of neighbouring nodes) */}
+        {/* Lightweight Desktop Micro-Marker */}
         {hoveredCluster && tooltipPos && !isTouchDevice && (
           <div
             className={styles.microMarker}
@@ -524,13 +632,14 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
             <span className={styles.microName}>{hoveredCluster.name}</span>
             <span className={styles.microCount}>· {hoveredCluster.count} {dict.nodes}</span>
             <span className={styles.microHint}>
-              <span className={styles.microArrow}>↗</span> {dict.clickToView}
+              <span className={styles.microArrow}>↗</span>
+              <span>{dict.clickToView}</span>
             </span>
           </div>
         )}
       </div>
 
-      {/* Docked HUD Telemetry Bar (Zero map occlusion, full telemetry & instant mobile action) */}
+      {/* Docked HUD Telemetry Bar */}
       <div className={styles.dockedHud}>
         {activeCluster ? (
           <div className={styles.hudActive}>
@@ -613,12 +722,12 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
 
             {/* Action CTA & Selection Dismiss */}
             <div className={styles.hudActions}>
-              {isTouchDevice && selectedCluster ? (
+              {selectedCluster ? (
                 <>
                   <Link
-                    href={`${prefix}/country/${selectedCluster.code.toLowerCase()}`}
+                    href={`${prefix}/country/${activeCluster.code.toLowerCase()}`}
                     className={styles.hudCtaBtn}
-                    title={`${dict.inspectCountry} ${selectedCluster.name}`}
+                    title={`${dict.inspectCountry} ${activeCluster.name}`}
                   >
                     <span>{dict.inspectCountry}</span>
                     <ArrowRight size={14} className={styles.hudCtaArrow} />
@@ -635,10 +744,8 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
                 </>
               ) : (
                 <div className={styles.hudDesktopHint}>
-                  <span className={styles.hudHintText}>
-                    {dict.clickNodeHint || dict.clickToView}
-                  </span>
-                  <ArrowRight size={12} className={styles.hudHintArrow} />
+                  <span className={styles.hudHintText}>{dict.clickNodeHint}</span>
+                  <span className={styles.hudHintArrow}>↗</span>
                 </div>
               )}
             </div>
@@ -648,21 +755,18 @@ export default function VectorWorldMap({ proxies, lang }: VectorWorldMapProps) {
             <div className={styles.hudIdleLeft}>
               <span className={styles.idleBeacon} aria-hidden="true" />
               <span className={styles.idleStatusText}>
-                <>
-                  {dict.statusMeshActive} <strong>{totalMappedNodes}</strong> {dict.statusNodes} <strong>{totalCountries}</strong> {dict.statusCountries}
-                  {topCluster && (
-                    <>
-                      {" "}• {dict.statusPrimaryHub} <strong>{topCluster.name}</strong> ({topCluster.count})
-                    </>
-                  )}
-                </>
+                {dict.statusMeshActive} <strong>{totalMappedNodes}</strong> {dict.statusNodes}{" "}
+                <strong>{totalCountries}</strong> {dict.statusCountries}
+                {topCluster && (
+                  <>
+                    {" "}• {dict.statusPrimaryHub} <strong>{topCluster.name}</strong> ({topCluster.count})
+                  </>
+                )}
               </span>
             </div>
             <div className={styles.hudIdleHint}>
               <Activity size={13} className={styles.idleHintIcon} />
-              <span>
-                {dict.hoverHint}
-              </span>
+              <span>{dict.hoverHint}</span>
             </div>
           </div>
         )}

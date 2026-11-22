@@ -25,6 +25,8 @@ import {
 import type { ProxyRecord } from "@/lib/types";
 import { getCountryDisplayName } from "@/lib/countries";
 import { isDatacenter, isResidential } from "@/lib/proxy-utils";
+import { useLiveProxies } from "@/lib/useLiveProxies";
+import LiveSyncIndicator from "@/components/LiveSyncIndicator";
 import styles from "./ProxyTable.module.css";
 
 export type Proxy = ProxyRecord;
@@ -68,7 +70,7 @@ export interface ProxyTableProps {
 }
 
 export default function ProxyTable({
-  proxies,
+  proxies: initialProxies,
   dict,
   initialProtocol = "all",
   initialType = "all",
@@ -76,6 +78,14 @@ export default function ProxyTable({
   viewAllHref,
   pageContext,
 }: ProxyTableProps) {
+  const {
+    proxies,
+    secondsLeft,
+    isSyncing,
+    isUpdatedFlash,
+    syncNow,
+  } = useLiveProxies(initialProxies);
+
   const [filterProtocol, setFilterProtocol] = useState<string>(initialProtocol.toLowerCase());
   const [filterType, setFilterType] = useState<string>(initialType.toLowerCase());
   const [filterCountry, setFilterCountry] = useState<string>(initialCountry.toLowerCase());
@@ -554,6 +564,15 @@ export default function ProxyTable({
               </div>
             )}
           </div>
+
+          {/* Minimalist Live Sync Countdown Indicator */}
+          <LiveSyncIndicator
+            secondsLeft={secondsLeft}
+            isSyncing={isSyncing}
+            isUpdatedFlash={isUpdatedFlash}
+            onSyncNow={syncNow}
+            isRu={isRu}
+          />
 
           {/* Hydra Link */}
           <a

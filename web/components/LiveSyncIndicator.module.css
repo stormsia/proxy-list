@@ -1,0 +1,121 @@
+.liveSyncPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.8rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6ee7b7;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  line-height: 1;
+  position: relative;
+  outline: none;
+  font-family: inherit;
+}
+
+.liveSyncPill:hover {
+  background: rgba(16, 185, 129, 0.16);
+  border-color: rgba(16, 185, 129, 0.5);
+  color: #a7f3d0;
+  transform: translateY(-1px);
+}
+
+.liveSyncPill:focus-visible {
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.4);
+}
+
+.liveSyncPill:active {
+  transform: translateY(0);
+}
+
+.liveSyncPillSyncing {
+  border-color: rgba(167, 139, 250, 0.45);
+  background: rgba(167, 139, 250, 0.14);
+  color: #c4b5fd;
+}
+
+.liveSyncPillSyncing:hover {
+  border-color: rgba(167, 139, 250, 0.6);
+  background: rgba(167, 139, 250, 0.22);
+  color: #e9d5ff;
+}
+
+.liveSyncPillUpdated {
+  border-color: rgba(16, 185, 129, 0.65);
+  background: rgba(16, 185, 129, 0.22);
+  color: #34d399;
+}
+
+.dotWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 9px;
+  height: 9px;
+}
+
+.pulseDot {
+  width: 7px;
+  height: 7px;
+  background-color: #10b981;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.pulseRing {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background-color: rgba(16, 185, 129, 0.35);
+  animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  z-index: 1;
+}
+
+@keyframes livePulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.timerText {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  letter-spacing: -0.01em;
+}
+
+.iconUpdated {
+  color: #10b981;
+}
+
+@media (max-width: 640px) {
+  .liveSyncPill {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.75rem;
+  }
+}

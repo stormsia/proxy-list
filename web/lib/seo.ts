@@ -18,7 +18,7 @@ export interface PageMetadataOptions {
   keywords?: string[];
 }
 
-const OG_LOCALES: Record<Locale, string> = {
+export const OG_LOCALES: Record<Locale, string> = {
   en: "en_US",
   ru: "ru_RU",
   es: "es_ES",
@@ -31,18 +31,9 @@ const OG_LOCALES: Record<Locale, string> = {
   id: "id_ID",
 };
 
-const OG_ALTERNATE_LOCALES: Record<Locale, string> = {
-  en: "ru_RU",
-  ru: "en_US",
-  es: "en_US",
-  zh: "en_US",
-  hi: "en_US",
-  ar: "en_US",
-  pt: "en_US",
-  fr: "en_US",
-  bn: "en_US",
-  id: "en_US",
-};
+export function getAlternateOgLocales(currentLang: Locale): string[] {
+  return LOCALES.filter((l) => l !== currentLang).map((l) => OG_LOCALES[l]);
+}
 
 /**
  * Standardized Metadata generator ensuring strict canonical, bidirectional hreflang (en/ru/x-default),
@@ -90,7 +81,7 @@ export function buildPageMetadata({
       url: canonicalUrl,
       siteName: "stormsia/proxy-list",
       locale: OG_LOCALES[lang] || "en_US",
-      alternateLocale: OG_ALTERNATE_LOCALES[lang] || "ru_RU",
+      alternateLocale: getAlternateOgLocales(lang),
       type: "website",
       images: [
         {

@@ -53,11 +53,22 @@ export default async function DocsView({ lang }: { lang: Locale }) {
     "@type": "TechArticle",
     headline: dict.docs.headline,
     description: dict.docs.description,
+    image: `${SITE_URL}/og-image.png`,
     inLanguage: lang,
+    mainEntityOfPage: pageUrl,
     author: {
       "@type": "Organization",
       name: "stormsia",
       url: "https://github.com/stormsia",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "stormsia/proxy-list",
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.svg`,
+      },
     },
     about: {
       "@type": "SoftwareApplication",
@@ -66,7 +77,8 @@ export default async function DocsView({ lang }: { lang: Locale }) {
       operatingSystem: "Any",
     },
     url: pageUrl,
-    dateModified: new Date().toISOString().split("T")[0],
+    datePublished: "2024-01-01T00:00:00Z",
+    dateModified: new Date().toISOString(),
   };
 
   const breadcrumbSchema = {

@@ -3,7 +3,7 @@ import AboutView from "@/components/views/AboutView";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "О проекте stormsia/proxy-list — Открытая прокси-инфраструктура",
+  title: "О проекте — Открытая прокси-инфраструктура",
   description:
     "Узнайте больше о проекте stormsia/proxy-list: открытый исходный код, движок валидации Hydra на Rust, архитектура неблокирующих сокетов и миссия надежных бесплатных прокси.",
   subpath: "about",

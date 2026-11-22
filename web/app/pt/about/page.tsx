@@ -6,7 +6,7 @@ import { getDictionarySync } from "@/lib/i18n";
 const dict = getDictionarySync("pt");
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `${dict.about.title} — stormsia/proxy-list`,
+  title: dict.about.title,
   description: dict.about.description,
   subpath: "about",
   lang: "pt",

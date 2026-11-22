@@ -71,18 +71,28 @@ export const getDictionarySync = (locale: Locale): Dictionary => {
   return dictionaries[locale] ?? dictionaries[DEFAULT_LOCALE];
 };
 
-// Given a path like "/datacenter" or "docs", returns clean path with or without locale prefix
+// Given a path like "/datacenter" or "docs", returns clean path with or without locale prefix and trailing slash
 export function getLocalizedPath(pathname: string, locale: Locale): string {
-  const clean = pathname.startsWith("/") ? pathname : `/${pathname}`;
-  if (locale === DEFAULT_LOCALE) {
-    return clean;
+  let clean = pathname.startsWith("/") ? pathname : `/${pathname}`;
+
+  // For root path "/"
+  if (clean === "/") {
+    return locale === DEFAULT_LOCALE ? "/" : `/${locale}/`;
   }
-  return clean === "/" ? `/${locale}` : `/${locale}${clean}`;
+
+  // Ensure trailing slash for directory routes, skipping static files with extensions (.json, .txt, .xml, .md)
+  if (!clean.endsWith("/") && !clean.includes(".")) {
+    clean = `${clean}/`;
+  }
+
+  return locale === DEFAULT_LOCALE ? clean : `/${locale}${clean}`;
 }
 
 // Generates full canonical URL for SEO
 export function getCanonicalUrl(pathname: string, locale: Locale): string {
-  return `${SITE_URL}${getLocalizedPath(pathname, locale)}`;
+  const localized = getLocalizedPath(pathname, locale);
+  const base = SITE_URL.endsWith("/") ? SITE_URL.slice(0, -1) : SITE_URL;
+  return `${base}${localized}`;
 }
 
 // Language switch helper: converts any path between locales cleanly

@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 const SITE_URL = "https://stormsia.github.io/proxy-list";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(`${SITE_URL}/`),
   title: {
     default: "Free Proxy List (2026) | stormsia/proxy-list",
     template: "%s | stormsia/proxy-list",
@@ -41,19 +41,19 @@ export const metadata: Metadata = {
   creator: "stormsia",
   publisher: "stormsia",
   alternates: {
-    canonical: "./",
+    canonical: `${SITE_URL}/`,
     languages: {
-      en: SITE_URL,
-      ru: `${SITE_URL}/ru`,
-      es: `${SITE_URL}/es`,
-      zh: `${SITE_URL}/zh`,
-      hi: `${SITE_URL}/hi`,
-      ar: `${SITE_URL}/ar`,
-      pt: `${SITE_URL}/pt`,
-      fr: `${SITE_URL}/fr`,
-      bn: `${SITE_URL}/bn`,
-      id: `${SITE_URL}/id`,
-      "x-default": SITE_URL,
+      en: `${SITE_URL}/`,
+      ru: `${SITE_URL}/ru/`,
+      es: `${SITE_URL}/es/`,
+      zh: `${SITE_URL}/zh/`,
+      hi: `${SITE_URL}/hi/`,
+      ar: `${SITE_URL}/ar/`,
+      pt: `${SITE_URL}/pt/`,
+      fr: `${SITE_URL}/fr/`,
+      bn: `${SITE_URL}/bn/`,
+      id: `${SITE_URL}/id/`,
+      "x-default": `${SITE_URL}/`,
     },
     types: {
       "text/markdown": `${SITE_URL}/llms.txt`,
@@ -74,7 +74,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: SITE_URL,
+    alternateLocale: [
+      "ru_RU",
+      "es_ES",
+      "zh_CN",
+      "hi_IN",
+      "ar_SA",
+      "pt_PT",
+      "fr_FR",
+      "bn_BD",
+      "id_ID",
+    ],
+    url: `${SITE_URL}/`,
     siteName: "stormsia/proxy-list",
     title: "Free Proxy List | stormsia/proxy-list",
     description:
@@ -230,18 +241,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Google Site Verification (Search Console) */}
-        <meta
-          name="google-site-verification"
-          content="Ilxb2F7zsbKpIgNLwUwwxbxNlrbuD6-89ZG-yCgwYbo"
-        />
-
-        {/* Bing Webmaster Tools Verification */}
-        <meta
-          name="msvalidate.01"
-          content="4D27CA575B813AAEA9224B7F6560D260"
-        />
-
         {/* Microsoft Clarity */}
         <script
           type="text/javascript"
@@ -251,7 +250,6 @@ export default function RootLayout({
         />
 
         <meta name="theme-color" content="#0d1117" />
-        <link rel="manifest" href={`${SITE_URL}/manifest.json`} />
         <link rel="icon" href={`${SITE_URL}/favicon.ico`} sizes="any" />
         <link rel="icon" type="image/svg+xml" href={`${SITE_URL}/icon.svg`} />
         <link rel="icon" type="image/png" sizes="48x48" href={`${SITE_URL}/favicon-48x48.png`} />

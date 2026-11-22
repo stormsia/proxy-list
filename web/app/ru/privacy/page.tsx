@@ -3,7 +3,7 @@ import PrivacyView from "@/components/views/PrivacyView";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Политика конфиденциальности — stormsia/proxy-list",
+  title: "Политика конфиденциальности",
   description:
     "Политика конфиденциальности проекта stormsia/proxy-list: нулевой сбор данных, отсутствие трекеров, безопасность использования публичных прокси и техническая телеметрия.",
   subpath: "privacy",

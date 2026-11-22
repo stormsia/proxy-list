@@ -96,6 +96,17 @@ function ProxyTableView({
   const [exportOpen, setExportOpen] = useState<boolean>(false);
   const exportRef = useRef<HTMLDivElement>(null);
 
+  // Support Google Sitelinks Searchbox (?q=...) or URL search parameter (?search=...)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const queryParam = params.get("q") || params.get("search");
+      if (queryParam) {
+        setSearchQuery(queryParam);
+      }
+    }
+  }, []);
+
   const PAGE_SIZE = 50;
 
   // Check if any filter is actively applied

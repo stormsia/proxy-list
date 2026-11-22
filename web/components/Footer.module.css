@@ -17,6 +17,11 @@
   gap: 2.5rem;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: 1024px) {
   .grid {
     grid-template-columns: 1fr 1fr;

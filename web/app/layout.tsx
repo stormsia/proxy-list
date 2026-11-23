@@ -133,6 +133,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { I18nProvider } from "@/components/I18nProvider";
 import LocaleMismatchBanner from "@/components/LocaleMismatchBanner";
+import ClarityInitializer from "@/components/ClarityInitializer";
 
 export default function RootLayout({
   children,
@@ -284,6 +285,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <ClarityInitializer />
         <I18nProvider>
           <div className="main-layout">
             <Navbar />

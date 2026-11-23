@@ -90,7 +90,7 @@
     "remark": null,
     "first_seen_at": 1795271244,
     "last_checked_at": 1795392255,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392931
   },
   {
     "id": "128.140.113.110:5153:The Netherlands:",
@@ -744,37 +744,6 @@
     "next_check_at": 1795392896
   },
   {
-    "id": "18.231.126.121:59287",
-    "ip": "18.231.126.121",
-    "port": 59287,
-    "url": "http://18.231.126.121:59287",
-    "protocol": "http",
-    "has_auth": false,
-    "auth_user": null,
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "192.42.116.102",
-    "country": "NL",
-    "asn": 1101,
-    "asn_org": "SURF B.V.",
-    "anon": "elite",
-    "rtt_tcp_ms": 292,
-    "rtt_handshake_ms": 4257,
-    "rtt_total_ms": 7121,
-    "uptime_pct": 7.1428576,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 56,
-    "checks_success": 4,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224586,
-    "last_checked_at": 1795392279,
-    "next_check_at": 1795392617
-  },
-  {
     "id": "18.61.230.250:1627:The Netherlands:",
     "ip": "18.61.230.250",
     "port": 1627,
@@ -834,7 +803,7 @@
     "remark": null,
     "first_seen_at": 1795263131,
     "last_checked_at": 1795392250,
-    "next_check_at": 1795392430
+    "next_check_at": 1795392924
   },
   {
     "id": "193.181.35.110:8118:Sweden:",
@@ -865,7 +834,38 @@
     "remark": null,
     "first_seen_at": 1795308494,
     "last_checked_at": 1795392257,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392943
+  },
+  {
+    "id": "193.255.128.80:80",
+    "ip": "193.255.128.80",
+    "port": 80,
+    "url": "http://193.255.128.80:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 4060,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 10988,
+    "uptime_pct": 56.268566,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 1683,
+    "checks_success": 947,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795392830,
+    "next_check_at": 1795392890
   },
   {
     "id": "197.221.234.252:80:3 mins ago:",
@@ -1020,7 +1020,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795392256,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392937
   },
   {
     "id": "197.221.240.246:80:3 mins ago:",
@@ -1051,7 +1051,7 @@
     "remark": null,
     "first_seen_at": 1795224920,
     "last_checked_at": 1795392256,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392937
   },
   {
     "id": "197.221.240.247:80:1 min ago:",
@@ -1175,7 +1175,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795392255,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392931
   },
   {
     "id": "219.93.101.62:80:2 mins ago:",
@@ -1392,7 +1392,7 @@
     "remark": null,
     "first_seen_at": 1795308582,
     "last_checked_at": 1795392259,
-    "next_check_at": 1795392494
+    "next_check_at": 1795392950
   },
   {
     "id": "41.220.16.211:80:2 mins ago:",
@@ -1578,7 +1578,7 @@
     "remark": null,
     "first_seen_at": 1795225607,
     "last_checked_at": 1795392365,
-    "next_check_at": 1795392425
+    "next_check_at": 1795392909
   },
   {
     "id": "52.195.147.51:30624:Sweden:",
@@ -1764,7 +1764,7 @@
     "remark": null,
     "first_seen_at": 1795281006,
     "last_checked_at": 1795392259,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392956
   },
   {
     "id": "8.219.97.248:80:22 secs ago:",
@@ -1826,7 +1826,7 @@
     "remark": null,
     "first_seen_at": 1795308607,
     "last_checked_at": 1795392256,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392943
   },
   {
     "id": "8.219.97.248:80:#:169ms",
@@ -2260,7 +2260,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795392254,
-    "next_check_at": 1795392467
+    "next_check_at": 1795392931
   },
   {
     "id": "103.197.241.209:1080:KH:",
@@ -2353,7 +2353,7 @@
     "remark": null,
     "first_seen_at": 1795224594,
     "last_checked_at": 1795392260,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392956
   },
   {
     "id": "103.239.52.100:1080:KH:",
@@ -2446,7 +2446,7 @@
     "remark": null,
     "first_seen_at": 1795225622,
     "last_checked_at": 1795392247,
-    "next_check_at": 1795392427
+    "next_check_at": 1795392909
   },
   {
     "id": "103.248.47.230:1080:Australia:",
@@ -2632,7 +2632,7 @@
     "remark": null,
     "first_seen_at": 1795230202,
     "last_checked_at": 1795392140,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392950
   },
   {
     "id": "103.9.185.113:1080:Bangladesh:",
@@ -2880,7 +2880,7 @@
     "remark": null,
     "first_seen_at": 1795296389,
     "last_checked_at": 1795392259,
-    "next_check_at": 1795392494
+    "next_check_at": 1795392943
   },
   {
     "id": "116.202.32.250:1083:United States:",
@@ -2911,7 +2911,7 @@
     "remark": null,
     "first_seen_at": 1795271277,
     "last_checked_at": 1795392261,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392962
   },
   {
     "id": "118.179.205.174:2080:BD:",
@@ -3035,7 +3035,7 @@
     "remark": null,
     "first_seen_at": 1795243488,
     "last_checked_at": 1795392260,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392962
   },
   {
     "id": "119.73.109.210:1080:Pakistan:",
@@ -3252,7 +3252,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795392251,
-    "next_check_at": 1795392435
+    "next_check_at": 1795392924
   },
   {
     "id": "142.190.95.154:1080:United States:",
@@ -3283,7 +3283,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795392260,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392962
   },
   {
     "id": "149.210.44.175:1080:Greece:",
@@ -3562,7 +3562,7 @@
     "remark": null,
     "first_seen_at": 1795312045,
     "last_checked_at": 1795392250,
-    "next_check_at": 1795392430
+    "next_check_at": 1795392924
   },
   {
     "id": "157.90.113.23:9052:United Kingdom:",
@@ -3655,7 +3655,7 @@
     "remark": null,
     "first_seen_at": 1795285869,
     "last_checked_at": 1795392250,
-    "next_check_at": 1795392430
+    "next_check_at": 1795392924
   },
   {
     "id": "159.65.27.1:10000:GB:",
@@ -3872,7 +3872,7 @@
     "remark": null,
     "first_seen_at": 1795224941,
     "last_checked_at": 1795392140,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392950
   },
   {
     "id": "176.215.179.44:1080:RU:",
@@ -3903,7 +3903,7 @@
     "remark": null,
     "first_seen_at": 1795263142,
     "last_checked_at": 1795392140,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392956
   },
   {
     "id": "176.65.132.138:1080:NL:",
@@ -4028,37 +4028,6 @@
     "first_seen_at": 1795240664,
     "last_checked_at": 1795392309,
     "next_check_at": 1795392860
-  },
-  {
-    "id": "185.100.85.64:1080:Poland:",
-    "ip": "185.100.85.64",
-    "port": 1080,
-    "url": "socks5://Poland@185.100.85.64:1080",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "Poland",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "88.218.50.172",
-    "country": "PL",
-    "asn": 200088,
-    "asn_org": "Artnet Sp. z o.o.",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 204,
-    "rtt_handshake_ms": 2431,
-    "rtt_total_ms": 3178,
-    "uptime_pct": 42.367905,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 1022,
-    "checks_success": 433,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224468,
-    "last_checked_at": 1795392234,
-    "next_check_at": 1795392876
   },
   {
     "id": "186.26.95.249:61445:Brazil:",
@@ -4213,7 +4182,7 @@
     "remark": null,
     "first_seen_at": 1795292654,
     "last_checked_at": 1795392255,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392931
   },
   {
     "id": "2.50.191.129:10800:AE:",
@@ -4275,7 +4244,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795392254,
-    "next_check_at": 1795392467
+    "next_check_at": 1795392931
   },
   {
     "id": "202.4.101.249:9090:BD:",
@@ -4337,7 +4306,7 @@
     "remark": null,
     "first_seen_at": 1795230202,
     "last_checked_at": 1795392246,
-    "next_check_at": 1795392426
+    "next_check_at": 1795392909
   },
   {
     "id": "202.62.52.20:1080:Cambodia:",
@@ -4461,7 +4430,7 @@
     "remark": null,
     "first_seen_at": 1795233890,
     "last_checked_at": 1795392250,
-    "next_check_at": 1795392430
+    "next_check_at": 1795392924
   },
   {
     "id": "203.189.135.73:1080:KH:",
@@ -4616,7 +4585,7 @@
     "remark": null,
     "first_seen_at": 1795243488,
     "last_checked_at": 1795392257,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392943
   },
   {
     "id": "206.246.26.1:1080:United States:",
@@ -4771,7 +4740,7 @@
     "remark": null,
     "first_seen_at": 1795225584,
     "last_checked_at": 1795392259,
-    "next_check_at": 1795392494
+    "next_check_at": 1795392943
   },
   {
     "id": "213.27.29.153:51000:RU:",
@@ -4926,7 +4895,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795392258,
-    "next_check_at": 1795392494
+    "next_check_at": 1795392943
   },
   {
     "id": "23.191.176.193:1080:US:",
@@ -4988,7 +4957,7 @@
     "remark": null,
     "first_seen_at": 1795230202,
     "last_checked_at": 1795392261,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392962
   },
   {
     "id": "31.211.142.115:8192:Bulgaria:",
@@ -5205,7 +5174,7 @@
     "remark": null,
     "first_seen_at": 1795224462,
     "last_checked_at": 1795392256,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392937
   },
   {
     "id": "37.194.229.37:1080:RU:",
@@ -5329,7 +5298,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795392252,
-    "next_check_at": 1795392435
+    "next_check_at": 1795392931
   },
   {
     "id": "45.179.145.12:6080:BR:",
@@ -5422,7 +5391,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795392257,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392943
   },
   {
     "id": "45.74.31.40:4038:United States:",
@@ -5577,7 +5546,7 @@
     "remark": null,
     "first_seen_at": 1795277774,
     "last_checked_at": 1795392258,
-    "next_check_at": 1795392494
+    "next_check_at": 1795392943
   },
   {
     "id": "45.74.31.40:4087:United States:",
@@ -6011,7 +5980,7 @@
     "remark": null,
     "first_seen_at": 1795319229,
     "last_checked_at": 1795392255,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392937
   },
   {
     "id": "45.74.31.40:4509:United States:",
@@ -6042,7 +6011,7 @@
     "remark": null,
     "first_seen_at": 1795322300,
     "last_checked_at": 1795392253,
-    "next_check_at": 1795392454
+    "next_check_at": 1795392931
   },
   {
     "id": "45.74.31.40:4719:India:",
@@ -6073,7 +6042,7 @@
     "remark": null,
     "first_seen_at": 1795225622,
     "last_checked_at": 1795392250,
-    "next_check_at": 1795392430
+    "next_check_at": 1795392924
   },
   {
     "id": "45.74.31.40:10401:United States:",
@@ -6414,7 +6383,7 @@
     "remark": null,
     "first_seen_at": 1795263078,
     "last_checked_at": 1795392254,
-    "next_check_at": 1795392467
+    "next_check_at": 1795392931
   },
   {
     "id": "45.74.31.41:4088:Vietnam:",
@@ -6786,7 +6755,7 @@
     "remark": null,
     "first_seen_at": 1795260963,
     "last_checked_at": 1795392259,
-    "next_check_at": 1795392494
+    "next_check_at": 1795392950
   },
   {
     "id": "45.74.31.41:4560:United States:",
@@ -7158,7 +7127,7 @@
     "remark": null,
     "first_seen_at": 1795324286,
     "last_checked_at": 1795392253,
-    "next_check_at": 1795392454
+    "next_check_at": 1795392931
   },
   {
     "id": "45.74.31.42:4097:Vietnam:",
@@ -7282,7 +7251,7 @@
     "remark": null,
     "first_seen_at": 1795366094,
     "last_checked_at": 1795392250,
-    "next_check_at": 1795392430
+    "next_check_at": 1795392924
   },
   {
     "id": "45.74.31.42:4143:Vietnam:",
@@ -7437,7 +7406,7 @@
     "remark": null,
     "first_seen_at": 1795324286,
     "last_checked_at": 1795392256,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392937
   },
   {
     "id": "45.74.31.42:4525:United States:",
@@ -7561,7 +7530,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795392260,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392962
   },
   {
     "id": "45.74.31.42:6168:France:",
@@ -7747,7 +7716,7 @@
     "remark": null,
     "first_seen_at": 1795230202,
     "last_checked_at": 1795392255,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392937
   },
   {
     "id": "45.74.31.42:22894:Colombia:",
@@ -8646,7 +8615,7 @@
     "remark": null,
     "first_seen_at": 1795249858,
     "last_checked_at": 1795392247,
-    "next_check_at": 1795392427
+    "next_check_at": 1795392918
   },
   {
     "id": "45.74.31.46:18218:Indonesia:",
@@ -8708,7 +8677,7 @@
     "remark": null,
     "first_seen_at": 1795347064,
     "last_checked_at": 1795392255,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392937
   },
   {
     "id": "45.74.31.47:4011:Colombia:",
@@ -8832,7 +8801,7 @@
     "remark": null,
     "first_seen_at": 1795315251,
     "last_checked_at": 1795392259,
-    "next_check_at": 1795392494
+    "next_check_at": 1795392950
   },
   {
     "id": "45.74.31.47:4039:United States:",
@@ -9607,7 +9576,7 @@
     "remark": null,
     "first_seen_at": 1795319244,
     "last_checked_at": 1795392254,
-    "next_check_at": 1795392467
+    "next_check_at": 1795392931
   },
   {
     "id": "45.74.31.47:4237:Vietnam:",
@@ -9855,7 +9824,7 @@
     "remark": null,
     "first_seen_at": 1795287098,
     "last_checked_at": 1795392260,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392962
   },
   {
     "id": "45.74.31.47:4279:India:",
@@ -9948,7 +9917,7 @@
     "remark": null,
     "first_seen_at": 1795366094,
     "last_checked_at": 1795392251,
-    "next_check_at": 1795392435
+    "next_check_at": 1795392924
   },
   {
     "id": "45.74.31.47:4433:United States:",
@@ -10165,7 +10134,7 @@
     "remark": null,
     "first_seen_at": 1795241614,
     "last_checked_at": 1795392259,
-    "next_check_at": 1795392494
+    "next_check_at": 1795392950
   },
   {
     "id": "45.74.31.47:7219:United States:",
@@ -10258,7 +10227,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795392260,
-    "next_check_at": 1795392514
+    "next_check_at": 1795392962
   },
   {
     "id": "45.74.31.47:8706:United States:",
@@ -10475,7 +10444,7 @@
     "remark": null,
     "first_seen_at": 1795308582,
     "last_checked_at": 1795392258,
-    "next_check_at": 1795392494
+    "next_check_at": 1795392943
   },
   {
     "id": "46.232.249.209:40001:DE:",
@@ -10599,7 +10568,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795392248,
-    "next_check_at": 1795392428
+    "next_check_at": 1795392918
   },
   {
     "id": "47.77.214.110:80:United States:",
@@ -11002,7 +10971,7 @@
     "remark": null,
     "first_seen_at": 1795388979,
     "last_checked_at": 1795392253,
-    "next_check_at": 1795392467
+    "next_check_at": 1795392931
   },
   {
     "id": "49.13.22.249:10811:Hong Kong:",
@@ -11746,7 +11715,7 @@
     "remark": null,
     "first_seen_at": 1795298519,
     "last_checked_at": 1795392259,
-    "next_check_at": 1795392494
+    "next_check_at": 1795392950
   },
   {
     "id": "5.75.133.113:10814:United States:",
@@ -12273,7 +12242,7 @@
     "remark": null,
     "first_seen_at": 1795287120,
     "last_checked_at": 1795392250,
-    "next_check_at": 1795392430
+    "next_check_at": 1795392924
   },
   {
     "id": "78.29.50.65:1080:RU:",
@@ -12586,68 +12555,6 @@
     "next_check_at": 1795392826
   },
   {
-    "id": "80.65.211.149:8888:United Kingdom:",
-    "ip": "80.65.211.149",
-    "port": 8888,
-    "url": "socks5://United Kingdom@80.65.211.149:8888",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "United Kingdom",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "212.102.39.26",
-    "country": "CZ",
-    "asn": 212238,
-    "asn_org": "Datacamp Limited",
-    "anon": "elite",
-    "rtt_tcp_ms": 67,
-    "rtt_handshake_ms": 3602,
-    "rtt_total_ms": 4776,
-    "uptime_pct": 34.52611,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 1034,
-    "checks_success": 357,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795238179,
-    "last_checked_at": 1795392235,
-    "next_check_at": 1795392885
-  },
-  {
-    "id": "80.65.211.149:8888:India:",
-    "ip": "80.65.211.149",
-    "port": 8888,
-    "url": "socks5://India@80.65.211.149:8888",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "India",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "212.102.39.26",
-    "country": "CZ",
-    "asn": 212238,
-    "asn_org": "Datacamp Limited",
-    "anon": "elite",
-    "rtt_tcp_ms": 339,
-    "rtt_handshake_ms": 2612,
-    "rtt_total_ms": 6149,
-    "uptime_pct": 32.909092,
-    "stability_pct": 0.0,
-    "stability_window_min": 5,
-    "checks_total": 550,
-    "checks_success": 181,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795312016,
-    "last_checked_at": 1795392234,
-    "next_check_at": 1795392885
-  },
-  {
     "id": "80.65.211.149:8888:Singapore:",
     "ip": "80.65.211.149",
     "port": 8888,
@@ -12707,7 +12614,7 @@
     "remark": null,
     "first_seen_at": 1795306619,
     "last_checked_at": 1795392248,
-    "next_check_at": 1795392428
+    "next_check_at": 1795392918
   },
   {
     "id": "80.65.211.149:8888:United States:",
@@ -13172,7 +13079,7 @@
     "remark": null,
     "first_seen_at": 1795361686,
     "last_checked_at": 1795392252,
-    "next_check_at": 1795392454
+    "next_check_at": 1795392931
   },
   {
     "id": "95.216.8.124:1093:FI:",
@@ -13327,7 +13234,7 @@
     "remark": null,
     "first_seen_at": 1795327982,
     "last_checked_at": 1795392256,
-    "next_check_at": 1795392485
+    "next_check_at": 1795392943
   },
   {
     "id": "95.64.184.238:1080:Russia:",

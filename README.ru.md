@@ -8,7 +8,7 @@
 
 
 <!-- Row 1: Repository Lifecycle & Engine Status (All 20px flat-square) -->
-[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--25%2005%3A24%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
+[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--25%2005%3A26%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/Цикл%20обновления-Каждую%20минуту-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)
@@ -16,10 +16,10 @@
 <br/>
 
 <!-- Row 2: Live Proxy Inventory & Protocol Breakdown (All 20px flat-square) -->
-[![Total Active](https://img.shields.io/badge/Total%20Active-1290%20Nodes-10b981?style=flat-square)](working_proxies.txt)
-[![HTTP / HTTPS](https://img.shields.io/badge/HTTP%20%2F%20HTTPS-547-3b82f6?style=flat-square)](http.txt)
-[![SOCKS4](https://img.shields.io/badge/SOCKS4-1-8b5cf6?style=flat-square)](socks4.txt)
-[![SOCKS5](https://img.shields.io/badge/SOCKS5-742-ec4899?style=flat-square)](socks5.txt)
+[![Total Active](https://img.shields.io/badge/Total%20Active-1167%20Nodes-10b981?style=flat-square)](working_proxies.txt)
+[![HTTP / HTTPS](https://img.shields.io/badge/HTTP%20%2F%20HTTPS-483-3b82f6?style=flat-square)](http.txt)
+[![SOCKS4](https://img.shields.io/badge/SOCKS4-0-8b5cf6?style=flat-square)](socks4.txt)
+[![SOCKS5](https://img.shields.io/badge/SOCKS5-684-ec4899?style=flat-square)](socks5.txt)
 [![Proxies by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-by-hydra-pill-20.svg)](https://github.com/stormsia/hydra)
 
 <br/>
@@ -48,7 +48,7 @@
 
 <br/>
 
-<img src="assets/telemetry-overview.svg?t=1795584293" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
+<img src="assets/telemetry-overview.svg?t=1795584362" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
 
 <br/>
 
@@ -70,19 +70,19 @@
 xychart-beta
     title "Распределение задержки RTT по активным нодам"
     x-axis ["< 2с (Быстрые)", "2с - 5с (Норма)", "5с - 10с (Высокая)", "> 10с (Очередь)"]
-    y-axis "Количество нод" 0 --> 450
-    bar [361, 368, 332, 229]
+    y-axis "Количество нод" 0 --> 500
+    bar [430, 343, 296, 98]
 ```
 
 ### Топ географических локаций
 | Страна | Код | Доля | Ноды | Основные протоколы |
 | :--- | :---: | :--- | :---: | :--- |
-| **Соединенные Штаты** | `US` | `██░░░░░░░░░░░░░░░░` 12.6% | 163 | HTTP, SOCKS5 |
-| **Вьетнам** | `VN` | `██░░░░░░░░░░░░░░░░` 11.3% | 146 | HTTP, SOCKS5 |
-| **Турция** | `TR` | `██░░░░░░░░░░░░░░░░` 10.5% | 136 | HTTP, SOCKS5 |
-| **Швейцария** | `CH` | `██░░░░░░░░░░░░░░░░` 9.6% | 124 | HTTP |
-| **Россия** | `RU` | `█░░░░░░░░░░░░░░░░░` 5.6% | 72 | HTTP, SOCKS5 |
-| **Индонезия** | `ID` | `█░░░░░░░░░░░░░░░░░` 4.3% | 56 | HTTP, SOCKS5 |
+| **Соединенные Штаты** | `US` | `██░░░░░░░░░░░░░░░░` 12.8% | 149 | HTTP, SOCKS5 |
+| **Швейцария** | `CH` | `██░░░░░░░░░░░░░░░░` 10.5% | 122 | HTTP |
+| **Вьетнам** | `VN` | `██░░░░░░░░░░░░░░░░` 9.4% | 110 | SOCKS5 |
+| **Турция** | `TR` | `█░░░░░░░░░░░░░░░░░` 7.0% | 82 | HTTP, SOCKS5 |
+| **Россия** | `RU` | `█░░░░░░░░░░░░░░░░░` 4.8% | 56 | HTTP, SOCKS5 |
+| **Япония** | `JP` | `█░░░░░░░░░░░░░░░░░` 4.7% | 55 | HTTP, SOCKS5 |
 </details>
 
 ---
@@ -93,11 +93,11 @@ xychart-beta
 
 | Протокол / Датасет | Формат | Активных | Пример строки | Назначение | Прямая ссылка CDN | Локальный файл |
 | :--- | :---: | :---: | :--- | :--- | :---: | :---: |
-| **🌐 HTTP / HTTPS** | `URI` | `547 nodes` | `http://46.232.249.203:80` | Веб-скрейперы, cURL, REST API | [**Скачать RAW**](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) | [`http.txt`](http.txt) |
-| **🛡️ SOCKS4** | `URI` | `1 nodes` | `socks4://61.155.3.26:8090` | Маршрутизация TCP, обход фаерволов | [**Скачать RAW**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) | [`socks4.txt`](socks4.txt) |
-| **🔒 SOCKS5** | `URI` | `742 nodes` | `socks5://65.109.196.122:2080` | Клиенты высокой анонимности, UDP/TCP туннелирование | [**Скачать RAW**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) | [`socks5.txt`](socks5.txt) |
-| **📦 All Combined** | `URI` | `1290 nodes` | `protocol://host:port` | Ротаторы прокси, универсальные пулы | [**Скачать RAW**](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) | [`working_proxies.txt`](working_proxies.txt) |
-| **🗺️ Enriched Telemetry** | `JSON` | `1290 objects` | `[{"ip":"...","country":"DE",...}]` | Гео-маршрутизация, фильтрация по ASN и задержке | [**Скачать RAW**](https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json) | [`data/proxies.json`](data/proxies.json) |
+| **🌐 HTTP / HTTPS** | `URI` | `483 nodes` | `http://109.199.119.160:80` | Веб-скрейперы, cURL, REST API | [**Скачать RAW**](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) | [`http.txt`](http.txt) |
+| **🛡️ SOCKS4** | `URI` | `0 nodes` | `socks4://host:port` | Маршрутизация TCP, обход фаерволов | [**Скачать RAW**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) | [`socks4.txt`](socks4.txt) |
+| **🔒 SOCKS5** | `URI` | `684 nodes` | `socks5://78.142.217.197:1080` | Клиенты высокой анонимности, UDP/TCP туннелирование | [**Скачать RAW**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) | [`socks5.txt`](socks5.txt) |
+| **📦 All Combined** | `URI` | `1167 nodes` | `protocol://host:port` | Ротаторы прокси, универсальные пулы | [**Скачать RAW**](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) | [`working_proxies.txt`](working_proxies.txt) |
+| **🗺️ Enriched Telemetry** | `JSON` | `1167 objects` | `[{"ip":"...","country":"DE",...}]` | Гео-маршрутизация, фильтрация по ASN и задержке | [**Скачать RAW**](https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json) | [`data/proxies.json`](data/proxies.json) |
 
 > [!NOTE]
 > Если прокси из файлов `http.txt`, `socks5.txt` или `working_proxies.txt` содержит логин и пароль, она отдаётся в формате `protocol://user:password@host:port`, а не `protocol://host:port`.

@@ -8,7 +8,7 @@
 
 
 <!-- Row 1: Repository Lifecycle & Engine Status (All 20px flat-square) -->
-[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--26%2017%3A51%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
+[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--26%2017%3A52%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/Update%20Cycle-Every%20Minute-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)
@@ -16,10 +16,10 @@
 <br/>
 
 <!-- Row 2: Live Proxy Inventory & Protocol Breakdown (All 20px flat-square) -->
-[![Total Active](https://img.shields.io/badge/Total%20Active-1081%20Nodes-10b981?style=flat-square)](working_proxies.txt)
-[![HTTP / HTTPS](https://img.shields.io/badge/HTTP%20%2F%20HTTPS-513-3b82f6?style=flat-square)](http.txt)
+[![Total Active](https://img.shields.io/badge/Total%20Active-1085%20Nodes-10b981?style=flat-square)](working_proxies.txt)
+[![HTTP / HTTPS](https://img.shields.io/badge/HTTP%20%2F%20HTTPS-561-3b82f6?style=flat-square)](http.txt)
 [![SOCKS4](https://img.shields.io/badge/SOCKS4-2-8b5cf6?style=flat-square)](socks4.txt)
-[![SOCKS5](https://img.shields.io/badge/SOCKS5-566-ec4899?style=flat-square)](socks5.txt)
+[![SOCKS5](https://img.shields.io/badge/SOCKS5-522-ec4899?style=flat-square)](socks5.txt)
 [![Proxies by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-by-hydra-pill-20.svg)](https://github.com/stormsia/hydra)
 
 <br/>
@@ -48,7 +48,7 @@ All proxies in this repository are actively audited and validated by [**Hydra**]
 
 <br/>
 
-<img src="assets/telemetry-overview.svg?t=1795715503" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
+<img src="assets/telemetry-overview.svg?t=1795715572" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
 
 <br/>
 
@@ -71,18 +71,18 @@ xychart-beta
     title "Round-Trip Time Distribution across Active Nodes"
     x-axis ["< 2s (Fast)", "2s - 5s (Normal)", "5s - 10s (High)", "> 10s (Queue)"]
     y-axis "Node Count" 0 --> 550
-    bar [452, 329, 245, 55]
+    bar [458, 370, 204, 53]
 ```
 
 ### Top Geographic Sources
 | Country | Code | Share | Nodes | Primary Protocols |
 | :--- | :---: | :--- | :---: | :--- |
-| **Switzerland** | `CH` | `██░░░░░░░░░░░░░░░░` 9.8% | 106 | HTTP |
-| **Vietnam** | `VN` | `██░░░░░░░░░░░░░░░░` 9.1% | 98 | HTTP, SOCKS5 |
-| **United States** | `US` | `█░░░░░░░░░░░░░░░░░` 8.1% | 88 | HTTP, SOCKS5 |
-| **Türkiye** | `TR` | `█░░░░░░░░░░░░░░░░░` 7.2% | 78 | HTTP, SOCKS5 |
-| **Zimbabwe** | `ZW` | `█░░░░░░░░░░░░░░░░░` 5.1% | 55 | HTTP |
-| **Colombia** | `CO` | `█░░░░░░░░░░░░░░░░░` 4.9% | 53 | HTTP, SOCKS5 |
+| **Türkiye** | `TR` | `██░░░░░░░░░░░░░░░░` 10.3% | 112 | HTTP, SOCKS5 |
+| **Switzerland** | `CH` | `██░░░░░░░░░░░░░░░░` 10.0% | 109 | HTTP |
+| **United States** | `US` | `█░░░░░░░░░░░░░░░░░` 7.7% | 84 | HTTP, SOCKS5 |
+| **Vietnam** | `VN` | `█░░░░░░░░░░░░░░░░░` 7.4% | 80 | HTTP, SOCKS5 |
+| **Colombia** | `CO` | `█░░░░░░░░░░░░░░░░░` 5.4% | 59 | HTTP, SOCKS5 |
+| **Zimbabwe** | `ZW` | `█░░░░░░░░░░░░░░░░░` 5.2% | 56 | HTTP |
 </details>
 
 ---
@@ -93,11 +93,11 @@ Use these direct raw CDN links in your scrapers, CLI automation scripts, CI/CD p
 
 | Protocol / Dataset | Format | Active Count | Line Example | Target Use Case | Raw Direct CDN Link | Local File |
 | :--- | :---: | :---: | :--- | :--- | :---: | :---: |
-| **🌐 HTTP / HTTPS** | `URI` | `513 nodes` | `http://109.199.119.160:80` | Web scrapers, standard cURL, REST APIs | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) | [`http.txt`](http.txt) |
+| **🌐 HTTP / HTTPS** | `URI` | `561 nodes` | `http://63.180.203.233:10088` | Web scrapers, standard cURL, REST APIs | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) | [`http.txt`](http.txt) |
 | **🛡️ SOCKS4** | `URI` | `2 nodes` | `socks4://185.247.141.86:1080` | TCP stream routing, firewall traversal | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) | [`socks4.txt`](socks4.txt) |
-| **🔒 SOCKS5** | `URI` | `566 nodes` | `socks5://157.90.113.23:9052` | High-anonymity clients, UDP/TCP tunneling | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) | [`socks5.txt`](socks5.txt) |
-| **📦 All Combined** | `URI` | `1081 nodes` | `protocol://host:port` | General rotators, universal fallback pools | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) | [`working_proxies.txt`](working_proxies.txt) |
-| **🗺️ Enriched Telemetry** | `JSON` | `1081 objects` | `[{"ip":"...","country":"DE",...}]` | Geo-routing, ASN targeting, SLA filtering | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json) | [`data/proxies.json`](data/proxies.json) |
+| **🔒 SOCKS5** | `URI` | `522 nodes` | `socks5://91.107.179.68:10809` | High-anonymity clients, UDP/TCP tunneling | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) | [`socks5.txt`](socks5.txt) |
+| **📦 All Combined** | `URI` | `1085 nodes` | `protocol://host:port` | General rotators, universal fallback pools | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) | [`working_proxies.txt`](working_proxies.txt) |
+| **🗺️ Enriched Telemetry** | `JSON` | `1085 objects` | `[{"ip":"...","country":"DE",...}]` | Geo-routing, ASN targeting, SLA filtering | [**Download Raw**](https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json) | [`data/proxies.json`](data/proxies.json) |
 
 > [!NOTE]
 > If a proxy in `http.txt`, `socks5.txt`, or `working_proxies.txt` contains a username and password, it is distributed in `protocol://user:password@host:port` format instead of `protocol://host:port`.

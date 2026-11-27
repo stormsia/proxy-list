@@ -8,7 +8,7 @@
 
 
 <!-- Row 1: Repository Lifecycle & Engine Status (All 20px flat-square) -->
-[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--27%2018%3A19%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
+[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--27%2018%3A20%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/更新周期-每分钟-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)
@@ -16,10 +16,10 @@
 <br/>
 
 <!-- Row 2: Live Proxy Inventory & Protocol Breakdown (All 20px flat-square) -->
-[![Total Active](https://img.shields.io/badge/Total%20Active-900%20Nodes-10b981?style=flat-square)](working_proxies.txt)
-[![HTTP / HTTPS](https://img.shields.io/badge/HTTP%20%2F%20HTTPS-469-3b82f6?style=flat-square)](http.txt)
-[![SOCKS4](https://img.shields.io/badge/SOCKS4-1-8b5cf6?style=flat-square)](socks4.txt)
-[![SOCKS5](https://img.shields.io/badge/SOCKS5-430-ec4899?style=flat-square)](socks5.txt)
+[![Total Active](https://img.shields.io/badge/Total%20Active-834%20Nodes-10b981?style=flat-square)](working_proxies.txt)
+[![HTTP / HTTPS](https://img.shields.io/badge/HTTP%20%2F%20HTTPS-395-3b82f6?style=flat-square)](http.txt)
+[![SOCKS4](https://img.shields.io/badge/SOCKS4-2-8b5cf6?style=flat-square)](socks4.txt)
+[![SOCKS5](https://img.shields.io/badge/SOCKS5-437-ec4899?style=flat-square)](socks5.txt)
 [![Proxies by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-by-hydra-pill-20.svg)](https://github.com/stormsia/hydra)
 
 <br/>
@@ -48,7 +48,7 @@
 
 <br/>
 
-<img src="assets/telemetry-overview.svg?t=1795803589" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
+<img src="assets/telemetry-overview.svg?t=1795803658" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
 
 <br/>
 
@@ -71,18 +71,18 @@ xychart-beta
     title "活跃节点往返时间 (RTT) 分布"
     x-axis ["< 2秒 (极速)", "2秒 - 5秒 (正常)", "5秒 - 10秒 (较慢)", "> 10秒 (排队)"]
     y-axis "节点数量" 0 --> 350
-    bar [292, 243, 142, 223]
+    bar [254, 304, 167, 109]
 ```
 
 ### 主要地理来源
 | 国家/地区 | 代码 | 占比 | 节点数 | 支持协议 |
 | :--- | :---: | :--- | :---: | :--- |
-| **土耳其** | `TR` | `████░░░░░░░░░░░░░░` 24.8% | 223 | HTTP, SOCKS5 |
-| **美国** | `US` | `██░░░░░░░░░░░░░░░░` 11.9% | 107 | HTTP, SOCKS5 |
-| **越南** | `VN` | `█░░░░░░░░░░░░░░░░░` 5.2% | 47 | HTTP, SOCKS4, SOCKS5 |
-| **日本** | `JP` | `█░░░░░░░░░░░░░░░░░` 4.2% | 38 | HTTP, SOCKS5 |
-| **新加坡** | `SG` | `█░░░░░░░░░░░░░░░░░` 4.1% | 37 | HTTP, SOCKS5 |
-| **中国香港特别行政区** | `HK` | `█░░░░░░░░░░░░░░░░░` 4.1% | 37 | HTTP, SOCKS5 |
+| **土耳其** | `TR` | `████░░░░░░░░░░░░░░` 20.5% | 171 | HTTP, SOCKS5 |
+| **美国** | `US` | `██░░░░░░░░░░░░░░░░` 10.3% | 86 | HTTP, SOCKS5 |
+| **日本** | `JP` | `█░░░░░░░░░░░░░░░░░` 6.4% | 53 | HTTP, SOCKS5 |
+| **越南** | `VN` | `█░░░░░░░░░░░░░░░░░` 5.2% | 43 | HTTP, SOCKS4, SOCKS5 |
+| **新加坡** | `SG` | `█░░░░░░░░░░░░░░░░░` 4.2% | 35 | HTTP, SOCKS5 |
+| **中国香港特别行政区** | `HK` | `█░░░░░░░░░░░░░░░░░` 3.8% | 32 | HTTP, SOCKS5 |
 </details>
 
 ---
@@ -93,11 +93,11 @@ xychart-beta
 
 | 协议 / 数据集 | 格式 | 活跃数 | 行示例 | 适用场景 | CDN 直链 | 本地文件 |
 | :--- | :---: | :---: | :--- | :--- | :---: | :---: |
-| **🌐 HTTP / HTTPS** | `URI` | `469 nodes` | `http://109.199.119.160:80` | 网络爬虫、标准 cURL、REST API | [**下载纯文本**](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) | [`http.txt`](http.txt) |
-| **🛡️ SOCKS4** | `URI` | `1 nodes` | `socks4://171.238.62.144:1080` | TCP 流路由、防火墙穿透 | [**下载纯文本**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) | [`socks4.txt`](socks4.txt) |
-| **🔒 SOCKS5** | `URI` | `430 nodes` | `socks5://49.13.22.249:10806` | 高匿名客户端、UDP/TCP 隧道 | [**下载纯文本**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) | [`socks5.txt`](socks5.txt) |
-| **📦 All Combined** | `URI` | `900 nodes` | `protocol://host:port` | 代理轮换池、通用备用池 | [**下载纯文本**](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) | [`working_proxies.txt`](working_proxies.txt) |
-| **🗺️ Enriched Telemetry** | `JSON` | `900 objects` | `[{"ip":"...","country":"DE",...}]` | 地理路由、ASN 定向、SLA 延迟过滤 | [**下载纯文本**](https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json) | [`data/proxies.json`](data/proxies.json) |
+| **🌐 HTTP / HTTPS** | `URI` | `395 nodes` | `http://63.180.203.233:5678` | 网络爬虫、标准 cURL、REST API | [**下载纯文本**](https://raw.githubusercontent.com/stormsia/proxy-list/main/http.txt) | [`http.txt`](http.txt) |
+| **🛡️ SOCKS4** | `URI` | `2 nodes` | `socks4://116.104.52.124:1084` | TCP 流路由、防火墙穿透 | [**下载纯文本**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks4.txt) | [`socks4.txt`](socks4.txt) |
+| **🔒 SOCKS5** | `URI` | `437 nodes` | `socks5://65.109.196.122:2080` | 高匿名客户端、UDP/TCP 隧道 | [**下载纯文本**](https://raw.githubusercontent.com/stormsia/proxy-list/main/socks5.txt) | [`socks5.txt`](socks5.txt) |
+| **📦 All Combined** | `URI` | `834 nodes` | `protocol://host:port` | 代理轮换池、通用备用池 | [**下载纯文本**](https://raw.githubusercontent.com/stormsia/proxy-list/main/working_proxies.txt) | [`working_proxies.txt`](working_proxies.txt) |
+| **🗺️ Enriched Telemetry** | `JSON` | `834 objects` | `[{"ip":"...","country":"DE",...}]` | 地理路由、ASN 定向、SLA 延迟过滤 | [**下载纯文本**](https://raw.githubusercontent.com/stormsia/proxy-list/main/data/proxies.json) | [`data/proxies.json`](data/proxies.json) |
 
 > [!NOTE]
 > 若 `http.txt`、`socks5.txt` 或 `working_proxies.txt` 中的代理包含用户名和密码，则以 `protocol://user:password@host:port` 格式分发，而非 `protocol://host:port`。

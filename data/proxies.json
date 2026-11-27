@@ -28,7 +28,7 @@
     "remark": null,
     "first_seen_at": 1795225584,
     "last_checked_at": 1795782210,
-    "next_check_at": 1795782270
+    "next_check_at": 1795782477
   },
   {
     "id": "102.244.78.61:8081:Cameroon:",
@@ -50,7 +50,7 @@
     "rtt_handshake_ms": 3798,
     "rtt_total_ms": 21998,
     "uptime_pct": 87.71217,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 6893,
     "checks_success": 6046,
@@ -81,7 +81,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 22039,
     "uptime_pct": 87.81726,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 6895,
     "checks_success": 6055,
@@ -121,7 +121,7 @@
     "remark": null,
     "first_seen_at": 1795224448,
     "last_checked_at": 1795782193,
-    "next_check_at": 1795782253
+    "next_check_at": 1795782452
   },
   {
     "id": "102.244.78.61:8084:Cameroon:",
@@ -143,7 +143,7 @@
     "rtt_handshake_ms": 4295,
     "rtt_total_ms": 20289,
     "uptime_pct": 87.68602,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 6854,
     "checks_success": 6010,
@@ -174,7 +174,7 @@
     "rtt_handshake_ms": 4231,
     "rtt_total_ms": 40975,
     "uptime_pct": 87.85249,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 6915,
     "checks_success": 6075,
@@ -205,7 +205,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 44605,
     "uptime_pct": 88.17173,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 6848,
     "checks_success": 6038,
@@ -236,7 +236,7 @@
     "rtt_handshake_ms": 4299,
     "rtt_total_ms": 20291,
     "uptime_pct": 88.156555,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 6873,
     "checks_success": 6059,
@@ -267,7 +267,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 44600,
     "uptime_pct": 87.68316,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 6893,
     "checks_success": 6044,
@@ -298,7 +298,7 @@
     "rtt_handshake_ms": 4300,
     "rtt_total_ms": 20293,
     "uptime_pct": 87.53985,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 6902,
     "checks_success": 6042,
@@ -338,7 +338,7 @@
     "remark": null,
     "first_seen_at": 1795565915,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782477
   },
   {
     "id": "102.244.78.61:8090:CM:",
@@ -431,7 +431,7 @@
     "remark": null,
     "first_seen_at": 1795225584,
     "last_checked_at": 1795782210,
-    "next_check_at": 1795782270
+    "next_check_at": 1795782477
   },
   {
     "id": "103.110.11.219:8080:Indonesia:",
@@ -453,7 +453,7 @@
     "rtt_handshake_ms": 4739,
     "rtt_total_ms": 31465,
     "uptime_pct": 4.2105265,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 285,
     "checks_success": 12,
@@ -555,7 +555,7 @@
     "remark": null,
     "first_seen_at": 1795673435,
     "last_checked_at": 1795781758,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "108.137.124.195:4938:The Netherlands:",
@@ -772,7 +772,7 @@
     "remark": null,
     "first_seen_at": 1795468026,
     "last_checked_at": 1795781759,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "13.209.65.136:38528:Germany:",
@@ -803,7 +803,7 @@
     "remark": null,
     "first_seen_at": 1795609346,
     "last_checked_at": 1795781751,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "13.215.184.250:37395:The Netherlands:",
@@ -958,7 +958,7 @@
     "remark": null,
     "first_seen_at": 1795392331,
     "last_checked_at": 1795781748,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782448
   },
   {
     "id": "13.245.183.150:53904:Germany:",
@@ -1020,7 +1020,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795781746,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782439
   },
   {
     "id": "144.124.251.24:10428:The Netherlands:",
@@ -1051,7 +1051,7 @@
     "remark": null,
     "first_seen_at": 1795597187,
     "last_checked_at": 1795781755,
-    "next_check_at": 1795782267
+    "next_check_at": 1795782477
   },
   {
     "id": "144.124.251.24:10428",
@@ -1176,6 +1176,37 @@
     "first_seen_at": 1795233880,
     "last_checked_at": 1795781774,
     "next_check_at": 1795782330
+  },
+  {
+    "id": "157.245.63.249:80",
+    "ip": "157.245.63.249",
+    "port": 80,
+    "url": "http://157.245.63.249:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "157.245.63.249",
+    "country": "SG",
+    "asn": 14061,
+    "asn_org": "DIGITALOCEAN-ASN",
+    "anon": "anonymous",
+    "rtt_tcp_ms": 2093,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 24730,
+    "uptime_pct": 57.479225,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6498,
+    "checks_success": 3735,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782336,
+    "next_check_at": 1795782396
   },
   {
     "id": "157.66.16.48:8181:Indonesia:",
@@ -1361,7 +1392,7 @@
     "remark": null,
     "first_seen_at": 1795640381,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782267
+    "next_check_at": 1795782466
   },
   {
     "id": "16.26.208.68:3129:The Netherlands:",
@@ -1392,7 +1423,7 @@
     "remark": null,
     "first_seen_at": 1795482116,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782267
+    "next_check_at": 1795782471
   },
   {
     "id": "16.26.208.68:8086:The Netherlands:",
@@ -1507,7 +1538,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 55796,
     "uptime_pct": 73.032715,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1131,
     "checks_success": 826,
@@ -1516,7 +1547,7 @@
     "remark": null,
     "first_seen_at": 1795691420,
     "last_checked_at": 1795782021,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782443
   },
   {
     "id": "16.28.29.244:8088",
@@ -1671,7 +1702,7 @@
     "remark": null,
     "first_seen_at": 1795263131,
     "last_checked_at": 1795781755,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782477
   },
   {
     "id": "178.253.55.228:80",
@@ -1693,7 +1724,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 18763,
     "uptime_pct": 53.762722,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 5993,
     "checks_success": 3222,
@@ -1733,7 +1764,7 @@
     "remark": null,
     "first_seen_at": 1795618677,
     "last_checked_at": 1795781755,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782477
   },
   {
     "id": "18.166.56.240:9087:Germany:",
@@ -1950,7 +1981,7 @@
     "remark": null,
     "first_seen_at": 1795422060,
     "last_checked_at": 1795781759,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "18.61.230.250:1627:The Netherlands:",
@@ -2096,7 +2127,7 @@
     "rtt_handshake_ms": 4468,
     "rtt_total_ms": 285082,
     "uptime_pct": 17.391304,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 69,
     "checks_success": 12,
@@ -2106,6 +2137,1401 @@
     "first_seen_at": 1795752094,
     "last_checked_at": 1795782066,
     "next_check_at": 1795782337
+  },
+  {
+    "id": "193.255.128.10:80",
+    "ip": "193.255.128.10",
+    "port": 80,
+    "url": "http://193.255.128.10:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2094,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 21141,
+    "uptime_pct": 56.97211,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6275,
+    "checks_success": 3575,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.100:80",
+    "ip": "193.255.128.100",
+    "port": 80,
+    "url": "http://193.255.128.100:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2417,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 21598,
+    "uptime_pct": 57.574295,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6225,
+    "checks_success": 3584,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224442,
+    "last_checked_at": 1795782380,
+    "next_check_at": 1795782440
+  },
+  {
+    "id": "193.255.128.101:80",
+    "ip": "193.255.128.101",
+    "port": 80,
+    "url": "http://193.255.128.101:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2416,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 21593,
+    "uptime_pct": 57.380722,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6246,
+    "checks_success": 3584,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224442,
+    "last_checked_at": 1795782380,
+    "next_check_at": 1795782440
+  },
+  {
+    "id": "193.255.128.105:80",
+    "ip": "193.255.128.105",
+    "port": 80,
+    "url": "http://193.255.128.105:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2092,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 21139,
+    "uptime_pct": 57.462215,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6352,
+    "checks_success": 3650,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.107:80",
+    "ip": "193.255.128.107",
+    "port": 80,
+    "url": "http://193.255.128.107:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2095,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 21141,
+    "uptime_pct": 57.70644,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6261,
+    "checks_success": 3613,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.112:80",
+    "ip": "193.255.128.112",
+    "port": 80,
+    "url": "http://193.255.128.112:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2093,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 21141,
+    "uptime_pct": 57.549305,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6186,
+    "checks_success": 3560,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.115:80",
+    "ip": "193.255.128.115",
+    "port": 80,
+    "url": "http://193.255.128.115:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2094,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 21141,
+    "uptime_pct": 58.70885,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6258,
+    "checks_success": 3674,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.117:80",
+    "ip": "193.255.128.117",
+    "port": 80,
+    "url": "http://193.255.128.117:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2094,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 21141,
+    "uptime_pct": 58.72313,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6093,
+    "checks_success": 3578,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.120:80",
+    "ip": "193.255.128.120",
+    "port": 80,
+    "url": "http://193.255.128.120:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2153,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 9992,
+    "uptime_pct": 56.728024,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6302,
+    "checks_success": 3575,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782323,
+    "next_check_at": 1795782383
+  },
+  {
+    "id": "193.255.128.129:80",
+    "ip": "193.255.128.129",
+    "port": 80,
+    "url": "http://193.255.128.129:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2153,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 9992,
+    "uptime_pct": 56.739162,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6299,
+    "checks_success": 3574,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782323,
+    "next_check_at": 1795782383
+  },
+  {
+    "id": "193.255.128.135:80",
+    "ip": "193.255.128.135",
+    "port": 80,
+    "url": "http://193.255.128.135:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2417,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 21598,
+    "uptime_pct": 57.245564,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6259,
+    "checks_success": 3583,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224442,
+    "last_checked_at": 1795782380,
+    "next_check_at": 1795782440
+  },
+  {
+    "id": "193.255.128.137:80",
+    "ip": "193.255.128.137",
+    "port": 80,
+    "url": "http://193.255.128.137:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2153,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 9992,
+    "uptime_pct": 57.69844,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6274,
+    "checks_success": 3620,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782323,
+    "next_check_at": 1795782383
+  },
+  {
+    "id": "193.255.128.139:80",
+    "ip": "193.255.128.139",
+    "port": 80,
+    "url": "http://193.255.128.139:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2416,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 21597,
+    "uptime_pct": 57.53905,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6274,
+    "checks_success": 3610,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224442,
+    "last_checked_at": 1795782380,
+    "next_check_at": 1795782440
+  },
+  {
+    "id": "193.255.128.143:80",
+    "ip": "193.255.128.143",
+    "port": 80,
+    "url": "http://193.255.128.143:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2417,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 21598,
+    "uptime_pct": 57.68541,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6135,
+    "checks_success": 3539,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224442,
+    "last_checked_at": 1795782380,
+    "next_check_at": 1795782440
+  },
+  {
+    "id": "193.255.128.162:80",
+    "ip": "193.255.128.162",
+    "port": 80,
+    "url": "http://193.255.128.162:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2150,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 9992,
+    "uptime_pct": 57.255768,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6326,
+    "checks_success": 3622,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782323,
+    "next_check_at": 1795782383
+  },
+  {
+    "id": "193.255.128.229:80",
+    "ip": "193.255.128.229",
+    "port": 80,
+    "url": "http://193.255.128.229:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2080,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12633,
+    "uptime_pct": 56.875004,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6400,
+    "checks_success": 3640,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782331,
+    "next_check_at": 1795782391
+  },
+  {
+    "id": "193.255.128.231:80",
+    "ip": "193.255.128.231",
+    "port": 80,
+    "url": "http://193.255.128.231:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2080,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12633,
+    "uptime_pct": 56.810318,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6358,
+    "checks_success": 3612,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782331,
+    "next_check_at": 1795782391
+  },
+  {
+    "id": "193.255.128.233:80",
+    "ip": "193.255.128.233",
+    "port": 80,
+    "url": "http://193.255.128.233:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2080,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12633,
+    "uptime_pct": 57.969864,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6305,
+    "checks_success": 3655,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782331,
+    "next_check_at": 1795782391
+  },
+  {
+    "id": "193.255.128.235:80",
+    "ip": "193.255.128.235",
+    "port": 80,
+    "url": "http://193.255.128.235:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2782,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 11762,
+    "uptime_pct": 58.76587,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6223,
+    "checks_success": 3657,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782328,
+    "next_check_at": 1795782388
+  },
+  {
+    "id": "193.255.128.246:80",
+    "ip": "193.255.128.246",
+    "port": 80,
+    "url": "http://193.255.128.246:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 946,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 10368,
+    "uptime_pct": 55.72139,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6030,
+    "checks_success": 3360,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782326,
+    "next_check_at": 1795782386
+  },
+  {
+    "id": "193.255.128.248:80",
+    "ip": "193.255.128.248",
+    "port": 80,
+    "url": "http://193.255.128.248:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 946,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 20466,
+    "uptime_pct": 58.271027,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6420,
+    "checks_success": 3741,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782336,
+    "next_check_at": 1795782396
+  },
+  {
+    "id": "193.255.128.25:80",
+    "ip": "193.255.128.25",
+    "port": 80,
+    "url": "http://193.255.128.25:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 946,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 20471,
+    "uptime_pct": 58.46578,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6166,
+    "checks_success": 3605,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782336,
+    "next_check_at": 1795782396
+  },
+  {
+    "id": "193.255.128.34:80",
+    "ip": "193.255.128.34",
+    "port": 80,
+    "url": "http://193.255.128.34:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 946,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 20466,
+    "uptime_pct": 57.94823,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6297,
+    "checks_success": 3649,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782336,
+    "next_check_at": 1795782396
+  },
+  {
+    "id": "193.255.128.36:80",
+    "ip": "193.255.128.36",
+    "port": 80,
+    "url": "http://193.255.128.36:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 946,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 20466,
+    "uptime_pct": 56.457146,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6125,
+    "checks_success": 3458,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782336,
+    "next_check_at": 1795782396
+  },
+  {
+    "id": "193.255.128.38:80",
+    "ip": "193.255.128.38",
+    "port": 80,
+    "url": "http://193.255.128.38:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 946,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 20466,
+    "uptime_pct": 57.15415,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6325,
+    "checks_success": 3615,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782336,
+    "next_check_at": 1795782396
+  },
+  {
+    "id": "193.255.128.41:80",
+    "ip": "193.255.128.41",
+    "port": 80,
+    "url": "http://193.255.128.41:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 947,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 10368,
+    "uptime_pct": 57.961678,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6211,
+    "checks_success": 3600,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782326,
+    "next_check_at": 1795782386
+  },
+  {
+    "id": "193.255.128.42:80",
+    "ip": "193.255.128.42",
+    "port": 80,
+    "url": "http://193.255.128.42:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 1157,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 11726,
+    "uptime_pct": 57.232506,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6374,
+    "checks_success": 3648,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782331,
+    "next_check_at": 1795782391
+  },
+  {
+    "id": "193.255.128.49:80",
+    "ip": "193.255.128.49",
+    "port": 80,
+    "url": "http://193.255.128.49:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2081,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12634,
+    "uptime_pct": 56.671978,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6280,
+    "checks_success": 3559,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782331,
+    "next_check_at": 1795782391
+  },
+  {
+    "id": "193.255.128.51:80",
+    "ip": "193.255.128.51",
+    "port": 80,
+    "url": "http://193.255.128.51:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 1160,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 11731,
+    "uptime_pct": 56.598103,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6320,
+    "checks_success": 3577,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782331,
+    "next_check_at": 1795782391
+  },
+  {
+    "id": "193.255.128.53:80",
+    "ip": "193.255.128.53",
+    "port": 80,
+    "url": "http://193.255.128.53:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 882,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12020,
+    "uptime_pct": 57.9287,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6199,
+    "checks_success": 3591,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.58:80",
+    "ip": "193.255.128.58",
+    "port": 80,
+    "url": "http://193.255.128.58:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 882,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12022,
+    "uptime_pct": 56.56647,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6221,
+    "checks_success": 3519,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.61:80",
+    "ip": "193.255.128.61",
+    "port": 80,
+    "url": "http://193.255.128.61:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 880,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12022,
+    "uptime_pct": 57.704704,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6204,
+    "checks_success": 3580,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.63:80",
+    "ip": "193.255.128.63",
+    "port": 80,
+    "url": "http://193.255.128.63:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 880,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12022,
+    "uptime_pct": 58.105232,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6101,
+    "checks_success": 3545,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.64:80",
+    "ip": "193.255.128.64",
+    "port": 80,
+    "url": "http://193.255.128.64:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 880,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12023,
+    "uptime_pct": 57.651245,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6182,
+    "checks_success": 3564,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.65:80",
+    "ip": "193.255.128.65",
+    "port": 80,
+    "url": "http://193.255.128.65:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 880,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12022,
+    "uptime_pct": 57.449173,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6296,
+    "checks_success": 3617,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.7:80",
+    "ip": "193.255.128.7",
+    "port": 80,
+    "url": "http://193.255.128.7:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 880,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12023,
+    "uptime_pct": 57.353413,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6242,
+    "checks_success": 3580,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.75:80",
+    "ip": "193.255.128.75",
+    "port": 80,
+    "url": "http://193.255.128.75:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 880,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12023,
+    "uptime_pct": 58.17035,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6340,
+    "checks_success": 3688,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.77:80",
+    "ip": "193.255.128.77",
+    "port": 80,
+    "url": "http://193.255.128.77:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 881,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12022,
+    "uptime_pct": 58.172314,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6314,
+    "checks_success": 3673,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.79:80",
+    "ip": "193.255.128.79",
+    "port": 80,
+    "url": "http://193.255.128.79:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 882,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12021,
+    "uptime_pct": 57.89728,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6211,
+    "checks_success": 3596,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.80:80",
+    "ip": "193.255.128.80",
+    "port": 80,
+    "url": "http://193.255.128.80:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 880,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12023,
+    "uptime_pct": 57.133728,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6259,
+    "checks_success": 3576,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.83:80",
+    "ip": "193.255.128.83",
+    "port": 80,
+    "url": "http://193.255.128.83:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 879,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12022,
+    "uptime_pct": 57.410942,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6288,
+    "checks_success": 3610,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782332,
+    "next_check_at": 1795782392
+  },
+  {
+    "id": "193.255.128.85:80",
+    "ip": "193.255.128.85",
+    "port": 80,
+    "url": "http://193.255.128.85:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2082,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12180,
+    "uptime_pct": 57.356445,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6287,
+    "checks_success": 3606,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782334,
+    "next_check_at": 1795782394
+  },
+  {
+    "id": "193.255.128.87:80",
+    "ip": "193.255.128.87",
+    "port": 80,
+    "url": "http://193.255.128.87:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2082,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12180,
+    "uptime_pct": 58.103203,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6337,
+    "checks_success": 3682,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782334,
+    "next_check_at": 1795782394
+  },
+  {
+    "id": "193.255.128.90:80",
+    "ip": "193.255.128.90",
+    "port": 80,
+    "url": "http://193.255.128.90:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2082,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12180,
+    "uptime_pct": 57.778477,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6338,
+    "checks_success": 3662,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782334,
+    "next_check_at": 1795782394
+  },
+  {
+    "id": "193.255.128.94:80",
+    "ip": "193.255.128.94",
+    "port": 80,
+    "url": "http://193.255.128.94:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "193.255.179.1",
+    "country": "TR",
+    "asn": 8517,
+    "asn_org": "National Academic Network and Information Center",
+    "anon": "transparent",
+    "rtt_tcp_ms": 2082,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12180,
+    "uptime_pct": 58.29106,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6308,
+    "checks_success": 3677,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782334,
+    "next_check_at": 1795782394
   },
   {
     "id": "197.221.234.149:80:2 mins ago:",
@@ -2136,7 +3562,7 @@
     "remark": null,
     "first_seen_at": 1795565915,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782267
+    "next_check_at": 1795782471
   },
   {
     "id": "197.221.234.252:80:3 mins ago:",
@@ -2168,37 +3594,6 @@
     "first_seen_at": 1795350842,
     "last_checked_at": 1795781774,
     "next_check_at": 1795782330
-  },
-  {
-    "id": "197.221.234.252:80",
-    "ip": "197.221.234.252",
-    "port": 80,
-    "url": "http://197.221.234.252:80",
-    "protocol": "http",
-    "has_auth": false,
-    "auth_user": null,
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "41.220.17.62",
-    "country": "ZW",
-    "asn": 37204,
-    "asn_org": "TELONE",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 4983,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 77613,
-    "uptime_pct": 86.47613,
-    "stability_pct": 100.0,
-    "stability_window_min": 5,
-    "checks_total": 6263,
-    "checks_success": 5416,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224446,
-    "last_checked_at": 1795782143,
-    "next_check_at": 1795782370
   },
   {
     "id": "197.221.234.253:80:3 mins ago:",
@@ -2260,7 +3655,7 @@
     "remark": null,
     "first_seen_at": 1795522494,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782267
+    "next_check_at": 1795782471
   },
   {
     "id": "197.221.235.122:80:2 mins ago:",
@@ -2291,7 +3686,7 @@
     "remark": null,
     "first_seen_at": 1795435960,
     "last_checked_at": 1795781759,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "197.221.237.248:80:16 secs ago:",
@@ -2322,7 +3717,7 @@
     "remark": null,
     "first_seen_at": 1795394390,
     "last_checked_at": 1795781759,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "197.221.240.176:80:1 min ago:",
@@ -2446,7 +3841,7 @@
     "remark": null,
     "first_seen_at": 1795480173,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782267
+    "next_check_at": 1795782471
   },
   {
     "id": "197.221.240.247:80:1 min ago:",
@@ -2570,7 +3965,7 @@
     "remark": null,
     "first_seen_at": 1795435980,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782482
   },
   {
     "id": "20.33.10.79:80:South Africa:",
@@ -2623,7 +4018,7 @@
     "rtt_handshake_ms": 1858,
     "rtt_total_ms": 29295,
     "uptime_pct": 81.09693,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 5798,
     "checks_success": 4702,
@@ -2663,7 +4058,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795782187,
-    "next_check_at": 1795782247
+    "next_check_at": 1795782448
   },
   {
     "id": "216.125.18.67:3128:27 secs ago:",
@@ -2694,7 +4089,7 @@
     "remark": null,
     "first_seen_at": 1795263131,
     "last_checked_at": 1795781752,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "216.125.18.67:3128:1 min ago:",
@@ -2756,7 +4151,7 @@
     "remark": null,
     "first_seen_at": 1795394390,
     "last_checked_at": 1795781933,
-    "next_check_at": 1795782234
+    "next_check_at": 1795782435
   },
   {
     "id": "219.93.101.60:80:1 min ago:",
@@ -2818,7 +4213,7 @@
     "remark": null,
     "first_seen_at": 1795350842,
     "last_checked_at": 1795781758,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "219.93.101.62:80:5 secs ago:",
@@ -2976,6 +4371,37 @@
     "next_check_at": 1795782370
   },
   {
+    "id": "31.172.71.56:80",
+    "ip": "31.172.71.56",
+    "port": 80,
+    "url": "http://31.172.71.56:80",
+    "protocol": "http",
+    "has_auth": false,
+    "auth_user": null,
+    "auth_pass": null,
+    "state": "alive",
+    "supports_https": false,
+    "out_ip": "31.172.71.56",
+    "country": "DE",
+    "asn": 44051,
+    "asn_org": "Fornex Hosting S.L.",
+    "anon": "anonymous",
+    "rtt_tcp_ms": 2075,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 28450,
+    "uptime_pct": 54.93089,
+    "stability_pct": 100.0,
+    "stability_window_min": 5,
+    "checks_total": 6439,
+    "checks_success": 3537,
+    "dead_strikes": 0,
+    "last_error": null,
+    "remark": null,
+    "first_seen_at": 1795224440,
+    "last_checked_at": 1795782350,
+    "next_check_at": 1795782410
+  },
+  {
     "id": "31.76.85.202:80",
     "ip": "31.76.85.202",
     "port": 80,
@@ -3066,7 +4492,7 @@
     "remark": null,
     "first_seen_at": 1795621975,
     "last_checked_at": 1795781753,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782460
   },
   {
     "id": "34.207.102.197:32189:France:",
@@ -3097,7 +4523,7 @@
     "remark": null,
     "first_seen_at": 1795621975,
     "last_checked_at": 1795781746,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782439
   },
   {
     "id": "34.220.80.147:4345:The Netherlands:",
@@ -3190,7 +4616,7 @@
     "remark": null,
     "first_seen_at": 1795224441,
     "last_checked_at": 1795782187,
-    "next_check_at": 1795782247
+    "next_check_at": 1795782448
   },
   {
     "id": "35.183.78.223:8470:The Netherlands:",
@@ -3283,7 +4709,7 @@
     "remark": null,
     "first_seen_at": 1795413638,
     "last_checked_at": 1795781753,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782460
   },
   {
     "id": "35.78.212.217:40468:The Netherlands:",
@@ -3314,7 +4740,7 @@
     "remark": null,
     "first_seen_at": 1795713245,
     "last_checked_at": 1795781753,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782460
   },
   {
     "id": "39.106.192.29:8443",
@@ -3500,7 +4926,7 @@
     "remark": null,
     "first_seen_at": 1795263131,
     "last_checked_at": 1795781753,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782460
   },
   {
     "id": "41.220.16.214:80:5 secs ago:",
@@ -4120,7 +5546,7 @@
     "remark": null,
     "first_seen_at": 1795394390,
     "last_checked_at": 1795781757,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "47.85.161.37:3128:3 secs ago:",
@@ -4182,7 +5608,7 @@
     "remark": null,
     "first_seen_at": 1795563837,
     "last_checked_at": 1795781989,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782439
   },
   {
     "id": "51.17.99.135:1468:The Netherlands:",
@@ -4275,7 +5701,7 @@
     "remark": null,
     "first_seen_at": 1795621975,
     "last_checked_at": 1795781752,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "52.195.147.51:30624:Sweden:",
@@ -4576,7 +6002,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 48357,
     "uptime_pct": 58.066612,
-    "stability_pct": 50.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 6155,
     "checks_success": 3574,
@@ -4585,7 +6011,7 @@
     "remark": null,
     "first_seen_at": 1795270285,
     "last_checked_at": 1795782021,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782443
   },
   {
     "id": "8.212.12.98:80:#:146ms",
@@ -4616,7 +6042,7 @@
     "remark": null,
     "first_seen_at": 1795571941,
     "last_checked_at": 1795781933,
-    "next_check_at": 1795782234
+    "next_check_at": 1795782435
   },
   {
     "id": "8.212.12.98:80:#:179ms",
@@ -4647,7 +6073,7 @@
     "remark": null,
     "first_seen_at": 1795625029,
     "last_checked_at": 1795781936,
-    "next_check_at": 1795782234
+    "next_check_at": 1795782439
   },
   {
     "id": "8.219.97.248:80:Singapore:",
@@ -4678,7 +6104,7 @@
     "remark": null,
     "first_seen_at": 1795281006,
     "last_checked_at": 1795781753,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782460
   },
   {
     "id": "8.219.97.248:80:17 secs ago:",
@@ -4709,7 +6135,7 @@
     "remark": null,
     "first_seen_at": 1795609409,
     "last_checked_at": 1795781757,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "8.219.97.248:80:#:199ms",
@@ -4771,7 +6197,7 @@
     "remark": null,
     "first_seen_at": 1795263131,
     "last_checked_at": 1795781748,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "8.219.97.248:80:#:201ms",
@@ -4833,7 +6259,7 @@
     "remark": null,
     "first_seen_at": 1795355924,
     "last_checked_at": 1795781996,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782439
   },
   {
     "id": "8.219.97.248:80:#:234ms",
@@ -4895,7 +6321,7 @@
     "remark": null,
     "first_seen_at": 1795743184,
     "last_checked_at": 1795781928,
-    "next_check_at": 1795782234
+    "next_check_at": 1795782435
   },
   {
     "id": "8.219.97.248:80:#:223ms",
@@ -4948,7 +6374,7 @@
     "rtt_handshake_ms": 3958,
     "rtt_total_ms": 46588,
     "uptime_pct": 79.219475,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 5996,
     "checks_success": 4750,
@@ -4957,7 +6383,7 @@
     "remark": null,
     "first_seen_at": 1795302293,
     "last_checked_at": 1795782016,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782443
   },
   {
     "id": "8.219.97.248:80:#:204ms",
@@ -5019,7 +6445,7 @@
     "remark": null,
     "first_seen_at": 1795224571,
     "last_checked_at": 1795781933,
-    "next_check_at": 1795782234
+    "next_check_at": 1795782437
   },
   {
     "id": "84.22.132.84:2080:Sweden:",
@@ -5081,7 +6507,7 @@
     "remark": null,
     "first_seen_at": 1795350842,
     "last_checked_at": 1795781968,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782439
   },
   {
     "id": "91.228.186.241:18443:Türkiye:",
@@ -5258,7 +6684,7 @@
     "rtt_handshake_ms": 0,
     "rtt_total_ms": 56492,
     "uptime_pct": 61.793083,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 6012,
     "checks_success": 3715,
@@ -5267,7 +6693,7 @@
     "remark": null,
     "first_seen_at": 1795253412,
     "last_checked_at": 1795782028,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782443
   },
   {
     "id": "98.94.14.234:38504:Germany:",
@@ -5329,7 +6755,7 @@
     "remark": null,
     "first_seen_at": 1795260960,
     "last_checked_at": 1795781751,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "1.53.40.240:1080:VN:",
@@ -5701,7 +7127,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795781758,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "103.36.11.18:8199:ID:",
@@ -5732,7 +7158,7 @@
     "remark": null,
     "first_seen_at": 1795329510,
     "last_checked_at": 1795781758,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "103.52.114.199:1080:ID:",
@@ -5887,7 +7313,7 @@
     "remark": null,
     "first_seen_at": 1795224468,
     "last_checked_at": 1795781746,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782439
   },
   {
     "id": "111.119.162.248:10900:United Kingdom:",
@@ -5980,7 +7406,7 @@
     "remark": null,
     "first_seen_at": 1795699445,
     "last_checked_at": 1795781750,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "111.119.162.248:10914:Singapore:",
@@ -6073,7 +7499,7 @@
     "remark": null,
     "first_seen_at": 1795699445,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782460
   },
   {
     "id": "111.119.162.248:10922:United States:",
@@ -6166,7 +7592,7 @@
     "remark": null,
     "first_seen_at": 1795720853,
     "last_checked_at": 1795781753,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "111.119.162.248:10924:United States:",
@@ -6259,7 +7685,7 @@
     "remark": null,
     "first_seen_at": 1795694479,
     "last_checked_at": 1795781755,
-    "next_check_at": 1795782267
+    "next_check_at": 1795782477
   },
   {
     "id": "111.119.162.248:10927:United States:",
@@ -6321,7 +7747,7 @@
     "remark": null,
     "first_seen_at": 1795695954,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782466
   },
   {
     "id": "111.119.162.248:10931:Hong Kong:",
@@ -6414,7 +7840,7 @@
     "remark": null,
     "first_seen_at": 1795694479,
     "last_checked_at": 1795781758,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "111.119.162.248:10934:United Arab Emirates:",
@@ -6445,7 +7871,7 @@
     "remark": null,
     "first_seen_at": 1795720853,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782477
   },
   {
     "id": "111.119.162.248:10935:United States:",
@@ -6538,7 +7964,7 @@
     "remark": null,
     "first_seen_at": 1795694479,
     "last_checked_at": 1795781751,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782452
   },
   {
     "id": "111.119.162.248:10947:United States:",
@@ -6569,7 +7995,7 @@
     "remark": null,
     "first_seen_at": 1795749889,
     "last_checked_at": 1795781748,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782448
   },
   {
     "id": "111.119.162.248:10948:Japan:",
@@ -6600,7 +8026,7 @@
     "remark": null,
     "first_seen_at": 1795702495,
     "last_checked_at": 1795781749,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "111.119.162.248:10949:South Korea:",
@@ -6693,7 +8119,7 @@
     "remark": null,
     "first_seen_at": 1795720853,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782477
   },
   {
     "id": "111.119.162.248:10950:Singapore:",
@@ -7127,7 +8553,7 @@
     "remark": null,
     "first_seen_at": 1795224594,
     "last_checked_at": 1795781755,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782477
   },
   {
     "id": "157.90.113.23:9052:The Netherlands:",
@@ -7189,7 +8615,7 @@
     "remark": null,
     "first_seen_at": 1795481142,
     "last_checked_at": 1795781753,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "157.90.113.23:9052:United Kingdom:",
@@ -7251,7 +8677,7 @@
     "remark": null,
     "first_seen_at": 1795312045,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782267
+    "next_check_at": 1795782466
   },
   {
     "id": "157.90.113.23:9052:Romania:",
@@ -7282,7 +8708,7 @@
     "remark": null,
     "first_seen_at": 1795240661,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782466
   },
   {
     "id": "157.90.113.23:9052:France:",
@@ -7313,7 +8739,7 @@
     "remark": null,
     "first_seen_at": 1795299775,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782466
   },
   {
     "id": "157.90.113.23:9052:Andorra:",
@@ -7344,7 +8770,7 @@
     "remark": null,
     "first_seen_at": 1795582027,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782466
   },
   {
     "id": "157.90.113.23:9052:Italy:",
@@ -7561,7 +8987,7 @@
     "remark": null,
     "first_seen_at": 1795775176,
     "last_checked_at": 1795781750,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "158.101.8.92:1080:Austria:",
@@ -7685,7 +9111,7 @@
     "remark": null,
     "first_seen_at": 1795779320,
     "last_checked_at": 1795781749,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "168.138.9.147:1080:AU:",
@@ -7840,7 +9266,7 @@
     "remark": null,
     "first_seen_at": 1795263142,
     "last_checked_at": 1795781751,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "176.62.229.17:1080:Czechia:",
@@ -8119,7 +9545,7 @@
     "remark": null,
     "first_seen_at": 1795683922,
     "last_checked_at": 1795781759,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "193.218.118.128:1080:France:",
@@ -8150,7 +9576,7 @@
     "remark": null,
     "first_seen_at": 1795495416,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782482
   },
   {
     "id": "194.186.5.83:1080:RU:",
@@ -8181,7 +9607,7 @@
     "remark": null,
     "first_seen_at": 1795232742,
     "last_checked_at": 1795781757,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "194.186.5.83:1080:Russia:",
@@ -8770,7 +10196,7 @@
     "remark": null,
     "first_seen_at": 1795243488,
     "last_checked_at": 1795781757,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "217.173.31.28:1080:Russia:",
@@ -8801,7 +10227,7 @@
     "remark": null,
     "first_seen_at": 1795705909,
     "last_checked_at": 1795781747,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782439
   },
   {
     "id": "217.173.31.28:1080:RU:",
@@ -8832,7 +10258,7 @@
     "remark": null,
     "first_seen_at": 1795718691,
     "last_checked_at": 1795781759,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "221.202.27.194:10806:China:",
@@ -8863,7 +10289,7 @@
     "remark": null,
     "first_seen_at": 1795707193,
     "last_checked_at": 1795781747,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782448
   },
   {
     "id": "23.94.40.120:1080:United States:",
@@ -8894,7 +10320,7 @@
     "remark": null,
     "first_seen_at": 1795765544,
     "last_checked_at": 1795781753,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782460
   },
   {
     "id": "27.131.14.9:1088:BD:",
@@ -8925,7 +10351,7 @@
     "remark": null,
     "first_seen_at": 1795224594,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782482
   },
   {
     "id": "37.18.73.60:5566:United States:",
@@ -8987,7 +10413,7 @@
     "remark": null,
     "first_seen_at": 1795241614,
     "last_checked_at": 1795781757,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "43.230.192.242:1080:Cambodia:",
@@ -9142,7 +10568,7 @@
     "remark": null,
     "first_seen_at": 1795409597,
     "last_checked_at": 1795781751,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "45.74.31.40:4064:United States:",
@@ -9288,7 +10714,7 @@
     "rtt_handshake_ms": 2701,
     "rtt_total_ms": 282087,
     "uptime_pct": 39.73799,
-    "stability_pct": 100.0,
+    "stability_pct": 0.0,
     "stability_window_min": 5,
     "checks_total": 1832,
     "checks_success": 728,
@@ -9514,7 +10940,7 @@
     "remark": null,
     "first_seen_at": 1795380754,
     "last_checked_at": 1795781755,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782477
   },
   {
     "id": "45.74.31.42:4287:Vietnam:",
@@ -9669,7 +11095,7 @@
     "remark": null,
     "first_seen_at": 1795344935,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "45.74.31.46:4496:United States:",
@@ -9731,7 +11157,7 @@
     "remark": null,
     "first_seen_at": 1795236067,
     "last_checked_at": 1795781747,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782448
   },
   {
     "id": "45.74.31.46:4681:United States:",
@@ -10103,7 +11529,7 @@
     "remark": null,
     "first_seen_at": 1795776237,
     "last_checked_at": 1795781751,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "45.74.31.47:5142:Vietnam:",
@@ -10134,7 +11560,7 @@
     "remark": null,
     "first_seen_at": 1795762499,
     "last_checked_at": 1795781752,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "45.74.31.47:5190:Vietnam:",
@@ -10351,7 +11777,7 @@
     "remark": null,
     "first_seen_at": 1795227077,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782267
+    "next_check_at": 1795782471
   },
   {
     "id": "45.74.31.47:5470",
@@ -10599,7 +12025,7 @@
     "remark": null,
     "first_seen_at": 1795620997,
     "last_checked_at": 1795781753,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782460
   },
   {
     "id": "49.13.22.249:10811:Serbia:",
@@ -10661,7 +12087,7 @@
     "remark": null,
     "first_seen_at": 1795736575,
     "last_checked_at": 1795781753,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782460
   },
   {
     "id": "49.13.22.249:10811:Thailand:",
@@ -10754,7 +12180,7 @@
     "remark": null,
     "first_seen_at": 1795514062,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "49.13.22.249:10811:Germany:",
@@ -10816,7 +12242,7 @@
     "remark": null,
     "first_seen_at": 1795388979,
     "last_checked_at": 1795781754,
-    "next_check_at": 1795782267
+    "next_check_at": 1795782477
   },
   {
     "id": "49.13.22.249:10811:Pakistan:",
@@ -10909,7 +12335,7 @@
     "remark": null,
     "first_seen_at": 1795575154,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "49.13.22.249:10811:Mongolia:",
@@ -11002,7 +12428,7 @@
     "remark": null,
     "first_seen_at": 1795359018,
     "last_checked_at": 1795781757,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "49.13.22.249:10813:Sweden:",
@@ -11250,7 +12676,7 @@
     "remark": null,
     "first_seen_at": 1795639413,
     "last_checked_at": 1795781752,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "49.13.22.249:10813:Brazil:",
@@ -11529,7 +12955,7 @@
     "remark": null,
     "first_seen_at": 1795744170,
     "last_checked_at": 1795781757,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782491
   },
   {
     "id": "49.13.22.249:10813:Latvia:",
@@ -11622,7 +13048,7 @@
     "remark": null,
     "first_seen_at": 1795404920,
     "last_checked_at": 1795781749,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "49.13.22.249:10813:Norway:",
@@ -11994,7 +13420,7 @@
     "remark": null,
     "first_seen_at": 1795388979,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "5.75.133.113:10805:Australia:",
@@ -12056,7 +13482,7 @@
     "remark": null,
     "first_seen_at": 1795519492,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "5.75.133.113:10805:Peru:",
@@ -12118,7 +13544,7 @@
     "remark": null,
     "first_seen_at": 1795325275,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "5.75.133.113:10805:France:",
@@ -12149,7 +13575,7 @@
     "remark": null,
     "first_seen_at": 1795683922,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "5.75.133.113:10808:India:",
@@ -12180,7 +13606,7 @@
     "remark": null,
     "first_seen_at": 1795725560,
     "last_checked_at": 1795781746,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782439
   },
   {
     "id": "5.75.133.113:10808:Germany:",
@@ -12304,7 +13730,7 @@
     "remark": null,
     "first_seen_at": 1795471444,
     "last_checked_at": 1795781750,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "5.75.133.113:10808:Serbia:",
@@ -12366,7 +13792,7 @@
     "remark": null,
     "first_seen_at": 1795329471,
     "last_checked_at": 1795781750,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "5.75.133.113:10808:Portugal:",
@@ -12397,7 +13823,7 @@
     "remark": null,
     "first_seen_at": 1795330537,
     "last_checked_at": 1795781748,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782448
   },
   {
     "id": "5.75.133.113:10808:Japan:",
@@ -12428,7 +13854,7 @@
     "remark": null,
     "first_seen_at": 1795308529,
     "last_checked_at": 1795781748,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782448
   },
   {
     "id": "5.75.133.113:10808:United States:",
@@ -12459,7 +13885,7 @@
     "remark": null,
     "first_seen_at": 1795255614,
     "last_checked_at": 1795781750,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "5.75.133.113:10808:Hungary:",
@@ -12490,7 +13916,7 @@
     "remark": null,
     "first_seen_at": 1795234893,
     "last_checked_at": 1795781749,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "5.75.133.113:10808:Iceland:",
@@ -12521,7 +13947,7 @@
     "remark": null,
     "first_seen_at": 1795230202,
     "last_checked_at": 1795781748,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782448
   },
   {
     "id": "5.75.133.113:10808:Australia:",
@@ -12552,7 +13978,7 @@
     "remark": null,
     "first_seen_at": 1795418046,
     "last_checked_at": 1795781749,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "5.75.133.113:10808:Romania:",
@@ -13203,7 +14629,7 @@
     "remark": null,
     "first_seen_at": 1795509517,
     "last_checked_at": 1795781746,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782439
   },
   {
     "id": "65.21.252.66:10806:Japan:",
@@ -13265,7 +14691,7 @@
     "remark": null,
     "first_seen_at": 1795447486,
     "last_checked_at": 1795781748,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "65.21.252.66:10813:Germany:",
@@ -13296,7 +14722,7 @@
     "remark": null,
     "first_seen_at": 1795746236,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "65.21.252.66:10813:Colombia:",
@@ -13327,7 +14753,7 @@
     "remark": null,
     "first_seen_at": 1795230202,
     "last_checked_at": 1795781752,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "65.21.252.66:10813:Spain:",
@@ -13358,7 +14784,7 @@
     "remark": null,
     "first_seen_at": 1795583030,
     "last_checked_at": 1795781750,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "65.21.252.66:10813:The Netherlands:",
@@ -13451,7 +14877,7 @@
     "remark": null,
     "first_seen_at": 1795671484,
     "last_checked_at": 1795781751,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "65.21.252.66:10813:Costa Rica:",
@@ -13482,7 +14908,7 @@
     "remark": null,
     "first_seen_at": 1795428924,
     "last_checked_at": 1795781746,
-    "next_check_at": 1795782239
+    "next_check_at": 1795782439
   },
   {
     "id": "65.21.252.66:10813:Iceland:",
@@ -13544,7 +14970,7 @@
     "remark": null,
     "first_seen_at": 1795476720,
     "last_checked_at": 1795781752,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "65.21.252.66:10813:Ukraine:",
@@ -13730,7 +15156,7 @@
     "remark": null,
     "first_seen_at": 1795240664,
     "last_checked_at": 1795781751,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782456
   },
   {
     "id": "65.21.252.66:10813:Malaysia:",
@@ -13854,7 +15280,7 @@
     "remark": null,
     "first_seen_at": 1795348079,
     "last_checked_at": 1795781933,
-    "next_check_at": 1795782234
+    "next_check_at": 1795782435
   },
   {
     "id": "65.21.252.66:10814:Ireland:",
@@ -14381,7 +15807,7 @@
     "remark": null,
     "first_seen_at": 1795697442,
     "last_checked_at": 1795781750,
-    "next_check_at": 1795782258
+    "next_check_at": 1795782452
   },
   {
     "id": "83.237.214.70:1080:Russia:",
@@ -14412,7 +15838,7 @@
     "remark": null,
     "first_seen_at": 1795336284,
     "last_checked_at": 1795781749,
-    "next_check_at": 1795782249
+    "next_check_at": 1795782452
   },
   {
     "id": "83.237.82.146:1080:RU:",
@@ -14598,7 +16024,7 @@
     "remark": null,
     "first_seen_at": 1795610391,
     "last_checked_at": 1795781757,
-    "next_check_at": 1795782282
+    "next_check_at": 1795782496
   },
   {
     "id": "88.84.204.217:1080:RU:",
@@ -14629,7 +16055,7 @@
     "remark": null,
     "first_seen_at": 1795263142,
     "last_checked_at": 1795781756,
-    "next_check_at": 1795782274
+    "next_check_at": 1795782489
   },
   {
     "id": "90.150.52.50:1080:Russia:",

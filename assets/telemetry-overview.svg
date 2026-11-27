@@ -44,8 +44,8 @@
     <circle cx="6" cy="6" r="5" fill="#10b981" class="pulse" />
     <text x="20" y="10" class="badge-txt">HYDRA POOL TELEMETRY • 24/7 ACTIVE</text>
     <text x="0" y="38" class="title">Live Node Fleet Metrics</text>
-    <text x="792" y="10" text-anchor="end" class="sub">Updated: 2026-11-27 12:33 UTC</text>
-    <text x="792" y="38" text-anchor="end" class="metric-val mono" fill="#38bdf8">917 <tspan font-size="12" fill="#64748b">VERIFIED NODES</tspan></text>
+    <text x="792" y="10" text-anchor="end" class="sub">Updated: 2026-11-27 12:34 UTC</text>
+    <text x="792" y="38" text-anchor="end" class="metric-val mono" fill="#38bdf8">842 <tspan font-size="12" fill="#64748b">VERIFIED NODES</tspan></text>
   </g>
 
   <!-- Divider Line -->
@@ -60,9 +60,9 @@
     <g transform="translate(16, 38)">
       <rect width="340.0" height="10" rx="5" fill="#1e293b" />
       <g clip-path="url(#prog-track-clip)">
-        <rect x="0" width="149.1" height="10" fill="url(#bar-http)" />
-        <rect x="149.1" width="189.1" height="10" fill="url(#bar-socks5)" />
-        <rect x="338.2" width="1.9" height="10" fill="url(#bar-socks4)" />
+        <rect x="0" width="161.9" height="10" fill="url(#bar-http)" />
+        <rect x="161.9" width="177.7" height="10" fill="url(#bar-socks5)" />
+        <rect x="339.6" width="0.4" height="10" fill="url(#bar-socks4)" />
       </g>
     </g>
 
@@ -70,15 +70,15 @@
     <g transform="translate(16, 68)">
       <circle cx="6" cy="6" r="4" fill="#38bdf8" />
       <text x="16" y="10" class="metric-lbl">HTTP/S</text>
-      <text x="16" y="28" class="metric-val mono">43.8% <tspan font-size="11" fill="#64748b">(402)</tspan></text>
+      <text x="16" y="28" class="metric-val mono">47.6% <tspan font-size="11" fill="#64748b">(401)</tspan></text>
 
       <circle cx="132" cy="6" r="4" fill="#c084fc" />
       <text x="142" y="10" class="metric-lbl">SOCKS5</text>
-      <text x="142" y="28" class="metric-val mono">55.6% <tspan font-size="11" fill="#64748b">(510)</tspan></text>
+      <text x="142" y="28" class="metric-val mono">52.3% <tspan font-size="11" fill="#64748b">(440)</tspan></text>
 
       <circle cx="250" cy="6" r="4" fill="#fbbf24" />
       <text x="260" y="10" class="metric-lbl">SOCKS4</text>
-      <text x="260" y="28" class="metric-val mono">0.5% <tspan font-size="11" fill="#64748b">(5)</tspan></text>
+      <text x="260" y="28" class="metric-val mono">0.1% <tspan font-size="11" fill="#64748b">(1)</tspan></text>
     </g>
   </g>
 
@@ -90,25 +90,25 @@
     <!-- Elite Bar -->
     <text x="16" y="47" class="metric-lbl">Elite (L1)</text>
     <rect x="100" y="39" width="145.0" height="8" rx="4" fill="#1e293b" />
-    <rect x="100" y="39" width="41.4" height="8" rx="4" fill="#10b981" />
-    <text x="368" y="47" text-anchor="end" class="mono sub" fill="#e2e8f0">262 (28.6%)</text>
+    <rect x="100" y="39" width="42.9" height="8" rx="4" fill="#10b981" />
+    <text x="368" y="47" text-anchor="end" class="mono sub" fill="#e2e8f0">249 (29.6%)</text>
 
     <!-- Anonymous Bar -->
     <text x="16" y="69" class="metric-lbl">Anonymous</text>
     <rect x="100" y="61" width="145.0" height="8" rx="4" fill="#1e293b" />
-    <rect x="100" y="61" width="85.9" height="8" rx="4" fill="#38bdf8" />
-    <text x="368" y="69" text-anchor="end" class="mono sub" fill="#e2e8f0">543 (59.2%)</text>
+    <rect x="100" y="61" width="89.2" height="8" rx="4" fill="#38bdf8" />
+    <text x="368" y="69" text-anchor="end" class="mono sub" fill="#e2e8f0">518 (61.5%)</text>
 
     <!-- Transparent Bar -->
     <text x="16" y="91" class="metric-lbl">Transparent</text>
     <rect x="100" y="83" width="145.0" height="8" rx="4" fill="#1e293b" />
-    <rect x="100" y="83" width="17.7" height="8" rx="4" fill="#f59e0b" />
-    <text x="368" y="91" text-anchor="end" class="mono sub" fill="#e2e8f0">112 (12.2%)</text>
+    <rect x="100" y="83" width="12.9" height="8" rx="4" fill="#f59e0b" />
+    <text x="368" y="91" text-anchor="end" class="mono sub" fill="#e2e8f0">75 (8.9%)</text>
 
     <!-- HTTPS Connect Support -->
     <line x1="16" y1="103" x2="368" y2="103" stroke="#1e293b" stroke-width="1" />
     <text x="16" y="122" class="metric-lbl">HTTPS CONNECT Support</text>
-    <text x="368" y="122" text-anchor="end" class="metric-val mono" fill="#34d399">63.9% <tspan font-size="11" fill="#64748b">(586 nodes)</tspan></text>
+    <text x="368" y="122" text-anchor="end" class="metric-val mono" fill="#34d399">59.7% <tspan font-size="11" fill="#64748b">(503 nodes)</tspan></text>
   </g>
 
   <!-- Card 3: Latency RTT Tiers (Left Bottom) -->
@@ -120,26 +120,26 @@
       <!-- Tier 1: < 2s -->
       <text x="0" y="14" class="metric-lbl">&lt; 2s (Fast)</text>
       <rect x="110" y="6" width="170" height="8" rx="4" fill="#1e293b" />
-      <rect x="110" y="6" width="48.0" height="8" rx="4" fill="#10b981" />
-      <text x="352" y="14" text-anchor="end" class="mono sub">259</text>
+      <rect x="110" y="6" width="76.9" height="8" rx="4" fill="#10b981" />
+      <text x="352" y="14" text-anchor="end" class="mono sub">381</text>
 
       <!-- Tier 2: 2s - 5s -->
       <text x="0" y="38" class="metric-lbl">2s - 5s (Normal)</text>
       <rect x="110" y="30" width="170" height="8" rx="4" fill="#1e293b" />
-      <rect x="110" y="30" width="59.5" height="8" rx="4" fill="#38bdf8" />
-      <text x="352" y="38" text-anchor="end" class="mono sub">321</text>
+      <rect x="110" y="30" width="54.7" height="8" rx="4" fill="#38bdf8" />
+      <text x="352" y="38" text-anchor="end" class="mono sub">271</text>
 
       <!-- Tier 3: 5s - 10s -->
       <text x="0" y="62" class="metric-lbl">5s - 10s (High)</text>
       <rect x="110" y="54" width="170" height="8" rx="4" fill="#1e293b" />
-      <rect x="110" y="54" width="45.8" height="8" rx="4" fill="#f59e0b" />
-      <text x="352" y="62" text-anchor="end" class="mono sub">247</text>
+      <rect x="110" y="54" width="30.3" height="8" rx="4" fill="#f59e0b" />
+      <text x="352" y="62" text-anchor="end" class="mono sub">150</text>
 
       <!-- Tier 4: > 10s -->
       <text x="0" y="86" class="metric-lbl">&gt; 10s (Queue)</text>
       <rect x="110" y="78" width="170" height="8" rx="4" fill="#1e293b" />
-      <rect x="110" y="78" width="16.7" height="8" rx="4" fill="#ef4444" />
-      <text x="352" y="86" text-anchor="end" class="mono sub">90</text>
+      <rect x="110" y="78" width="8.1" height="8" rx="4" fill="#ef4444" />
+      <text x="352" y="86" text-anchor="end" class="mono sub">40</text>
     </g>
   </g>
 
@@ -153,37 +153,37 @@
         <text x="0" y="12" class="mono metric-val" font-size="12">TR</text>
         <rect x="28" y="3" width="65" height="8" rx="4" fill="#1e293b" />
         <rect x="28" y="3" width="60.0" height="8" rx="4" fill="url(#bar-green)" />
-        <text x="164" y="11" text-anchor="end" class="mono sub">179</text>
+        <text x="164" y="11" text-anchor="end" class="mono sub">166</text>
       </g>
       <g transform="translate(0, 26)">
         <text x="0" y="12" class="mono metric-val" font-size="12">US</text>
         <rect x="28" y="3" width="65" height="8" rx="4" fill="#1e293b" />
-        <rect x="28" y="3" width="32.8" height="8" rx="4" fill="url(#bar-green)" />
-        <text x="164" y="11" text-anchor="end" class="mono sub">98</text>
+        <rect x="28" y="3" width="28.2" height="8" rx="4" fill="url(#bar-green)" />
+        <text x="164" y="11" text-anchor="end" class="mono sub">78</text>
       </g>
       <g transform="translate(0, 52)">
         <text x="0" y="12" class="mono metric-val" font-size="12">HK</text>
         <rect x="28" y="3" width="65" height="8" rx="4" fill="#1e293b" />
-        <rect x="28" y="3" width="19.8" height="8" rx="4" fill="url(#bar-green)" />
-        <text x="164" y="11" text-anchor="end" class="mono sub">59</text>
+        <rect x="28" y="3" width="19.2" height="8" rx="4" fill="url(#bar-green)" />
+        <text x="164" y="11" text-anchor="end" class="mono sub">53</text>
       </g>
       <g transform="translate(180, 0)">
-        <text x="0" y="12" class="mono metric-val" font-size="12">RU</text>
-        <rect x="28" y="3" width="65" height="8" rx="4" fill="#1e293b" />
-        <rect x="28" y="3" width="17.1" height="8" rx="4" fill="url(#bar-green)" />
-        <text x="164" y="11" text-anchor="end" class="mono sub">51</text>
-      </g>
-      <g transform="translate(180, 26)">
-        <text x="0" y="12" class="mono metric-val" font-size="12">VN</text>
-        <rect x="28" y="3" width="65" height="8" rx="4" fill="#1e293b" />
-        <rect x="28" y="3" width="14.4" height="8" rx="4" fill="url(#bar-green)" />
-        <text x="164" y="11" text-anchor="end" class="mono sub">43</text>
-      </g>
-      <g transform="translate(180, 52)">
         <text x="0" y="12" class="mono metric-val" font-size="12">CO</text>
         <rect x="28" y="3" width="65" height="8" rx="4" fill="#1e293b" />
-        <rect x="28" y="3" width="12.4" height="8" rx="4" fill="url(#bar-green)" />
-        <text x="164" y="11" text-anchor="end" class="mono sub">37</text>
+        <rect x="28" y="3" width="14.8" height="8" rx="4" fill="url(#bar-green)" />
+        <text x="164" y="11" text-anchor="end" class="mono sub">41</text>
+      </g>
+      <g transform="translate(180, 26)">
+        <text x="0" y="12" class="mono metric-val" font-size="12">RU</text>
+        <rect x="28" y="3" width="65" height="8" rx="4" fill="#1e293b" />
+        <rect x="28" y="3" width="12.7" height="8" rx="4" fill="url(#bar-green)" />
+        <text x="164" y="11" text-anchor="end" class="mono sub">35</text>
+      </g>
+      <g transform="translate(180, 52)">
+        <text x="0" y="12" class="mono metric-val" font-size="12">ZW</text>
+        <rect x="28" y="3" width="65" height="8" rx="4" fill="#1e293b" />
+        <rect x="28" y="3" width="12.3" height="8" rx="4" fill="url(#bar-green)" />
+        <text x="164" y="11" text-anchor="end" class="mono sub">34</text>
       </g>
     </g>
   </g>

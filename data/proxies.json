@@ -868,37 +868,6 @@
     "next_check_at": 1795814677
   },
   {
-    "id": "103.156.74.231:8080:Indonesia:",
-    "ip": "103.156.74.231",
-    "port": 8080,
-    "url": "http://Indonesia@103.156.74.231:8080",
-    "protocol": "http",
-    "has_auth": true,
-    "auth_user": "Indonesia",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "103.156.75.133",
-    "country": "ID",
-    "asn": 141082,
-    "asn_org": "PT Trika Global Media",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 1259,
-    "rtt_handshake_ms": 4394,
-    "rtt_total_ms": 6385,
-    "uptime_pct": 14.256199,
-    "stability_pct": 75.0,
-    "stability_window_min": 5,
-    "checks_total": 484,
-    "checks_success": 69,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795225584,
-    "last_checked_at": 1795814578,
-    "next_check_at": 1795814758
-  },
-  {
     "id": "103.216.50.11:8080",
     "ip": "103.216.50.11",
     "port": 8080,
@@ -2818,7 +2787,7 @@
     "remark": null,
     "first_seen_at": 1795343795,
     "last_checked_at": 1795814587,
-    "next_check_at": 1795814647
+    "next_check_at": 1795814767
   },
   {
     "id": "15.223.187.219:33023:Bulgaria:",
@@ -3035,7 +3004,7 @@
     "remark": null,
     "first_seen_at": 1795299736,
     "last_checked_at": 1795814587,
-    "next_check_at": 1795814647
+    "next_check_at": 1795814767
   },
   {
     "id": "159.203.61.169:80",
@@ -7716,7 +7685,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795814587,
-    "next_check_at": 1795814647
+    "next_check_at": 1795814767
   },
   {
     "id": "193.255.128.232:80",
@@ -8615,7 +8584,7 @@
     "remark": null,
     "first_seen_at": 1795224440,
     "last_checked_at": 1795814587,
-    "next_check_at": 1795814647
+    "next_check_at": 1795814767
   },
   {
     "id": "193.255.128.39:80",
@@ -11851,26 +11820,26 @@
     "auth_user": "1 min ago",
     "auth_pass": null,
     "state": "alive",
-    "supports_https": true,
+    "supports_https": false,
     "out_ip": "208.124.108.154",
     "country": "US",
     "asn": 5742,
     "asn_org": "CCINET",
-    "anon": "anonymous",
-    "rtt_tcp_ms": 185,
-    "rtt_handshake_ms": 194,
-    "rtt_total_ms": 5238,
-    "uptime_pct": 97.49834,
+    "anon": "elite",
+    "rtt_tcp_ms": 193,
+    "rtt_handshake_ms": 0,
+    "rtt_total_ms": 12861,
+    "uptime_pct": 97.49889,
     "stability_pct": 100.0,
     "stability_window_min": 5,
-    "checks_total": 4517,
-    "checks_success": 4404,
+    "checks_total": 4518,
+    "checks_success": 4405,
     "dead_strikes": 0,
     "last_error": null,
     "remark": null,
     "first_seen_at": 1795480173,
-    "last_checked_at": 1795814574,
-    "next_check_at": 1795814754
+    "last_checked_at": 1795814647,
+    "next_check_at": 1795814707
   },
   {
     "id": "218.252.100.222:80",
@@ -12149,7 +12118,7 @@
     "remark": null,
     "first_seen_at": 1795224767,
     "last_checked_at": 1795814587,
-    "next_check_at": 1795814647
+    "next_check_at": 1795814767
   },
   {
     "id": "221.202.27.194:10807:China:",
@@ -12243,37 +12212,6 @@
     "first_seen_at": 1795224440,
     "last_checked_at": 1795814627,
     "next_check_at": 1795814687
-  },
-  {
-    "id": "3.134.245.77:4770",
-    "ip": "3.134.245.77",
-    "port": 4770,
-    "url": "http://3.134.245.77:4770",
-    "protocol": "http",
-    "has_auth": false,
-    "auth_user": null,
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": false,
-    "out_ip": "3.134.245.77",
-    "country": "US",
-    "asn": 16509,
-    "asn_org": "AMAZON-02",
-    "anon": "elite",
-    "rtt_tcp_ms": 109,
-    "rtt_handshake_ms": 0,
-    "rtt_total_ms": 946,
-    "uptime_pct": 5.357143,
-    "stability_pct": 50.0,
-    "stability_window_min": 5,
-    "checks_total": 168,
-    "checks_success": 9,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795224451,
-    "last_checked_at": 1795814581,
-    "next_check_at": 1795814761
   },
   {
     "id": "3.134.245.77:10086",
@@ -12955,7 +12893,7 @@
     "remark": null,
     "first_seen_at": 1795621975,
     "last_checked_at": 1795814587,
-    "next_check_at": 1795814647
+    "next_check_at": 1795814767
   },
   {
     "id": "34.220.80.147:13621:The Netherlands:",
@@ -18132,7 +18070,7 @@
     "remark": null,
     "first_seen_at": 1795748458,
     "last_checked_at": 1795814587,
-    "next_check_at": 1795814647
+    "next_check_at": 1795814767
   },
   {
     "id": "98.94.14.234:10805:The Netherlands:",
@@ -21573,7 +21511,7 @@
     "remark": null,
     "first_seen_at": 1795304387,
     "last_checked_at": 1795814587,
-    "next_check_at": 1795814647
+    "next_check_at": 1795814767
   },
   {
     "id": "176.62.229.17:1080:CZ:",
@@ -23402,7 +23340,7 @@
     "remark": null,
     "first_seen_at": 1795224438,
     "last_checked_at": 1795814587,
-    "next_check_at": 1795814647
+    "next_check_at": 1795814767
   },
   {
     "id": "43.155.143.227:1080:South Korea:",
@@ -23868,37 +23806,6 @@
     "first_seen_at": 1795779324,
     "last_checked_at": 1795814640,
     "next_check_at": 1795814700
-  },
-  {
-    "id": "45.74.31.40:5243",
-    "ip": "45.74.31.40",
-    "port": 5243,
-    "url": "socks5://45.74.31.40:5243",
-    "protocol": "socks5",
-    "has_auth": false,
-    "auth_user": null,
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "14.248.80.79",
-    "country": "VN",
-    "asn": 45899,
-    "asn_org": "VNPT Corp",
-    "anon": "elite",
-    "rtt_tcp_ms": 121,
-    "rtt_handshake_ms": 2081,
-    "rtt_total_ms": 3022,
-    "uptime_pct": 66.66667,
-    "stability_pct": 50.0,
-    "stability_window_min": 5,
-    "checks_total": 27,
-    "checks_success": 18,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795812308,
-    "last_checked_at": 1795814577,
-    "next_check_at": 1795814757
   },
   {
     "id": "45.74.31.40:5323",
@@ -25249,20 +25156,20 @@
     "asn": 27845,
     "asn_org": "Empresa de Recursos Tecnologicos S.A E.S.P",
     "anon": "elite",
-    "rtt_tcp_ms": 38,
-    "rtt_handshake_ms": 4434,
-    "rtt_total_ms": 13554,
-    "uptime_pct": 60.000004,
-    "stability_pct": 75.0,
+    "rtt_tcp_ms": 19,
+    "rtt_handshake_ms": 3550,
+    "rtt_total_ms": 9879,
+    "uptime_pct": 63.636364,
+    "stability_pct": 80.0,
     "stability_window_min": 5,
-    "checks_total": 10,
-    "checks_success": 6,
+    "checks_total": 11,
+    "checks_success": 7,
     "dead_strikes": 0,
     "last_error": null,
     "remark": null,
     "first_seen_at": 1795813382,
-    "last_checked_at": 1795814577,
-    "next_check_at": 1795814757
+    "last_checked_at": 1795814647,
+    "next_check_at": 1795814707
   },
   {
     "id": "45.74.31.47:5593",
@@ -27433,68 +27340,6 @@
     "first_seen_at": 1795224438,
     "last_checked_at": 1795814599,
     "next_check_at": 1795814659
-  },
-  {
-    "id": "49.13.22.249:10808:Isle of Man:",
-    "ip": "49.13.22.249",
-    "port": 10808,
-    "url": "socks5://Isle of Man@49.13.22.249:10808",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "Isle of Man",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "210.2.64.3",
-    "country": "VN",
-    "asn": 24085,
-    "asn_org": "Quang Trung Software City Development Company",
-    "anon": "elite",
-    "rtt_tcp_ms": 121,
-    "rtt_handshake_ms": 2317,
-    "rtt_total_ms": 8119,
-    "uptime_pct": 57.3251,
-    "stability_pct": 75.0,
-    "stability_window_min": 5,
-    "checks_total": 2430,
-    "checks_success": 1393,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795388979,
-    "last_checked_at": 1795814582,
-    "next_check_at": 1795814762
-  },
-  {
-    "id": "49.13.22.249:10808:DE:",
-    "ip": "49.13.22.249",
-    "port": 10808,
-    "url": "socks5://DE@49.13.22.249:10808",
-    "protocol": "socks5",
-    "has_auth": true,
-    "auth_user": "DE",
-    "auth_pass": null,
-    "state": "alive",
-    "supports_https": true,
-    "out_ip": "210.2.64.3",
-    "country": "VN",
-    "asn": 24085,
-    "asn_org": "Quang Trung Software City Development Company",
-    "anon": "elite",
-    "rtt_tcp_ms": 121,
-    "rtt_handshake_ms": 2317,
-    "rtt_total_ms": 8299,
-    "uptime_pct": 58.279068,
-    "stability_pct": 50.0,
-    "stability_window_min": 5,
-    "checks_total": 2150,
-    "checks_success": 1253,
-    "dead_strikes": 0,
-    "last_error": null,
-    "remark": null,
-    "first_seen_at": 1795437394,
-    "last_checked_at": 1795814582,
-    "next_check_at": 1795814762
   },
   {
     "id": "49.13.22.249:10808:Hungary:",
@@ -32268,7 +32113,7 @@
     "remark": null,
     "first_seen_at": 1795224438,
     "last_checked_at": 1795814587,
-    "next_check_at": 1795814647
+    "next_check_at": 1795814767
   },
   {
     "id": "65.21.252.66:10808:Czechia:",

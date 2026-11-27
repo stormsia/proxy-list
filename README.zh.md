@@ -8,7 +8,7 @@
 
 
 <!-- Row 1: Repository Lifecycle & Engine Status (All 20px flat-square) -->
-[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--27%2018%3A36%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
+[![Last Update](https://img.shields.io/badge/Last%20Update-2026--11--27%2018%3A37%20UTC-10b981?style=flat-square&logo=clockify&logoColor=white)](https://github.com/stormsia/proxy-list/commits/main)
 [![Update Frequency](https://img.shields.io/badge/更新周期-每分钟-0284c7?style=flat-square&logo=clockify&logoColor=white)](#-system-architecture)
 [![License: MIT](https://img.shields.io/badge/License-MIT-d97706?style=flat-square&logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Proxies Checked by Hydra](https://raw.githubusercontent.com/stormsia/hydra/main/assets/badges/proxies-checked-by-hydra.svg)](https://github.com/stormsia/hydra)
@@ -48,7 +48,7 @@
 
 <br/>
 
-<img src="assets/telemetry-overview.svg?t=1795804577" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
+<img src="assets/telemetry-overview.svg?t=1795804647" alt="Live Hydra Proxy Pool Telemetry" width="100%" />
 
 <br/>
 
@@ -71,13 +71,13 @@ xychart-beta
     title "活跃节点往返时间 (RTT) 分布"
     x-axis ["< 2秒 (极速)", "2秒 - 5秒 (正常)", "5秒 - 10秒 (较慢)", "> 10秒 (排队)"]
     y-axis "节点数量" 0 --> 190
-    bar [158, 125, 99, 36]
+    bar [158, 124, 99, 37]
 ```
 
 ### 主要地理来源
 | 国家/地区 | 代码 | 占比 | 节点数 | 支持协议 |
 | :--- | :---: | :--- | :---: | :--- |
-| **美国** | `US` | `███░░░░░░░░░░░░░░░` 15.3% | 64 | HTTP, SOCKS5 |
+| **美国** | `US` | `███░░░░░░░░░░░░░░░` 15.1% | 63 | HTTP, SOCKS5 |
 | **津巴布韦** | `ZW` | `█░░░░░░░░░░░░░░░░░` 7.4% | 31 | HTTP |
 | **瑞典** | `SE` | `█░░░░░░░░░░░░░░░░░` 6.2% | 26 | HTTP, SOCKS5 |
 | **日本** | `JP` | `█░░░░░░░░░░░░░░░░░` 6.2% | 26 | HTTP, SOCKS5 |

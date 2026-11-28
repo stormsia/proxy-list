@@ -44,7 +44,7 @@
     <circle cx="6" cy="6" r="5" fill="#10b981" class="pulse" />
     <text x="20" y="10" class="badge-txt">HYDRA POOL TELEMETRY • 24/7 ACTIVE</text>
     <text x="0" y="38" class="title">Live Node Fleet Metrics</text>
-    <text x="792" y="10" text-anchor="end" class="sub">Updated: 2026-11-28 03:04 UTC</text>
+    <text x="792" y="10" text-anchor="end" class="sub">Updated: 2026-11-28 03:05 UTC</text>
     <text x="792" y="38" text-anchor="end" class="metric-val mono" fill="#38bdf8">408 <tspan font-size="12" fill="#64748b">VERIFIED NODES</tspan></text>
   </g>
 
